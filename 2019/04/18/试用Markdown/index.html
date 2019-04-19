@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="zh-hongda">
 <meta property="og:description" content="测试使用hexo发布post并同时试用Markdown。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-18T12:35:04.009Z">
+<meta property="og:updated_time" content="2019-04-19T01:33:39.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The First">
 <meta name="twitter:description" content="测试使用hexo发布post并同时试用Markdown。">
@@ -332,12 +332,24 @@
                 
               
 
-              <time title="Created: 2019-04-18 20:26:01 / Modified: 20:35:04" itemprop="dateCreated datePublished" datetime="2019-04-18T20:26:01+08:00">2019-04-18</time>
+              <time title="Created: 2019-04-18 20:26:01" itemprop="dateCreated datePublished" datetime="2019-04-18T20:26:01+08:00">2019-04-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-19 09:33:39" itemprop="dateModified" datetime="2019-04-19T09:33:39+08:00">2019-04-19</time>
               
             
           </span>
@@ -752,6 +764,46 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 

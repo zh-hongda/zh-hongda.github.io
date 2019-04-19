@@ -334,7 +334,7 @@
                 
               
 
-              <time title="Created: 2019-04-19 07:50:12 / Modified: 09:15:39" itemprop="dateCreated datePublished" datetime="2019-04-19T07:50:12+08:00">2019-04-19</time>
+              <time title="Created: 2019-04-19 07:50:12 / Modified: 09:35:44" itemprop="dateCreated datePublished" datetime="2019-04-19T07:50:12+08:00">2019-04-19</time>
             
 
             
@@ -356,7 +356,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo教程/" itemprop="url" rel="index"><span itemprop="name">Hexo教程</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标跟踪/" itemprop="url" rel="index"><span itemprop="name">目标跟踪</span></a></span>
 
                 
                 
@@ -501,12 +501,24 @@
                 
               
 
-              <time title="Created: 2019-04-18 20:26:01 / Modified: 20:35:04" itemprop="dateCreated datePublished" datetime="2019-04-18T20:26:01+08:00">2019-04-18</time>
+              <time title="Created: 2019-04-18 20:26:01" itemprop="dateCreated datePublished" datetime="2019-04-18T20:26:01+08:00">2019-04-18</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-19 09:33:39" itemprop="dateModified" datetime="2019-04-19T09:33:39+08:00">2019-04-19</time>
               
             
           </span>
@@ -840,11 +852,53 @@
   
     
       
+        
+      
     
       
     
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 

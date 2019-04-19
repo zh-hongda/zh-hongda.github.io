@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="zh-hongda">
 <meta property="og:description" content="针对ECO（Efficient Convolution Operators for Tracking） 论文中公式10,将传统函数泛化，具体推导。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-19T01:15:39.291Z">
+<meta property="og:updated_time" content="2019-04-19T01:35:44.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标跟踪-ECO算法中部分公式推导">
 <meta name="twitter:description" content="针对ECO（Efficient Convolution Operators for Tracking） 论文中公式10,将传统函数泛化，具体推导。">
@@ -332,7 +332,7 @@
                 
               
 
-              <time title="Created: 2019-04-19 07:50:12 / Modified: 09:15:39" itemprop="dateCreated datePublished" datetime="2019-04-19T07:50:12+08:00">2019-04-19</time>
+              <time title="Created: 2019-04-19 07:50:12 / Modified: 09:35:44" itemprop="dateCreated datePublished" datetime="2019-04-19T07:50:12+08:00">2019-04-19</time>
             
 
             
@@ -354,7 +354,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo教程/" itemprop="url" rel="index"><span itemprop="name">Hexo教程</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标跟踪/" itemprop="url" rel="index"><span itemprop="name">目标跟踪</span></a></span>
 
                 
                 
@@ -391,7 +391,8 @@
       
         <p>针对ECO（Efficient Convolution Operators for Tracking） 论文中公式10,将传统函数泛化，具体推导。<br><a id="more"></a><br>原损失函数</p>
 <script type="math/tex; mode=display">E(f)=\sum_{j=1}^M\alpha_j\|S_f\{x_j\}-y_j\|_{L^2}^2+\sum_{d=1}^D\|wf^d\|_{L^2}^2 \tag{3}</script><p>泛化后损失函数</p>
-<script type="math/tex; mode=display">E(f)=\mathbb{E}\{\|S_{f(x)}-y\|_{L^2}^2\}+\sum_{d=1}^D\|wf^d\|_{L_2}^2 \tag{10}</script><p>$\mathbb{E}$是联合概率分布$p(x,y)$的期望。当$p(x,y)=\sum<em>{j=1}^M\alpha_j\delta</em>{x<em>j,y_j}(x,y)$时，原损失函数$(3)$等价与泛化后损失函数。其中变量$(x,y)$=$(x_j,y_j)$时$\delta</em>{x_j,y_j}(x,y)=1$。举例，当$M=2$时，</p>
+<script type="math/tex; mode=display">
+E(f)=\mathbb{E}\{\|S_{f(x)}-y\|_{L^2}^2\}+\sum_{d=1}^D\|wf^d\|_{L_2}^2 \tag{10}</script><p>$\mathbb{E}$是联合概率分布$p(x,y)$的期望。当$p(x,y)=\sum_{j=1}^M\alpha_j\delta_{x_j,y_j}(x,y)$时，原损失函数$(3)$等价与泛化后损失函数。其中变量$(x,y)$=$(x_j,y_j)$时$\delta_{x_j,y_j}(x,y)=1$。举例，当$M=2$时，</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \mathbb{E}\{\|S_{f(x)}-y\|_{L^2}^2\}
@@ -711,6 +712,46 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
