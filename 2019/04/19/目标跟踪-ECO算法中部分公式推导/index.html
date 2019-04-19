@@ -389,7 +389,17 @@
       
 
       
-        <p>针对ECO（Efficient Convolution Operators for Tracking） 论文中公式10,将传统函数泛化，具体推导。<br><a id="more"></a><br>原损失函数<br>$$ E(f)=\sum_{j=1}^M\alpha_j|S_f{x_j}-y_j|<em>{L^2}^2+\sum</em>{d=1}^D|wf^d|<em>{L^2}^2 \tag{3} $$<br>泛化后损失函数<br>$$ E(f)=\mathbb{E}{|S</em>{f(x)}-y|<em>{L^2}^2}+\sum</em>{d=1}^D|wf^d|_{L_2}^2 \tag{10} $$<br>$\mathbb{E}$是联合概率分布$p(x,y)$的期望。当$p(x,y)=\sum_{j=1}^M\alpha_j\delta_{x_j,y_j}(x,y)$时，原损失函数$(3)$等价与泛化后损失函数。其中变量$(x,y)$=$(x_j,y_j)$时$\delta_{x_j,y_j}(x,y)=1$。举例，当$M=2$时，<br>$$<br>\begin{aligned}<br>\mathbb{E}{|S_{f(x)}-y|<em>{L^2}^2}<br>&amp;=\sum</em>{j=1}^M|S_f{x_j}-y_j|_{L^2}^2P(x=x_j,y=y_j) \<br>&amp;=S_f{x_1}-y_1|_{L^2}^2P(x_1,y_1)+S_f{x_2}-y_2|_{L^2}^2P(x_2,y_2) \<br>&amp;=\alpha_1\delta_{x_1,y_1}(x_1,y_1)S_f{x_1}-y_1|_{L^2}^2+\alpha_2\delta_{x_2,y_2}(x_2,y_2)S_f{x_2}-y_2|_{L^2}^2P(x_2,y_2) \<br>&amp;=\alpha_1S_f{x_1}-y_1|_{L^2}^2+\alpha_2S_f{x_2}-y_2|_{L^2}^2P(x_2,y_2)<br>\end{aligned}<br>$$<br>在此理论基础上作者使用更加紧凑的概率分布模型（高斯混合模型），从而达到压缩样本空间并提高样本多样性的目的。</p>
+        <p>针对ECO（Efficient Convolution Operators for Tracking） 论文中公式10,将传统函数泛化，具体推导。<br><a id="more"></a><br>原损失函数</p>
+<script type="math/tex; mode=display">E(f)=\sum_{j=1}^M\alpha_j\|S_f\{x_j\}-y_j\|_{L^2}^2+\sum_{d=1}^D\|wf^d\|_{L^2}^2 \tag{3}</script><p>泛化后损失函数</p>
+<script type="math/tex; mode=display">E(f)=\mathbb{E}\{\|S_{f(x)}-y\|_{L^2}^2\}+\sum_{d=1}^D\|wf^d\|_{L_2}^2 \tag{10}</script><p>$\mathbb{E}$是联合概率分布$p(x,y)$的期望。当$p(x,y)=\sum<em>{j=1}^M\alpha_j\delta</em>{x<em>j,y_j}(x,y)$时，原损失函数$(3)$等价与泛化后损失函数。其中变量$(x,y)$=$(x_j,y_j)$时$\delta</em>{x_j,y_j}(x,y)=1$。举例，当$M=2$时，</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathbb{E}\{\|S_{f(x)}-y\|_{L^2}^2\}
+&=\sum_{j=1}^M\|S_f\{x_j\}-y_j\|_{L^2}^2P(x=x_j,y=y_j) \\
+&=S_f\{x_1\}-y_1\|_{L^2}^2P(x_1,y_1)+S_f\{x_2\}-y_2\|_{L^2}^2P(x_2,y_2) \\
+&=\alpha_1\delta_{x_1,y_1}(x_1,y_1)S_f\{x_1\}-y_1\|_{L^2}^2+\alpha_2\delta_{x_2,y_2}(x_2,y_2)S_f\{x_2\}-y_2\|_{L^2}^2P(x_2,y_2) \\
+&=\alpha_1S_f\{x_1\}-y_1\|_{L^2}^2+\alpha_2S_f\{x_2\}-y_2\|_{L^2}^2P(x_2,y_2)
+\end{aligned}</script><p>在此理论基础上作者使用更加紧凑的概率分布模型（高斯混合模型），从而达到压缩样本空间并提高样本多样性的目的。</p>
 
       
     </div>
