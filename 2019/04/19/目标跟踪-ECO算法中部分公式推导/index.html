@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="Self Cognize">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="针对ECO（Efficient Convolution Operators for Tracking） 论文中公式10,将传统函数泛化，具体推导。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="目标跟踪-ECO算法中部分公式推导">
+<meta property="og:url" content="http://yoursite.com/2019/04/19/目标跟踪-ECO算法中部分公式推导/index.html">
 <meta property="og:site_name" content="zh-hongda">
-<meta property="og:description" content="Self Cognize">
+<meta property="og:description" content="针对ECO（Efficient Convolution Operators for Tracking） 论文中公式10,将传统函数泛化，具体推导。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-18T13:25:08.333Z">
+<meta property="og:updated_time" content="2019-04-19T01:15:39.291Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="Self Cognize">
+<meta name="twitter:title" content="目标跟踪-ECO算法中部分公式推导">
+<meta name="twitter:description" content="针对ECO（Efficient Convolution Operators for Tracking） 论文中公式10,将传统函数泛化，具体推导。">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/19/目标跟踪-ECO算法中部分公式推导/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>categories | zh-hongda</title>
+  <title>目标跟踪-ECO算法中部分公式推导 | zh-hongda</title>
   
 
 
@@ -227,7 +227,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -269,64 +269,181 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/目标跟踪-ECO算法中部分公式推导/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HD">
+      <meta itemprop="description" content="Self Cognize">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zh-hongda">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">categories
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">目标跟踪-ECO算法中部分公式推导
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-19 07:50:12 / Modified: 09:15:39" itemprop="dateCreated datePublished" datetime="2019-04-19T07:50:12+08:00">2019-04-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo教程/" itemprop="url" rel="index"><span itemprop="name">Hexo教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>针对ECO（Efficient Convolution Operators for Tracking） 论文中公式10,将传统函数泛化，具体推导。<br><a id="more"></a><br>原损失函数<br>$$ E(f)=\sum_{j=1}^M\alpha_j|S_f{x_j}-y_j|<em>{L^2}^2+\sum</em>{d=1}^D|wf^d|<em>{L^2}^2 \tag{3} $$<br>泛化后损失函数<br>$$ E(f)=\mathbb{E}{|S</em>{f(x)}-y|<em>{L^2}^2}+\sum</em>{d=1}^D|wf^d|_{L_2}^2 \tag{10} $$<br>$\mathbb{E}$是联合概率分布$p(x,y)$的期望。当$p(x,y)=\sum_{j=1}^M\alpha_j\delta_{x_j,y_j}(x,y)$时，原损失函数$(3)$等价与泛化后损失函数。其中变量$(x,y)$=$(x_j,y_j)$时$\delta_{x_j,y_j}(x,y)=1$。举例，当$M=2$时，<br>$$<br>\begin{aligned}<br>\mathbb{E}{|S_{f(x)}-y|<em>{L^2}^2}<br>&amp;=\sum</em>{j=1}^M|S_f{x_j}-y_j|_{L^2}^2P(x=x_j,y=y_j) \<br>&amp;=S_f{x_1}-y_1|_{L^2}^2P(x_1,y_1)+S_f{x_2}-y_2|_{L^2}^2P(x_2,y_2) \<br>&amp;=\alpha_1\delta_{x_1,y_1}(x_1,y_1)S_f{x_1}-y_1|_{L^2}^2+\alpha_2\delta_{x_2,y_2}(x_2,y_2)S_f{x_2}-y_2|_{L^2}^2P(x_2,y_2) \<br>&amp;=\alpha_1S_f{x_1}-y_1|_{L^2}^2+\alpha_2S_f{x_2}-y_2|_{L^2}^2P(x_2,y_2)<br>\end{aligned}<br>$$<br>在此理论基础上作者使用更加紧凑的概率分布模型（高斯混合模型），从而达到压缩样本空间并提高样本多样性的目的。</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/18/试用Markdown/" rel="next" title="The First">
+                <i class="fa fa-chevron-left"></i> The First
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
