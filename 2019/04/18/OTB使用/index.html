@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="zh-hongda">
 <meta property="og:description" content="tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T08:08:13.076Z">
+<meta property="og:updated_time" content="2019-05-08T08:14:22.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OTB 使用总结">
 <meta name="twitter:description" content="tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本">
@@ -349,7 +349,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-08 16:08:13" itemprop="dateModified" datetime="2019-05-08T16:08:13+08:00">2019-05-08</time>
+                <time title="Modified: 2019-05-08 16:14:22" itemprop="dateModified" datetime="2019-05-08T16:14:22+08:00">2019-05-08</time>
               
             
           </span>
@@ -407,7 +407,7 @@
 <p><a href="http:%www.vlfeat.org/" target="_blank" rel="noopener">下载vlfeat工具</a>，解压，并将代码做如下修改：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%mian_running.m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%addpath(('D:/vlfeat-0.9.14/toolbox'));</span></span><br><span class="line">addpath((<span class="string">'/home/hongda/Desktop/tracker_benchmark_v1.0/vlfeat-0.9.21/toolbox'</span>)); <span class="comment">%路径对应解压位置</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><p>将用来对比的tracker放入tracker_benchmark_v1.0/trackers文件夹下。<br>将使用的图像序列放入与tracker_benchmark_v1.0/util/configSeqs.m中指定的位置下。</p>
 <h2 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h2><p>按照configtracker.m和configseq.m中的格式在其中添加将要使用的视频序列和tracker。</p>
-<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>修改文件路径。代码适用于windows平台，如果在linux平台运行需要将如下文件中涉及到文件路径的部分所有的”\”改为”/“。</p>
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>修改文件路径。代码适用于windows平台，如果在linux平台运行需要将如下文件中涉及到文件路径的部分所有的”\\”改为”/“。</p>
 <blockquote>
 <ul>
 <li>main_running.m</li>
