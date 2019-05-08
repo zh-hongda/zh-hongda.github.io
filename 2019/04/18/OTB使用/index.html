@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="zh-hongda">
 <meta property="og:description" content="tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T08:39:22.812Z">
+<meta property="og:updated_time" content="2019-05-08T08:41:02.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OTB 使用总结">
 <meta name="twitter:description" content="tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本">
@@ -349,7 +349,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-08 16:39:22" itemprop="dateModified" datetime="2019-05-08T16:39:22+08:00">2019-05-08</time>
+                <time title="Modified: 2019-05-08 16:41:02" itemprop="dateModified" datetime="2019-05-08T16:41:02+08:00">2019-05-08</time>
               
             
           </span>
@@ -413,7 +413,7 @@
 <li>main_running.m</li>
 <li>perPlot.m</li>
 <li>drawResultBB.m</li>
-<li>genPerfMaat.m  </li>
+<li>genPerfMaat.m</li>
 </ul>
 </blockquote>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"># 3</span><br><span class="line">执行main_running.m,在results文件夹中生成.mat文件（存储每个trackers的跟踪结果）和perfMat（存储最终用于画图的mat文件）不一样，这个是相对于bounding box的跟踪框数据。</span><br><span class="line"># 4</span><br><span class="line">执行perfPlot.m文件画出算法评估图，过程中会在perfMat/overall中生成用于画图的.mat文件并在figs/overall中生成算法评估图。</span><br><span class="line"># Attention</span><br><span class="line">```matlab</span><br><span class="line"><span class="comment">% main_running.m</span></span><br><span class="line">evalType=<span class="string">'TRE'</span>; <span class="comment">%'OPE','SRE','TRE' %指定算法评估方式finalPath = ['./results/results_' evalType '_CVPR13/']; %指定算法运行结果存储位置</span></span><br><span class="line">eval(funcName); <span class="comment">%运行指定一个算法</span></span><br><span class="line">save([finalPath s.name <span class="string">'_'</span> t.name <span class="string">'.mat'</span>], <span class="string">'results'</span>); <span class="comment">%存储算法运行结果</span></span><br></pre></td></tr></table></figure>
