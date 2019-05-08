@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="测试使用hexo发布post并同时试用Markdown。">
+  <meta name="description" content="tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The First">
-<meta property="og:url" content="http://yoursite.com/2019/04/18/试用Markdown/index.html">
+<meta property="og:title" content="OTB 使用总结">
+<meta property="og:url" content="http://yoursite.com/2019/04/18/OTB使用/index.html">
 <meta property="og:site_name" content="zh-hongda">
-<meta property="og:description" content="测试使用hexo发布post并同时试用Markdown。">
+<meta property="og:description" content="tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-19T01:33:39.363Z">
+<meta property="og:updated_time" content="2019-05-08T07:59:18.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The First">
-<meta name="twitter:description" content="测试使用hexo发布post并同时试用Markdown。">
+<meta name="twitter:title" content="OTB 使用总结">
+<meta name="twitter:description" content="tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/18/试用Markdown/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/18/OTB使用/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>The First | zh-hongda</title>
+  <title>OTB 使用总结 | zh-hongda</title>
   
 
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/试用Markdown/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/OTB使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HD">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">The First
+          <h1 class="post-title" itemprop="name headline">OTB 使用总结
 
               
             
@@ -349,7 +349,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-19 09:33:39" itemprop="dateModified" datetime="2019-04-19T09:33:39+08:00">2019-04-19</time>
+                <time title="Modified: 2019-05-08 15:59:18" itemprop="dateModified" datetime="2019-05-08T15:59:18+08:00">2019-05-08</time>
               
             
           </span>
@@ -383,50 +383,26 @@
       
 
       
-        <p>测试使用hexo发布post并同时试用Markdown。<br><a id="more"></a></p>
-<h3 id="0-插入超链接"><a href="#0-插入超链接" class="headerlink" title="0.插入超链接"></a>0.插入超链接</h3><h3 id="个人主页"><a href="#个人主页" class="headerlink" title="个人主页"></a><a href="zh-hongda.com">个人主页</a></h3><h3 id="1-控制字体"><a href="#1-控制字体" class="headerlink" title="1.控制字体"></a>1.控制字体</h3><p><strong>粗体</strong> <em>斜体</em></p>
-<h3 id="2-制作一份待办事宜Todo列表"><a href="#2-制作一份待办事宜Todo列表" class="headerlink" title="2.制作一份待办事宜Todo列表"></a>2.制作一份待办事宜<a href="zh-hongda.com">Todo列表</a></h3><ul>
-<li>[ ] 支持以 PDF 格式导出文稿</li>
-<li>[x] 新增 Todo 列表功能</li>
-</ul>
-<h3 id="3-书写公式"><a href="#3-书写公式" class="headerlink" title="3. 书写公式"></a>3. 书写公式</h3><script type="math/tex; mode=display">E=mc^2</script><h3 id="4-高亮一段代码"><a href="#4-高亮一段代码" class="headerlink" title="4.高亮一段代码"></a>4.高亮一段代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">print</span><span class="string">'hello world'</span></span><br></pre></td></tr></table></figure>
-<h3 id="5-制作列表"><a href="#5-制作列表" class="headerlink" title="5.制作列表"></a>5.制作列表</h3><blockquote>
+        <p>tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本<br><a id="more"></a><br>吴毅老师发的论文有两篇，第二篇是第一篇的扩展，将视频测试序列从原来的50个扩充到现在的100个。<br>· Wu Y, Lim J, Yang M H. Online object tracking: A benchmark [C]% CVPR, 2013.<br>· Wu Y, Lim J, Yang M H. Object tracking benchmark [J]. TPAMI, 2015.</p>
+<p>以下为具体使用方法：</p>
+<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p><a href="http:%www.visual-tracking.net" target="_blank" rel="noopener">下载源码</a>,并解压，得到tracker_benchmark_v1.0。</p>
+<p><a href="http:%www.vlfeat.org/" target="_blank" rel="noopener">下载vlfeat工具</a>，解压，并将代码做如下修改：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%mian_running.m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%addpath(('D:/vlfeat-0.9.14/toolbox'));</span></span><br><span class="line">addpath((<span class="string">'/home/hongda/Desktop/tracker_benchmark_v1.0/vlfeat-0.9.21/toolbox'</span>)); <span class="comment">%路径对应解压位置</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><p>将用来对比的tracker放入tracker_benchmark_v1.0/trackers文件夹下。<br>将使用的图像序列放入与tracker_benchmark_v1.0/util/configSeqs.m中指定的位置下。</p>
+<h2 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h2><p>按照configtracker.m和configseq.m中的格式在其中添加将要使用的视频序列和tracker。</p>
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>修改文件路径。代码适用于windows平台，如果在linux平台运行需要将如下文件中涉及到文件路径的部分所有的”\”改为”/“。</p>
+<blockquote>
 <ul>
-<li>制作列表</li>
-<li>制作列表<h3 id="6-高效绘制流程图"><a href="#6-高效绘制流程图" class="headerlink" title="6.高效绘制流程图"></a>6.高效绘制流程图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">op=&gt;operation: Your Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+<li>main_running.m</li>
+<li>perPlot.m</li>
+<li>drawResultBB.m</li>
+<li>genPerfMaat.m<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1>执行main_running.m,在results文件夹中生成.mat文件（存储每个trackers的跟踪结果）和perfMat（存储最终用于画图的mat文件）不一样，这个是相对于bounding box的跟踪框数据。<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1>执行perfPlot.m文件画出算法评估图，过程中会在perfMat/overall中生成用于画图的.mat文件并在figs/overall中生成算法评估图。<h1 id="attention"><a href="#attention" class="headerlink" title="attention"></a>attention</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% main_running.m</span></span><br><span class="line">evalType=<span class="string">'TRE'</span>; <span class="comment">%'OPE','SRE','TRE' %指定算法评估方式finalPath = ['./results/results_' evalType '_CVPR13/']; %指定算法运行结果存储位置</span></span><br><span class="line">eval(funcName); <span class="comment">%运行指定一个算法</span></span><br><span class="line">save([finalPath s.name <span class="string">'_'</span> t.name <span class="string">'.mat'</span>], <span class="string">'results'</span>); <span class="comment">%存储算法运行结果</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
-<h3 id="7-高效绘制序列图"><a href="#7-高效绘制序列图" class="headerlink" title="7.高效绘制序列图"></a>7.高效绘制序列图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
-<h3 id="8-绘制表格"><a href="#8-绘制表格" class="headerlink" title="8.绘制表格"></a>8.绘制表格</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th style="text-align:right">价格</th>
-<th style="text-align:center">数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>计算机</td>
-<td style="text-align:right">$1600</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td>手机</td>
-<td style="text-align:right">$12</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td>管线</td>
-<td style="text-align:right">$1</td>
-<td style="text-align:center">234</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="9-插入参考文献latex"><a href="#9-插入参考文献latex" class="headerlink" title="9.插入参考文献latex"></a>9.插入参考文献<sup><a href="#fn_latex" id="reffn_latex">latex</a></sup></h3><p><sup><a href="#fn_latex" id="reffn_latex">latex</a></sup>:支持 <strong>LaTeX</strong> 编辑显示支持，例如：$\sum_{i=1}^n a_i=0$， 访问 [MathJax][4] 参考更多使用方法</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% perfplot.m</span></span><br><span class="line"></span><br><span class="line">metricTypeSet = &#123;<span class="string">'error'</span>, <span class="string">'overlap'</span>&#125;; <span class="comment">%指定评价指标</span></span><br><span class="line">evalTypeSet = &#123;<span class="string">'SRE'</span>, <span class="string">'TRE'</span>, <span class="string">'OPE'</span>&#125;; <span class="comment">%指定算法评估方式</span></span><br><span class="line">rankingType = <span class="string">'AUC'</span>;<span class="comment">%AUC, threshod %指定算法排序指标</span></span><br><span class="line">thresholdSetOverlap = <span class="number">0</span>:<span class="number">0.05</span>:<span class="number">1</span>; <span class="comment">%指定overlap阈值范围</span></span><br><span class="line">thresholdSetError = <span class="number">0</span>:<span class="number">50</span>; <span class="comment">%指定位置误差的阈值范围</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> strcmp(metricType,<span class="string">'error'</span>)&amp;strcmp(rankingType,<span class="string">'AUC'</span>) <span class="comment">%</span></span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ~exist(dataName) <span class="comment">%如果没有performance Mat file，那么生成它。</span></span><br><span class="line">     genPerfMat(seqs, trackers, evalType, nameTrkAll, perfMatPath);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">plotDrawSave(numTrk,plotDrawStyle,aveSuccessRatePlot,idxSeqSet,rankNum,rankingType,rankIdx,nameTrkAll,thresholdSet,titleName, xLabelName,yLabelName,figName,metricType); <span class="comment">%绘图并存储</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% drawResultBB.m</span></span><br><span class="line"></span><br><span class="line">pathRes = <span class="string">'./results/results_SRE_CVPR13/'</span>;<span class="comment">% The folder containing the tracking results %指定使用SRE结果进行绘图，因此运行该文件前需要确认是否存在SRE结果。</span></span><br><span class="line">pathDraw = <span class="string">'./tmp/imgs/'</span>;<span class="comment">% The folder that will stores the images with overlaid bounding box 指定输出文件位置</span></span><br><span class="line">LineWidth = <span class="number">4</span>; <span class="comment">%指定不同tracker对应跟踪框的线宽。</span></span><br><span class="line">plotSetting; <span class="comment">% 指定drawResultBB.m中不同tracker对应跟踪框的线型和颜色。</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-1"><a href="#1-1" class="headerlink" title="1"></a>1</h2><p>每次运行前先删除上次perfMat/overall中的文件。</p>
+<h2 id="2-1"><a href="#2-1" class="headerlink" title="2"></a>2</h2><p>因为最终的算法评估图生成是需要bounding box数据的所以需要在执行perfPlot.m前先执行main_running.m</p>
 
       
     </div>
@@ -457,18 +433,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/18/OTB使用/" rel="next" title="OTB 使用总结">
-                <i class="fa fa-chevron-left"></i> OTB 使用总结
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/19/线性代数/" rel="prev" title="线性代数">
-                线性代数 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/18/试用Markdown/" rel="prev" title="The First">
+                The First <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -599,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-插入超链接"><span class="nav-number">1.</span> <span class="nav-text">0.插入超链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人主页"><span class="nav-number">2.</span> <span class="nav-text">个人主页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-控制字体"><span class="nav-number">3.</span> <span class="nav-text">1.控制字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-制作一份待办事宜Todo列表"><span class="nav-number">4.</span> <span class="nav-text">2.制作一份待办事宜Todo列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-书写公式"><span class="nav-number">5.</span> <span class="nav-text">3. 书写公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-高亮一段代码"><span class="nav-number">6.</span> <span class="nav-text">4.高亮一段代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-制作列表"><span class="nav-number">7.</span> <span class="nav-text">5.制作列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-高效绘制流程图"><span class="nav-number">8.</span> <span class="nav-text">6.高效绘制流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-高效绘制序列图"><span class="nav-number">9.</span> <span class="nav-text">7.高效绘制序列图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-绘制表格"><span class="nav-number">10.</span> <span class="nav-text">8.绘制表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-插入参考文献latex"><span class="nav-number">11.</span> <span class="nav-text">9.插入参考文献latex</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0"><span class="nav-number">1.</span> <span class="nav-text">0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-number">2.</span> <span class="nav-text">1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1"><span class="nav-number">2.1.</span> <span class="nav-text">1.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2"><span class="nav-number">2.2.</span> <span class="nav-text">1.2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2"><span class="nav-number">3.</span> <span class="nav-text">2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3"><span class="nav-number">4.</span> <span class="nav-text">3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4"><span class="nav-number">5.</span> <span class="nav-text">4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#attention"><span class="nav-number">6.</span> <span class="nav-text">attention</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1"><span class="nav-number">6.1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1"><span class="nav-number">6.2.</span> <span class="nav-text">2</span></a></li></ol></li></ol></div>
             
 
           </div>
