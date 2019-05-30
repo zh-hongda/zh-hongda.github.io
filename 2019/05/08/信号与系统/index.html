@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="zh-hongda">
 <meta property="og:description" content="学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-30T12:54:18.998Z">
+<meta property="og:updated_time" content="2019-05-30T13:03:38.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FT,LT和ZT总结">
 <meta name="twitter:description" content="学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。">
@@ -349,7 +349,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-30 20:54:18" itemprop="dateModified" datetime="2019-05-30T20:54:18+08:00">2019-05-30</time>
+                <time title="Modified: 2019-05-30 21:03:38" itemprop="dateModified" datetime="2019-05-30T21:03:38+08:00">2019-05-30</time>
               
             
           </span>
@@ -404,35 +404,35 @@
         <p>学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。<br><a id="more"></a><br>为了解信号在变换域的处理方法，学习了<strong>东南大学孟桥教授的信号与系统</strong>，辅以<br>东南大学吴镇扬教授的数字信号处理<br>西安电子科技大学郭宝龙教授的信号与系统  </p>
 <h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p>Fourier series<br>“傅里叶级数”的名字是为了纪念 Jean-Baptiste Joseph Fourier (1768–1830)在三角级数方面的重要贡献。该理论认为任意的周期函数都可以被一组三角函数近似代替。</p>
 <script type="math/tex; mode=display">
-f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infin}(a_n cosn\Omega t +b_n sinn\Omega t) , \Omega=\frac{2\pi}{T}\\
+f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infty}(a_n cosn\Omega t +b_n sinn\Omega t) , \Omega=\frac{2\pi}{T}\\
 a_n=\frac{2}{t_2-t_1}\int_{t_1}^{t_2}f(t)cos(n\Omega t)dt\\
 b_n=\frac{2}{t_2-t_1}\int_{t_1}^{t_2}f(t)sin(n\Omega t)dt</script><p>傅里叶级数还可以表示为，  </p>
 <script type="math/tex; mode=display">
-f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infin}A_n cos(n\Omega t +\varphi_n)\\
+f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infty}A_n cos(n\Omega t +\varphi_n)\\
 A_n=\sqrt{a_n^2+b_n^2}\\
 \varphi_n=-\arctan \frac{b_n}{a_n}</script><p>或者表示为，  </p>
 <script type="math/tex; mode=display">
-f(t)=\sum_{n=-\infin}^{+\infin}[c_n\cdot e^{jn\Omega t}]\\
-c_n=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jn\Omega t}dt\\</script><p>Fourier transform<br>在傅里叶级数基础上进一步扩展，即使非周期的函数也可以被其他函数近似代替。<br>令傅里叶级数中的 $T\rightarrow \infin$ ，则 $\Omega \rightarrow 0$ ,此时 $n\Omega$ 近似于 $\omega$</p>
+f(t)=\sum_{n=-\infty}^{+\infty}[c_n\cdot e^{jn\Omega t}]\\
+c_n=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jn\Omega t}dt\\</script><p>Fourier transform<br>在傅里叶级数基础上进一步扩展，即使非周期的函数也可以被其他函数近似代替。<br>令傅里叶级数中的 $T\rightarrow \infty$ ，则 $\Omega \rightarrow 0$ ,此时 $n\Omega$ 近似于 $\omega$</p>
 <script type="math/tex; mode=display">
-F(j\omega)=T\cdot c_n=\int_{-\infin}^{+\infin}f(t)e^{-j\omega t}dt</script><p>乘$T$是为了将$F(j\omega)$放大，便于观察和显示。  </p>
+F(j\omega)=T\cdot c_n=\int_{-\infty}^{+\infty}f(t)e^{-j\omega t}dt</script><p>乘$T$是为了将$F(j\omega)$放大，便于观察和显示。  </p>
 <p>Discrete Fourier series (DFS)<br>将傅里叶级数中的$f(t)$在时域离散化，得到离散傅里叶级数。<br>原式，</p>
 <script type="math/tex; mode=display">
 c_k=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jk\Omega t}dt\\</script><p>对于周期为$N$的周期离散序列$\tilde{x}(n)$而言，时域积分演变为离散求和，因此有，</p>
 <script type="math/tex; mode=display">
 \tilde{X}(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}\tilde{x}(n)e^{-jk\Omega n}\\</script><p>discrete-time Fourier transform (DTFT)<br>将傅里叶变换中的$f(t)$在时域离散化，得到离散时间傅里叶变换。<br>对 $f(t)$ 以 $T$ 为周期进行采样，</p>
 <script type="math/tex; mode=display">
-f_{\delta}(t)=\sum_{k=-\infin}^{+\infin}f(kT)\delta(t-kT)</script><p>对$f_{\delta}(t)$进行傅里叶变换，</p>
+f_{\delta}(t)=\sum_{k=-\infty}^{+\infty}f(kT)\delta(t-kT)</script><p>对$f_{\delta}(t)$进行傅里叶变换，</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-F(j\omega)&=\int_{-\infin}^{+\infin}f_{\delta}(t)e^{-j\omega t}dt\\
-&=\int_{-\infin}^{+\infin}[\sum_{k=-\infin}^{+\infin}f(kT)\delta(t-kT)]e^{-j\omega t}dt\\
-&=\sum_{k=-\infin}^{+\infin}\int_{-\infin}^{+\infin}f(kT)\delta(t-kT)e^{-j\omega t}dt\\
-&=\sum_{k=-\infin}^{+\infin}f(kT)[\int_{-\infin}^{+\infin}\delta(t-kT)e^{-j\omega t}dt]\\
-&=\sum_{k=-\infin}^{+\infin}f(kT)e^{-j\omega kT}
+F(j\omega)&=\int_{-\infty}^{+\infty}f_{\delta}(t)e^{-j\omega t}dt\\
+&=\int_{-\infty}^{+\infty}[\sum_{k=-\infty}^{+\infty}f(kT)\delta(t-kT)]e^{-j\omega t}dt\\
+&=\sum_{k=-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(kT)\delta(t-kT)e^{-j\omega t}dt\\
+&=\sum_{k=-\infty}^{+\infty}f(kT)[\int_{-\infty}^{+\infty}\delta(t-kT)e^{-j\omega t}dt]\\
+&=\sum_{k=-\infty}^{+\infty}f(kT)e^{-j\omega kT}
 \end{aligned}</script><p>将T归一化后，得到:</p>
 <script type="math/tex; mode=display">
-F(j\omega)=\sum_{k=-\infin}^{+\infin}f(k)e^{-j\omega k}</script><p>Discrete Fourier transform (DFT)<br>取DFS中的一个周期得到（或者将DTFT进一步在频域离散化），得到离散傅里叶变换。</p>
+F(j\omega)=\sum_{k=-\infty}^{+\infty}f(k)e^{-j\omega k}</script><p>Discrete Fourier transform (DFT)<br>取DFS中的一个周期得到（或者将DTFT进一步在频域离散化），得到离散傅里叶变换。</p>
 <script type="math/tex; mode=display">
 X(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}x(n)e^{-jk\Omega n}\\</script><div class="table-container">
 <table>
@@ -446,13 +446,13 @@ X(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}x(n)e^{-jk\Omega n}\\</script><div class=
 <tbody>
 <tr>
 <td>Fourier series</td>
-<td style="text-align:right">$f(t)=\sum_{n=-\infin}^{+\infin}[c_n\cdot e^{jn\Omega t}]$</td>
+<td style="text-align:right">$f(t)=\sum_{n=-\infty}^{+\infty}[c_n\cdot e^{jn\Omega t}]$</td>
 <td style="text-align:center">$c_n=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jn\Omega t}dt$</td>
 </tr>
 <tr>
 <td>Fourier transform</td>
-<td style="text-align:right">$f(t)=\int_{-\infin}^{+\infin}F(j\omega)e^{-j\omega t}d\omega$</td>
-<td style="text-align:center">$F(j\omega)=\int_{-\infin}^{+\infin}f(t)e^{-j\omega t}dt$</td>
+<td style="text-align:right">$f(t)=\int_{-\infty}^{+\infty}F(j\omega)e^{-j\omega t}d\omega$</td>
+<td style="text-align:center">$F(j\omega)=\int_{-\infty}^{+\infty}f(t)e^{-j\omega t}dt$</td>
 </tr>
 <tr>
 <td>DFS</td>
@@ -462,7 +462,7 @@ X(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}x(n)e^{-jk\Omega n}\\</script><div class=
 <tr>
 <td>DTFT</td>
 <td style="text-align:right">待补</td>
-<td style="text-align:center">$F(j\omega)=\sum_{k=-\infin}^{+\infin}f(k)e^{-j\omega k}$</td>
+<td style="text-align:center">$F(j\omega)=\sum_{k=-\infty}^{+\infty}f(k)e^{-j\omega k}$</td>
 </tr>
 <tr>
 <td>DFT</td>
@@ -474,29 +474,29 @@ X(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}x(n)e^{-jk\Omega n}\\</script><div class=
 </div>
 <h1 id="Laplace-transform"><a href="#Laplace-transform" class="headerlink" title="Laplace transform"></a>Laplace transform</h1><p>$f(t)$进行傅里叶变换的前提是，满足绝对可积条件。即，</p>
 <script type="math/tex; mode=display">
-\int_0^{+\infin}\left |f(t)\right |< +\infin</script><p>当$f(t)$不满足绝对可积条件时，为原函数$f(t)$乘上一个一个衰减因子$e^{-\delta t}$，然后进行傅里叶变换。</p>
+\int_0^{+\infty}\left |f(t)\right |< +\infty</script><p>当$f(t)$不满足绝对可积条件时，为原函数$f(t)$乘上一个一个衰减因子$e^{-\delta t}$，然后进行傅里叶变换。</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-F_1(j\omega)&=\int_{-\infin}^{+\infin}f(t)e^{-\delta t}e^{-j\omega t}dt\\
-&=\int_{-\infin}^{+\infin}f(t)e^{-(\delta +j\omega)t }dt\\
+F_1(j\omega)&=\int_{-\infty}^{+\infty}f(t)e^{-\delta t}e^{-j\omega t}dt\\
+&=\int_{-\infty}^{+\infty}f(t)e^{-(\delta +j\omega)t }dt\\
 \end{aligned}</script><p>令$s=\delta +j\omega$ ，得到</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-F(s)&=\int_{-\infin}^{+\infin}f(t)e^{-st}dt\\
+F(s)&=\int_{-\infty}^{+\infty}f(t)e^{-st}dt\\
 \end{aligned}</script><p>傅里叶变换将函数变换到频域，拉普拉斯变换将函数变换到s域。</p>
 <h1 id="Z-transform"><a href="#Z-transform" class="headerlink" title="Z-transform"></a>Z-transform</h1><p>$f_{\delta}(t)$进行DTFT的前提是，满足绝对可积条件。即，</p>
 <script type="math/tex; mode=display">
-\int_{-\infin}^{+\infin}\left |f_{\delta}(t)\right |<+\infin</script><p>或，</p>
+\int_{-\infty}^{+\infty}\left |f_{\delta}(t)\right |<+\infty</script><p>或，</p>
 <script type="math/tex; mode=display">
-\sum_{k=0}^{+\infin}\left |f(kT)\right |<+\infin</script><p>当$f_{\delta}(t)$不满足绝对可积条件时，为$f_{\delta}(t)$乘上一个衰减因子$e^{-\delta k}$，</p>
+\sum_{k=0}^{+\infty}\left |f(kT)\right |<+\infty</script><p>当$f_{\delta}(t)$不满足绝对可积条件时，为$f_{\delta}(t)$乘上一个衰减因子$e^{-\delta k}$，</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-F_1(j\omega)&=\sum_{k=-\infin}^{+\infin}f(k)e^{-\delta k}e^{-j\omega k}\\
-&=\sum_{k=-\infin}^{+\infin}f(k)e^{(\delta +j\omega)^{-k}}
+F_1(j\omega)&=\sum_{k=-\infty}^{+\infty}f(k)e^{-\delta k}e^{-j\omega k}\\
+&=\sum_{k=-\infty}^{+\infty}f(k)e^{(\delta +j\omega)^{-k}}
 \end{aligned}</script><p>令$z=e^{(\delta +j\omega)}$,</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-F(z)=\sum_{k=-\infin}^{+\infin}f(k)z^{-k}
+F(z)=\sum_{k=-\infty}^{+\infty}f(k)z^{-k}
 \end{aligned}</script><p>DTFT 将函数变换到频域，Z 变换将函数变换到 z 域。</p>
 <h1 id="zzz"><a href="#zzz" class="headerlink" title="zzz"></a>zzz</h1><blockquote>
 <ul>
