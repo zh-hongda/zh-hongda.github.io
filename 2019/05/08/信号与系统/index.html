@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本">
+  <meta name="description" content="学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OTB 使用总结">
-<meta property="og:url" content="http://yoursite.com/2019/05/08/OTB使用/index.html">
+<meta property="og:title" content="FT,LT和ZT总结">
+<meta property="og:url" content="http://yoursite.com/2019/05/08/信号与系统/index.html">
 <meta property="og:site_name" content="zh-hongda">
-<meta property="og:description" content="tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本">
+<meta property="og:description" content="学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T11:03:42.571Z">
+<meta property="og:updated_time" content="2019-05-30T12:54:18.998Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OTB 使用总结">
-<meta name="twitter:description" content="tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本">
+<meta name="twitter:title" content="FT,LT和ZT总结">
+<meta name="twitter:description" content="学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/08/OTB使用/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/08/信号与系统/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>OTB 使用总结 | zh-hongda</title>
+  <title>FT,LT和ZT总结 | zh-hongda</title>
   
 
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/OTB使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/信号与系统/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HD">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">OTB 使用总结
+          <h1 class="post-title" itemprop="name headline">FT,LT和ZT总结
 
               
             
@@ -332,12 +332,24 @@
                 
               
 
-              <time title="Created: 2019-05-08 20:26:01 / Modified: 19:03:42" itemprop="dateCreated datePublished" datetime="2019-05-08T20:26:01+08:00">2019-05-08</time>
+              <time title="Created: 2019-05-08 20:26:01" itemprop="dateCreated datePublished" datetime="2019-05-08T20:26:01+08:00">2019-05-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-30 20:54:18" itemprop="dateModified" datetime="2019-05-30T20:54:18+08:00">2019-05-30</time>
               
             
           </span>
@@ -354,7 +366,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Object-Tracking/" itemprop="url" rel="index"><span itemprop="name">Object Tracking</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/信号与系统/" itemprop="url" rel="index"><span itemprop="name">信号与系统</span></a></span>
 
                 
                 
@@ -389,28 +401,113 @@
       
 
       
-        <p>tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本<br><a id="more"></a><br>阅读本文前先简单阅读tracker_benchmark_v1.0中的readme。</p>
-<p>以下为具体使用方法：</p>
-<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p><a href="http:%www.visual-tracking.net" target="_blank" rel="noopener">下载源码</a>,并解压，得到tracker_benchmark_v1.0。</p>
-<p><a href="http:%www.vlfeat.org/" target="_blank" rel="noopener">下载vlfeat工具</a>，解压，并将代码做如下修改：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%mian_running.m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%addpath(('D:/vlfeat-0.9.14/toolbox'));</span></span><br><span class="line">addpath((<span class="string">'/home/hongda/Desktop/tracker_benchmark_v1.0/vlfeat-0.9.21/toolbox'</span>)); <span class="comment">%路径对应解压位置</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><p>将用来对比的tracker放入tracker_benchmark_v1.0/trackers文件夹下。<br>将使用的图像序列放入与tracker_benchmark_v1.0/util/configSeqs.m中指定的位置下。</p>
-<h2 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h2><p>按照configtracker.m和configseq.m中的格式在其中添加将要使用的视频序列和tracker。</p>
-<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>修改文件路径。代码适用于windows平台，如果在linux平台运行需要将如下文件中涉及到文件路径的部分所有的”\”改为”/“。</p>
-<blockquote>
+        <p>学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。<br><a id="more"></a><br>为了解信号在变换域的处理方法，学习了<strong>东南大学孟桥教授的信号与系统</strong>，辅以<br>东南大学吴镇扬教授的数字信号处理<br>西安电子科技大学郭宝龙教授的信号与系统  </p>
+<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p>Fourier series<br>“傅里叶级数”的名字是为了纪念 Jean-Baptiste Joseph Fourier (1768–1830)在三角级数方面的重要贡献。该理论认为任意的周期函数都可以被一组三角函数近似代替。</p>
+<script type="math/tex; mode=display">
+f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infin}(a_n cosn\Omega t +b_n sinn\Omega t) , \Omega=\frac{2\pi}{T}\\
+a_n=\frac{2}{t_2-t_1}\int_{t_1}^{t_2}f(t)cos(n\Omega t)dt\\
+b_n=\frac{2}{t_2-t_1}\int_{t_1}^{t_2}f(t)sin(n\Omega t)dt</script><p>傅里叶级数还可以表示为，  </p>
+<script type="math/tex; mode=display">
+f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infin}A_n cos(n\Omega t +\varphi_n)\\
+A_n=\sqrt{a_n^2+b_n^2}\\
+\varphi_n=-\arctan \frac{b_n}{a_n}</script><p>或者表示为，  </p>
+<script type="math/tex; mode=display">
+f(t)=\sum_{n=-\infin}^{+\infin}[c_n\cdot e^{jn\Omega t}]\\
+c_n=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jn\Omega t}dt\\</script><p>Fourier transform<br>在傅里叶级数基础上进一步扩展，即使非周期的函数也可以被其他函数近似代替。<br>令傅里叶级数中的 $T\rightarrow \infin$ ，则 $\Omega \rightarrow 0$ ,此时 $n\Omega$ 近似于 $\omega$</p>
+<script type="math/tex; mode=display">
+F(j\omega)=T\cdot c_n=\int_{-\infin}^{+\infin}f(t)e^{-j\omega t}dt</script><p>乘$T$是为了将$F(j\omega)$放大，便于观察和显示。  </p>
+<p>Discrete Fourier series (DFS)<br>将傅里叶级数中的$f(t)$在时域离散化，得到离散傅里叶级数。<br>原式，</p>
+<script type="math/tex; mode=display">
+c_k=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jk\Omega t}dt\\</script><p>对于周期为$N$的周期离散序列$\tilde{x}(n)$而言，时域积分演变为离散求和，因此有，</p>
+<script type="math/tex; mode=display">
+\tilde{X}(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}\tilde{x}(n)e^{-jk\Omega n}\\</script><p>discrete-time Fourier transform (DTFT)<br>将傅里叶变换中的$f(t)$在时域离散化，得到离散时间傅里叶变换。<br>对 $f(t)$ 以 $T$ 为周期进行采样，</p>
+<script type="math/tex; mode=display">
+f_{\delta}(t)=\sum_{k=-\infin}^{+\infin}f(kT)\delta(t-kT)</script><p>对$f_{\delta}(t)$进行傅里叶变换，</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(j\omega)&=\int_{-\infin}^{+\infin}f_{\delta}(t)e^{-j\omega t}dt\\
+&=\int_{-\infin}^{+\infin}[\sum_{k=-\infin}^{+\infin}f(kT)\delta(t-kT)]e^{-j\omega t}dt\\
+&=\sum_{k=-\infin}^{+\infin}\int_{-\infin}^{+\infin}f(kT)\delta(t-kT)e^{-j\omega t}dt\\
+&=\sum_{k=-\infin}^{+\infin}f(kT)[\int_{-\infin}^{+\infin}\delta(t-kT)e^{-j\omega t}dt]\\
+&=\sum_{k=-\infin}^{+\infin}f(kT)e^{-j\omega kT}
+\end{aligned}</script><p>将T归一化后，得到:</p>
+<script type="math/tex; mode=display">
+F(j\omega)=\sum_{k=-\infin}^{+\infin}f(k)e^{-j\omega k}</script><p>Discrete Fourier transform (DFT)<br>取DFS中的一个周期得到（或者将DTFT进一步在频域离散化），得到离散傅里叶变换。</p>
+<script type="math/tex; mode=display">
+X(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}x(n)e^{-jk\Omega n}\\</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>变换</th>
+<th style="text-align:right">时域特性</th>
+<th style="text-align:center">频域特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fourier series</td>
+<td style="text-align:right">$f(t)=\sum_{n=-\infin}^{+\infin}[c_n\cdot e^{jn\Omega t}]$</td>
+<td style="text-align:center">$c_n=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jn\Omega t}dt$</td>
+</tr>
+<tr>
+<td>Fourier transform</td>
+<td style="text-align:right">$f(t)=\int_{-\infin}^{+\infin}F(j\omega)e^{-j\omega t}d\omega$</td>
+<td style="text-align:center">$F(j\omega)=\int_{-\infin}^{+\infin}f(t)e^{-j\omega t}dt$</td>
+</tr>
+<tr>
+<td>DFS</td>
+<td style="text-align:right">待补</td>
+<td style="text-align:center">$\tilde{X}(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}\tilde{x}(n)e^{-jk\Omega n}$</td>
+</tr>
+<tr>
+<td>DTFT</td>
+<td style="text-align:right">待补</td>
+<td style="text-align:center">$F(j\omega)=\sum_{k=-\infin}^{+\infin}f(k)e^{-j\omega k}$</td>
+</tr>
+<tr>
+<td>DFT</td>
+<td style="text-align:right">待补</td>
+<td style="text-align:center">$X(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}x(n)e^{-jk\Omega n}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="Laplace-transform"><a href="#Laplace-transform" class="headerlink" title="Laplace transform"></a>Laplace transform</h1><p>$f(t)$进行傅里叶变换的前提是，满足绝对可积条件。即，</p>
+<script type="math/tex; mode=display">
+\int_0^{+\infin}\left |f(t)\right |< +\infin</script><p>当$f(t)$不满足绝对可积条件时，为原函数$f(t)$乘上一个一个衰减因子$e^{-\delta t}$，然后进行傅里叶变换。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F_1(j\omega)&=\int_{-\infin}^{+\infin}f(t)e^{-\delta t}e^{-j\omega t}dt\\
+&=\int_{-\infin}^{+\infin}f(t)e^{-(\delta +j\omega)t }dt\\
+\end{aligned}</script><p>令$s=\delta +j\omega$ ，得到</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(s)&=\int_{-\infin}^{+\infin}f(t)e^{-st}dt\\
+\end{aligned}</script><p>傅里叶变换将函数变换到频域，拉普拉斯变换将函数变换到s域。</p>
+<h1 id="Z-transform"><a href="#Z-transform" class="headerlink" title="Z-transform"></a>Z-transform</h1><p>$f_{\delta}(t)$进行DTFT的前提是，满足绝对可积条件。即，</p>
+<script type="math/tex; mode=display">
+\int_{-\infin}^{+\infin}\left |f_{\delta}(t)\right |<+\infin</script><p>或，</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{+\infin}\left |f(kT)\right |<+\infin</script><p>当$f_{\delta}(t)$不满足绝对可积条件时，为$f_{\delta}(t)$乘上一个衰减因子$e^{-\delta k}$，</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F_1(j\omega)&=\sum_{k=-\infin}^{+\infin}f(k)e^{-\delta k}e^{-j\omega k}\\
+&=\sum_{k=-\infin}^{+\infin}f(k)e^{(\delta +j\omega)^{-k}}
+\end{aligned}</script><p>令$z=e^{(\delta +j\omega)}$,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(z)=\sum_{k=-\infin}^{+\infin}f(k)z^{-k}
+\end{aligned}</script><p>DTFT 将函数变换到频域，Z 变换将函数变换到 z 域。</p>
+<h1 id="zzz"><a href="#zzz" class="headerlink" title="zzz"></a>zzz</h1><blockquote>
 <ul>
-<li>main_running.m</li>
-<li>perPlot.m</li>
-<li>drawResultBB.m</li>
-<li>genPerfMaat.m  </li>
+<li>主值区间：  </li>
+<li>主值序列：  </li>
+<li>直流分量：傅里叶级数中的$\frac{a_0}{2}$  </li>
+<li>基波分量：傅里叶级数中 $a_1\cos \Omega t$ 和 $a_1\sin \Omega t$  </li>
+<li>n次谐波分量：傅里叶级数中 $a_n\cos n\Omega t$ 和 $a_n\sin n\Omega t$    </li>
+<li>频谱泄露：  造成频谱泄露的原因在于傅里叶变换的输入信号不能准确的、完整的代表被分析信号，输出产生的一种误差， 这种误差可以通过加合适的窗函数或延长时间窗得以改善，当输入信号的不完整性达到一定程度，输出是一种错误的结果。</li>
 </ul>
 </blockquote>
-<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><p>执行main_running.m,在results文件夹中生成.mat文件（存储每个trackers的跟踪结果）和perfMat（存储最终用于画图的mat文件）不一样，这个是相对于bounding box的跟踪框数据。</p>
-<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><p>执行perfPlot.m文件画出算法评估图，过程中会在perfMat/overall中生成用于画图的.mat文件并在figs/overall中生成算法评估图。</p>
-<h1 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% main_running.m</span></span><br><span class="line">evalType=<span class="string">'TRE'</span>; <span class="comment">%'OPE','SRE','TRE' %指定算法评估方式finalPath = ['./results/results_' evalType '_CVPR13/']; %指定算法运行结果存储位置</span></span><br><span class="line">eval(funcName); <span class="comment">%运行指定一个算法</span></span><br><span class="line">save([finalPath s.name <span class="string">'_'</span> t.name <span class="string">'.mat'</span>], <span class="string">'results'</span>); <span class="comment">%存储算法运行结果</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% perfplot.m</span></span><br><span class="line"></span><br><span class="line">metricTypeSet = &#123;<span class="string">'error'</span>, <span class="string">'overlap'</span>&#125;; <span class="comment">%指定评价指标</span></span><br><span class="line">evalTypeSet = &#123;<span class="string">'SRE'</span>, <span class="string">'TRE'</span>, <span class="string">'OPE'</span>&#125;; <span class="comment">%指定算法评估方式</span></span><br><span class="line">rankingType = <span class="string">'AUC'</span>;<span class="comment">%AUC, threshod %指定算法排序指标</span></span><br><span class="line">thresholdSetOverlap = <span class="number">0</span>:<span class="number">0.05</span>:<span class="number">1</span>; <span class="comment">%指定overlap阈值范围</span></span><br><span class="line">thresholdSetError = <span class="number">0</span>:<span class="number">50</span>; <span class="comment">%指定位置误差的阈值范围</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> strcmp(metricType,<span class="string">'error'</span>)&amp;strcmp(rankingType,<span class="string">'AUC'</span>) <span class="comment">%</span></span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ~exist(dataName) <span class="comment">%如果没有performance Mat file，那么生成它。</span></span><br><span class="line">     genPerfMat(seqs, trackers, evalType, nameTrkAll, perfMatPath);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">plotDrawSave(numTrk,plotDrawStyle,aveSuccessRatePlot,idxSeqSet,rankNum,rankingType,rankIdx,nameTrkAll,thresholdSet,titleName, xLabelName,yLabelName,figName,metricType); <span class="comment">%绘图并存储</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% drawResultBB.m</span></span><br><span class="line"></span><br><span class="line">pathRes = <span class="string">'./results/results_SRE_CVPR13/'</span>;<span class="comment">% The folder containing the tracking results %指定使用SRE结果进行绘图，因此运行该文件前需要确认是否存在SRE结果。</span></span><br><span class="line">pathDraw = <span class="string">'./tmp/imgs/'</span>;<span class="comment">% The folder that will stores the images with overlaid bounding box 指定输出文件位置</span></span><br><span class="line">LineWidth = <span class="number">4</span>; <span class="comment">%指定不同tracker对应跟踪框的线宽。</span></span><br><span class="line">plotSetting; <span class="comment">% 指定drawResultBB.m中不同tracker对应跟踪框的线型和颜色。</span></span><br></pre></td></tr></table></figure>
-<h2 id="A1"><a href="#A1" class="headerlink" title="A1"></a>A1</h2><p>每次运行前先删除上次perfMat/overall中的文件。</p>
-<h2 id="A2"><a href="#A2" class="headerlink" title="A2"></a>A2</h2><p>因为最终的算法评估图生成是需要bounding box数据的所以需要在执行perfPlot.m前先执行main_running.m</p>
 
       
     </div>
@@ -441,8 +538,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/08/信号与系统/" rel="next" title="FT,LT和ZT总结">
-                <i class="fa fa-chevron-left"></i> FT,LT和ZT总结
+              <a href="/2019/04/20/新生手册/" rel="next" title="ZZZ">
+                <i class="fa fa-chevron-left"></i> ZZZ
               </a>
             
           </div>
@@ -450,6 +547,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/08/OTB使用/" rel="prev" title="OTB 使用总结">
+                OTB 使用总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -585,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0"><span class="nav-text">0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1"><span class="nav-text">1.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2"><span class="nav-text">1.2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2"><span class="nav-text">2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3"><span class="nav-text">3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4"><span class="nav-text">4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Attention"><span class="nav-text">Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A1"><span class="nav-text">A1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A2"><span class="nav-text">A2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0"><span class="nav-text">0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Laplace-transform"><span class="nav-text">Laplace transform</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Z-transform"><span class="nav-text">Z-transform</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zzz"><span class="nav-text">zzz</span></a></li></ol></div>
             
 
           </div>
