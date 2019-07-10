@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/07/10/Linux/</loc>
+    
+    <lastmod>2019-07-10T02:40:51.670Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/07/10/Matlab/</loc>
+    
+    <lastmod>2019-07-10T02:40:48.878Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/07/10/Latex/</loc>
+    
+    <lastmod>2019-07-10T02:40:32.936Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/10/English/</loc>
     
     <lastmod>2019-07-10T02:38:35.916Z</lastmod>
@@ -16,23 +37,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/04/18/Latex/</loc>
-    
-    <lastmod>2019-07-09T01:22:12.601Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/04/19/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
     
     <lastmod>2019-05-30T13:24:26.701Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/20/Matlab/</loc>
-    
-    <lastmod>2019-05-30T13:19:05.316Z</lastmod>
     
   </url>
   
@@ -47,13 +54,6 @@
     <loc>http://yoursite.com/2019/04/20/%E6%96%B0%E7%94%9F%E6%89%8B%E5%86%8C/</loc>
     
     <lastmod>2019-05-20T03:10:01.187Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/20/Linux/</loc>
-    
-    <lastmod>2019-05-10T08:50:41.798Z</lastmod>
     
   </url>
   

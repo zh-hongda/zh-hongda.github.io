@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.ico?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="记录常用的Latex操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Latex">
+<meta property="og:url" content="http://yoursite.com/2019/07/10/Latex/index.html">
+<meta property="og:site_name" content="zh-hongda">
+<meta property="og:description" content="记录常用的Latex操作。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-10T02:40:32.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Latex">
+<meta name="twitter:description" content="记录常用的Latex操作。">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/10/Latex/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Latex | zh-hongda</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zh-hongda</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/Latex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HD">
+      <meta itemprop="description" content="Self Cognize">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zh-hongda">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Latex
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-10 10:38:00 / Modified: 10:40:32" itemprop="dateCreated datePublished" datetime="2019-07-10T10:38:00+08:00">2019-07-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记录常用的Latex操作。<br><a id="more"></a></p>
+<h1 id="1-Table"><a href="#1-Table" class="headerlink" title="1 Table"></a>1 Table</h1><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%三线表</span></span><br><span class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;booktabs&#125;</span></span> <span class="comment">%制作表格时使用“booktabs”包。</span></span><br><span class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;color&#125;</span></span> <span class="comment">%调整文字颜色时使用“color”包</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;table&#125;</span><span class="string">[htbp]</span></span> <span class="comment">%指定表格位置，“h” here，“t” top，“b” bottom，“p”</span></span><br><span class="line">	<span class="tag">\<span class="name">vspace</span><span class="string">&#123;-1cm&#125;</span></span> <span class="comment">%调整与上文的垂直距离，不仅适用于表格。</span></span><br><span class="line">	<span class="tag">\<span class="name">centering</span></span>    <span class="comment">%使表格居中</span></span><br><span class="line">	<span class="tag">\<span class="name">caption</span><span class="string">&#123;Accuracy and speed comparisons on the test dataset. The best two results are shown in red and blue fonts, respectively.&#125;</span></span> <span class="comment">%指定标题</span></span><br><span class="line">	<span class="tag">\<span class="name">begin</span><span class="string">&#123;tabular&#125;</span><span class="string">&#123;cccccc&#125;</span></span> <span class="comment">%指定一共多少列，一个“c”表示一列。也可用“l”或“r”替换，分布控制表格内容左对齐和右对齐。</span></span><br><span class="line">		<span class="tag">\<span class="name">toprule</span></span>  <span class="comment">%第一条线的规则</span></span><br><span class="line">		&amp; KCF &amp; SAMF &amp; C-COT &amp; ECO-HC &amp; PSCT<span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="tag">\<span class="name">midrule</span></span>  <span class="comment">%第二条线的规则</span></span><br><span class="line">		Success &amp; 0.458 &amp; 0.568 &amp; 0.695 &amp; <span class="tag">\<span class="name">textcolor</span><span class="string">&#123;blue&#125;</span><span class="string">&#123;0.704&#125;</span></span> &amp; <span class="tag">\<span class="name">textcolor</span><span class="string">&#123;red&#125;</span><span class="string">&#123;0.792&#125;</span></span><span class="tag">\<span class="name">\</span></span> <span class="comment">%控制表格中文字颜色</span></span><br><span class="line">		Precision &amp; 0.816 &amp; 0.834 &amp; 0.870 &amp; <span class="tag">\<span class="name">textcolor</span><span class="string">&#123;blue&#125;</span><span class="string">&#123;0.900&#125;</span></span> &amp; <span class="tag">\<span class="name">textcolor</span><span class="string">&#123;red&#125;</span><span class="string">&#123;0.977&#125;</span></span><span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="tag">\<span class="name">midrule</span></span> <span class="comment">%第二条线的规则</span></span><br><span class="line">		FPS &amp; <span class="tag">\<span class="name">textcolor</span><span class="string">&#123;red&#125;</span><span class="string">&#123;203.9&#125;</span></span> &amp; 18.4 &amp; 5.3 &amp; 54.2 &amp; <span class="tag">\<span class="name">textcolor</span><span class="string">&#123;blue&#125;</span><span class="string">&#123;54.9&#125;</span></span><span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="tag">\<span class="name">bottomrule</span></span> <span class="comment">%第三条线的规则</span></span><br><span class="line">	<span class="tag">\<span class="name">end</span><span class="string">&#123;tabular&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;table&#125;</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="2-Figure"><a href="#2-Figure" class="headerlink" title="2 Figure"></a>2 Figure</h1><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%插入图</span></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;figure&#125;</span><span class="string">[h]</span></span> <span class="comment">%指定图片位置，“h” here，“t” top，“b” bottom，“p”</span></span><br><span class="line">	<span class="tag">\<span class="name">vspace</span><span class="string">&#123;-0.5cm&#125;</span></span> <span class="comment">%调整图片与上文的垂直距离，不仅适用于figure。</span></span><br><span class="line">	<span class="tag">\<span class="name">setlength</span><span class="string">&#123;\abovecaptionskip&#125;</span><span class="string">&#123;-0.2cm&#125;</span></span>   <span class="comment">%调整图片标题与图片距离</span></span><br><span class="line">	<span class="tag">\<span class="name">setlength</span><span class="string">&#123;\belowcaptionskip&#125;</span><span class="string">&#123;-1cm&#125;</span></span>   <span class="comment">%调整图片标题与下文距离</span></span><br><span class="line">	<span class="tag">\<span class="name">begin</span><span class="string">&#123;center&#125;</span></span> <span class="comment">%使图片居中</span></span><br><span class="line">	<span class="tag">\<span class="name">includegraphics</span><span class="string">[width=80mm]</span><span class="string">&#123;./img/a3&#125;</span></span> <span class="comment">%指定图片路径和大小。</span></span><br><span class="line">	<span class="tag">\<span class="name">end</span><span class="string">&#123;center&#125;</span></span></span><br><span class="line">	<span class="tag">\<span class="name">caption</span><span class="string">&#123;Success and precision plots for the 20 fast motion video sequences selected from OTB2015 and KITTI datasets. Success plots use mean AUC for ranking and precision plots use threshold = 20 for ranking.&#125;</span></span> <span class="comment">%图片注释</span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;figure&#125;</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="3-Algorithm"><a href="#3-Algorithm" class="headerlink" title="3 Algorithm"></a>3 Algorithm</h1><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%生成算法</span></span><br><span class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;algorithm&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">usepackage</span><span class="string">&#123;algorithmic&#125;</span></span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;algorithm&#125;</span><span class="string">[htb]</span></span> <span class="comment">%指定算法位置，“h” here，“t” top，“b” bottom，“p”</span></span><br><span class="line">	<span class="tag">\<span class="name">caption</span><span class="string">&#123;Our tracker’s algorithm&#125;</span></span> <span class="comment">%标题</span></span><br><span class="line">	<span class="tag">\<span class="name">label</span><span class="string">&#123;alg:Framwork&#125;</span></span> <span class="comment">%标签，好像可有可无。</span></span><br><span class="line">	<span class="tag">\<span class="name">begin</span><span class="string">&#123;algorithmic&#125;</span><span class="string">[1]</span></span> <span class="comment">%这个1 表示算法每一行都显示行号。</span></span><br><span class="line">		<span class="tag">\<span class="name">REQUIRE</span></span> ~~<span class="tag">\<span class="name">\</span></span> <span class="comment">%算法的输入参数：Input</span></span><br><span class="line">			x: training image patch<span class="tag">\<span class="name">\</span></span></span><br><span class="line">			<span class="formula">$ P_&#123;old&#125; $</span>: previous frame position<span class="tag">\<span class="name">\</span></span></span><br><span class="line">			<span class="formula">$ S_&#123;old&#125; $</span>: previous target scale</span><br><span class="line">		<span class="tag">\<span class="name">ENSURE</span></span> ~~<span class="tag">\<span class="name">\</span></span> <span class="comment">%算法的输出：Output</span></span><br><span class="line">			<span class="formula">$ P_&#123;new&#125; $</span>: new position<span class="tag">\<span class="name">\</span></span></span><br><span class="line">			<span class="formula">$ S_&#123;new&#125; $</span>: new target scale</span><br><span class="line">		<span class="tag">\<span class="name">STATE</span></span><span class="tag">\<span class="name">textbf</span><span class="string">&#123;translation estimation&#125;</span></span><span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="formula">$ <span class="tag">\<span class="name">bullet</span></span> $</span> The response score is calculated according to Equation 2.<span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="formula">$ <span class="tag">\<span class="name">bullet</span></span> $</span> Set <span class="formula">$ P_&#123;new&#125;$</span> to the target position that maximizes the response.<span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="tag">\<span class="name">STATE</span></span><span class="tag">\<span class="name">textbf</span><span class="string">&#123;Scale estimation&#125;</span></span><span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="formula">$ <span class="tag">\<span class="name">bullet</span></span> $</span> Calculate the prediction scale <span class="formula">$ S_&#123;new^&#123;'&#125;&#125; $</span> according to <span class="formula">$ S_&#123;old&#125; $</span> using Equation 7.<span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="formula">$ <span class="tag">\<span class="name">bullet</span></span> $</span> Extract scale sample with scale <span class="formula">$ S_&#123;new^&#123;'&#125;&#125; $</span> at <span class="formula">$ P_&#123;new&#125;$</span> and calculate the response score.<span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="formula">$ <span class="tag">\<span class="name">bullet</span></span> $</span> Set <span class="formula">$ S_&#123;new&#125; $</span> to the target scale that maximizes the response.</span><br><span class="line">		<span class="tag">\<span class="name">STATE</span></span><span class="tag">\<span class="name">textbf</span><span class="string">&#123;Model update&#125;</span></span><span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="formula">$ <span class="tag">\<span class="name">bullet</span></span> $</span> Calculate the update interval using Equation 8.<span class="tag">\<span class="name">\</span></span></span><br><span class="line">		<span class="formula">$ <span class="tag">\<span class="name">bullet</span></span> $</span> Update the model when the update interval is reached.</span><br><span class="line">	<span class="tag">\<span class="name">end</span><span class="string">&#123;algorithmic&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;algorithm&#125;</span></span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/10/Linux/" rel="next" title="Linux Experience">
+                <i class="fa fa-chevron-left"></i> Linux Experience
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/10/English/" rel="prev" title="English">
+                English <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">HD</p>
+              <div class="site-description motion-element" itemprop="description">Self Cognize</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Table"><span class="nav-text">1 Table</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Figure"><span class="nav-text">2 Figure</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Algorithm"><span class="nav-text">3 Algorithm</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HD</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
