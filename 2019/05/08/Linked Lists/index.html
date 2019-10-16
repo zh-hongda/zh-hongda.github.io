@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.ico?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Leetcode Linked Lists practice summary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linked Lists Summary">
+<meta property="og:url" content="http://yoursite.com/2019/05/08/Linked Lists/index.html">
+<meta property="og:site_name" content="zh-hongda">
+<meta property="og:description" content="Leetcode Linked Lists practice summary">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-16T13:25:36.600Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linked Lists Summary">
+<meta name="twitter:description" content="Leetcode Linked Lists practice summary">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/05/08/Linked Lists/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linked Lists Summary | zh-hongda</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zh-hongda</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/Linked Lists/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HD">
+      <meta itemprop="description" content="Self Cognize">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zh-hongda">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linked Lists Summary
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-08 20:26:01" itemprop="dateCreated datePublished" datetime="2019-05-08T20:26:01+08:00">2019-05-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-10-16 21:25:36" itemprop="dateModified" datetime="2019-10-16T21:25:36+08:00">2019-10-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Leetcode Linked Lists practice summary<br><a id="more"></a></p>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1-Middle-of-the-Linked-List"><a href="#1-1-Middle-of-the-Linked-List" class="headerlink" title="1.1 Middle of the Linked List"></a>1.1 <a href="https://leetcode.com/problems/middle-of-the-linked-list" target="_blank" rel="noopener">Middle of the Linked List</a></h2><p>一开始使用遍历的方法，现在感觉使用两个指针，一个速度是另一个2倍，可能更加方便。</p>
+<h2 id="1-2-Reverse-Linked-List"><a href="#1-2-Reverse-Linked-List" class="headerlink" title="1.2 Reverse Linked List"></a>1.2 <a href="https://leetcode.com/problems/reverse-linked-list" target="_blank" rel="noopener">Reverse Linked List</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">reverseList</span><span class="params">(struct ListNode* head)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>) <span class="comment">//当头指针为空或者只有一个结点时停止递归</span></span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">newhead</span> = <span class="title">reverseList</span>(<span class="title">head</span>-&gt;<span class="title">next</span>);</span> <span class="comment">//递归</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/////尾插法</span></span><br><span class="line">    head-&gt;next-&gt;next = head; </span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">/////end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> newhead;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次假设除了第一个结点外其他结点已经翻转完毕（此时head-&gt;next是已经翻转后新链表的最后一个结点），然后将头结点插入新链表的尾部（即head-&gt;next）。</p>
+<h2 id="1-3-Delete-Node-in-a-Linked-List"><a href="#1-3-Delete-Node-in-a-Linked-List" class="headerlink" title="1.3 Delete Node in a Linked List"></a>1.3 <a href="https://leetcode.com/problems/delete-node-in-a-linked-list" target="_blank" rel="noopener">Delete Node in a Linked List</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(struct ListNode* node)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">temp</span> = <span class="title">node</span>-&gt;<span class="title">next</span>;</span></span><br><span class="line">    node-&gt;val  = temp-&gt;val;</span><br><span class="line">    node-&gt;next = temp-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(temp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>题目难点在于只给出了需要删除的结点，</p>
+<p>解题思路：将下一个结点的val复制给当前结点，然后删除下一个结点。即用当前结点代替下一个结点。</p>
+<h2 id="1-4-Merge-Two-Sorted-Lists"><a href="#1-4-Merge-Two-Sorted-Lists" class="headerlink" title="1.4 Merge Two Sorted Lists"></a>1.4 <a href="https://leetcode.com/problems/merge-two-sorted-lists" target="_blank" rel="noopener">Merge Two Sorted Lists</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">mergeTwoLists</span><span class="params">(struct ListNode* l1, struct ListNode* l2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l1 == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">    <span class="keyword">if</span> (l2 == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    <span class="keyword">if</span> (l1-&gt;val &lt;= l2-&gt;val) &#123;</span><br><span class="line">        l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        l2-&gt;next = mergeTwoLists(l1, l2-&gt;next);</span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次在两个链表的第一个结点中选择较小的一个，然后假设除了该结点其他结点已经合并完毕。在这种情况下只需要令该结点指向已排序好的新链表即可。不断递归，问题规模不断减小，直到有一个链表为NULL时停止递归。</p>
+<h2 id="1-5-Remove-Duplicates-from-Sorted-List"><a href="#1-5-Remove-Duplicates-from-Sorted-List" class="headerlink" title="1.5 Remove Duplicates from Sorted List"></a>1.5 <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list" target="_blank" rel="noopener">Remove Duplicates from Sorted List</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">deleteDuplicates</span><span class="params">(struct ListNode* head)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">temp</span>;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span>(head-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(head-&gt;val == head-&gt;next-&gt;val)&#123;</span><br><span class="line">        temp = head;</span><br><span class="line">        head = deleteDuplicates(head-&gt;next);</span><br><span class="line">        <span class="built_in">free</span>(temp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        head-&gt;next = deleteDuplicates(head-&gt;next);</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次判断前两个结点的val是否相同，如果相同，假设除了第一个结点外链表已经去重完毕，此时只需要将头指针指向新链表即可。如果不相同，令第一个节点指向新链表。不断递归，问题规模不断减小，直到只有一个结点时停止。</p>
+<h2 id="1-6-Linked-List-Cycle"><a href="#1-6-Linked-List-Cycle" class="headerlink" title="1.6  Linked List Cycle"></a>1.6 <a href="https://leetcode.com/problems/linked-list-cycle" target="_blank" rel="noopener"> Linked List Cycle</a></h2><p>使用 Floyd Cycle Detection Algorithm 又叫Tortoise and Hare Algorithm</p>
+<h2 id="1-7-Palindrome-Linked-List"><a href="#1-7-Palindrome-Linked-List" class="headerlink" title="1.7 Palindrome Linked List"></a>1.7 <a href="https://leetcode.com/problems/palindrome-linked-list" target="_blank" rel="noopener">Palindrome Linked List</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">reverse</span><span class="params">(struct ListNode* head)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">p</span>,*<span class="title">temp</span>;</span></span><br><span class="line">    p = head-&gt;next;</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/////////后插法//////////////</span></span><br><span class="line">    <span class="keyword">while</span>(p !=<span class="literal">NULL</span>)&#123;</span><br><span class="line">    temp = p-&gt;next;</span><br><span class="line">    p-&gt;next = head;</span><br><span class="line">    head = p;</span><br><span class="line"></span><br><span class="line">	p = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//////////后插法//////////</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(struct ListNode* head)</span></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">slow</span> =<span class="title">head</span>,*<span class="title">fast</span> =<span class="title">head</span>;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(!head || !head-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">////////找到中间结点和尾结点</span></span><br><span class="line">	<span class="keyword">while</span>(fast-&gt;next &amp;&amp; fast-&gt;next-&gt;next )&#123;</span><br><span class="line">	    fast = fast-&gt;next-&gt;next;</span><br><span class="line">	    slow = slow-&gt;next;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(fast-&gt;next)&#123;</span><br><span class="line">	    fast = fast-&gt;next;</span><br><span class="line">	    slow = slow-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//////end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//////翻转链表</span></span><br><span class="line">    reverse(slow);</span><br><span class="line">    <span class="comment">//////end</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/////逐个结点检查</span></span><br><span class="line">	<span class="keyword">while</span>(fast)&#123;</span><br><span class="line">	    <span class="keyword">if</span>(fast-&gt;val == head-&gt;val)&#123;</span><br><span class="line">		    fast = fast-&gt;next;</span><br><span class="line">		    head = head-&gt;next;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">else</span></span><br><span class="line">		    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解题思想在于，找到中间结点然后reverse后半段的链表，并与前半段对比。</p>
+<h2 id="1-8-Remove-Linked-List-Elements"><a href="#1-8-Remove-Linked-List-Elements" class="headerlink" title="1.8 Remove Linked List Elements"></a>1.8 <a href="https://leetcode.com/problems/remove-linked-list-elements" target="_blank" rel="noopener">Remove Linked List Elements</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">removeElements</span><span class="params">(struct ListNode* head, <span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">dummy</span>=(<span class="title">struct</span> <span class="title">ListNode</span>*)<span class="title">malloc</span>(<span class="title">sizeof</span>(<span class="title">struct</span> <span class="title">ListNode</span>));</span></span><br><span class="line">    dummy-&gt;val=INT_MAX;</span><br><span class="line">    dummy-&gt;next=head;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">prev</span> = <span class="title">dummy</span>;</span> </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">Next</span> = <span class="title">NULL</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">curr</span> = <span class="title">dummy</span>-&gt;<span class="title">next</span>;</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">        Next=curr-&gt;next;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span>(curr-&gt;val==val)&#123;</span><br><span class="line">            prev-&gt;next=curr-&gt;next;</span><br><span class="line">            <span class="built_in">free</span>(curr);</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">           prev=curr;</span><br><span class="line">           curr=Next;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>d算法本身没什么好说的，不过值得注意的是，使用头结点将第一个结点普通化，不用单独处理第一个结点，更加方便。个人感觉链表的核心就在于 prev &amp; curr &amp; next。</p>
+<h2 id="1-9-Intersection-of-Two-Linked-Lists"><a href="#1-9-Intersection-of-Two-Linked-Lists" class="headerlink" title="1.9 Intersection of Two Linked Lists"></a>1.9 <a href="https://leetcode.com/problems/intersection-of-two-linked-lists" target="_blank" rel="noopener">Intersection of Two Linked Lists</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode *<span class="title">getIntersectionNode</span><span class="params">(struct ListNode *headA, struct ListNode *headB)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> LengthA = <span class="number">0</span>, LengthB = <span class="number">0</span>;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">curr</span>;</span></span><br><span class="line"></span><br><span class="line">    curr = headA;</span><br><span class="line">    <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">        curr = curr-&gt;next;</span><br><span class="line">        LengthA++;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    curr = headB;</span><br><span class="line">    <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">        curr = curr-&gt;next;</span><br><span class="line">        LengthB++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(LengthA &lt; LengthB)&#123;</span><br><span class="line">        headB = headB-&gt;next;</span><br><span class="line">        LengthB--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(LengthB &lt; LengthA)&#123;</span><br><span class="line">        headA = headA-&gt;next;</span><br><span class="line">        LengthA--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(headA != headB)&#123;</span><br><span class="line">        headA = headA-&gt;next;</span><br><span class="line">        headB = headB-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> headA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b遍历，确定两个链表的长度，然后将较长的链表缩短到于短链表一样的长度。最后逐结点对比，当发现指针相同时，就是解。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/20/新生手册/" rel="next" title="ZZZ">
+                <i class="fa fa-chevron-left"></i> ZZZ
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/08/信号与系统/" rel="prev" title="FT,LT和ZT总结">
+                FT,LT和ZT总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">HD</p>
+              <div class="site-description motion-element" itemprop="description">Self Cognize</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Middle-of-the-Linked-List"><span class="nav-text">1.1 Middle of the Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Reverse-Linked-List"><span class="nav-text">1.2 Reverse Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Delete-Node-in-a-Linked-List"><span class="nav-text">1.3 Delete Node in a Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Merge-Two-Sorted-Lists"><span class="nav-text">1.4 Merge Two Sorted Lists</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-Remove-Duplicates-from-Sorted-List"><span class="nav-text">1.5 Remove Duplicates from Sorted List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-Linked-List-Cycle"><span class="nav-text">1.6  Linked List Cycle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-Palindrome-Linked-List"><span class="nav-text">1.7 Palindrome Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-Remove-Linked-List-Elements"><span class="nav-text">1.8 Remove Linked List Elements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-Intersection-of-Two-Linked-Lists"><span class="nav-text">1.9 Intersection of Two Linked Lists</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HD</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
