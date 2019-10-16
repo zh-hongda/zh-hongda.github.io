@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2019/04/20/%E6%96%B0%E7%94%9F%E6%89%8B%E5%86%8C/</loc>
+    <lastmod>2019-10-16</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/04/19/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
+    <lastmod>2019-10-16</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/04/19/DASiamRPN/</loc>
+    <lastmod>2019-08-25</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/04/19/Visual%20Object%20Tracking%20using%20Adaptive%20Correlation%20Filters/</loc>
+    <lastmod>2019-08-25</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2019/07/10/English/</loc>
-    <lastmod>2019-07-10</lastmod>
+    <lastmod>2019-07-18</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/07/12/Matlab/</loc>
+    <lastmod>2019-07-12</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/07/10/Linux/</loc>
-    <lastmod>2019-07-10</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/07/10/Matlab/</loc>
     <lastmod>2019-07-10</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/07/10/Latex/</loc>
@@ -16,14 +28,8 @@
     <loc>http://yoursite.com/2019/04/18/%E8%AF%95%E7%94%A8Markdown/</loc>
     <lastmod>2019-07-10</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/04/19/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
-    <lastmod>2019-05-30</lastmod>
-  </url>  <url>
     <loc>http://yoursite.com/2019/05/08/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2019-05-30</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/04/20/%E6%96%B0%E7%94%9F%E6%89%8B%E5%86%8C/</loc>
-    <lastmod>2019-05-20</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/05/08/OTB%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-05-08</lastmod>
