@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/04/19/Visual%20Object%20Tracking%20using%20Adaptive%20Correlation%20Filters/</loc>
+    
+    <lastmod>2019-10-17T01:23:49.345Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/10/16/LinkedLists/</loc>
     
     <lastmod>2019-10-16T13:27:34.865Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2019/04/19/DASiamRPN/</loc>
     
     <lastmod>2019-08-25T02:52:02.293Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/19/Visual%20Object%20Tracking%20using%20Adaptive%20Correlation%20Filters/</loc>
-    
-    <lastmod>2019-08-25T02:50:11.276Z</lastmod>
     
   </url>
   

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2019/04/19/Visual%20Object%20Tracking%20using%20Adaptive%20Correlation%20Filters/</loc>
+    <lastmod>2019-10-17</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2019/10/16/LinkedLists/</loc>
     <lastmod>2019-10-16</lastmod>
   </url>  <url>
@@ -14,9 +17,6 @@
     <lastmod>2019-10-16</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/04/19/DASiamRPN/</loc>
-    <lastmod>2019-08-25</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/04/19/Visual%20Object%20Tracking%20using%20Adaptive%20Correlation%20Filters/</loc>
     <lastmod>2019-08-25</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/07/12/Matlab/</loc>
