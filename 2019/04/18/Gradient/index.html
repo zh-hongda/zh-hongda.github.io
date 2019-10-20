@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。">
+  <meta name="description" content="记录学习Gradient的过程，帮助自己加深理解，感觉有不少地方自己写的不清楚，以后继续改进吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FT,LT和ZT总结">
-<meta property="og:url" content="http://yoursite.com/2019/05/08/信号与系统/index.html">
+<meta property="og:title" content="Linked Lists Summary">
+<meta property="og:url" content="http://yoursite.com/2019/04/18/Gradient/index.html">
 <meta property="og:site_name" content="zh-hongda">
-<meta property="og:description" content="学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。">
+<meta property="og:description" content="记录学习Gradient的过程，帮助自己加深理解，感觉有不少地方自己写的不清楚，以后继续改进吧。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-30T13:14:50.476Z">
+<meta property="og:updated_time" content="2019-10-20T08:24:06.050Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FT,LT和ZT总结">
-<meta name="twitter:description" content="学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。">
+<meta name="twitter:title" content="Linked Lists Summary">
+<meta name="twitter:description" content="记录学习Gradient的过程，帮助自己加深理解，感觉有不少地方自己写的不清楚，以后继续改进吧。">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/08/信号与系统/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/18/Gradient/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>FT,LT和ZT总结 | zh-hongda</title>
+  <title>Linked Lists Summary | zh-hongda</title>
   
 
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/信号与系统/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/Gradient/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HD">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">FT,LT和ZT总结
+          <h1 class="post-title" itemprop="name headline">Linked Lists Summary
 
               
             
@@ -332,7 +332,7 @@
                 
               
 
-              <time title="Created: 2019-05-08 20:26:01" itemprop="dateCreated datePublished" datetime="2019-05-08T20:26:01+08:00">2019-05-08</time>
+              <time title="Created: 2019-04-18 20:26:01" itemprop="dateCreated datePublished" datetime="2019-04-18T20:26:01+08:00">2019-04-18</time>
             
 
             
@@ -349,7 +349,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-30 21:14:50" itemprop="dateModified" datetime="2019-05-30T21:14:50+08:00">2019-05-30</time>
+                <time title="Modified: 2019-10-20 16:24:06" itemprop="dateModified" datetime="2019-10-20T16:24:06+08:00">2019-10-20</time>
               
             
           </span>
@@ -366,7 +366,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/信号与系统/" itemprop="url" rel="index"><span itemprop="name">信号与系统</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a></span>
 
                 
                 
@@ -401,115 +401,33 @@
       
 
       
-        <p>学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。<br><a id="more"></a><br>为了解信号在变换域的处理方法，学习了<strong>东南大学孟桥教授的信号与系统</strong>，辅以<br>东南大学吴镇扬教授的数字信号处理<br>西安电子科技大学郭宝龙教授的信号与系统  </p>
-<p><font color="#0099ff" size="2" face="黑体">从线性代数的角度看，三大变换分别将信号从时域变换到了频域、S域、Z域，把信号从一组基下换到了另一组基下。</font></p>
-<h1 id="Fourier-series"><a href="#Fourier-series" class="headerlink" title="Fourier series"></a>Fourier series</h1><p>“傅里叶级数”的名字是为了纪念 Jean-Baptiste Joseph Fourier (1768–1830)在三角级数方面的重要贡献。该理论认为任意的周期函数都可以被一组三角函数近似代替。</p>
-<script type="math/tex; mode=display">
-f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infty}(a_n cosn\Omega t +b_n sinn\Omega t) , \Omega=\frac{2\pi}{T}\\
-a_n=\frac{2}{t_2-t_1}\int_{t_1}^{t_2}f(t)cos(n\Omega t)dt\\
-b_n=\frac{2}{t_2-t_1}\int_{t_1}^{t_2}f(t)sin(n\Omega t)dt</script><p>傅里叶级数还可以表示为，  </p>
-<script type="math/tex; mode=display">
-f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infty}A_n cos(n\Omega t +\varphi_n)\\
-A_n=\sqrt{a_n^2+b_n^2}\\
-\varphi_n=-\arctan \frac{b_n}{a_n}</script><p>或者表示为，  </p>
-<script type="math/tex; mode=display">
-f(t)=\sum_{n=-\infty}^{+\infty}[c_n\cdot e^{jn\Omega t}]\\
-c_n=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jn\Omega t}dt\\</script><p>Fourier transform<br>在傅里叶级数基础上进一步扩展，即使非周期的函数也可以被其他函数近似代替。<br>令傅里叶级数中的 $T\rightarrow \infty$ ，则 $\Omega \rightarrow 0$ ,此时 $n\Omega$ 近似于 $\omega$</p>
-<script type="math/tex; mode=display">
-F(j\omega)=T\cdot c_n=\int_{-\infty}^{+\infty}f(t)e^{-j\omega t}dt</script><p>乘$T$是为了将$F(j\omega)$放大，便于观察和显示。  </p>
-<p>Discrete Fourier series (DFS)<br>将傅里叶级数中的$f(t)$在时域离散化，得到离散傅里叶级数。<br>原式，</p>
-<script type="math/tex; mode=display">
-c_k=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jk\Omega t}dt\\</script><p>对于周期为$N$的周期离散序列$\tilde{x}(n)$而言，时域积分演变为离散求和，因此有，</p>
-<script type="math/tex; mode=display">
-\tilde{X}(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}\tilde{x}(n)e^{-jk\Omega n}\\</script><p>discrete-time Fourier transform (DTFT)<br>将傅里叶变换中的$f(t)$在时域离散化，得到离散时间傅里叶变换。<br>对 $f(t)$ 以 $T$ 为周期进行采样，</p>
-<script type="math/tex; mode=display">
-f_{\delta}(t)=\sum_{k=-\infty}^{+\infty}f(kT)\delta(t-kT)</script><p>对$f_{\delta}(t)$进行傅里叶变换，</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-F(j\omega)&=\int_{-\infty}^{+\infty}f_{\delta}(t)e^{-j\omega t}dt\\
-&=\int_{-\infty}^{+\infty}[\sum_{k=-\infty}^{+\infty}f(kT)\delta(t-kT)]e^{-j\omega t}dt\\
-&=\sum_{k=-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(kT)\delta(t-kT)e^{-j\omega t}dt\\
-&=\sum_{k=-\infty}^{+\infty}f(kT)[\int_{-\infty}^{+\infty}\delta(t-kT)e^{-j\omega t}dt]\\
-&=\sum_{k=-\infty}^{+\infty}f(kT)e^{-j\omega kT}
-\end{aligned}</script><p>将T归一化后，得到:</p>
-<script type="math/tex; mode=display">
-F(j\omega)=\sum_{k=-\infty}^{+\infty}f(k)e^{-j\omega k}</script><p>Discrete Fourier transform (DFT)<br>取DFS中的一个周期得到（或者将DTFT进一步在频域离散化），得到离散傅里叶变换。</p>
-<script type="math/tex; mode=display">
-X(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}x(n)e^{-jk\Omega n}\\</script><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>变换</th>
-<th style="text-align:right">时域特性</th>
-<th style="text-align:center">频域特性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Fourier series</td>
-<td style="text-align:right">$f(t)=\sum_{n=-\infty}^{+\infty}[c_n\cdot e^{jn\Omega t}]$</td>
-<td style="text-align:center">$c_n=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jn\Omega t}dt$</td>
-</tr>
-<tr>
-<td>Fourier transform</td>
-<td style="text-align:right">$f(t)=\int_{-\infty}^{+\infty}F(j\omega)e^{-j\omega t}d\omega$</td>
-<td style="text-align:center">$F(j\omega)=\int_{-\infty}^{+\infty}f(t)e^{-j\omega t}dt$</td>
-</tr>
-<tr>
-<td>DFS</td>
-<td style="text-align:right">待补</td>
-<td style="text-align:center">$\tilde{X}(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}\tilde{x}(n)e^{-jk\Omega n}$</td>
-</tr>
-<tr>
-<td>DTFT</td>
-<td style="text-align:right">待补</td>
-<td style="text-align:center">$F(j\omega)=\sum_{k=-\infty}^{+\infty}f(k)e^{-j\omega k}$</td>
-</tr>
-<tr>
-<td>DFT</td>
-<td style="text-align:right">待补</td>
-<td style="text-align:center">$X(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}x(n)e^{-jk\Omega n}$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="Laplace-transform"><a href="#Laplace-transform" class="headerlink" title="Laplace transform"></a>Laplace transform</h1><p>$f(t)$进行傅里叶变换的前提是，满足绝对可积条件。即，</p>
-<script type="math/tex; mode=display">
-\int_0^{+\infty}\left |f(t)\right |< +\infty</script><p>当$f(t)$不满足绝对可积条件时，为原函数$f(t)$乘上一个一个衰减因子$e^{-\delta t}$，然后进行傅里叶变换。</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-F_1(j\omega)&=\int_{-\infty}^{+\infty}f(t)e^{-\delta t}e^{-j\omega t}dt\\
-&=\int_{-\infty}^{+\infty}f(t)e^{-(\delta +j\omega)t }dt\\
-\end{aligned}</script><p>令$s=\delta +j\omega$ ，得到</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-F(s)&=\int_{-\infty}^{+\infty}f(t)e^{-st}dt\\
-\end{aligned}</script><p>傅里叶变换将函数变换到频域，拉普拉斯变换将函数变换到s域。</p>
-<h1 id="Z-transform"><a href="#Z-transform" class="headerlink" title="Z-transform"></a>Z-transform</h1><p>$f_{\delta}(t)$进行DTFT的前提是，满足绝对可积条件。即，</p>
-<script type="math/tex; mode=display">
-\int_{-\infty}^{+\infty}\left |f_{\delta}(t)\right |<+\infty</script><p>或，</p>
-<script type="math/tex; mode=display">
-\sum_{k=0}^{+\infty}\left |f(kT)\right |<+\infty</script><p>当$f_{\delta}(t)$不满足绝对可积条件时，为$f_{\delta}(t)$乘上一个衰减因子$e^{-\delta k}$，</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-F_1(j\omega)&=\sum_{k=-\infty}^{+\infty}f(k)e^{-\delta k}e^{-j\omega k}\\
-&=\sum_{k=-\infty}^{+\infty}f(k)e^{(\delta +j\omega)^{-k}}
-\end{aligned}</script><p>令$z=e^{(\delta +j\omega)}$,</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-F(z)=\sum_{k=-\infty}^{+\infty}f(k)z^{-k}
-\end{aligned}</script><p>DTFT 将函数变换到频域，Z 变换将函数变换到 z 域。</p>
-<h1 id="zzz"><a href="#zzz" class="headerlink" title="zzz"></a>zzz</h1><blockquote>
-<ul>
-<li>主值区间：  </li>
-<li>主值序列：  </li>
-<li>直流分量：傅里叶级数中的$\frac{a_0}{2}$  </li>
-<li>基波分量：傅里叶级数中 $a_1\cos \Omega t$ 和 $a_1\sin \Omega t$  </li>
-<li>n次谐波分量：傅里叶级数中 $a_n\cos n\Omega t$ 和 $a_n\sin n\Omega t$    </li>
-<li>频谱泄露：  造成频谱泄露的原因在于傅里叶变换的输入信号不能准确的、完整的代表被分析信号，输出产生的一种误差， 这种误差可以通过加合适的窗函数或延长时间窗得以改善，当输入信号的不完整性达到一定程度，输出是一种错误的结果。</li>
-</ul>
+        <p>记录学习Gradient的过程，帮助自己加深理解，感觉有不少地方自己写的不清楚，以后继续改进吧。<br><a id="more"></a></p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>一开始有两个疑问：</p>
+<blockquote>
+<ol>
+<li>为什么梯度指向变化最快的方向。</li>
+<li>怎么求梯度（为什么这么求）。</li>
+</ol>
 </blockquote>
-
+<h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><p>对应问题1:</p>
+<p>梯度的定义是对导数定义的泛化（高维）。</p>
+<p>在单变量函数中，导数对应切线的斜率（即函数变化最快的方向），如：</p>
+<script type="math/tex; mode=display">
+y + 3x = 0 \\</script><p>上例可以理解为函数在x轴负方向的变化速度为3。这时便把导数理解为了有大小和方向的量，梯度也是如此，有梯度大小和梯度方向。</p>
+<p>和导数一样梯度方向指向函数变化最快的方向，而梯度大小表示变化的具体速度。</p>
+<p>为什么梯度指向变化最快的方向？</p>
+<p>答：定义就是这样。这就是梯度的定义。是人为的把变化最快的地方叫做梯度。</p>
+<h2 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h2><p>对应问题2：</p>
+<p>不做具体证明（我也没看过证明什么的，感觉也没必要看），只从直观感觉去解释，理解。</p>
+<p>1.偏导数大家都学过，偏导数指向表示当前方向的变化率。</p>
+<p>2.高维函数在空间的各个基上的偏导数，对应着各个方向上的变化率。</p>
+<p>3.高维函数在某个点变化最快的方向和变化率用梯度的方向和大小表示。</p>
+<p>4.梯度在各个基上的投影对应偏导数，也可以理解为在各个基上的单位向量和偏导数合成了梯度向量。</p>
+<p>所以得到了：</p>
+<script type="math/tex; mode=display">
+\nabla f = \frac{\partial f}{\partial x} \mathbf{i} + \frac{\partial f}{\partial y} \mathbf{j} + \frac{\partial f}{\partial z} \mathbf{k}</script><p>同时也有（梯度在各个方向上的投影对应函数在对应方向上的偏导数）：</p>
+<script type="math/tex; mode=display">
+\big(\nabla f(x)\big)\cdot \mathbf{v} = D_{\mathbf v}f(x)</script>
       
     </div>
 
@@ -539,8 +457,8 @@ F(z)=\sum_{k=-\infty}^{+\infty}f(k)z^{-k}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/20/新生手册/" rel="next" title="ZZZ">
-                <i class="fa fa-chevron-left"></i> ZZZ
+              <a href="/2019/04/18/试用Markdown/" rel="next" title="The First">
+                <i class="fa fa-chevron-left"></i> The First
               </a>
             
           </div>
@@ -549,8 +467,8 @@ F(z)=\sum_{k=-\infty}^{+\infty}f(k)z^{-k}
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/08/OTB使用/" rel="prev" title="OTB 使用总结">
-                OTB 使用总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/19/线性代数/" rel="prev" title="线性代数">
+                线性代数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -689,7 +607,7 @@ F(z)=\sum_{k=-\infty}^{+\infty}f(k)z^{-k}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Fourier-series"><span class="nav-text">Fourier series</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Laplace-transform"><span class="nav-text">Laplace transform</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Z-transform"><span class="nav-text">Z-transform</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zzz"><span class="nav-text">zzz</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-text">1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1"><span class="nav-text">1.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2"><span class="nav-text">1.2</span></a></li></ol></div>
             
 
           </div>
