@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/04/19/DASiamRPN/</loc>
+    
+    <lastmod>2019-10-20T08:29:38.179Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/07/10/Latex/</loc>
+    
+    <lastmod>2019-10-20T08:29:21.306Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/18/Gradient/</loc>
     
-    <lastmod>2019-10-20T08:24:06.050Z</lastmod>
+    <lastmod>2019-10-20T08:27:46.268Z</lastmod>
     
   </url>
   
@@ -65,13 +79,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/04/19/DASiamRPN/</loc>
-    
-    <lastmod>2019-08-25T02:52:02.293Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/07/12/Matlab/</loc>
     
     <lastmod>2019-07-12T06:33:56.447Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>http://yoursite.com/2019/07/10/Linux/</loc>
     
     <lastmod>2019-07-10T02:40:51.670Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/07/10/Latex/</loc>
-    
-    <lastmod>2019-07-10T02:40:32.936Z</lastmod>
     
   </url>
   
