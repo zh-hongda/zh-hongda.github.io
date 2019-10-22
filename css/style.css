@@ -35,7 +35,6 @@ body {
   color: #368ccb;
 }
 .post {
-  width: 70%;
   margin: 1em auto;
   padding: 30px 50px;
   background-color: #fff;
@@ -81,4 +80,36 @@ body {
 .archive .post-archive .post-item .post-title {
   color: #368ccb;
   text-decoration: none;
+}
+.band {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  padding-top: 5%;
+}
+.category {
+  background: #fff;
+  text-decoration: none !important;
+  color: #444 !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+  top: 0;
+  transition: all 0.1s ease-in;
+  margin-top: 5px;
+}
+.category .thumb {
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+}
+.category article {
+  padding: 20px;
+  justify-content: space-between;
 }
