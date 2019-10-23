@@ -98,18 +98,17 @@
 
   <meta name="description" content="没有找到心仪的个人博客主题？那就自己写吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gradient">
+<meta property="og:title" content="自己制作HEXO主题">
 <meta property="og:url" content="http://yoursite.com/2019/10/23/自己制作HEXO主题/index.html">
 <meta property="og:site_name" content="zh-hongda">
 <meta property="og:description" content="没有找到心仪的个人博客主题？那就自己写吧。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/10/23/自己制作HEXO主题/first.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/23/自己制作HEXO主题/secend.png">
-<meta property="og:updated_time" content="2019-10-23T05:42:30.846Z">
+<meta property="og:updated_time" content="2019-10-23T05:47:11.729Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gradient">
+<meta name="twitter:title" content="自己制作HEXO主题">
 <meta name="twitter:description" content="没有找到心仪的个人博客主题？那就自己写吧。">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/23/自己制作HEXO主题/first.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/23/自己制作HEXO主题/secend.png">
 
 
 
@@ -127,7 +126,7 @@
   };
 </script>
 
-  <title>Gradient | zh-hongda</title>
+  <title>自己制作HEXO主题 | zh-hongda</title>
   
 
 
@@ -309,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Gradient
+          <h1 class="post-title" itemprop="name headline">自己制作HEXO主题
 
               
             
@@ -335,7 +334,7 @@
                 
               
 
-              <time title="Created: 2019-10-23 09:38:08 / Modified: 13:42:30" itemprop="dateCreated datePublished" datetime="2019-10-23T09:38:08+08:00">2019-10-23</time>
+              <time title="Created: 2019-10-23 09:38:08 / Modified: 13:47:11" itemprop="dateCreated datePublished" datetime="2019-10-23T09:38:08+08:00">2019-10-23</time>
             
 
             
@@ -416,7 +415,6 @@
 <p><code>post.ejs</code>:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-title"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">page.title</span> %&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-meta"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-time"</span>&gt;</span><span class="tag">&lt;<span class="name">%-</span> <span class="attr">date</span>(<span class="attr">page.date</span>, "<span class="attr">YYYY-MM-DD</span>") %&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-content"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%-</span> <span class="attr">page.content</span> %&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>此时的网页是这个样子的：</p>
-<img src="/2019/10/23/自己制作HEXO主题/first.png" title="Thiss">
 <h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>上一章节已经设置只好了博客的布局，所有虽然你有了内容但是还比较丑。这一章节调整页面的样式。</p>
 <p>在 <code>./source/css</code> 文件夹中创建 <code>style.styl</code>，编写一些基础的样式，并把所有样式 <code>import</code> 到这个文件。所以最终编译之后只会有 <code>style.css</code> 一个文件。创建 <code>_partial/index.styl</code>、<code>_partial/header.styl</code> 与 <code>_partial/post.styl</code> 存放首页、页面导航以及文章的样式，并且在 <code>style.styl</code> 中 <code>import</code> 这三个文件。</p>
 <p><code>style.styl</code>:</p>
