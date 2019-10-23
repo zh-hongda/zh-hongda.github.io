@@ -1,53 +1,810 @@
 <!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.9.0">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-  <title>zh-hongda</title>
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.ico?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="不常用但是又没那么不常用的东西之Matlab。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matlab Experience">
+<meta property="og:url" content="http://yoursite.com/2019/07/12/Matlab/index.html">
+<meta property="og:site_name" content="zh-hongda">
+<meta property="og:description" content="不常用但是又没那么不常用的东西之Matlab。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-12T06:33:56.447Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Matlab Experience">
+<meta name="twitter:description" content="不常用但是又没那么不常用的东西之Matlab。">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/12/Matlab/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Matlab Experience | zh-hongda</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
-  <body>
-    <header class="header">
-  <div class="blog-title">
-    <a href="/" class="logo">zh-hongda</a>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zh-hongda</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
   </div>
-  <nav class="navbar">
-    <ul class="menu">
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
       
-        <li class="menu-item">
-          <a href="/" class="menu-item-link">Home</a>
-        </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
       
-        <li class="menu-item">
-          <a href="/archives" class="menu-item-link">Archives</a>
-        </li>
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
       
-        <li class="menu-item">
-          <a href="https://github.com/zh-hongda" class="menu-item-link">Github</a>
-        </li>
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+
+      
       
     </ul>
-  </nav>
-</header>
+  
 
-    <main class="main">
-      <article class="post">
-  <div class="post-title">
-    <h2 class="title">Matlab Experience</h2>
-  </div>
-   <div class="post-meta">
-    <span class="post-time">2019-07-12</span>
-  </div>
-  <div class="post-content">
-    <p>不常用但是又没那么不常用的东西之Matlab。<br><a id="more"></a></p>
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/12/Matlab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HD">
+      <meta itemprop="description" content="Self Cognize">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zh-hongda">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Matlab Experience
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-12 10:16:00 / Modified: 14:33:56" itemprop="dateCreated datePublished" datetime="2019-07-12T10:16:00+08:00">2019-07-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/zzz/" itemprop="url" rel="index"><span itemprop="name">zzz</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>不常用但是又没那么不常用的东西之Matlab。<br><a id="more"></a></p>
 <h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%将多个Figure放入一个Figure。  </span></span><br><span class="line">subplot(n,m,s);  <span class="comment">%将一个Figure分为$n \times m$个区域。s表示mesh() 对应的Figure放入第s个区域。  </span></span><br><span class="line">mesh(z);</span><br></pre></td></tr></table></figure>
 <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%绘制三元函数的图形，三元函数对应“体积”，二元函数对应“平面”</span></span><br><span class="line">clear</span><br><span class="line">[x,y,z]=<span class="built_in">meshgrid</span>(<span class="number">1</span>:<span class="number">0.1</span>:<span class="number">10</span>,<span class="number">1</span>:<span class="number">0.1</span>:<span class="number">5</span>,<span class="number">2</span>:<span class="number">0.1</span>:<span class="number">5</span>);</span><br><span class="line">v=x.^<span class="number">2</span>+<span class="number">3</span>*x.*y+<span class="number">4</span>*y.*z;</span><br><span class="line">xslice=[<span class="number">2</span>,<span class="number">5</span>,<span class="number">8</span>];<span class="comment">%指定切片的位置</span></span><br><span class="line">yslice=<span class="number">2</span>;</span><br><span class="line">zslice=[<span class="number">2</span>,<span class="number">4</span>];</span><br><span class="line">slice(x,y,z,v,xslice,yslice,zslice) <span class="comment">%绘制切片图</span></span><br><span class="line">colormap hsv <span class="comment">%指定颜色变化模式，无关紧要。</span></span><br></pre></td></tr></table></figure>
 <h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%绘制三原函数的等值面</span></span><br><span class="line">range=<span class="built_in">linspace</span>(<span class="number">-6</span>,<span class="number">6</span>,<span class="number">100</span>);</span><br><span class="line">[x,y,z]=<span class="built_in">meshgrid</span>(range,range,range);<span class="comment">%生成一定定义域内x，y，z矩阵</span></span><br><span class="line">v=x.^<span class="number">2</span>+y.^<span class="number">2</span>-z.^<span class="number">2</span>;<span class="comment">%计算函数数值，</span></span><br><span class="line">p = patch(isosurface(x,y,z,v,<span class="number">4</span>,x));<span class="comment">%用isosurface画等值面,第五个变量“4”控制画哪一个等值面，第6个变量控制颜色渐变的方向，“x”即沿x轴渐变</span></span><br><span class="line"><span class="comment">%等值面是三角网格表示的，用patch函数之后，更容易修改曲面颜色等</span></span><br><span class="line">p.FaceColor = <span class="string">'none'</span>;</span><br><span class="line">p.EdgeColor = <span class="string">'interp'</span>;</span><br><span class="line">daspect([<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">view(<span class="number">3</span>);</span><br><span class="line">axis tight</span><br><span class="line">grid on;</span><br><span class="line">xlabel(<span class="string">'x'</span>),ylabel(<span class="string">'y'</span>),zlabel(<span class="string">'z'</span>);</span><br><span class="line">view(<span class="number">45</span>,<span class="number">30</span>);  <span class="comment">%调整视角</span></span><br></pre></td></tr></table></figure>
-  </div>
-</article>
+      
+    </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/10/Latex/" rel="next" title="Latex">
+                <i class="fa fa-chevron-left"></i> Latex
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/16/LinkedLists/" rel="prev" title="Linked Lists Summary">
+                Linked Lists Summary <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">HD</p>
+              <div class="site-description motion-element" itemprop="description">Self Cognize</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0"><span class="nav-text">0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2"><span class="nav-text">2</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+	
+
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
     </main>
-  </body>
-</htmlt>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HD</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

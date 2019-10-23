@@ -1,53 +1,810 @@
 <!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.9.0">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-  <title>zh-hongda</title>
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.ico?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Leetcode Stack practice summary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stack Summary">
+<meta property="og:url" content="http://yoursite.com/2019/10/17/Stack/index.html">
+<meta property="og:site_name" content="zh-hongda">
+<meta property="og:description" content="Leetcode Stack practice summary">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-17T07:38:23.686Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stack Summary">
+<meta name="twitter:description" content="Leetcode Stack practice summary">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/10/17/Stack/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Stack Summary | zh-hongda</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
-  <body>
-    <header class="header">
-  <div class="blog-title">
-    <a href="/" class="logo">zh-hongda</a>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zh-hongda</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
   </div>
-  <nav class="navbar">
-    <ul class="menu">
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
       
-        <li class="menu-item">
-          <a href="/" class="menu-item-link">Home</a>
-        </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
       
-        <li class="menu-item">
-          <a href="/archives" class="menu-item-link">Archives</a>
-        </li>
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
       
-        <li class="menu-item">
-          <a href="https://github.com/zh-hongda" class="menu-item-link">Github</a>
-        </li>
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+
+      
       
     </ul>
-  </nav>
-</header>
+  
 
-    <main class="main">
-      <article class="post">
-  <div class="post-title">
-    <h2 class="title">Stack Summary</h2>
-  </div>
-   <div class="post-meta">
-    <span class="post-time">2019-10-17</span>
-  </div>
-  <div class="post-content">
-    <p>Leetcode Stack practice summary<br><a id="more"></a></p>
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/Stack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HD">
+      <meta itemprop="description" content="Self Cognize">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zh-hongda">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Stack Summary
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-10-17 15:32:01 / Modified: 15:38:23" itemprop="dateCreated datePublished" datetime="2019-10-17T15:32:01+08:00">2019-10-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Leetcode Stack practice summary<br><a id="more"></a></p>
 <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1-Min-Stack"><a href="#1-1-Min-Stack" class="headerlink" title="1.1 Min Stack"></a>1.1 <a href="https://leetcode.com/problems/min-stack" target="_blank" rel="noopener">Min Stack</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STACK_INIT_SIZE 1000 <span class="comment">//Stack初始大小</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STACKINCREMENT 100 <span class="comment">//空间耗尽时，的增量。</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SElemType int <span class="comment">//指定元素类型</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    SElemType* base;</span><br><span class="line">    SElemType* top;</span><br><span class="line">    <span class="keyword">int</span> stacksize;    </span><br><span class="line">&#125; MinStack;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** initialize your data structure here-&gt; */</span></span><br><span class="line"></span><br><span class="line"><span class="function">MinStack* <span class="title">minStackCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    MinStack* S = (MinStack*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MinStack));</span><br><span class="line">    <span class="keyword">if</span> (!S)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    S-&gt;base = (SElemType*)<span class="built_in">malloc</span>(STACK_INIT_SIZE * <span class="keyword">sizeof</span>(SElemType));</span><br><span class="line">    <span class="keyword">if</span>(!S-&gt;base)</span><br><span class="line">	    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    S-&gt;top = S-&gt;base;</span><br><span class="line">    S-&gt;stacksize = STACK_INIT_SIZE;</span><br><span class="line">    <span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">minStackPush</span><span class="params">(MinStack* obj, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="comment">///////////如果存储空间耗尽///////////////</span></span><br><span class="line">    <span class="keyword">if</span>((obj-&gt;top - obj-&gt;base) &gt;= obj-&gt;stacksize)&#123;</span><br><span class="line">	obj-&gt;base = (SElemType*)<span class="built_in">realloc</span>(obj-&gt;base,(obj-&gt;stacksize + STACKINCREMENT)*<span class="keyword">sizeof</span>(SElemType));</span><br><span class="line">    <span class="keyword">if</span>(!obj-&gt;base)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">    obj-&gt;top = obj-&gt;base + obj-&gt;stacksize;</span><br><span class="line">    obj-&gt;stacksize = obj-&gt;stacksize + STACKINCREMENT;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//////////END////////////////////////////</span></span><br><span class="line"></span><br><span class="line">    *(obj-&gt;top++) = x;  <span class="comment">//入栈</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">minStackPop</span><span class="params">(MinStack* obj)</span> </span>&#123;</span><br><span class="line">    <span class="comment">////////////如果栈空///////</span></span><br><span class="line">    <span class="keyword">if</span>(obj-&gt;top == obj-&gt;base)</span><br><span class="line">	    <span class="keyword">return</span>;</span><br><span class="line">	<span class="comment">/////////////END/////////////</span></span><br><span class="line">    obj-&gt;top--;  <span class="comment">//出栈</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minStackTop</span><span class="params">(MinStack* obj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(obj-&gt;top == obj-&gt;base)</span><br><span class="line">	    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> *(obj-&gt;top<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minStackGetMin</span><span class="params">(MinStack* obj)</span> </span>&#123;</span><br><span class="line">    SElemType* min;</span><br><span class="line"></span><br><span class="line">    min = obj-&gt;base;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(SElemType* curr=obj-&gt;top; curr != obj-&gt;base; curr--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(*(curr<span class="number">-1</span>) &lt; *min)</span><br><span class="line">           min = curr<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *min;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">minStackFree</span><span class="params">(MinStack* obj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(obj)&#123;</span><br><span class="line">	<span class="keyword">if</span>(obj-&gt;base)</span><br><span class="line">	    <span class="built_in">free</span>(obj-&gt;base);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">free</span>(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Stack的基本操作。</p>
 
-  </div>
-</article>
+      
+    </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/17/再看C语言/" rel="next" title="再看《C程序设计》">
+                <i class="fa fa-chevron-left"></i> 再看《C程序设计》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/23/自己制作HEXO主题/" rel="prev" title="Gradient">
+                Gradient <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">HD</p>
+              <div class="site-description motion-element" itemprop="description">Self Cognize</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Min-Stack"><span class="nav-text">1.1 Min Stack</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+	
+
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
     </main>
-  </body>
-</htmlt>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HD</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
