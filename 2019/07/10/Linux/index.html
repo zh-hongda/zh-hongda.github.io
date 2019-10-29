@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="zh-hongda">
 <meta property="og:description" content="不常用但是又没那么不常用的东西之Linux。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-23T03:07:06.847Z">
+<meta property="og:updated_time" content="2019-10-29T04:35:31.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Experience">
 <meta name="twitter:description" content="不常用但是又没那么不常用的东西之Linux。">
@@ -349,7 +349,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-10-23 11:07:06" itemprop="dateModified" datetime="2019-10-23T11:07:06+08:00">2019-10-23</time>
+                <time title="Modified: 2019-10-29 12:35:31" itemprop="dateModified" datetime="2019-10-29T12:35:31+08:00">2019-10-29</time>
               
             
           </span>
@@ -402,10 +402,28 @@
 
       
         <p>不常用但是又没那么不常用的东西之Linux。<br><a id="more"></a></p>
-<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p><strong>Linux下gcc版本切换。</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config gcc</span><br><span class="line"><span class="meta">#</span>验证是否成功</span><br><span class="line">gcc -v</span><br></pre></td></tr></table></figure></p>
+<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p><strong>Linux下gcc版本切换</strong>  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config gcc</span><br><span class="line"><span class="meta">#</span>验证是否成功</span><br><span class="line">gcc -v</span><br></pre></td></tr></table></figure>
 <p>如果列表中没有自己需要的gcc版本可以通过如下命令安装：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gcc-4.8 gcc-4.8-multilib g++-4.8 g++-4.8-multilib</span><br></pre></td></tr></table></figure></p>
-<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>使用tree命令打印文件目录。</p>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p><strong>使用tree命令打印文件目录</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>安装tree</span><br><span class="line">apt-get install tree</span><br><span class="line"><span class="meta">#</span>直接打印文件夹下所有文件</span><br><span class="line">tree example </span><br><span class="line"><span class="meta">#</span>指定显示的层数</span><br><span class="line">tree -L 2 </span><br><span class="line"><span class="meta">#</span>忽略指定文件或文件夹</span><br><span class="line">tree -I example</span><br><span class="line"><span class="meta">#</span>树状目录输出到指定文件中</span><br><span class="line">tree &gt; tree.text </span><br><span class="line"><span class="meta">#</span>如果要在md文件中使用，可以直接复制到“```”环境中。</span><br></pre></td></tr></table></figure>
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p><strong>交互式 Bash Shell 获取进程</strong></p>
+<p>在已知进程名(<code>name</code>)的前提下，交互式 Shell 获取进程 pid 有很多种方法，典型的通过 grep 获取 pid 的方法为（这里添加 <code>-v grep</code>是为了避免匹配到 grep 进程）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>ps命令是Process Status的缩写</span><br><span class="line">ps -ef | grep "name" | grep -v grep | awk '&#123;print $2&#125;'</span><br></pre></td></tr></table></figure>
+<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>一行一行的读取指定的文件， 以空格作为分隔符，打印第二个字段</span><br><span class="line">awk '&#123;print $2&#125;'  $fileName</span><br></pre></td></tr></table></figure>
+<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><p><strong>&amp;</strong></p>
+<p>在命令后面加上&amp; 实现后台运行。例如：<code>sh test.sh &amp;</code></p>
+<p>如果放在后台运行的作业会产生大量的输出到屏幕，最好使用下面的方法把它的输出重定向到某个文件中：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">command&gt;</span>out.file 2&gt;&amp;1  &amp;</span><br></pre></td></tr></table></figure>
+<p>2&gt;&amp;1 是将标准出错重定向到标准输出，这里的标准输出已经重定向到了out.file文件</p>
+<p><strong>nohup</strong></p>
+<p>nohup命令可以在控制台关掉(退出帐户时)之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。该命令配合 &amp; 命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup command &gt; myout.file 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h1 id="5"><a href="#5" class="headerlink" title="5"></a>5</h1><p>利用 <strong>update-rc.d</strong>命令 添加开机启动服务，引用<a href="https://blog.csdn.net/TMT123421/article/details/53610334" target="_blank" rel="noopener">网友经验</a></p>
+<h2 id="5-1"><a href="#5-1" class="headerlink" title="5.1"></a>5.1</h2><p>复制或软连接脚本到/etc/init.d/目录下<br>ubuntu 16.04中一定要加上以下LSB信息，不然放入启动脚本的时候会报错无法开机启动。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"><span class="meta">#</span>## BEGIN INIT INFO</span><br><span class="line"><span class="meta">#</span> Provides:          svnd.sh</span><br><span class="line"><span class="meta">#</span> Required-start:    $local_fs $remote_fs $network $syslog</span><br><span class="line"><span class="meta">#</span> Required-Stop:     $local_fs $remote_fs $network $syslog</span><br><span class="line"><span class="meta">#</span> Default-Start:     2 3 4 5</span><br><span class="line"><span class="meta">#</span> Default-Stop:      0 1 6</span><br><span class="line"><span class="meta">#</span> Short-Description: starts the svnd.sh daemon</span><br><span class="line"><span class="meta">#</span> Description:       starts svnd.sh using start-stop-daemon</span><br><span class="line"><span class="meta">#</span>## END INIT INFO</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-2"><a href="#5-2" class="headerlink" title="5.2"></a>5.2</h2><p>设置脚本文件的权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chmod 755 /etc/init.d/svnd.sh (注意一定要设置权限，不然开机不会启动)</span><br></pre></td></tr></table></figure></p>
+<p>执行如下命令将脚本放到启动脚本中去：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/init.d</span><br><span class="line">$ sudo update-rc.d svnd.sh defaults 95</span><br><span class="line"><span class="comment">#注1：其中数字95是脚本启动的顺序号，按照自己的需要相应修改即可。在你有多个启动脚本，而它们之间又有先后启动的依赖关系时你就知道这个数字的具体作用了。</span></span><br><span class="line"><span class="comment">#注2：将脚本添加到初始化执行的队列中去，注意如果脚本需要用到网络，则NN需设置一个比较大的数字，如99。</span></span><br><span class="line"><span class="comment">#命令：update-rc.d xxx defaults NN(NN为启动顺序)</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="5-3"><a href="#5-3" class="headerlink" title="5.3"></a>5.3</h2><p>卸载启动脚本的方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/init.d</span><br><span class="line">$ sudo update-rc.d -f svnd.sh remove</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -517,7 +535,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -544,7 +562,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -584,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0"><span class="nav-text">0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0"><span class="nav-text">0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2"><span class="nav-text">2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3"><span class="nav-text">3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4"><span class="nav-text">4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5"><span class="nav-text">5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1"><span class="nav-text">5.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2"><span class="nav-text">5.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3"><span class="nav-text">5.3</span></a></li></ol></li></ol></div>
             
 
           </div>

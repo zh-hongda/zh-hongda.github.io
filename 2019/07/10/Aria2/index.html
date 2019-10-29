@@ -96,17 +96,20 @@
 
 
 
-  <meta name="description" content="下午又翻了翻谭浩强教授的《C程序设计》">
+  <meta name="description" content="Linux下的下载利器Aria2使用教程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="再看《C程序设计》">
-<meta property="og:url" content="http://yoursite.com/2019/10/17/再看C语言/index.html">
+<meta property="og:title" content="Aria2 + ubuntu18.04安装与配置">
+<meta property="og:url" content="http://yoursite.com/2019/07/10/Aria2/index.html">
 <meta property="og:site_name" content="zh-hongda">
-<meta property="og:description" content="下午又翻了翻谭浩强教授的《C程序设计》">
+<meta property="og:description" content="Linux下的下载利器Aria2使用教程。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-17T06:23:14.832Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/10/Aria2/001.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/10/Aria2/002.png">
+<meta property="og:updated_time" content="2019-10-29T04:26:24.192Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="再看《C程序设计》">
-<meta name="twitter:description" content="下午又翻了翻谭浩强教授的《C程序设计》">
+<meta name="twitter:title" content="Aria2 + ubuntu18.04安装与配置">
+<meta name="twitter:description" content="Linux下的下载利器Aria2使用教程。">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/10/Aria2/001.png">
 
 
 
@@ -114,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/10/17/再看C语言/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/10/Aria2/">
 
 
 
@@ -124,7 +127,7 @@
   };
 </script>
 
-  <title>再看《C程序设计》 | zh-hongda</title>
+  <title>Aria2 + ubuntu18.04安装与配置 | zh-hongda</title>
   
 
 
@@ -289,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/再看C语言/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/Aria2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HD">
@@ -306,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">再看《C程序设计》
+          <h1 class="post-title" itemprop="name headline">Aria2 + ubuntu18.04安装与配置
 
               
             
@@ -332,12 +335,24 @@
                 
               
 
-              <time title="Created: 2019-10-17 14:03:00 / Modified: 14:23:14" itemprop="dateCreated datePublished" datetime="2019-10-17T14:03:00+08:00">2019-10-17</time>
+              <time title="Created: 2019-07-10 10:38:00" itemprop="dateCreated datePublished" datetime="2019-07-10T10:38:00+08:00">2019-07-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-10-29 12:26:24" itemprop="dateModified" datetime="2019-10-29T12:26:24+08:00">2019-10-29</time>
               
             
           </span>
@@ -389,32 +404,31 @@
       
 
       
-        <p>下午又翻了翻谭浩强教授的《C程序设计》</p>
-<a id="more"></a>
-<h1 id="1-结构化程序设计"><a href="#1-结构化程序设计" class="headerlink" title="1 结构化程序设计"></a>1 结构化程序设计</h1><h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><p>程序主要包括两方面：数据和算法（对数据进行的操作）。</p>
-<h2 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h2><p>算法常见的表示方式：自然语言、流程图、伪代码。</p>
-<p>1966年，Bohra 和 Jacopini提出了使用三种基本结构表示一个算法。</p>
-<blockquote>
-<ul>
-<li><p>顺序结构</p>
-</li>
-<li><p>选择结构</p>
-</li>
-<li><p>循环结构</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="1-3"><a href="#1-3" class="headerlink" title="1.3"></a>1.3</h2><p>结构化程序设计可以通俗理解为，在设计一个具体程序时遵守以下几条：</p>
-<blockquote>
-<ul>
-<li><p>自顶向下，</p>
-</li>
-<li><p>模块化设计</p>
-</li>
-<li><p>结构化编码（使用三种基本结构进行编码）。</p>
-</li>
-</ul>
-</blockquote>
+        <p>Linux下的下载利器Aria2使用教程。<br><a id="more"></a></p>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>安装Aria2</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install aria2</span><br></pre></td></tr></table></figure>
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>配置Aria2</p>
+<h2 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h2><p>创建配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /etc/aria2</span><br><span class="line">sudo touch /etc/aria2/aria2.conf</span><br><span class="line">sudo touch /etc/aria2/aria2.session</span><br><span class="line"></span><br><span class="line">sudo chmod 777 /etc/aria2/aria2.session</span><br><span class="line">sudo chmod 777 /etc/aria2/aria2.log</span><br></pre></td></tr></table></figure>
+<h2 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h2><p>设置配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">dir=/home/hongda/Downloads</span><br><span class="line">disable-ipv6=true</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">打开rpc的目的是为了给web管理端用</span></span><br><span class="line">enable-rpc=true</span><br><span class="line">rpc-allow-origin-all=true</span><br><span class="line">rpc-listen-all=true</span><br><span class="line">rpc-listen-port=6800</span><br><span class="line"><span class="meta">#</span><span class="bash">断点续传</span></span><br><span class="line">continue=true</span><br><span class="line">input-file=/etc/aria2/aria2.session</span><br><span class="line">save-session=/etc/aria2/aria2.session</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">最大同时下载任务数</span></span><br><span class="line">max-concurrent-downloads=20</span><br><span class="line">save-session-interval=120</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Http/FTP 相关</span></span><br><span class="line">connect-timeout=120</span><br><span class="line"><span class="meta">#</span><span class="bash">lowest-speed-limit=10K</span></span><br><span class="line"><span class="meta">#</span><span class="bash">同服务器连接数</span></span><br><span class="line">max-connection-per-server=12</span><br><span class="line"><span class="meta">#</span><span class="bash">max-file-not-found=2</span></span><br><span class="line"><span class="meta">#</span><span class="bash">最小文件分片大小, 下载线程数上限取决于能分出多少片, 对于小文件重要</span></span><br><span class="line">min-split-size=10M</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">单文件最大线程数, 路由建议值: 5</span></span><br><span class="line">split=10</span><br><span class="line">check-certificate=false</span><br><span class="line"><span class="meta">#</span><span class="bash">http-no-cache=<span class="literal">true</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h2><p>测试能否正常运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo aria2c --conf-path=/etc/aria2/aria2.conf</span><br></pre></td></tr></table></figure>
+<p>正确运行后：</p>
+<img src="/2019/07/10/Aria2/001.png" title="Aria2_01">
+<p>至此，aria2已经可以使用了。具体使用方法可以参考 <a href="https://aria2.github.io/" target="_blank" rel="noopener">aria2</a></p>
+<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><p>设置快捷命令，此处使用<a href="https://raw.githubusercontent.com/xxoocn/doubi/master/service/aria2_debian" target="_blank" rel="noopener">别人的脚本</a>，做简单修改。</p>
+<h2 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h2><p>下载脚本到指定目录，并修改文件权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/xxoocn/doubi/master/service/aria2_debian -O /etc/init.d/aria2 &amp;&amp; chmod +x /etc/init.d/aria2</span><br></pre></td></tr></table></figure>
+<h2 id="3-2"><a href="#3-2" class="headerlink" title="3.2"></a>3.2</h2><p>修改脚本</p>
+<p>原文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">仅列出了需要修改的部分</span></span><br><span class="line">NAME="Aria2"</span><br><span class="line">NAME_BIN="aria2c"</span><br><span class="line">CONFIG="/root/.aria2/aria2.conf"</span><br><span class="line">LOG="/root/.aria2/aria2.log"</span><br></pre></td></tr></table></figure>
+<p>修改后：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NAME="Aria2"</span><br><span class="line">NAME_BIN="aria2c"</span><br><span class="line">CONFIG="/etc/aria2/aria2.conf"</span><br><span class="line">LOG="/etc/aria2/aria2.log"</span><br></pre></td></tr></table></figure>
+<h2 id="3-3"><a href="#3-3" class="headerlink" title="3.3"></a>3.3</h2><p>添加脚本到开机启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-rc.d -f aria2 defaults</span><br></pre></td></tr></table></figure>
+<p>至此，Aria2安装与配置结束。</p>
+<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><p>测试<br><img src="/2019/07/10/Aria2/002.png" title="Aria2_02"></p>
 
       
     </div>
@@ -445,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/16/LinkedLists/" rel="next" title="Linked Lists Summary">
-                <i class="fa fa-chevron-left"></i> Linked Lists Summary
+              <a href="/2019/05/10/English/" rel="next" title="English">
+                <i class="fa fa-chevron-left"></i> English
               </a>
             
           </div>
@@ -455,8 +469,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/17/Stack/" rel="prev" title="Stack Summary">
-                Stack Summary <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/10/Latex/" rel="prev" title="Latex">
+                Latex <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -595,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-结构化程序设计"><span class="nav-text">1 结构化程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1"><span class="nav-text">1.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2"><span class="nav-text">1.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3"><span class="nav-text">1.3</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2"><span class="nav-text">2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1"><span class="nav-text">2.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2"><span class="nav-text">2.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3"><span class="nav-text">2.3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3"><span class="nav-text">3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1"><span class="nav-text">3.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2"><span class="nav-text">3.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3"><span class="nav-text">3.3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4"><span class="nav-text">4</span></a></li></ol></div>
             
 
           </div>
