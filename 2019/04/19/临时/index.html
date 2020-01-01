@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="记录关于pysot。">
+  <meta name="description" content="临时记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pysot">
-<meta property="og:url" content="http://yoursite.com/2019/04/19/pysot/index.html">
+<meta property="og:title" content="temporary">
+<meta property="og:url" content="http://yoursite.com/2019/04/19/临时/index.html">
 <meta property="og:site_name" content="zh-hongda">
-<meta property="og:description" content="记录关于pysot。">
+<meta property="og:description" content="临时记录">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-17T04:55:58.204Z">
+<meta property="og:updated_time" content="2019-12-04T00:56:51.941Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pysot">
-<meta name="twitter:description" content="记录关于pysot。">
+<meta name="twitter:title" content="temporary">
+<meta name="twitter:description" content="临时记录">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/19/pysot/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/19/临时/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>pysot | zh-hongda</title>
+  <title>temporary | zh-hongda</title>
   
 
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/pysot/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/临时/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HD">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">pysot
+          <h1 class="post-title" itemprop="name headline">temporary
 
               
             
@@ -349,7 +349,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-11-17 12:55:58" itemprop="dateModified" datetime="2019-11-17T12:55:58+08:00">2019-11-17</time>
+                <time title="Modified: 2019-12-04 08:56:51" itemprop="dateModified" datetime="2019-12-04T08:56:51+08:00">2019-12-04</time>
               
             
           </span>
@@ -401,27 +401,31 @@
       
 
       
-        <p>记录关于pysot。<br><a id="more"></a></p>
-<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">export PYTHONPATH=/home/hongda/pysot:$PYTHONPATH</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span></span><br><span class="line">cd /home/hongda/pysot/experiments/siamrpn_r50_l234_dwxcorr_8gpu </span><br><span class="line"><span class="meta">#</span> model test</span><br><span class="line">python -u ../../tools/test.py\</span><br><span class="line">--snapshot model.pth/     \</span><br><span class="line">--dataset OTB100/         \</span><br><span class="line">--config config.yaml/     \</span><br><span class="line">--vis</span><br><span class="line"><span class="meta">#</span>moder eval</span><br><span class="line">python ../../tools/eval.py\</span><br><span class="line">--tracker_path./results   \</span><br><span class="line">--dataset OTB100          \</span><br><span class="line">--num 1                   \</span><br><span class="line">--tracker_prefix 'checkpoint'  \</span><br></pre></td></tr></table></figure>
-<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>logs</p>
-<h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><blockquote>
-<p>git log                     查看commit history</p>
-<p>git log —oneline    简化git log的默认的输出，仅输出commit hash 前7个字符和commit message</p>
-<p>format()                 格式化函数</p>
-<p>awk                         文本处理</p>
-<p>head                       用来显示开头或结尾的字符</p>
+        <p>临时记录<br><a id="more"></a></p>
+<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p>计算卷积后尺寸的公式：</p>
+<script type="math/tex; mode=display">
+{W + 2P -F\over S}+1</script><blockquote>
+<p>W：输入数据尺寸</p>
+<p>P：Padding数量</p>
+<p>F：感受野尺寸（卷积核尺寸）</p>
+<p>S：步长</p>
+<p>D：输入通道数</p>
+<p>K：输出通道数</p>
 </blockquote>
-<p><strong>git log</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">hongda@hongda-ubuntu:~/pysot$ git log</span><br><span class="line">commit 052b9678a7ed336752f74dc6af31cc00eb004551 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Merge: 71f4fd2 113cab4</span><br><span class="line">Author: StrangerZhang &lt;fangyizhangz@gmail.com&gt;</span><br><span class="line">Date:   Mon Sep 23 17:20:07 2019 +0800</span><br><span class="line"></span><br><span class="line">    fix xcorr slow bugs</span><br><span class="line"></span><br><span class="line">commit 71f4fd26d326b8938582f9ce921a7913920b988d</span><br><span class="line">Author: StrangerZhang &lt;fangyizhangz@gmail.com&gt;</span><br><span class="line">Date:   Mon Sep 23 17:18:40 2019 +0800</span><br><span class="line"></span><br><span class="line">    fix xcorr slow bugs</span><br><span class="line"></span><br><span class="line">commit 113cab4b36379715888361dfcc89797692c8482b</span><br><span class="line">Author: Bo Li &lt;436101042@qq.com&gt;</span><br><span class="line">Date:   Mon Sep 23 16:57:07 2019 +0800</span><br><span class="line"></span><br><span class="line">    fix bug in xcorr_slow</span><br></pre></td></tr></table></figure>
-<p><strong>git log -oneline</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hongda@hongda-ubuntu:~/pysot$ git log -oneline</span><br><span class="line">052b967 (HEAD -&gt; master, origin/master, origin/HEAD) fix xcorr slow bugs</span><br><span class="line">71f4fd2 fix xcorr slow bugs</span><br><span class="line">113cab4 fix bug in xcorr_slow</span><br></pre></td></tr></table></figure>
-<p><strong>format</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(pysot) hongda@hongda-ubuntu:~/pysot/experiments/siamrpn_r50_l234_dwxcorr_8gpu$ python</span><br><span class="line">Python <span class="number">3.7</span><span class="number">.4</span> (default, Aug <span class="number">13</span> <span class="number">2019</span>, <span class="number">20</span>:<span class="number">35</span>:<span class="number">49</span>) </span><br><span class="line">[GCC <span class="number">7.3</span><span class="number">.0</span>] :: Anaconda, Inc. on linux</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;&#125; &#123;&#125;"</span>.format(<span class="string">"hello"</span>, <span class="string">"world"</span>)</span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>head</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">hongda@hongda-ubuntu:~/pysot$ git log | head -n1</span><br><span class="line">commit 052b9678a7ed336752f74dc6af31cc00eb004551</span><br><span class="line">hongda@hongda-ubuntu:~/pysot$ git log | head -n2</span><br><span class="line">commit 052b9678a7ed336752f74dc6af31cc00eb004551</span><br><span class="line">Merge: 71f4fd2 113cab4</span><br><span class="line">hongda@hongda-ubuntu:~/pysot$ git log | head -n8</span><br><span class="line">commit 052b9678a7ed336752f74dc6af31cc00eb004551</span><br><span class="line">Merge: 71f4fd2 113cab4</span><br><span class="line">Author: StrangerZhang &lt;fangyizhangz@gmail.com&gt;</span><br><span class="line">Date:   Mon Sep 23 17:20:07 2019 +0800</span><br><span class="line"></span><br><span class="line">    fix xcorr slow bugs</span><br><span class="line"></span><br><span class="line">commit 71f4fd26d326b8938582f9ce921a7913920b988d</span><br><span class="line">hongda@hongda-ubuntu:~/pysot$</span><br></pre></td></tr></table></figure>
-<p><strong>awk</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hongda@hongda-ubuntu:~/pysot$ git log | head -n8 | awk '&#123;&#123;print $2&#125;&#125;'</span><br><span class="line">052b9678a7ed336752f74dc6af31cc00eb004551</span><br><span class="line">71f4fd2</span><br><span class="line">StrangerZhang</span><br><span class="line">Mon</span><br><span class="line"></span><br><span class="line">xcorr</span><br><span class="line"></span><br><span class="line">71f4fd26d326b8938582f9ce921a7913920b988d</span><br><span class="line">hongda@hongda-ubuntu:~/pysot$</span><br></pre></td></tr></table></figure>
-<h1 id="end"><a href="#end" class="headerlink" title="end"></a>end</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始框</span><br><span class="line"></span><br><span class="line">op=&gt;operation: 处理框</span><br><span class="line"></span><br><span class="line">cond=&gt;condition: 判断框(是或否?)</span><br><span class="line"></span><br><span class="line">sub1=&gt;subroutine: 子流程</span><br><span class="line"></span><br><span class="line">io=&gt;inputoutput: 输入输出框</span><br><span class="line"></span><br><span class="line">e=&gt;end: 结束框</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line"></span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line"></span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br></pre></td></tr></table></figure>
+<p>当步长为1时，若要卷积后尺寸不变，则Padding的大小为：</p>
+<script type="math/tex; mode=display">
+F-1\over 2</script><p>每个卷积层权重个数加偏置数为总参数量：</p>
+<script type="math/tex; mode=display">
+F * F * D * K + K</script><h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>安装git，并执行：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config -global user.name "Your Name"</span><br><span class="line">git congif -global user.email "Your Email adress"</span><br></pre></td></tr></table></figure></p>
+<p>新建文件夹</p>
+<p>打开VSCode，并在其中打开该文件夹</p>
+<p>打开VSCode的Termial，输入 :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>编辑（修改/保存）文件。</p>
+<p>在VScode中点击按钮”stage all changes”，“commit all”。</p>
+<p>在VSCode的终端中输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>添加远程仓库地址</span><br><span class="line">git remote add origin git@github.com: zh-hongda/仓库名.git</span><br><span class="line"><span class="meta">#</span>将本地仓库推送至远程仓库</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">a(线性回归)--&gt;b(线性)</span><br><span class="line">a--&gt;c(全局性)</span><br><span class="line">a--&gt;d(数据未加工)</span><br><span class="line">b--&gt;e(属性非线性: 特征转换/多项式回归)</span><br><span class="line">b--&gt;f(全局非线性: 线性分类)</span><br><span class="line">b--&gt;g(系数非线性: 感知机/神经网络)</span><br><span class="line">c--&gt;h(线性样条回归/决策树)</span><br><span class="line">d--&gt;i(PCA)</span><br><span class="line">j(线性分类)--&gt;k(硬输出)</span><br><span class="line">j--&gt;l(软输出)</span><br><span class="line">k--&gt;m(LDA: 线性判别分析)</span><br><span class="line">k--&gt;n(感知机)</span><br><span class="line">l--&gt;o(判别式)</span><br><span class="line">l--&gt;p(生成式)</span><br><span class="line">p--&gt;r(GDA)</span><br><span class="line">p--&gt;s(Nevia Bayes)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -452,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/19/目标跟踪-ECO算法中部分公式推导/" rel="next" title="目标跟踪-ECO算法中部分公式推导">
-                <i class="fa fa-chevron-left"></i> 目标跟踪-ECO算法中部分公式推导
+              <a href="/2019/04/18/Gradient/" rel="next" title="Gradient">
+                <i class="fa fa-chevron-left"></i> Gradient
               </a>
             
           </div>
@@ -462,8 +466,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/19/Visual Object Tracking using Adaptive Correlation Filters/" rel="prev" title="Visual Object Tracking using Adaptive Correlation Filters">
-                Visual Object Tracking using Adaptive Correlation Filters <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/19/expend/" rel="prev" title="pysot">
+                pysot <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -602,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0"><span class="nav-text">0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1"><span class="nav-text">1.1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#end"><span class="nav-text">end</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0"><span class="nav-text">0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2"><span class="nav-text">2</span></a></li></ol></div>
             
 
           </div>
