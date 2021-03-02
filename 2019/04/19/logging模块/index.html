@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>logging - zh-hongda</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="Self Cognize">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="HD">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+  <!-- 代码高亮 -->
+  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+</head>
+
+
+  <body>
+    <!-- 引入代码高亮的 js -->
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- 代码高亮结束 -->
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">zh-hongda</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="logging">
+</div>
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>logging</h1>
+</div> -->
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <h1>logging</h1>
+  <p>记录关于pysot。<br><a id="more"></a></p>
+<h1 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>组件名称</th>
+<th style="text-align:left">对应类名</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>日志器</td>
+<td style="text-align:left">Logger</td>
+<td>提供了应用程序可一直使用的接口</td>
+</tr>
+<tr>
+<td>处理器</td>
+<td style="text-align:left">Handler</td>
+<td>将logger创建的日志记录发送到合适的目的输出</td>
+</tr>
+<tr>
+<td>过滤器</td>
+<td style="text-align:left">Filter</td>
+<td>提供了更细粒度的控制工具来决定输出哪条日志记录，丢弃哪条日志记录</td>
+</tr>
+<tr>
+<td>格式器</td>
+<td style="text-align:left">Formatter</td>
+<td>决定日志记录的最终输出格式</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<ul>
+<li><p>日志器（logger）需要通过处理器（handler）将日志信息输出到目标位置，如：文件、sys.stdout、网络等；</p>
+</li>
+<li><p>不同的处理器（handler）可以将日志输出到不同的位置；</p>
+</li>
+<li><p>日志器（logger）可以设置多个处理器（handler）将同一条日志记录输出到不同的位置；</p>
+</li>
+<li><p>每个处理器（handler）都可以设置自己的过滤器（filter）实现日志过滤，从而只保留感兴趣的日志；</p>
+</li>
+<li><p>每个处理器（handler）都可以设置自己的格式器（formatter）实现同一条日志以不同的格式输出到不同的地方。</p>
+</li>
+</ul>
+</blockquote>
+<p>简单点说就是：日志器（logger）是入口，真正干活儿的是处理器（handler），处理器（handler）还可以通过过滤器（filter）和格式器（formatter）对要输出的日志内容做过滤和格式化等处理操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一个日志器</span></span><br><span class="line">logger = logging.getLogger(<span class="string">'global'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建handler</span></span><br><span class="line">fh = logging.FileHandler(<span class="string">"test.log"</span>,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">ch = logging.StreamHandler()</span><br><span class="line"></span><br><span class="line"> <span class="comment">#设置输出日志格式</span></span><br><span class="line">formatter = logging.Formatter(\</span><br><span class="line">                              fmt=<span class="string">"%(asctime)s %(name)s %(filename)s %(message)s"</span>,\</span><br><span class="line">                              datefmt=<span class="string">"%Y/%m/%d %X"</span>)</span><br><span class="line"></span><br><span class="line"> <span class="comment">#为handler指定输出格式</span></span><br><span class="line">fh.setFormatter(formatter)</span><br><span class="line">ch.setFormatter(formatter)</span><br><span class="line">    </span><br><span class="line"> <span class="comment">#为logger添加的日志处理器</span></span><br><span class="line">logger.addHandler(fh)</span><br><span class="line">logger.addHandler(ch)</span><br></pre></td></tr></table></figure>
+<h1 id="logging模块常用format格式说明"><a href="#logging模块常用format格式说明" class="headerlink" title="logging模块常用format格式说明"></a>logging模块常用format格式说明</h1><blockquote>
+<p>%(levelno)s: 打印日志级别的数值</p>
+<p>%(levelname)s: 打印日志级别名称</p>
+<p>%(pathname)s: 打印当前执行程序的路径，其实就是sys.argv[0]</p>
+<p>%(filename)s: 打印当前执行程序名，python如：login.py</p>
+<p>%(funcName)s: 打印日志的当前函数</p>
+<p>%(lineno)d: 打印日志的当前行号,在第几行打印的日志</p>
+<p>%(asctime)s: 打印日志的时间</p>
+<p>%(thread)d: 打印线程ID</p>
+<p>%(threadName)s: 打印线程名称</p>
+<p>%(process)d: 打印进程ID</p>
+<p>%(message)s: 打印日志信息</p>
+</blockquote>
+
+</div>
+
+
+      </div>
+      
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>

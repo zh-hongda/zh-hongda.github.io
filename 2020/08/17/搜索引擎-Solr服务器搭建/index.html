@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>搜索引擎-Solr服务器搭建（单机版） - zh-hongda</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="Self Cognize">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="HD">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+  <!-- 代码高亮 -->
+  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+</head>
+
+
+  <body>
+    <!-- 引入代码高亮的 js -->
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- 代码高亮结束 -->
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">zh-hongda</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="搜索引擎-Solr服务器搭建（单机版）">
+</div>
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>搜索引擎-Solr服务器搭建（单机版）</h1>
+</div> -->
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <h1>搜索引擎-Solr服务器搭建（单机版）</h1>
+  <p>solr服务器搭建记录。<br><a id="more"></a></p>
+<h1 id="solr服务器搭建（单机版）"><a href="#solr服务器搭建（单机版）" class="headerlink" title="solr服务器搭建（单机版）"></a>solr服务器搭建（单机版）</h1><p>使用环境：</p>
+<blockquote>
+<p>solr4.4.0</p>
+<p>tomcat7.0.64</p>
+</blockquote>
+<p>工作目录：</p>
+<blockquote>
+<p>D:\NLZ_HD\solr-server</p>
+</blockquote>
+<ol>
+<li><p>准备文件</p>
+<blockquote>
+<p>apache-tomcat-7.0.64-windows-x64.zip</p>
+<p>solr-4.4.0.zip</p>
+</blockquote>
+</li>
+<li><p>准备tomcat</p>
+<ul>
+<li><p>解压tomcat压缩包，并在<code>D:\NLZ_HD\solr-server\tomcat7\conf\server.xml</code>中修改启动端口号为8989。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8989"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>准备solr官方资料</p>
+<ul>
+<li><p>解压solr压缩包，并将<code>D:\NLZ_HD\solr-server\solr-4.4.0\example\webapp\solr.war</code>复制到<code>D:\NLZ_HD\solr-server\tomcat7\webapps</code>目录下。</p>
+</li>
+<li><p>运行<code>D:\NLZ_HD\solr-server\tomcat7\bin\startup.bat</code>（用于解压<code>solr.war</code>）</p>
+</li>
+<li><p>配置solr的运行日志展示，将solr官方包中<code>solr-4.4.0\example\etc</code>文件夹中所有jar包复制到<code>solr-server\tomcat7\webapps\solr\WEB-INF\lib</code>中</p>
+</li>
+<li><p>创建solr索引存放目录<code>`solr-server\solrhome</code></p>
+</li>
+<li><p>配置solr的家目录，在<code>solr-server\tomcat7\webapps\solr\WEB-INF\web.xml</code>文件做如下修改</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">env-entry</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">env-entry-name</span>&gt;</span>solr/home<span class="tag">&lt;/<span class="name">env-entry-name</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">env-entry-value</span>&gt;</span>D:/NLZ_HD/solr-server/solrhome<span class="tag">&lt;/<span class="name">env-entry-value</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">env-entry-type</span>&gt;</span>java.lang.String<span class="tag">&lt;/<span class="name">env-entry-type</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">env-entry</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>将<code>solr-server\solr-4.4.0\example\solr</code>文件夹下所有内容拷贝到<code>solr-server\solrhome</code>中</li>
+</ul>
+<ol>
+<li>solr服务器搭建完成<ul>
+<li>运行<code>D:\NLZ_HD\solr-server\tomcat7\bin\startup.bat</code></li>
+<li>访问solr服务器管理界面<code>http://localhost:8989/solr</code></li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+
+      </div>
+      
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>

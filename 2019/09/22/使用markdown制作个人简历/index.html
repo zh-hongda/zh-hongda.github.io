@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>常用名词 - zh-hongda</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="Self Cognize">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="HD">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+  <!-- 代码高亮 -->
+  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+</head>
+
+
+  <body>
+    <!-- 引入代码高亮的 js -->
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- 代码高亮结束 -->
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">zh-hongda</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="常用名词">
+</div>
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>常用名词</h1>
+</div> -->
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <h1>常用名词</h1>
+  <p>使用markdown制作个人简历<br><a id="more"></a></p>
+<h1 id="使用markdown制作个人简历"><a href="#使用markdown制作个人简历" class="headerlink" title="使用markdown制作个人简历"></a>使用markdown制作个人简历</h1><ol>
+<li><a href="https://jekyllrb.com/docs/installation/" target="_blank" rel="noopener">install jekyll</a> on your computer. <code>gem install jekyll</code> will do for most users.</li>
+<li>Clone <a href="https://github.com/wodeni/nimo-markdown-cv" target="_blank" rel="noopener">nimo-markdown-cv</a></li>
+<li>Type <code>jekyll serve</code> and you’ll be able to see your CV on your local host (the default address is <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a>).在项目的文件夹下执行，测试时使用的是<code>bundle exec jekyll serve</code></li>
+<li>You can edit the <code>index.md</code> file and see changes live in your browser.</li>
+<li>To print a PDF, just press <em>Print</em>. Print and web CSS media queries should take care of the styling.</li>
+</ol>
+<hr>
+<p>遇见的问题：</p>
+<h5 id="如果提示缺少组件或包，使用gem-install-对应的包安装“对应的包”。"><a href="#如果提示缺少组件或包，使用gem-install-对应的包安装“对应的包”。" class="headerlink" title="如果提示缺少组件或包，使用gem install 对应的包安装“对应的包”。"></a>如果提示缺少组件或包，使用<code>gem install 对应的包</code>安装“对应的包”。</h5><hr>
+<h5 id="Could-not-find-gem-‘jekyll-3-9-0-x64-mingw32’-新手提问"><a href="#Could-not-find-gem-‘jekyll-3-9-0-x64-mingw32’-新手提问" class="headerlink" title="Could not find gem ‘jekyll (= 3.9.0) x64-mingw32’ 新手提问 "></a><a href="https://github.com/hikerpig/foam-jekyll-template/issues/1" target="_blank" rel="noopener">Could not find gem ‘jekyll (= 3.9.0) x64-mingw32’ 新手提问 </a></h5><p>解决方案</p>
+<p>在文件夹目录下依次执行</p>
+<ul>
+<li><code>bundle install</code></li>
+<li><code>bundle exec jekyll serve</code></li>
+</ul>
+<hr>
+<h5 id="bundle-install执行无反应"><a href="#bundle-install执行无反应" class="headerlink" title="bundle install执行无反应"></a>bundle install执行无反应</h5><p>使用<code>bundle install</code> 安装<code>Gemfile</code>中的依赖时，遇到长时间无响应的情况。</p>
+<p>其原因为：访问国外镜像源<code>https://rubygems.org</code>速度较慢。</p>
+<p>解决方案</p>
+<p>此处使用 <code>Gemfile</code>和<code>Bundler</code>，可以用 Bundler 的 Gem 源代码镜像命令：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bundle config mirror.http<span class="variable">s:</span>//rubygems.org http<span class="variable">s:</span>//gems.<span class="keyword">ruby</span>-china.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>详情请参考<a href="https://gems.ruby-china.com/" target="_blank" rel="noopener">官方网站</a></p>
+</blockquote>
+<hr>
+<h5 id="cannot-load-such-file-—-kramdown-parser-gfm’"><a href="#cannot-load-such-file-—-kramdown-parser-gfm’" class="headerlink" title="[cannot load such file — kramdown-parser-gfm’]"></a>[cannot load such file — kramdown-parser-gfm’]</h5><p>解决方案</p>
+<p>I added <code>gem &quot;kramdown-parser-gfm&quot;</code> to Gemfile. Now the serve command completes successfully.</p>
+<hr>
+<p>网页版简历打印为pdf时，右侧边缘部分显示不完整，推测时因为时间和地点字体是斜体导致，所以修改字体</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*注释掉原有css中字体部分即可*/</span></span><br><span class="line"><span class="selector-tag">code</span> &#123;</span><br><span class="line">  <span class="comment">/* font-family: "Palatino";</span></span><br><span class="line"><span class="comment">  font-style: italic; */</span></span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>参考：</p>
+<p><a href="https://github.com/wodeni/nimo-markdown-cv" target="_blank" rel="noopener">nimo-markdown-cv</a></p>
+<p><a href="https://gems.ruby-china.com/" target="_blank" rel="noopener">RubyGems - Ruby China</a></p>
+<p><a href="https://www.dazhuanlan.com/2020/01/07/5e142e02df589/?__cf_chl_jschl_tk__=9eaaca0d71107c67b04617d0c4898f686a521876-1600685846-0-Ae3rx7wHdozFNvadGvPis2LS8R24JOQkMi4Ig6qZMV5HmKflu142h8ZYGHIiTz69fioW8kedlvT76cepSl7OZIoTlYnZDtVs5ApkLKJjxOZDhNEIrtFL0C0aapfbzuo8JsT_GID9bnjNYj-ZL-ZO4wwuz_Uik8GcfdFJZAKMNFpn_enbY-40ycgZJhNu56YtrBIzWMblBfcTRWNLSS34TtdntQs48PtkrcjVYn-rSuF_UHjWgKf1c3bI7mTeIMdh72A4nHd4OeqMnmIcPAqymPT7zW4MOPSiUQhprVXcu1U2XfCBpTewPNdHur-3SEa4pg" target="_blank" rel="noopener">bundle install 无响应问题</a></p>
+<p><a href="https://blog.csdn.net/wudalang_gd/article/details/74619791" target="_blank" rel="noopener">在 Windows 上搭建本地 Jekyll 编译环境时问题汇总</a></p>
+<p><a href="https://github.com/hikerpig/foam-jekyll-template/issues/1" target="_blank" rel="noopener">Could not find gem ‘jekyll (= 3.9.0) x64-mingw32’ 新手提问 #1</a></p>
+<p><a href="https://github.com/wodeni/nimo-markdown-cv" target="_blank" rel="noopener">nimo-markdown-cv</a></p>
+
+</div>
+
+
+      </div>
+      
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>

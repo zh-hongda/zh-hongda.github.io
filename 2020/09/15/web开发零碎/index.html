@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>VOT(VisualObjectTracking) - zh-hongda</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="Self Cognize">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="HD">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+  <!-- 代码高亮 -->
+  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+</head>
+
+
+  <body>
+    <!-- 引入代码高亮的 js -->
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- 代码高亮结束 -->
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">zh-hongda</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="VOT(VisualObjectTracking)">
+</div>
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>VOT(VisualObjectTracking)</h1>
+</div> -->
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <h1>VOT(VisualObjectTracking)</h1>
+  <p>VOT(VisualObjectTracking)<br><a id="more"></a></p>
+<p>将object类型的对象转为int</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.valueOf(sumNumb.toString())</span><br></pre></td></tr></table></figure>
+<p>在页面中画一条直线</p>
+<p>创建不带 accordion 标记的简单的可折叠组件（collapsible）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button type=<span class="string">"button"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn btn-primary"</span> data-toggle=<span class="string">"collapse"</span> </span><br><span class="line">    data-target=<span class="string">"#demo"</span>&gt;</span><br><span class="line">    简单的可折叠组件</span><br><span class="line">&lt;/button&gt;    </span><br><span class="line">&lt;div id=<span class="string">"demo"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"collapse in"</span>&gt;</span><br><span class="line">    hello</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>collapse 隐藏内容</li>
+<li>collapse in 显示内容</li>
+<li>collapsing 当过渡效果开始时被添加，当过渡效果完成时被移除</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.valueOf(sumNumb.toString())</span><br></pre></td></tr></table></figure>
+<p>在页面中画一条直线</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style="border:1px solid #CCC"&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>创建不带 accordion 标记的简单的可折叠组件（collapsible）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button type=<span class="string">"button"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn btn-primary"</span> data-toggle=<span class="string">"collapse"</span> </span><br><span class="line">    data-target=<span class="string">"#demo"</span>&gt;</span><br><span class="line">    简单的可折叠组件</span><br><span class="line">&lt;/button&gt;    </span><br><span class="line">&lt;div id=<span class="string">"demo"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"collapse in"</span>&gt;</span><br><span class="line">    hello</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>collapse 隐藏内容</li>
+<li>collapse in 显示内容</li>
+<li>collapsing 当过渡效果开始时被添加，当过渡效果完成时被移除</li>
+</ul>
+<p>由于输入型控件的默认宽度是父元素宽度的 100%，因此可以使用栅格系统中的列来包裹表单控件或其任何父元素，来间接的为控件设置宽度。如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"queryString"</span> <span class="attr">id</span>=<span class="string">"queryString"</span> <span class="attr">value</span>=<span class="string">"$&#123;queryString&#125;"</span> <span class="attr">class</span>=<span class="string">"form-control"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>c:foreach输出序号，需要使用varStatus属性，如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style=<span class="string">"font-size: medium"</span> data-toggle=<span class="string">"collapse"</span> data-target=<span class="string">"#$&#123;status.count&#125;"</span>&gt;</span><br><span class="line">	&lt;small&gt;$&#123;status.count&#125;&lt;/small&gt; &amp;nbsp;&amp;nbsp; $&#123;item.file&#125;&lt;span class="caret"&gt;&lt;/span&gt;</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>name 属性用于对提交到服务器后的表单数据进行标识，或者在客户端通过 JavaScript 引用表单数据，只有设置了 name 属性的表单元素才能在提交表单时传递它们的值，因为服务端获取表单提交的数据是通过表单元素的 name 属性的值而得到的，没有 name 属性就无法得到表单元素提交给服务端的值</li>
+</ul>
+<p>IDEA选中要包围的代码块按下ctrl+alt+t可以设置捕获异常</p>
+<p><code>&lt;select&gt;</code>下拉菜单，刷新后保持上一次的值。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;select <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> name=<span class="string">"powerStation"</span>&gt;</span><br><span class="line">	&lt;option value="*" &lt;c:if test="$&#123;powerStation == '*'&#125;"&gt;selected&lt;/c:if&gt;&gt;电厂不限&lt;/option&gt;</span><br><span class="line">	&lt;option value="秦一厂" &lt;c:if test="$&#123;powerStation == '秦一厂'&#125;"&gt;selected&lt;/c:if&gt;&gt;秦一厂&lt;/option&gt;</span><br><span class="line">	&lt;option value="秦二厂" &lt;c:if test="$&#123;powerStation == '秦二厂'&#125;"&gt;selected&lt;/c:if&gt;&gt;秦二厂&lt;/option&gt;</span><br><span class="line">	&lt;option value="秦三厂" &lt;c:if test="$&#123;powerStation == '秦三厂'&#125;"&gt;selected&lt;/c:if&gt;&gt;秦三厂&lt;/option&gt;</span><br><span class="line">	&lt;option value="方家山" &lt;c:if test="$&#123;powerStation == '方家山'&#125;"&gt;selected&lt;/c:if&gt;&gt;方家山&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>配置IK分词器的<code>useSmart=&quot;true&quot;</code>，非smart模式所做的就是将能够分出来的词全部输出；smart模式下，IK分词器则会根据内在方法输出一个认为最合理的分词结果，这就涉及到了歧义判断</p>
+<hr>
+<p>我们在用到下拉列表框<code>select</code>时，需要对选中的<code>&lt;option&gt;</code>选项触发事件，其实<code>&lt;option&gt;</code>本身没有触发事件方法，我们只有在<code>select</code>里的<code>onchange</code>方法里触发</p>
+<hr>
+<p><a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=48145" target="_blank" rel="noopener">Visual C++ Redistributable for Visual Studio 2015下载地址</a></p>
+<hr>
+<p>freemarker/thymeleaf/velocity</p>
+<hr>
+<p>solrCloud多个collection联合查询，使用别名即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#先指定别名</span><br><span class="line">http:<span class="comment">//localhost:8180/solr/admin/collections?action=CREATEALIAS&amp;name=collection1U2&amp;collections=collection1,collection2</span></span><br><span class="line">然后在搜索前指定默认搜索xollection为指定的别名</span><br><span class="line">cloudSolrServer.setDefaultCollection(<span class="string">"collection1U2"</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><p>特点</p>
+<blockquote>
+<ul>
+<li><p>简单快速，发送请求时，只需传送请求方法和路径</p>
+</li>
+<li><p>灵活，允许传说任意类型的数据对象，正在传输的类型有Conten-Type加以标记</p>
+</li>
+<li><p>无连接</p>
+</li>
+<li>无状态，对于事务处理没有记忆能力，意味着如果后续处理需要前面的信息，则它必须重传，这样导致每次连接传送的数据量增大，另一方面再服务器不需要先前信息时它的应答就较快</li>
+</ul>
+</blockquote>
+<h5 id="请求格式"><a href="#请求格式" class="headerlink" title="请求格式"></a>请求格式</h5><blockquote>
+<p>请求行</p>
+<blockquote>
+<p>请求方法 URL 协议版本</p>
+</blockquote>
+<p>请求头</p>
+<blockquote>
+<p>键值对</p>
+</blockquote>
+<p>空行</p>
+<p>请求内容</p>
+</blockquote>
+<p>请求方式</p>
+<p>HTTP1.0 定义了三种请求方法 GET POST HEAD</p>
+<p>HTTP1.1新增了五种 OPTIONS PUT DELETE TRACE CONNECT</p>
+<p>HTTP协议之响应</p>
+<p>响应行</p>
+<p>​    HTTP版本、状态码、状态消息</p>
+<p>响应头</p>
+<p>​    消息报头 客户端使用的附加信息</p>
+<p>空行</p>
+<p>响应实体</p>
+<p>​    正文 服务器返回给浏览器的信息</p>
+<h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><p>服务器的概念和作用：</p>
+<p>问题：</p>
+<p>​    目前编写的代码，只有一次性，也就是运行完毕后，如果需要再次运行则需要再次手动启动代码的执行。但是我们无法提前预知用户合适发送请求，也就无法决定我们编写的Java代码应该什么时候启动运行。而且手动运行也变得不显示。</p>
+<p>解决；</p>
+<p>使用代码编写一个容器（对象），该容器可以根据用户的请求来启动并运行我们编写的数据逻辑代码。</p>
+<p>实现：</p>
+<p>服务器</p>
+<p>解释：</p>
+<p>所谓服务器其实就是代码编写的一个可以根据用户请求实时的调用执行对应的逻辑代码的一个容器。从用户角度看就是一个应用程序而已。我们将自己编写的逻辑代码放入服务器程序中的指定位置后，当浏览器发送请求给服务器时，服务器就会调用并执行对应的逻辑代码进行请求处理。</p>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><p>问题：</p>
+<p>服务器再接收到浏览器的请求后，会自动调用对应的逻辑代码进行请求处理。但是逻辑代码是由程序员编写并放到服务器中，那么服务器时怎么知道该怎么调用并调用哪个类和哪个方法进行请求处理</p>
+<p>解决；</p>
+<p>按照指定规则编写代码，请求时按照指定规则请求</p>
+<p>使用：</p>
+<ol>
+<li>创建普通的java类并继承HttpServlet</li>
+<li>覆写service方法</li>
+<li>在service方法中书写逻辑代码即可</li>
+<li>在webRoot下的WEB-INF文件夹下的web.xml文件中配置servlet</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置servlet--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>my<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.bjsxt.servlet.MyServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--配置访问方式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>my<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/my<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="servlet生命周期"><a href="#servlet生命周期" class="headerlink" title="servlet生命周期"></a>servlet生命周期</h5><p>servlet request respons对象</p>
+<p>请求转发 </p>
+<p>问题：</p>
+<p>​    服务器在接收到浏览器的请求后，仅仅使用一个servlet进行处理，会造成不同的servlet逻辑代码冗余，servlet的职责不明确。</p>
+<p>解决：使用请求转发</p>
+<p>特点：依次请求     地址栏信息不改变</p>
+<p>req.getRequestDispatcher(“page”).forward(req,resp);</p>
+<p>重定向 </p>
+<p>问题：</p>
+<p>​    如果当前的请求，servlet无法进行处理。淘宝付款时需要跳转支付宝</p>
+<p>​    如果使用请求转发，造成表单重复提交怎么办</p>
+<p>​    response.sendRedirect(“路径”)</p>
+<p>request  session servletContex cookie</p>
+<h5 id="EL表达式和JSTL标签库"><a href="#EL表达式和JSTL标签库" class="headerlink" title="EL表达式和JSTL标签库"></a>EL表达式和JSTL标签库</h5><h5 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h5><p>问题：</p>
+<p>servlet的作用是针对浏览器发起的请求，进行请求的处理。通过servlet技术我们可以灵活的进行请求的处理，但是我们不但要对请求进行处理，我们还需要对服务器的资源进行统一的管理，比如情趣编码格式的统一设置，资源的统一分配等等，这个时候该怎么办呢？</p>
+<p>解决：</p>
+<h5 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h5><p>在servlet技术中我们学习了request、session、application作用域对象，其主要作用是实现数据的在不同场景中的灵活流转。但是数据的具体流转过程我们是看不到的，不如作用域对象是什么时候创建和销毁的，数据是什么时候存取、改变和删除的。因为具体的流转国臣更看不到，所以也就无法在指定的时机对数据和对象进行操作，比如session销毁的时候，在线人数-1.</p>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>M 模型层 </p>
+<p>​    service + dao + entity   jdbc|Mybatis</p>
+<p>V 视图层</p>
+<p>​    webapp页面   html/jsp</p>
+<p>C 控制器层</p>
+<p>​    action    servlet|struts2</p>
+<h5 id="servlet"><a href="#servlet" class="headerlink" title="servlet"></a>servlet</h5><ol>
+<li>收集数据 request.getParameter(“name”)</li>
+<li>调用业务对象 <em>*</em>Service</li>
+<li>流程跳转 <ol>
+<li>response.sendRedirect(“路径”)</li>
+<li>req.getRequestDispatcher(“page”).forward(req,resp);</li>
+</ol>
+</li>
+</ol>
+<p>存在问题</p>
+<ol>
+<li>收集参数的代码存在大量冗余，不能自动类型转换</li>
+<li>跳转路径写死在类文件中不利于后续维护</li>
+<li>为每一个功能开发一个servlet导致现有项目中servlet数量过多不利于后续管理</li>
+</ol>
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p>定义：软件开发过程中的半成品，用来解决软件开发过程中的通用问题，用于提高开发效率。</p>
+<p>​    半成品：就是人家开发了一半，使用时必须在基于这个框架做二次开发</p>
+<h2 id="structs2"><a href="#structs2" class="headerlink" title="structs2"></a>structs2</h2><p>开源组织apache提供，典型的MVC框架，提供了一个新的控制器Action，替换原有项目中servlet控制器，解决原有项目中使用servlet作为控制器存在的问题。</p>
+<h5 id="servlet-1"><a href="#servlet-1" class="headerlink" title="servlet"></a>servlet</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1. 创建普通的java类并继承HttpServlet，并覆写service方法</span><br><span class="line">    public void service(request, response)&#123;</span><br><span class="line">        //1.收集数据</span><br><span class="line">        //2.调用业务对象</span><br><span class="line">        //3.流程跳转</span><br><span class="line">    &#125;</span><br><span class="line">2. 在webRoot下的WEB-INF文件夹下的web.xml文件中配置servlet</span><br><span class="line">    <span class="comment">&lt;!--配置servlet--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>my<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.bjsxt.servlet.MyServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置访问方式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>my<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/my<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">3. 访问</span><br><span class="line">   http://localhost:端口/项目名/my</span><br></pre></td></tr></table></figure>
+<h5 id="struct2"><a href="#struct2" class="headerlink" title="struct2"></a>struct2</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">0.引入struts2依赖和struts.xml配置文件，并在web.xml中预先配置web.xml，拦截所有请求交给struts管理</span><br><span class="line">    <span class="comment">&lt;!--配置servlet--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>my<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.bjsxt.servlet.MyServlet<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置访问方式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>my<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/my<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">1. 创建类实现Action，覆写execute()方法</span><br><span class="line">    public String execute()&#123;</span><br><span class="line">        //1.收集数据</span><br><span class="line">        //2.调用业务对象</span><br><span class="line">        //3.流程跳转</span><br><span class="line">        return "ok|error";逻辑名 跳转流程</span><br><span class="line">    &#125;</span><br><span class="line">2. 配置struts.xml</span><br><span class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"day1"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"aa"</span> <span class="attr">class</span>=<span class="string">"***.TestAction"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"ok"</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"ok"</span>&gt;</span>/error.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br><span class="line">3. 访问路径</span><br><span class="line">   http://localhost:端口/项目名/aa</span><br></pre></td></tr></table></figure>
+<p>struts2中获取request对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HttpServletRequest request = servletActionContex.getRequest();</span><br><span class="line">HttpServletResponse response = servletActionContex.getRequest();</span><br><span class="line">ServletContext sc = ServletActionContext.getServletContext();</span><br></pre></td></tr></table></figure>
+<h5 id="springMVC"><a href="#springMVC" class="headerlink" title="springMVC"></a>springMVC</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">0.引入struts2依赖和struts.xml配置文件，并在web.xml中预先配置web.xml，拦截所有请求交给springMVC管理</span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--指定springmvc配置文件位置--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">1. 创建类实现Action，覆写execute()方法</span><br><span class="line">    public String execute()&#123;</span><br><span class="line">        //1.收集数据</span><br><span class="line">        //2.调用业务对象</span><br><span class="line">        //3.流程跳转</span><br><span class="line">        return "ok|error";逻辑名 跳转流程</span><br><span class="line">    &#125;</span><br><span class="line">2. 配置springmvc.xml</span><br><span class="line">	</span><br><span class="line">3. 访问路径</span><br><span class="line">   http://localhost:端口/项目名/aa</span><br></pre></td></tr></table></figure>
+
+</div>
+
+
+      </div>
+      
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>

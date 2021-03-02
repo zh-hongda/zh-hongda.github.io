@@ -1,407 +1,119 @@
 <!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- Title -->
+  
+  <title>Linked Lists Summary - zh-hongda</title>
 
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
 
+  <!--Description-->
+  
+      <meta name="description" content="Self Cognize">
+  
 
+  <!--Author-->
+  
+      <meta name="author" content="HD">
+  
 
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
 
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
-
-
-
-
+  <!-- Google Analytics -->
   
 
 
-<html class="theme-next gemini use-motion" lang>
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.ico?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.ico?v=7.1.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.1.0',
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
 </script>
-
-
-  
-
-
-
-
-  <meta name="description" content="Leetcode Linked Lists practice summary">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linked Lists Summary">
-<meta property="og:url" content="http://yoursite.com/2019/10/16/LinkedLists/index.html">
-<meta property="og:site_name" content="zh-hongda">
-<meta property="og:description" content="Leetcode Linked Lists practice summary">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-20T08:10:02.331Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linked Lists Summary">
-<meta name="twitter:description" content="Leetcode Linked Lists practice summary">
-
-
-
-
-
-  
-  
-  <link rel="canonical" href="http://yoursite.com/2019/10/16/LinkedLists/">
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
 </script>
-
-  <title>Linked Lists Summary | zh-hongda</title>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
   
-
-
-
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+  <!-- 代码高亮 -->
+  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-right page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">zh-hongda</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-    
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
-
-  </li>
-
-      
+  <body>
+    <!-- 引入代码高亮的 js -->
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- 代码高亮结束 -->
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">zh-hongda</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
       
     </ul>
-  
-
-  
-
-  
+    <hr class="hidden-md-up" />
+  </div>
 </nav>
 
 
-
-  
-
-
-
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="Linked Lists Summary">
 </div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/16/LinkedLists/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HD">
-      <meta itemprop="description" content="Self Cognize">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zh-hongda">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Linked Lists Summary
-
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-10-16 20:26:01" itemprop="dateCreated datePublished" datetime="2019-10-16T20:26:01+08:00">2019-10-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-10-20 16:10:02" itemprop="dateModified" datetime="2019-10-20T16:10:02+08:00">2019-10-20</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>Leetcode Linked Lists practice summary<br><a id="more"></a></p>
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>Linked Lists Summary</h1>
+</div> -->
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <h1>Linked Lists Summary</h1>
+  <p>Leetcode Linked Lists practice summary<br><a id="more"></a></p>
 <h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p>帶头结点的单链表的基本功能实现。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ElemType int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;LNode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    LNode* head;</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">&#125; MyLinkedList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line"></span><br><span class="line"><span class="function">MyLinkedList* <span class="title">myLinkedListCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   MyLinkedList* obj = (MyLinkedList*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MyLinkedList));</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">if</span>(!obj)&#123;</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line">    </span><br><span class="line">   obj-&gt;head = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">if</span>(!obj-&gt;head)&#123;</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line">    </span><br><span class="line">   obj-&gt;head-&gt;data = <span class="number">-1</span>;</span><br><span class="line">   obj-&gt;head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">   obj-&gt;length = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">myLinkedListGet</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    LNode* curr = obj-&gt;head;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(index &lt; <span class="number">0</span> || index &gt;= obj-&gt;length)</span><br><span class="line">	  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= index; i++)&#123;</span><br><span class="line">	    curr = curr-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> curr-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListAddAtHead</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    LNode* head = obj-&gt;head;</span><br><span class="line">    LNode* temp = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">    temp-&gt;data = val;</span><br><span class="line">    temp-&gt;next = head-&gt;next;</span><br><span class="line">    head-&gt;next = temp;</span><br><span class="line">    </span><br><span class="line">    obj-&gt;length++; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Append a node of value val to the last element of the linked list. */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListAddAtTail</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    LNode* curr = obj-&gt;head;</span><br><span class="line">    LNode* temp = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(!temp)&#123;</span><br><span class="line">	    <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    temp-&gt;data = val;</span><br><span class="line">    temp-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(curr-&gt;next)&#123;</span><br><span class="line">	    curr = curr-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    curr-&gt;next = temp;</span><br><span class="line">    obj-&gt;length++;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListAddAtIndex</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> index, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    LNode* prev,*curr;</span><br><span class="line">    </span><br><span class="line">    prev = obj-&gt;head;</span><br><span class="line">    curr = prev-&gt;next;</span><br><span class="line">    </span><br><span class="line">    LNode* temp = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(!temp)&#123;</span><br><span class="line">	    <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(index &gt; obj-&gt;length)</span><br><span class="line">	  <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    temp-&gt;data = val;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; index; i++)&#123;</span><br><span class="line">	    prev = prev-&gt;next;</span><br><span class="line">	    curr = curr-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    temp-&gt;next = curr;</span><br><span class="line">    prev-&gt;next = temp;</span><br><span class="line">    </span><br><span class="line">    obj-&gt;length++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Delete the index-th node in the linked list, if the index is valid. */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListDeleteAtIndex</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    LNode* prev,*curr;</span><br><span class="line">    prev = obj-&gt;head;</span><br><span class="line">    curr = prev-&gt;next;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(index &lt; <span class="number">0</span> || index &gt;= obj-&gt;length)</span><br><span class="line">         <span class="keyword">return</span> <span class="number">-1</span>; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; index; i++)&#123;</span><br><span class="line">        prev = prev-&gt;next;</span><br><span class="line">        curr = curr-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    prev-&gt;next = curr-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(curr);</span><br><span class="line">    obj-&gt;length--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListFree</span><span class="params">(MyLinkedList* obj)</span> </span>&#123;</span><br><span class="line">    LNode* prev,*curr;</span><br><span class="line">    </span><br><span class="line">    prev = obj-&gt;head;</span><br><span class="line">    curr = prev-&gt;next;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">	prev-&gt;next = curr-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(curr);</span><br><span class="line">    curr = prev-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">free</span>(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1-Middle-of-the-Linked-List"><a href="#1-1-Middle-of-the-Linked-List" class="headerlink" title="1.1 Middle of the Linked List"></a>1.1 <a href="https://leetcode.com/problems/middle-of-the-linked-list" target="_blank" rel="noopener">Middle of the Linked List</a></h2><p>一开始使用遍历的方法，现在感觉使用两个指针，一个速度是另一个2倍，可能更加方便。</p>
@@ -422,420 +134,18 @@
 <h2 id="1-9-Intersection-of-Two-Linked-Lists"><a href="#1-9-Intersection-of-Two-Linked-Lists" class="headerlink" title="1.9 Intersection of Two Linked Lists"></a>1.9 <a href="https://leetcode.com/problems/intersection-of-two-linked-lists" target="_blank" rel="noopener">Intersection of Two Linked Lists</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode *<span class="title">getIntersectionNode</span><span class="params">(struct ListNode *headA, struct ListNode *headB)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> LengthA = <span class="number">0</span>, LengthB = <span class="number">0</span>;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">curr</span>;</span></span><br><span class="line"></span><br><span class="line">    curr = headA;</span><br><span class="line">    <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">        curr = curr-&gt;next;</span><br><span class="line">        LengthA++;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    curr = headB;</span><br><span class="line">    <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">        curr = curr-&gt;next;</span><br><span class="line">        LengthB++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(LengthA &lt; LengthB)&#123;</span><br><span class="line">        headB = headB-&gt;next;</span><br><span class="line">        LengthB--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(LengthB &lt; LengthA)&#123;</span><br><span class="line">        headA = headA-&gt;next;</span><br><span class="line">        LengthA--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(headA != headB)&#123;</span><br><span class="line">        headA = headA-&gt;next;</span><br><span class="line">        headB = headB-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> headA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>b遍历，确定两个链表的长度，然后将较长的链表缩短到于短链表一样的长度。最后逐结点对比，当发现指针相同时，就是解。</p>
 
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/10/16/leetcode备忘/" rel="next" title="Leetcode 备忘">
-                <i class="fa fa-chevron-left"></i> Leetcode 备忘
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/17/再看C语言/" rel="prev" title="再看《C程序设计》">
-                再看《C程序设计》 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">HD</p>
-              <div class="site-description motion-element" itemprop="description">Self Cognize</div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives">
-                
-                    <span class="site-state-item-count">23</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                      <a href="/categories/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">categories</span>
-                  </a>
-                </div>
-              
-
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0"><span class="nav-text">0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Middle-of-the-Linked-List"><span class="nav-text">1.1 Middle of the Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Reverse-Linked-List"><span class="nav-text">1.2 Reverse Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Delete-Node-in-a-Linked-List"><span class="nav-text">1.3 Delete Node in a Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Merge-Two-Sorted-Lists"><span class="nav-text">1.4 Merge Two Sorted Lists</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-Remove-Duplicates-from-Sorted-List"><span class="nav-text">1.5 Remove Duplicates from Sorted List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-Linked-List-Cycle"><span class="nav-text">1.6  Linked List Cycle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-Palindrome-Linked-List"><span class="nav-text">1.7 Palindrome Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-Remove-Linked-List-Elements"><span class="nav-text">1.8 Remove Linked List Elements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-Intersection-of-Two-Linked-Lists"><span class="nav-text">1.9 Intersection of Two Linked Lists</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-	
-
-
-    </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">HD</span>
-
-  
-
-  
 </div>
 
 
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
       </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.0"></script>
-
-  <script src="/js/motion.js?v=7.1.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
-
-
-
-
-  
-  <script src="/js/scrollspy.js?v=7.1.0"></script>
-<script src="/js/post-details.js?v=7.1.0"></script>
-
-
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.0"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
       
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
+  	</div>
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
-  
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-</body>
+  </body>
 </html>

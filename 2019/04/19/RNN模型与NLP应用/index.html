@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>RNN模型与NLP应用 - zh-hongda</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="Self Cognize">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="HD">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+  <!-- 代码高亮 -->
+  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+</head>
+
+
+  <body>
+    <!-- 引入代码高亮的 js -->
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- 代码高亮结束 -->
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">zh-hongda</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="RNN模型与NLP应用">
+</div>
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>RNN模型与NLP应用</h1>
+</div> -->
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <h1>RNN模型与NLP应用</h1>
+  <p>RNN模型与NLP应用<br><a id="more"></a></p>
+<h2 id="Categorical-feature-processing"><a href="#Categorical-feature-processing" class="headerlink" title="Categorical feature processing"></a>Categorical feature processing</h2><h2 id="Text-processing-and-word-embedding"><a href="#Text-processing-and-word-embedding" class="headerlink" title="Text processing and word embedding"></a>Text processing and word embedding</h2><h5 id="Text-processing"><a href="#Text-processing" class="headerlink" title="Text processing"></a>Text processing</h5><p>Step 1: Tokenization</p>
+<p>Step 2: Build Dictionary</p>
+<p>Step 3: Encoding</p>
+<p>Step 4: Align Sequences</p>
+<h5 id="Word-Embedding-Word-to-Vector"><a href="#Word-Embedding-Word-to-Vector" class="headerlink" title="Word Embedding: Word to Vector"></a>Word Embedding: Word to Vector</h5><p>First, represent words using one-hot vectors.</p>
+<p>Second, map the one-hot vectors to low-dimensional vectors</p>
+<p>Total #parameter: vocabulary×embedding_dim</p>
+<h2 id="RNN-basics"><a href="#RNN-basics" class="headerlink" title="RNN basics."></a>RNN basics.</h2><p>Total #parameter: shape(h)× [shape(h)+shape(x)]</p>
+<p>SimpleRNN is good at short-term dependence.</p>
+<p>SimpleRNN is bad at long-term dependence.</p>
+<h2 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h2><p>4 × shape(h) × [shape(h)+shape(x)]</p>
+<h2 id="Making-RNNs-more-effective"><a href="#Making-RNNs-more-effective" class="headerlink" title="Making RNNs more effective."></a>Making RNNs more effective.</h2><h5 id="Stacked-RNN"><a href="#Stacked-RNN" class="headerlink" title="Stacked RNN"></a>Stacked RNN</h5><h5 id="Bidirectional-RNN"><a href="#Bidirectional-RNN" class="headerlink" title="Bidirectional RNN"></a>Bidirectional RNN</h5><h5 id="Pretrain"><a href="#Pretrain" class="headerlink" title="Pretrain"></a>Pretrain</h5><p>Observation: The embedding layer contributes most of the parameters!</p>
+<p>Step 1: Train a model on large dataset.<br>• Perhaps different problem.<br>• Perhaps different model.</p>
+<p>Step 2: Keep only the embedding layer.</p>
+<p>Step 3: Train new LSTM and output layers.</p>
+<h2 id="Text-generation"><a href="#Text-generation" class="headerlink" title="Text generation"></a>Text generation</h2><h2 id="Machine-translation-and-Seq2Seq-Model"><a href="#Machine-translation-and-Seq2Seq-Model" class="headerlink" title="Machine translation and Seq2Seq Model"></a>Machine translation and Seq2Seq Model</h2><h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><h2 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h2><p>参考：</p>
+<p><a href="https://www.bilibili.com/video/BV1aE411F74r?p=8" target="_blank" rel="noopener">RNN模型与NLP应用</a></p>
+<p><a href="https://github.com/wangshusen/DeepLearning" target="_blank" rel="noopener">CS583: Deep Learning</a></p>
+
+</div>
+
+
+      </div>
+      
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
