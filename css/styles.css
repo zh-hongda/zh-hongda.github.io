@@ -86,13 +86,15 @@ h1, h2, h3 {
 	right: 0rem;
 }
 
+/* 主页图片格式控制 HDTJ */
 .portfolio-img {
 	width: 100%;
-	max-height: 250px;
+	max-height: 300px;
 	display: block;
 	object-fit: cover;
 }
 
+/* 文章也图片格式控制 HDTJ */
 .project-img {
 	width: 100%;
 	display: block;
