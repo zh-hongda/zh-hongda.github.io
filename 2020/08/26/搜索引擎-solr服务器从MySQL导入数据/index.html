@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,9 +107,11 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="搜索引擎-solr服务器从MySQL导入数据">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>搜索引擎-solr服务器从MySQL导入数据</h1>
 </div> -->
@@ -115,20 +119,56 @@
   <h1>搜索引擎-solr服务器从MySQL导入数据</h1>
   <p>solr服务器从MySQL导入数据<br><a id="more"></a></p>
 <p>修改solr服务器的<code>schema.xml</code>文件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- &lt;?xml version="1.0" encoding="UTF-8" ?&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dataConfig</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- word作为数据源 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"BinFileDataSource"</span> <span class="attr">name</span>=<span class="string">"word"</span>/&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- mySQL数据源 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;dataSource type="JdbcDataSource" name="J1" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/searchengine?serverTimezone=UTC" user="root" password="root"/&gt; --&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">document</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 定义导⼊实体 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">entity</span> <span class="attr">name</span>=<span class="string">"JIT"</span> <span class="attr">processor</span>=<span class="string">"FileListEntityProcessor"</span> <span class="attr">dataSource</span>=<span class="string">"word"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">baseDir</span>=<span class="string">"D:\NLZ_HD\solr-server\data\CNNOJIT"</span> <span class="attr">fileName</span>=<span class="string">".(doc)|(pdf)|(docx)|(txt)|(csv)|(json)|(xml)|(pptx)|(pptx)|(ppt)|(xls)|(xlsx)"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">rootEntity</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">entity</span> <span class="attr">name</span>=<span class="string">"pdf"</span> <span class="attr">processor</span>=<span class="string">"TikaEntityProcessor"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">url</span>=<span class="string">"$&#123;JIT.fileAbsolutePath&#125;"</span> <span class="attr">format</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"Author"</span> <span class="attr">name</span>=<span class="string">"JIT_author"</span> <span class="attr">meta</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"JIT_text"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">entity</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">entity</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 定义导⼊实体 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">entity</span> <span class="attr">name</span>=<span class="string">"event"</span> <span class="attr">query</span>=<span class="string">"SELECT * FROM event "</span> <span class="attr">dataSource</span>=<span class="string">"mySQL"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"eventNumber"</span> <span class="attr">name</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"eventName"</span> <span class="attr">name</span>=<span class="string">"event_Name"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"reportDate"</span> <span class="attr">name</span>=<span class="string">"event_reportDate"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"eventLevel"</span> <span class="attr">name</span>=<span class="string">"event_Level"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"nuclearPlant"</span> <span class="attr">name</span>=<span class="string">"event_nuclearPlant"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"unitName"</span> <span class="attr">name</span>=<span class="string">"event_unitName"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"unitNumber"</span> <span class="attr">name</span>=<span class="string">"event_unitNumber"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"abstract"</span> <span class="attr">name</span>=<span class="string">"event_overView"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">entity</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">document</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">dataConfig</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;!-- &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt; --&gt;
+&lt;dataConfig&gt;
+  &lt;!-- word作为数据源 --&gt;
+  &lt;dataSource type=&quot;BinFileDataSource&quot; name=&quot;word&quot;/&gt;
+  &lt;!-- mySQL数据源 --&gt;
+  &lt;!-- &lt;dataSource type=&quot;JdbcDataSource&quot; name=&quot;J1&quot; driver=&quot;com.mysql.jdbc.Driver&quot; url=&quot;jdbc:mysql://localhost:3306/searchengine?serverTimezone=UTC&quot; user=&quot;root&quot; password=&quot;root&quot;/&gt; --&gt;
+
+  &lt;document&gt;
+    &lt;!-- 定义导⼊实体 --&gt;
+    &lt;entity name=&quot;JIT&quot; processor=&quot;FileListEntityProcessor&quot; dataSource=&quot;word&quot;
+            baseDir=&quot;D:\NLZ_HD\solr-server\data\CNNOJIT&quot; fileName=&quot;.(doc)|(pdf)|(docx)|(txt)|(csv)|(json)|(xml)|(pptx)|(pptx)|(ppt)|(xls)|(xlsx)&quot;
+            rootEntity=&quot;false&quot;&gt;
+
+      &lt;field column=&quot;file&quot; name=&quot;id&quot;/&gt;
+      &lt;entity name=&quot;pdf&quot; processor=&quot;TikaEntityProcessor&quot;
+              url=&quot;${JIT.fileAbsolutePath}&quot; format=&quot;text&quot;&gt;
+
+        &lt;field column=&quot;Author&quot; name=&quot;JIT_author&quot; meta=&quot;true&quot;/&gt;
+        &lt;field column=&quot;text&quot; name=&quot;JIT_text&quot;/&gt;
+      &lt;/entity&gt;
+    &lt;/entity&gt;
+
+    &lt;!-- 定义导⼊实体 --&gt;
+    &lt;entity name=&quot;event&quot; query=&quot;SELECT * FROM event &quot; dataSource=&quot;mySQL&quot;&gt;
+            &lt;field column=&quot;eventNumber&quot; name=&quot;id&quot;/&gt;
+            &lt;field column=&quot;eventName&quot; name=&quot;event_Name&quot;/&gt;
+            &lt;field column=&quot;reportDate&quot; name=&quot;event_reportDate&quot;/&gt;
+            &lt;field column=&quot;eventLevel&quot; name=&quot;event_Level&quot;/&gt;
+            &lt;field column=&quot;nuclearPlant&quot; name=&quot;event_nuclearPlant&quot;/&gt;
+            &lt;field column=&quot;unitName&quot; name=&quot;event_unitName&quot;/&gt;
+            &lt;field column=&quot;unitNumber&quot; name=&quot;event_unitNumber&quot;/&gt;
+            &lt;field column=&quot;abstract&quot; name=&quot;event_overView&quot;/&gt;
+    &lt;/entity&gt;
+  &lt;/document&gt; 
+&lt;/dataConfig&gt;
+</code></pre>
 
 </div>
 
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

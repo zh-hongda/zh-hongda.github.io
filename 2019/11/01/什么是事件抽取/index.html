@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,9 +107,11 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="事件抽取">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>事件抽取</h1>
 </div> -->
@@ -204,7 +208,14 @@
 <h5 id="信息的抽取方法"><a href="#信息的抽取方法" class="headerlink" title="信息的抽取方法"></a>信息的抽取方法</h5><p>事件抽取的schema和知识图谱的schema是同一种东西，类似“语义槽”，需要从原始数据中抽取特定的片段来填写，就像表2-1的“例子”一栏一样。至此，我们就进入到了事件抽取任务的第二个子任务，即信息抽取模型构建——换句话说， 我们需要构建一定的工具，让它从半结构化、非结构化数据中，把schema描述的信息抽取出来。</p>
 <p>目前的主流做法，是用两个子任务完成信息的抽取：</p>
 <p>（1）识别事件并判断类型。可以用序列元素分类的方式识别触发词并判断事件类型，或者直接使用文本分类的方式判断mention对应的事件类型。</p>
-<p>（2）识别事件角色。用序列元素分类，或者三元组抽取的方式，把事件的重要角色识别出来并分类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">a(老李铡了一筐玉米杆给骡子吃)--&gt;b(特征提取模块)</span><br><span class="line">b--&gt;c(触发词抽取模块)</span><br><span class="line">b--&gt;d(元素抽取模块)</span><br><span class="line">c--&gt;e(&quot;事件类型：生产，触发词：铡&quot;)</span><br><span class="line">d--&gt;f(&quot;角色：生产者，元素：老李；角色：产品，元素：玉米杆&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>（2）识别事件角色。用序列元素分类，或者三元组抽取的方式，把事件的重要角色识别出来并分类。</p>
+<pre><code class="lang-mermaid">graph TD
+a(老李铡了一筐玉米杆给骡子吃)--&gt;b(特征提取模块)
+b--&gt;c(触发词抽取模块)
+b--&gt;d(元素抽取模块)
+c--&gt;e(&quot;事件类型：生产，触发词：铡&quot;)
+d--&gt;f(&quot;角色：生产者，元素：老李；角色：产品，元素：玉米杆&quot;)
+</code></pre>
 <hr>
 <p>F1分数（F1-score）是分类问题的一个衡量指标。一些多分类问题的机器学习竞赛，常常将F1-score作为最终测评的方法。它是精确率和召回率的调和平均数，最大为1，最小为0。</p>
 <script type="math/tex; mode=display">
@@ -215,13 +226,14 @@ F1=2\cdot\frac{precision\cdot recall}{precision + recall}</script><p>此外还�
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

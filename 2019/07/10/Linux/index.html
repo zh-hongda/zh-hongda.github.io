@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,43 +107,93 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="Linux Experience">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>Linux Experience</h1>
 </div> -->
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
   <h1>Linux Experience</h1>
   <p>不常用但是又没那么不常用的东西之Linux。<br><a id="more"></a></p>
-<h5 id="Linux下gcc版本切换"><a href="#Linux下gcc版本切换" class="headerlink" title="Linux下gcc版本切换"></a>Linux下gcc版本切换</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config gcc</span><br><span class="line"><span class="meta">#</span>验证是否成功</span><br><span class="line">gcc -v</span><br></pre></td></tr></table></figure>
-<p>如果列表中没有自己需要的gcc版本可以通过如下命令安装：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gcc-4.8 gcc-4.8-multilib g++-4.8 g++-4.8-multilib</span><br></pre></td></tr></table></figure></p>
-<h5 id="使用tree命令打印文件目录"><a href="#使用tree命令打印文件目录" class="headerlink" title="使用tree命令打印文件目录"></a>使用tree命令打印文件目录</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>安装tree</span><br><span class="line">apt-get install tree</span><br><span class="line"><span class="meta">#</span>直接打印文件夹下所有文件</span><br><span class="line">tree example </span><br><span class="line"><span class="meta">#</span>指定显示的层数</span><br><span class="line">tree -L 2 </span><br><span class="line"><span class="meta">#</span>忽略指定文件或文件夹</span><br><span class="line">tree -I example</span><br><span class="line"><span class="meta">#</span>树状目录输出到指定文件中</span><br><span class="line">tree &gt; tree.text </span><br><span class="line"><span class="meta">#</span>如果要在md文件中使用，可以直接复制到“```”环境中。</span><br></pre></td></tr></table></figure>
+<h5 id="Linux下gcc版本切换"><a href="#Linux下gcc版本切换" class="headerlink" title="Linux下gcc版本切换"></a>Linux下gcc版本切换</h5><pre><code class="lang-shell">sudo update-alternatives --config gcc
+#验证是否成功
+gcc -v
+</code></pre>
+<p>如果列表中没有自己需要的gcc版本可以通过如下命令安装：</p>
+<pre><code class="lang-shell">sudo apt install gcc-4.8 gcc-4.8-multilib g++-4.8 g++-4.8-multilib
+</code></pre>
+<h5 id="使用tree命令打印文件目录"><a href="#使用tree命令打印文件目录" class="headerlink" title="使用tree命令打印文件目录"></a>使用tree命令打印文件目录</h5><pre><code class="lang-shell">#安装tree
+apt-get install tree
+#直接打印文件夹下所有文件
+tree example 
+#指定显示的层数
+tree -L 2 
+#忽略指定文件或文件夹
+tree -I example
+#树状目录输出到指定文件中
+tree &gt; tree.text 
+#如果要在md文件中使用，可以直接复制到“```”环境中。
+</code></pre>
 <h5 id="交互式-Bash-Shell-获取进程"><a href="#交互式-Bash-Shell-获取进程" class="headerlink" title="交互式 Bash Shell 获取进程"></a>交互式 Bash Shell 获取进程</h5><p>在已知进程名(<code>name</code>)的前提下，交互式 Shell 获取进程 pid 有很多种方法，典型的通过 grep 获取 pid 的方法为（这里添加 <code>-v grep</code>是为了避免匹配到 grep 进程）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>ps命令是Process Status的缩写</span><br><span class="line">ps -ef | grep "name" | grep -v grep | awk '&#123;print $2&#125;'</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">#ps命令是Process Status的缩写
+ps -ef | grep &quot;name&quot; | grep -v grep | awk &#39;{print $2}&#39;
+</code></pre>
 <hr>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>一行一行的读取指定的文件， 以空格作为分隔符，打印第二个字段</span><br><span class="line">awk '&#123;print $2&#125;'  $fileName</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">#一行一行的读取指定的文件， 以空格作为分隔符，打印第二个字段
+awk &#39;{print $2}&#39;  $fileName
+</code></pre>
 <hr>
 <h5 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h5><p>在命令后面加上&amp; 实现后台运行。例如：<code>sh test.sh &amp;</code></p>
 <p>如果放在后台运行的作业会产生大量的输出到屏幕，最好使用下面的方法把它的输出重定向到某个文件中：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">command&gt;</span>out.file 2&gt;&amp;1  &amp;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">command&gt;out.file 2&gt;&amp;1  &amp;
+</code></pre>
 <p>2&gt;&amp;1 是将标准出错重定向到标准输出，这里的标准输出已经重定向到了out.file文件</p>
 <p><strong>nohup</strong></p>
 <p>nohup命令可以在控制台关掉(退出帐户时)之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。该命令配合 &amp; 命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup command &gt; myout.file 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">nohup command &gt; myout.file 2&gt;&amp;1 &amp;
+</code></pre>
 <hr>
 <p>利用 <strong>update-rc.d</strong>命令 添加开机启动服务，引用<a href="https://blog.csdn.net/TMT123421/article/details/53610334" target="_blank" rel="noopener">网友经验</a></p>
 <h5 id="复制或软连接脚本到-etc-init-d-目录下"><a href="#复制或软连接脚本到-etc-init-d-目录下" class="headerlink" title="复制或软连接脚本到/etc/init.d/目录下"></a>复制或软连接脚本到/etc/init.d/目录下</h5><p>ubuntu 16.04中一定要加上以下LSB信息，不然放入启动脚本的时候会报错无法开机启动。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"><span class="meta">#</span>## BEGIN INIT INFO</span><br><span class="line"><span class="meta">#</span> Provides:          svnd.sh</span><br><span class="line"><span class="meta">#</span> Required-start:    $local_fs $remote_fs $network $syslog</span><br><span class="line"><span class="meta">#</span> Required-Stop:     $local_fs $remote_fs $network $syslog</span><br><span class="line"><span class="meta">#</span> Default-Start:     2 3 4 5</span><br><span class="line"><span class="meta">#</span> Default-Stop:      0 1 6</span><br><span class="line"><span class="meta">#</span> Short-Description: starts the svnd.sh daemon</span><br><span class="line"><span class="meta">#</span> Description:       starts svnd.sh using start-stop-daemon</span><br><span class="line"><span class="meta">#</span>## END INIT INFO</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-<h5 id="设置脚本文件的权限"><a href="#设置脚本文件的权限" class="headerlink" title="设置脚本文件的权限"></a>设置脚本文件的权限</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chmod 755 /etc/init.d/svnd.sh (注意一定要设置权限，不然开机不会启动)</span><br></pre></td></tr></table></figure>
-<p>执行如下命令将脚本放到启动脚本中去：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/init.d</span><br><span class="line">$ sudo update-rc.d svnd.sh defaults 95</span><br><span class="line"><span class="comment">#注1：其中数字95是脚本启动的顺序号，按照自己的需要相应修改即可。在你有多个启动脚本，而它们之间又有先后启动的依赖关系时你就知道这个数字的具体作用了。</span></span><br><span class="line"><span class="comment">#注2：将脚本添加到初始化执行的队列中去，注意如果脚本需要用到网络，则NN需设置一个比较大的数字，如99。</span></span><br><span class="line"><span class="comment">#命令：update-rc.d xxx defaults NN(NN为启动顺序)</span></span><br></pre></td></tr></table></figure></p>
+<pre><code class="lang-shell">#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          svnd.sh
+# Required-start:    $local_fs $remote_fs $network $syslog
+# Required-Stop:     $local_fs $remote_fs $network $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts the svnd.sh daemon
+# Description:       starts svnd.sh using start-stop-daemon
+### END INIT INFO
+1
+2
+</code></pre>
+<h5 id="设置脚本文件的权限"><a href="#设置脚本文件的权限" class="headerlink" title="设置脚本文件的权限"></a>设置脚本文件的权限</h5><pre><code class="lang-bash">$ sudo chmod 755 /etc/init.d/svnd.sh (注意一定要设置权限，不然开机不会启动)
+</code></pre>
+<p>执行如下命令将脚本放到启动脚本中去：</p>
+<pre><code class="lang-bash">$ cd /etc/init.d
+$ sudo update-rc.d svnd.sh defaults 95
+#注1：其中数字95是脚本启动的顺序号，按照自己的需要相应修改即可。在你有多个启动脚本，而它们之间又有先后启动的依赖关系时你就知道这个数字的具体作用了。
+#注2：将脚本添加到初始化执行的队列中去，注意如果脚本需要用到网络，则NN需设置一个比较大的数字，如99。
+#命令：update-rc.d xxx defaults NN(NN为启动顺序)
+</code></pre>
 <hr>
-<h5 id="卸载启动脚本的方法："><a href="#卸载启动脚本的方法：" class="headerlink" title="卸载启动脚本的方法："></a>卸载启动脚本的方法：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/init.d</span><br><span class="line">$ sudo update-rc.d -f svnd.sh remove</span><br></pre></td></tr></table></figure>
+<h5 id="卸载启动脚本的方法："><a href="#卸载启动脚本的方法：" class="headerlink" title="卸载启动脚本的方法："></a>卸载启动脚本的方法：</h5><pre><code class="lang-bash">$ cd /etc/init.d
+$ sudo update-rc.d -f svnd.sh remove
+</code></pre>
 <hr>
 <h5 id="查看文件夹的大小"><a href="#查看文件夹的大小" class="headerlink" title="查看文件夹的大小"></a>查看文件夹的大小</h5><p>查看当前目录下所有文件夹的大小<code>du -sh –max-depth=0 *</code></p>
 <p>查看当前目录下所有文件夹的整体大小<code>du -sh –max-depth=0</code></p>
 <hr>
-<h5 id="添加动态链接库路径"><a href="#添加动态链接库路径" class="headerlink" title="添加动态链接库路径"></a>添加动态链接库路径</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=库的路径:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#如果将`export`命令写入脚本（*.sh）中执行，需要使用如下命令执行</span></span><br><span class="line"><span class="built_in">source</span> env.sh</span><br></pre></td></tr></table></figure>
+<h5 id="添加动态链接库路径"><a href="#添加动态链接库路径" class="headerlink" title="添加动态链接库路径"></a>添加动态链接库路径</h5><pre><code class="lang-bash">export LD_LIBRARY_PATH=库的路径:$LD_LIBRARY_PATH
+echo $LD_LIBRARY_PATH
+
+#如果将`export`命令写入脚本（*.sh）中执行，需要使用如下命令执行
+source env.sh
+</code></pre>
 <p><a href="https://www.cnblogs.com/zzdbullet/p/9953144.html" target="_blank" rel="noopener">执行source env.sh才能生效的原因</a></p>
 
 </div>
@@ -149,13 +201,14 @@
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

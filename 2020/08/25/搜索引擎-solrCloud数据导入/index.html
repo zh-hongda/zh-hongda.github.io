@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,9 +107,11 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="搜索引擎-solrCloud数据导入">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>搜索引擎-solrCloud数据导入</h1>
 </div> -->
@@ -121,7 +125,21 @@
 <p>zookeeper-3.5.1-alpha</p>
 </blockquote>
 <p>目录结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">solrCloud</span><br><span class="line">├─service01</span><br><span class="line">├─service02</span><br><span class="line">├─service03</span><br><span class="line">├─solr-5.3.1</span><br><span class="line">├─solrhome01</span><br><span class="line">├─solrhome02</span><br><span class="line">├─solrhome03</span><br><span class="line">├─solrhome04</span><br><span class="line">├─tomcat01</span><br><span class="line">├─tomcat02</span><br><span class="line">├─tomcat03</span><br><span class="line">├─tomcat04</span><br><span class="line">└─启动zookeeper和solr服务器</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-tree">solrCloud
+├─service01
+├─service02
+├─service03
+├─solr-5.3.1
+├─solrhome01
+├─solrhome02
+├─solrhome03
+├─solrhome04
+├─tomcat01
+├─tomcat02
+├─tomcat03
+├─tomcat04
+└─启动zookeeper和solr服务器
+</code></pre>
 <hr>
 <ol>
 <li><p>准备好需要导入的文件。</p>
@@ -135,18 +153,51 @@
 <li><p>在<code>solrCloud\solrhome01\collection1\newConf\solrconfig.xml</code>中加入如下配置。</p>
 </li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--该操作的意义在于，在solr中加入dataImportHandler插件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">requestHandler</span> <span class="attr">name</span>=<span class="string">"/dataimport"</span> <span class="attr">class</span>=<span class="string">"solr.DataImportHandler"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lst</span> <span class="attr">name</span>=<span class="string">"defaults"</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">str</span> <span class="attr">name</span>=<span class="string">"config"</span>&gt;</span>data-config.xml<span class="tag">&lt;/<span class="name">str</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">lst</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">requestHandler</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;!--该操作的意义在于，在solr中加入dataImportHandler插件--&gt;
+&lt;requestHandler name=&quot;/dataimport&quot; class=&quot;solr.DataImportHandler&quot;&gt;
+    &lt;lst name=&quot;defaults&quot;&gt;
+        &lt;str name=&quot;config&quot;&gt;data-config.xml&lt;/str&gt;
+    &lt;/lst&gt;
+&lt;/requestHandler&gt;
+</code></pre>
 <ol>
 <li>在<code>solrCloud\solrhome01\collection1\newConf\data-config</code>中加入如下配置，这个文件夹需要自己创建。</li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--该操作的意义在于，配置实体--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dataConfig</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"BinFileDataSource"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">document</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">entity</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">processor</span>=<span class="string">"FileListEntityProcessor"</span> <span class="attr">dataSource</span>=<span class="string">"null"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">baseDir</span>=<span class="string">"D:\NLZ_HD\solr-server\data\CNNOJIT"</span> <span class="attr">fileName</span>=<span class="string">".(doc)|(pdf)|(docx)|(txt)|(csv)|(json)|(xml)|(pptx)|(pptx)|(ppt)|(xls)|(xlsx)"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">rootEntity</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">entity</span> <span class="attr">name</span>=<span class="string">"pdf"</span> <span class="attr">processor</span>=<span class="string">"TikaEntityProcessor"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">url</span>=<span class="string">"$&#123;file.fileAbsolutePath&#125;"</span> <span class="attr">format</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"Author"</span> <span class="attr">name</span>=<span class="string">"file_author"</span> <span class="attr">meta</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"file_text"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;/<span class="name">entity</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">entity</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">document</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dataConfig</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;!--该操作的意义在于，配置实体--&gt;
+&lt;dataConfig&gt;
+  &lt;dataSource type=&quot;BinFileDataSource&quot;/&gt;
+  &lt;document&gt;
+    &lt;entity name=&quot;file&quot; processor=&quot;FileListEntityProcessor&quot; dataSource=&quot;null&quot;
+            baseDir=&quot;D:\NLZ_HD\solr-server\data\CNNOJIT&quot; fileName=&quot;.(doc)|(pdf)|(docx)|(txt)|(csv)|(json)|(xml)|(pptx)|(pptx)|(ppt)|(xls)|(xlsx)&quot;
+            rootEntity=&quot;false&quot;&gt;
+
+      &lt;field column=&quot;file&quot; name=&quot;id&quot;/&gt;
+      &lt;entity name=&quot;pdf&quot; processor=&quot;TikaEntityProcessor&quot;
+              url=&quot;${file.fileAbsolutePath}&quot; format=&quot;text&quot;&gt;
+
+        &lt;field column=&quot;Author&quot; name=&quot;file_author&quot; meta=&quot;true&quot;/&gt;
+        &lt;field column=&quot;text&quot; name=&quot;file_text&quot;/&gt;
+
+      &lt;/entity&gt;
+    &lt;/entity&gt;
+  &lt;/document&gt;
+&lt;/dataConfig&gt;
+</code></pre>
 <ol>
 <li>在<code>solrCloud\solrhome01\collection1\newConf\schema.xml</code>中添加如下配置。</li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--该操作的意义在于，配置`data-config`需要的域--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--自定义field开始--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"file_text"</span> <span class="attr">type</span>=<span class="string">"text_ik_Synonym"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span>  <span class="attr">multiValued</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"file_author"</span> <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span> <span class="attr">multiValued</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"file_keyWord"</span> <span class="attr">type</span>=<span class="string">"text_ik_Synonym"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span> <span class="attr">multiValued</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--自定义field结束  --&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;!--该操作的意义在于，配置`data-config`需要的域--&gt;
+&lt;!--自定义field开始--&gt;
+    &lt;field name=&quot;file_text&quot; type=&quot;text_ik_Synonym&quot; indexed=&quot;true&quot; stored=&quot;true&quot;  multiValued=&quot;false&quot;/&gt;
+    &lt;field name=&quot;file_author&quot; type=&quot;string&quot; indexed=&quot;true&quot; stored=&quot;true&quot; multiValued=&quot;false&quot;/&gt;
+    &lt;field name=&quot;file_keyWord&quot; type=&quot;text_ik_Synonym&quot; indexed=&quot;true&quot; stored=&quot;true&quot; multiValued=&quot;true&quot;/&gt;
+&lt;!--自定义field结束  --&gt;
+</code></pre>
 <ol>
 <li><p>由于修改了配置文件，所以需要更新配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#此处直接上传了同名的配置文件覆盖之前的配置文件</span></span><br><span class="line">zkcli.bat -zkhost 127.0.0.1:2181 -cmd upconfig -confname new_config -confdir D:\NLZ_HD\solrCloud\solrhome01\collection1\newConf</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">#此处直接上传了同名的配置文件覆盖之前的配置文件
+zkcli.bat -zkhost 127.0.0.1:2181 -cmd upconfig -confname new_config -confdir D:\NLZ_HD\solrCloud\solrhome01\collection1\newConf
+</code></pre>
 </li>
 </ol>
 
@@ -155,13 +206,14 @@
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

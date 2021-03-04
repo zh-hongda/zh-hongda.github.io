@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,9 +107,11 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="搜索引擎-Solr服务器搭建（单机版）">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>搜索引擎-Solr服务器搭建（单机版）</h1>
 </div> -->
@@ -133,7 +137,11 @@
 <li><p>准备tomcat</p>
 <ul>
 <li><p>解压tomcat压缩包，并在<code>D:\NLZ_HD\solr-server\tomcat7\conf\server.xml</code>中修改启动端口号为8989。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8989"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">
+&lt;Connector port=&quot;8989&quot; protocol=&quot;HTTP/1.1&quot;
+           connectionTimeout=&quot;20000&quot;
+           redirectPort=&quot;8443&quot; /&gt;
+</code></pre>
 </li>
 </ul>
 </li>
@@ -148,16 +156,19 @@
 <li><p>创建solr索引存放目录<code>`solr-server\solrhome</code></p>
 </li>
 <li><p>配置solr的家目录，在<code>solr-server\tomcat7\webapps\solr\WEB-INF\web.xml</code>文件做如下修改</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">env-entry</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">env-entry-name</span>&gt;</span>solr/home<span class="tag">&lt;/<span class="name">env-entry-name</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">env-entry-value</span>&gt;</span>D:/NLZ_HD/solr-server/solrhome<span class="tag">&lt;/<span class="name">env-entry-value</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">env-entry-type</span>&gt;</span>java.lang.String<span class="tag">&lt;/<span class="name">env-entry-type</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">env-entry</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;env-entry&gt;
+    &lt;env-entry-name&gt;solr/home&lt;/env-entry-name&gt;
+    &lt;env-entry-value&gt;D:/NLZ_HD/solr-server/solrhome&lt;/env-entry-value&gt;
+    &lt;env-entry-type&gt;java.lang.String&lt;/env-entry-type&gt;
+&lt;/env-entry&gt;
+</code></pre>
+</li>
+<li><p>将<code>solr-server\solr-4.4.0\example\solr</code>文件夹下所有内容拷贝到<code>solr-server\solrhome</code>中</p>
 </li>
 </ul>
 </li>
-</ol>
+<li><p>solr服务器搭建完成</p>
 <ul>
-<li>将<code>solr-server\solr-4.4.0\example\solr</code>文件夹下所有内容拷贝到<code>solr-server\solrhome</code>中</li>
-</ul>
-<ol>
-<li>solr服务器搭建完成<ul>
 <li>运行<code>D:\NLZ_HD\solr-server\tomcat7\bin\startup.bat</code></li>
 <li>访问solr服务器管理界面<code>http://localhost:8989/solr</code></li>
 </ul>
@@ -169,13 +180,14 @@
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

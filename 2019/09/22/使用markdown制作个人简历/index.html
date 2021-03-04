@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,9 +107,11 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="常用名词">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>常用名词</h1>
 </div> -->
@@ -135,8 +139,8 @@
 <p>其原因为：访问国外镜像源<code>https://rubygems.org</code>速度较慢。</p>
 <p>解决方案</p>
 <p>此处使用 <code>Gemfile</code>和<code>Bundler</code>，可以用 Bundler 的 Gem 源代码镜像命令：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bundle config mirror.http<span class="variable">s:</span>//rubygems.org http<span class="variable">s:</span>//gems.<span class="keyword">ruby</span>-china.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
-<blockquote>
+<pre><code>$ bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+</code></pre><blockquote>
 <p>详情请参考<a href="https://gems.ruby-china.com/" target="_blank" rel="noopener">官方网站</a></p>
 </blockquote>
 <hr>
@@ -144,7 +148,13 @@
 <p>I added <code>gem &quot;kramdown-parser-gfm&quot;</code> to Gemfile. Now the serve command completes successfully.</p>
 <hr>
 <p>网页版简历打印为pdf时，右侧边缘部分显示不完整，推测时因为时间和地点字体是斜体导致，所以修改字体</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*注释掉原有css中字体部分即可*/</span></span><br><span class="line"><span class="selector-tag">code</span> &#123;</span><br><span class="line">  <span class="comment">/* font-family: "Palatino";</span></span><br><span class="line"><span class="comment">  font-style: italic; */</span></span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-css">/*注释掉原有css中字体部分即可*/
+code {
+  /* font-family: &quot;Palatino&quot;;
+  font-style: italic; */
+  float: right;
+}
+</code></pre>
 <hr>
 <p>参考：</p>
 <p><a href="https://github.com/wodeni/nimo-markdown-cv" target="_blank" rel="noopener">nimo-markdown-cv</a></p>
@@ -159,13 +169,14 @@
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,16 +107,34 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="pysot">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>pysot</h1>
 </div> -->
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
   <h1>pysot</h1>
   <p>记录关于pysot。<br><a id="more"></a></p>
-<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">export PYTHONPATH=/home/hongda/pysot:$PYTHONPATH</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">cd /home/hongda/pysot/experiments/siamrpn_r50_l234_dwxcorr_8gpu </span><br><span class="line"><span class="meta">#</span><span class="bash"> model <span class="built_in">test</span></span></span><br><span class="line">python -u ../../tools/test.py\</span><br><span class="line">--snapshot model.pth/     \</span><br><span class="line">--dataset OTB100/         \</span><br><span class="line">--config config.yaml/     \</span><br><span class="line">--vis</span><br><span class="line"><span class="meta">#</span><span class="bash">moder <span class="built_in">eval</span></span></span><br><span class="line">python ../../tools/eval.py\</span><br><span class="line">--tracker_path./results   \</span><br><span class="line">--dataset OTB100          \</span><br><span class="line">--num 1                   \</span><br><span class="line">--tracker_prefix 'checkpoint'  \</span><br></pre></td></tr></table></figure>
+<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><pre><code class="lang-shell">export PYTHONPATH=/home/hongda/pysot:$PYTHONPATH
+
+#
+cd /home/hongda/pysot/experiments/siamrpn_r50_l234_dwxcorr_8gpu 
+# model test
+python -u ../../tools/test.py\
+--snapshot model.pth/     \
+--dataset OTB100/         \
+--config config.yaml/     \
+--vis
+#moder eval
+python ../../tools/eval.py\
+--tracker_path./results   \
+--dataset OTB100          \
+--num 1                   \
+--tracker_prefix &#39;checkpoint&#39;  \
+</code></pre>
 <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>logs</p>
 <h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><blockquote>
 <p>git log                     查看commit history</p>
@@ -124,16 +144,88 @@
 <p>head                       用来显示开头或结尾的字符</p>
 </blockquote>
 <p><strong>git log</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">hongda@hongda-ubuntu:~/pysot$ git log</span><br><span class="line">commit 052b9678a7ed336752f74dc6af31cc00eb004551 (HEAD -&gt; master, origin/master, origin/HEAD)</span><br><span class="line">Merge: 71f4fd2 113cab4</span><br><span class="line">Author: StrangerZhang &lt;fangyizhangz@gmail.com&gt;</span><br><span class="line">Date:   Mon Sep 23 17:20:07 2019 +0800</span><br><span class="line"></span><br><span class="line">    fix xcorr slow bugs</span><br><span class="line"></span><br><span class="line">commit 71f4fd26d326b8938582f9ce921a7913920b988d</span><br><span class="line">Author: StrangerZhang &lt;fangyizhangz@gmail.com&gt;</span><br><span class="line">Date:   Mon Sep 23 17:18:40 2019 +0800</span><br><span class="line"></span><br><span class="line">    fix xcorr slow bugs</span><br><span class="line"></span><br><span class="line">commit 113cab4b36379715888361dfcc89797692c8482b</span><br><span class="line">Author: Bo Li &lt;436101042@qq.com&gt;</span><br><span class="line">Date:   Mon Sep 23 16:57:07 2019 +0800</span><br><span class="line"></span><br><span class="line">    fix bug in xcorr_slow</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">hongda@hongda-ubuntu:~/pysot$ git log
+commit 052b9678a7ed336752f74dc6af31cc00eb004551 (HEAD -&gt; master, origin/master, origin/HEAD)
+Merge: 71f4fd2 113cab4
+Author: StrangerZhang &lt;fangyizhangz@gmail.com&gt;
+Date:   Mon Sep 23 17:20:07 2019 +0800
+
+    fix xcorr slow bugs
+
+commit 71f4fd26d326b8938582f9ce921a7913920b988d
+Author: StrangerZhang &lt;fangyizhangz@gmail.com&gt;
+Date:   Mon Sep 23 17:18:40 2019 +0800
+
+    fix xcorr slow bugs
+
+commit 113cab4b36379715888361dfcc89797692c8482b
+Author: Bo Li &lt;436101042@qq.com&gt;
+Date:   Mon Sep 23 16:57:07 2019 +0800
+
+    fix bug in xcorr_slow
+</code></pre>
 <p><strong>git log -oneline</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hongda@hongda-ubuntu:~/pysot$ git log -oneline</span><br><span class="line">052b967 (HEAD -&gt; master, origin/master, origin/HEAD) fix xcorr slow bugs</span><br><span class="line">71f4fd2 fix xcorr slow bugs</span><br><span class="line">113cab4 fix bug in xcorr_slow</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">hongda@hongda-ubuntu:~/pysot$ git log -oneline
+052b967 (HEAD -&gt; master, origin/master, origin/HEAD) fix xcorr slow bugs
+71f4fd2 fix xcorr slow bugs
+113cab4 fix bug in xcorr_slow
+</code></pre>
 <p><strong>format</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(pysot) hongda@hongda-ubuntu:~/pysot/experiments/siamrpn_r50_l234_dwxcorr_8gpu$ python</span><br><span class="line">Python <span class="number">3.7</span><span class="number">.4</span> (default, Aug <span class="number">13</span> <span class="number">2019</span>, <span class="number">20</span>:<span class="number">35</span>:<span class="number">49</span>) </span><br><span class="line">[GCC <span class="number">7.3</span><span class="number">.0</span>] :: Anaconda, Inc. on linux</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;&#125; &#123;&#125;"</span>.format(<span class="string">"hello"</span>, <span class="string">"world"</span>)</span><br><span class="line"><span class="string">'hello world'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-python">(pysot) hongda@hongda-ubuntu:~/pysot/experiments/siamrpn_r50_l234_dwxcorr_8gpu$ python
+Python 3.7.4 (default, Aug 13 2019, 20:35:49) 
+[GCC 7.3.0] :: Anaconda, Inc. on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; &quot;{} {}&quot;.format(&quot;hello&quot;, &quot;world&quot;)
+&#39;hello world&#39;
+&gt;&gt;&gt;
+</code></pre>
 <p><strong>head</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">hongda@hongda-ubuntu:~/pysot$ git log | head -n1</span><br><span class="line">commit 052b9678a7ed336752f74dc6af31cc00eb004551</span><br><span class="line">hongda@hongda-ubuntu:~/pysot$ git log | head -n2</span><br><span class="line">commit 052b9678a7ed336752f74dc6af31cc00eb004551</span><br><span class="line">Merge: 71f4fd2 113cab4</span><br><span class="line">hongda@hongda-ubuntu:~/pysot$ git log | head -n8</span><br><span class="line">commit 052b9678a7ed336752f74dc6af31cc00eb004551</span><br><span class="line">Merge: 71f4fd2 113cab4</span><br><span class="line">Author: StrangerZhang &lt;fangyizhangz@gmail.com&gt;</span><br><span class="line">Date:   Mon Sep 23 17:20:07 2019 +0800</span><br><span class="line"></span><br><span class="line">    fix xcorr slow bugs</span><br><span class="line"></span><br><span class="line">commit 71f4fd26d326b8938582f9ce921a7913920b988d</span><br><span class="line">hongda@hongda-ubuntu:~/pysot$</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">hongda@hongda-ubuntu:~/pysot$ git log | head -n1
+commit 052b9678a7ed336752f74dc6af31cc00eb004551
+hongda@hongda-ubuntu:~/pysot$ git log | head -n2
+commit 052b9678a7ed336752f74dc6af31cc00eb004551
+Merge: 71f4fd2 113cab4
+hongda@hongda-ubuntu:~/pysot$ git log | head -n8
+commit 052b9678a7ed336752f74dc6af31cc00eb004551
+Merge: 71f4fd2 113cab4
+Author: StrangerZhang &lt;fangyizhangz@gmail.com&gt;
+Date:   Mon Sep 23 17:20:07 2019 +0800
+
+    fix xcorr slow bugs
+
+commit 71f4fd26d326b8938582f9ce921a7913920b988d
+hongda@hongda-ubuntu:~/pysot$
+</code></pre>
 <p><strong>awk</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hongda@hongda-ubuntu:~/pysot$ git log | head -n8 | awk '&#123;&#123;print $2&#125;&#125;'</span><br><span class="line">052b9678a7ed336752f74dc6af31cc00eb004551</span><br><span class="line">71f4fd2</span><br><span class="line">StrangerZhang</span><br><span class="line">Mon</span><br><span class="line"></span><br><span class="line">xcorr</span><br><span class="line"></span><br><span class="line">71f4fd26d326b8938582f9ce921a7913920b988d</span><br><span class="line">hongda@hongda-ubuntu:~/pysot$</span><br></pre></td></tr></table></figure>
-<h1 id="end"><a href="#end" class="headerlink" title="end"></a>end</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始框</span><br><span class="line"></span><br><span class="line">op=&gt;operation: 处理框</span><br><span class="line"></span><br><span class="line">cond=&gt;condition: 判断框(是或否?)</span><br><span class="line"></span><br><span class="line">sub1=&gt;subroutine: 子流程</span><br><span class="line"></span><br><span class="line">io=&gt;inputoutput: 输入输出框</span><br><span class="line"></span><br><span class="line">e=&gt;end: 结束框</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line"></span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line"></span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-shell">hongda@hongda-ubuntu:~/pysot$ git log | head -n8 | awk &#39;{{print $2}}&#39;
+052b9678a7ed336752f74dc6af31cc00eb004551
+71f4fd2
+StrangerZhang
+Mon
+
+xcorr
+
+71f4fd26d326b8938582f9ce921a7913920b988d
+hongda@hongda-ubuntu:~/pysot$
+</code></pre>
+<h1 id="end"><a href="#end" class="headerlink" title="end"></a>end</h1><pre><code class="lang-flow">st=&gt;start: 开始框
+
+op=&gt;operation: 处理框
+
+cond=&gt;condition: 判断框(是或否?)
+
+sub1=&gt;subroutine: 子流程
+
+io=&gt;inputoutput: 输入输出框
+
+e=&gt;end: 结束框
+
+st-&gt;op-&gt;cond
+
+cond(yes)-&gt;io-&gt;e
+
+cond(no)-&gt;sub1(right)-&gt;op
+</code></pre>
 <p>参考</p>
 <p><a href="https://www.jianshu.com/p/a4498b2798a0" target="_blank" rel="noopener">SiamRPN代码解读—proposal selection部分</a></p>
 <p><a href="https://blog.csdn.net/ZZXin_/article/details/90203734" target="_blank" rel="noopener">pysot测试</a></p>
@@ -144,13 +236,14 @@
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

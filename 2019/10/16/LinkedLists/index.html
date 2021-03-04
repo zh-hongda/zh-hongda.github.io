@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,9 +107,11 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="Linked Lists Summary">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>Linked Lists Summary</h1>
 </div> -->
@@ -115,23 +119,316 @@
   <h1>Linked Lists Summary</h1>
   <p>Leetcode Linked Lists practice summary<br><a id="more"></a></p>
 <h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p>帶头结点的单链表的基本功能实现。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ElemType int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;LNode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    LNode* head;</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">&#125; MyLinkedList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line"></span><br><span class="line"><span class="function">MyLinkedList* <span class="title">myLinkedListCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   MyLinkedList* obj = (MyLinkedList*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MyLinkedList));</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">if</span>(!obj)&#123;</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line">    </span><br><span class="line">   obj-&gt;head = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">if</span>(!obj-&gt;head)&#123;</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line">    </span><br><span class="line">   obj-&gt;head-&gt;data = <span class="number">-1</span>;</span><br><span class="line">   obj-&gt;head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">   obj-&gt;length = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">myLinkedListGet</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    LNode* curr = obj-&gt;head;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(index &lt; <span class="number">0</span> || index &gt;= obj-&gt;length)</span><br><span class="line">	  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= index; i++)&#123;</span><br><span class="line">	    curr = curr-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> curr-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListAddAtHead</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    LNode* head = obj-&gt;head;</span><br><span class="line">    LNode* temp = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">    temp-&gt;data = val;</span><br><span class="line">    temp-&gt;next = head-&gt;next;</span><br><span class="line">    head-&gt;next = temp;</span><br><span class="line">    </span><br><span class="line">    obj-&gt;length++; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Append a node of value val to the last element of the linked list. */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListAddAtTail</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    LNode* curr = obj-&gt;head;</span><br><span class="line">    LNode* temp = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(!temp)&#123;</span><br><span class="line">	    <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    temp-&gt;data = val;</span><br><span class="line">    temp-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(curr-&gt;next)&#123;</span><br><span class="line">	    curr = curr-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    curr-&gt;next = temp;</span><br><span class="line">    obj-&gt;length++;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListAddAtIndex</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> index, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    LNode* prev,*curr;</span><br><span class="line">    </span><br><span class="line">    prev = obj-&gt;head;</span><br><span class="line">    curr = prev-&gt;next;</span><br><span class="line">    </span><br><span class="line">    LNode* temp = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(!temp)&#123;</span><br><span class="line">	    <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(index &gt; obj-&gt;length)</span><br><span class="line">	  <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    temp-&gt;data = val;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; index; i++)&#123;</span><br><span class="line">	    prev = prev-&gt;next;</span><br><span class="line">	    curr = curr-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    temp-&gt;next = curr;</span><br><span class="line">    prev-&gt;next = temp;</span><br><span class="line">    </span><br><span class="line">    obj-&gt;length++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Delete the index-th node in the linked list, if the index is valid. */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListDeleteAtIndex</span><span class="params">(MyLinkedList* obj, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    LNode* prev,*curr;</span><br><span class="line">    prev = obj-&gt;head;</span><br><span class="line">    curr = prev-&gt;next;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(index &lt; <span class="number">0</span> || index &gt;= obj-&gt;length)</span><br><span class="line">         <span class="keyword">return</span> <span class="number">-1</span>; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; index; i++)&#123;</span><br><span class="line">        prev = prev-&gt;next;</span><br><span class="line">        curr = curr-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    prev-&gt;next = curr-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(curr);</span><br><span class="line">    obj-&gt;length--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedListFree</span><span class="params">(MyLinkedList* obj)</span> </span>&#123;</span><br><span class="line">    LNode* prev,*curr;</span><br><span class="line">    </span><br><span class="line">    prev = obj-&gt;head;</span><br><span class="line">    curr = prev-&gt;next;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">	prev-&gt;next = curr-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(curr);</span><br><span class="line">    curr = prev-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">free</span>(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-c">#define ElemType int
+
+typedef struct LNode{
+    ElemType data;
+    struct LNode* next;
+}LNode;
+
+typedef struct {
+    LNode* head;
+    int length;
+} MyLinkedList;
+
+/** Initialize your data structure here. */
+
+MyLinkedList* myLinkedListCreate() {
+   MyLinkedList* obj = (MyLinkedList*)malloc(sizeof(MyLinkedList));
+
+   if(!obj){
+       return;
+   }
+
+   obj-&gt;head = (LNode*)malloc(sizeof(LNode));
+
+   if(!obj-&gt;head){
+       return;
+   }
+
+   obj-&gt;head-&gt;data = -1;
+   obj-&gt;head-&gt;next = NULL;
+   obj-&gt;length = 0;
+
+   return obj;
+}
+
+/** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
+int myLinkedListGet(MyLinkedList* obj, int index) {
+    LNode* curr = obj-&gt;head;
+
+    if(index &lt; 0 || index &gt;= obj-&gt;length)
+      return -1;
+
+    for(int i = 0; i &lt;= index; i++){
+        curr = curr-&gt;next;
+    }
+
+    return curr-&gt;data;
+}
+
+/** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
+void myLinkedListAddAtHead(MyLinkedList* obj, int val) {
+    LNode* head = obj-&gt;head;
+    LNode* temp = (LNode*)malloc(sizeof(LNode));
+
+    temp-&gt;data = val;
+    temp-&gt;next = head-&gt;next;
+    head-&gt;next = temp;
+
+    obj-&gt;length++; 
+}
+
+/** Append a node of value val to the last element of the linked list. */
+void myLinkedListAddAtTail(MyLinkedList* obj, int val) {
+    LNode* curr = obj-&gt;head;
+    LNode* temp = (LNode*)malloc(sizeof(LNode));
+
+    if(!temp){
+        return;
+    }
+
+    temp-&gt;data = val;
+    temp-&gt;next = NULL;
+
+    while(curr-&gt;next){
+        curr = curr-&gt;next;
+    }
+
+    curr-&gt;next = temp;
+    obj-&gt;length++;
+
+}
+
+/** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
+void myLinkedListAddAtIndex(MyLinkedList* obj, int index, int val) {
+    LNode* prev,*curr;
+
+    prev = obj-&gt;head;
+    curr = prev-&gt;next;
+
+    LNode* temp = (LNode*)malloc(sizeof(LNode));
+
+    if(!temp){
+        return;
+    }
+
+    if(index &gt; obj-&gt;length)
+      return;
+
+    temp-&gt;data = val;
+
+    for(int i = 0; i &lt; index; i++){
+        prev = prev-&gt;next;
+        curr = curr-&gt;next;
+    }
+
+    temp-&gt;next = curr;
+    prev-&gt;next = temp;
+
+    obj-&gt;length++;
+}
+
+/** Delete the index-th node in the linked list, if the index is valid. */
+void myLinkedListDeleteAtIndex(MyLinkedList* obj, int index) {
+    LNode* prev,*curr;
+    prev = obj-&gt;head;
+    curr = prev-&gt;next;
+
+    if(index &lt; 0 || index &gt;= obj-&gt;length)
+         return -1; 
+
+    for(int i = 0; i &lt; index; i++){
+        prev = prev-&gt;next;
+        curr = curr-&gt;next;
+    }
+
+    prev-&gt;next = curr-&gt;next;
+    free(curr);
+    obj-&gt;length--;
+}
+
+void myLinkedListFree(MyLinkedList* obj) {
+    LNode* prev,*curr;
+
+    prev = obj-&gt;head;
+    curr = prev-&gt;next;
+
+    while(curr){
+    prev-&gt;next = curr-&gt;next;
+    free(curr);
+    curr = prev-&gt;next;
+    }
+
+    free(obj);
+}
+</code></pre>
 <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1-Middle-of-the-Linked-List"><a href="#1-1-Middle-of-the-Linked-List" class="headerlink" title="1.1 Middle of the Linked List"></a>1.1 <a href="https://leetcode.com/problems/middle-of-the-linked-list" target="_blank" rel="noopener">Middle of the Linked List</a></h2><p>一开始使用遍历的方法，现在感觉使用两个指针，一个速度是另一个2倍，可能更加方便。</p>
-<h2 id="1-2-Reverse-Linked-List"><a href="#1-2-Reverse-Linked-List" class="headerlink" title="1.2 Reverse Linked List"></a>1.2 <a href="https://leetcode.com/problems/reverse-linked-list" target="_blank" rel="noopener">Reverse Linked List</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">reverseList</span><span class="params">(struct ListNode* head)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>) <span class="comment">//当头指针为空或者只有一个结点时停止递归</span></span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">newhead</span> = <span class="title">reverseList</span>(<span class="title">head</span>-&gt;<span class="title">next</span>);</span> <span class="comment">//递归</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/////尾插法</span></span><br><span class="line">    head-&gt;next-&gt;next = head; </span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">/////end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> newhead;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-Reverse-Linked-List"><a href="#1-2-Reverse-Linked-List" class="headerlink" title="1.2 Reverse Linked List"></a>1.2 <a href="https://leetcode.com/problems/reverse-linked-list" target="_blank" rel="noopener">Reverse Linked List</a></h2><pre><code class="lang-c">struct ListNode* reverseList(struct ListNode* head){
+    if(head == NULL || head-&gt;next == NULL) //当头指针为空或者只有一个结点时停止递归
+        return head;
+    struct ListNode* newhead = reverseList(head-&gt;next); //递归
+
+    /////尾插法
+    head-&gt;next-&gt;next = head; 
+    head-&gt;next = NULL;
+    /////end
+
+    return newhead;
+}
+</code></pre>
 <p>每次假设除了第一个结点外其他结点已经翻转完毕（此时head-&gt;next是已经翻转后新链表的最后一个结点），然后将头结点插入新链表的尾部（即head-&gt;next）。</p>
-<h2 id="1-3-Delete-Node-in-a-Linked-List"><a href="#1-3-Delete-Node-in-a-Linked-List" class="headerlink" title="1.3 Delete Node in a Linked List"></a>1.3 <a href="https://leetcode.com/problems/delete-node-in-a-linked-list" target="_blank" rel="noopener">Delete Node in a Linked List</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(struct ListNode* node)</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">temp</span> = <span class="title">node</span>-&gt;<span class="title">next</span>;</span></span><br><span class="line">    node-&gt;val  = temp-&gt;val;</span><br><span class="line">    node-&gt;next = temp-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(temp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-Delete-Node-in-a-Linked-List"><a href="#1-3-Delete-Node-in-a-Linked-List" class="headerlink" title="1.3 Delete Node in a Linked List"></a>1.3 <a href="https://leetcode.com/problems/delete-node-in-a-linked-list" target="_blank" rel="noopener">Delete Node in a Linked List</a></h2><pre><code class="lang-c">void deleteNode(struct ListNode* node) {
+    struct ListNode* temp = node-&gt;next;
+    node-&gt;val  = temp-&gt;val;
+    node-&gt;next = temp-&gt;next;
+    free(temp);
+}
+</code></pre>
 <p>题目难点在于只给出了需要删除的结点，</p>
 <p>解题思路：将下一个结点的val复制给当前结点，然后删除下一个结点。即用当前结点代替下一个结点。</p>
-<h2 id="1-4-Merge-Two-Sorted-Lists"><a href="#1-4-Merge-Two-Sorted-Lists" class="headerlink" title="1.4 Merge Two Sorted Lists"></a>1.4 <a href="https://leetcode.com/problems/merge-two-sorted-lists" target="_blank" rel="noopener">Merge Two Sorted Lists</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">mergeTwoLists</span><span class="params">(struct ListNode* l1, struct ListNode* l2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l1 == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">    <span class="keyword">if</span> (l2 == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    <span class="keyword">if</span> (l1-&gt;val &lt;= l2-&gt;val) &#123;</span><br><span class="line">        l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);</span><br><span class="line">        <span class="keyword">return</span> l1;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        l2-&gt;next = mergeTwoLists(l1, l2-&gt;next);</span><br><span class="line">        <span class="keyword">return</span> l2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-4-Merge-Two-Sorted-Lists"><a href="#1-4-Merge-Two-Sorted-Lists" class="headerlink" title="1.4 Merge Two Sorted Lists"></a>1.4 <a href="https://leetcode.com/problems/merge-two-sorted-lists" target="_blank" rel="noopener">Merge Two Sorted Lists</a></h2><pre><code class="lang-c">struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
+    if (l1 == NULL)
+        return l2;
+    if (l2 == NULL)
+        return l1;
+    if (l1-&gt;val &lt;= l2-&gt;val) {
+        l1-&gt;next = mergeTwoLists(l1-&gt;next, l2);
+        return l1;
+    } else {
+        l2-&gt;next = mergeTwoLists(l1, l2-&gt;next);
+        return l2;
+    }
+}
+</code></pre>
 <p>每次在两个链表的第一个结点中选择较小的一个，然后假设除了该结点其他结点已经合并完毕。在这种情况下只需要令该结点指向已排序好的新链表即可。不断递归，问题规模不断减小，直到有一个链表为NULL时停止递归。</p>
-<h2 id="1-5-Remove-Duplicates-from-Sorted-List"><a href="#1-5-Remove-Duplicates-from-Sorted-List" class="headerlink" title="1.5 Remove Duplicates from Sorted List"></a>1.5 <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list" target="_blank" rel="noopener">Remove Duplicates from Sorted List</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">deleteDuplicates</span><span class="params">(struct ListNode* head)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">temp</span>;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span>(head-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(head-&gt;val == head-&gt;next-&gt;val)&#123;</span><br><span class="line">        temp = head;</span><br><span class="line">        head = deleteDuplicates(head-&gt;next);</span><br><span class="line">        <span class="built_in">free</span>(temp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        head-&gt;next = deleteDuplicates(head-&gt;next);</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-5-Remove-Duplicates-from-Sorted-List"><a href="#1-5-Remove-Duplicates-from-Sorted-List" class="headerlink" title="1.5 Remove Duplicates from Sorted List"></a>1.5 <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list" target="_blank" rel="noopener">Remove Duplicates from Sorted List</a></h2><pre><code class="lang-c">struct ListNode* deleteDuplicates(struct ListNode* head){
+    struct ListNode* temp;
+
+    if(head == NULL)
+        return NULL;
+    if(head-&gt;next == NULL)
+        return head;
+
+    if(head-&gt;val == head-&gt;next-&gt;val){
+        temp = head;
+        head = deleteDuplicates(head-&gt;next);
+        free(temp);
+    }
+    else
+        head-&gt;next = deleteDuplicates(head-&gt;next);
+    return head;
+}
+</code></pre>
 <p>每次判断前两个结点的val是否相同，如果相同，假设除了第一个结点外链表已经去重完毕，此时只需要将头指针指向新链表即可。如果不相同，令第一个节点指向新链表。不断递归，问题规模不断减小，直到只有一个结点时停止。</p>
 <h2 id="1-6-Linked-List-Cycle"><a href="#1-6-Linked-List-Cycle" class="headerlink" title="1.6  Linked List Cycle"></a>1.6 <a href="https://leetcode.com/problems/linked-list-cycle" target="_blank" rel="noopener"> Linked List Cycle</a></h2><p>使用 Floyd Cycle Detection Algorithm 又叫Tortoise and Hare Algorithm</p>
-<h2 id="1-7-Palindrome-Linked-List"><a href="#1-7-Palindrome-Linked-List" class="headerlink" title="1.7 Palindrome Linked List"></a>1.7 <a href="https://leetcode.com/problems/palindrome-linked-list" target="_blank" rel="noopener">Palindrome Linked List</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">reverse</span><span class="params">(struct ListNode* head)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">p</span>,*<span class="title">temp</span>;</span></span><br><span class="line">    p = head-&gt;next;</span><br><span class="line">    head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/////////后插法//////////////</span></span><br><span class="line">    <span class="keyword">while</span>(p !=<span class="literal">NULL</span>)&#123;</span><br><span class="line">    temp = p-&gt;next;</span><br><span class="line">    p-&gt;next = head;</span><br><span class="line">    head = p;</span><br><span class="line"></span><br><span class="line">	p = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//////////后插法//////////</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(struct ListNode* head)</span></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">slow</span> =<span class="title">head</span>,*<span class="title">fast</span> =<span class="title">head</span>;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(!head || !head-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">////////找到中间结点和尾结点</span></span><br><span class="line">	<span class="keyword">while</span>(fast-&gt;next &amp;&amp; fast-&gt;next-&gt;next )&#123;</span><br><span class="line">	    fast = fast-&gt;next-&gt;next;</span><br><span class="line">	    slow = slow-&gt;next;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(fast-&gt;next)&#123;</span><br><span class="line">	    fast = fast-&gt;next;</span><br><span class="line">	    slow = slow-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//////end</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//////翻转链表</span></span><br><span class="line">    reverse(slow);</span><br><span class="line">    <span class="comment">//////end</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/////逐个结点检查</span></span><br><span class="line">	<span class="keyword">while</span>(fast)&#123;</span><br><span class="line">	    <span class="keyword">if</span>(fast-&gt;val == head-&gt;val)&#123;</span><br><span class="line">		    fast = fast-&gt;next;</span><br><span class="line">		    head = head-&gt;next;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">else</span></span><br><span class="line">		    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-7-Palindrome-Linked-List"><a href="#1-7-Palindrome-Linked-List" class="headerlink" title="1.7 Palindrome Linked List"></a>1.7 <a href="https://leetcode.com/problems/palindrome-linked-list" target="_blank" rel="noopener">Palindrome Linked List</a></h2><pre><code class="lang-c">struct ListNode* reverse(struct ListNode* head){
+    struct ListNode* p,*temp;
+    p = head-&gt;next;
+    head-&gt;next = NULL;
+
+    /////////后插法//////////////
+    while(p !=NULL){
+    temp = p-&gt;next;
+    p-&gt;next = head;
+    head = p;
+
+    p = temp;
+    }
+    //////////后插法//////////
+
+    return head;
+}
+
+bool isPalindrome(struct ListNode* head){
+    struct ListNode* slow =head,*fast =head;
+
+    if(!head || !head-&gt;next) return true;
+
+    ////////找到中间结点和尾结点
+    while(fast-&gt;next &amp;&amp; fast-&gt;next-&gt;next ){
+        fast = fast-&gt;next-&gt;next;
+        slow = slow-&gt;next;
+
+    }
+    if(fast-&gt;next){
+        fast = fast-&gt;next;
+        slow = slow-&gt;next;
+    }
+    //////end
+
+    //////翻转链表
+    reverse(slow);
+    //////end
+
+    /////逐个结点检查
+    while(fast){
+        if(fast-&gt;val == head-&gt;val){
+            fast = fast-&gt;next;
+            head = head-&gt;next;
+        }
+        else
+            return false;
+    }
+    return true;   
+}
+</code></pre>
 <p>解题思想在于，找到中间结点然后reverse后半段的链表，并与前半段对比。</p>
-<h2 id="1-8-Remove-Linked-List-Elements"><a href="#1-8-Remove-Linked-List-Elements" class="headerlink" title="1.8 Remove Linked List Elements"></a>1.8 <a href="https://leetcode.com/problems/remove-linked-list-elements" target="_blank" rel="noopener">Remove Linked List Elements</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode* <span class="title">removeElements</span><span class="params">(struct ListNode* head, <span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">dummy</span>=(<span class="title">struct</span> <span class="title">ListNode</span>*)<span class="title">malloc</span>(<span class="title">sizeof</span>(<span class="title">struct</span> <span class="title">ListNode</span>));</span></span><br><span class="line">    dummy-&gt;val=INT_MAX;</span><br><span class="line">    dummy-&gt;next=head;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">prev</span> = <span class="title">dummy</span>;</span> </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">Next</span> = <span class="title">NULL</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">curr</span> = <span class="title">dummy</span>-&gt;<span class="title">next</span>;</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">        Next=curr-&gt;next;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span>(curr-&gt;val==val)&#123;</span><br><span class="line">            prev-&gt;next=curr-&gt;next;</span><br><span class="line">            <span class="built_in">free</span>(curr);</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">           prev=curr;</span><br><span class="line">           curr=Next;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-8-Remove-Linked-List-Elements"><a href="#1-8-Remove-Linked-List-Elements" class="headerlink" title="1.8 Remove Linked List Elements"></a>1.8 <a href="https://leetcode.com/problems/remove-linked-list-elements" target="_blank" rel="noopener">Remove Linked List Elements</a></h2><pre><code class="lang-c">struct ListNode* removeElements(struct ListNode* head, int val){
+    struct ListNode* dummy=(struct ListNode*)malloc(sizeof(struct ListNode));
+    dummy-&gt;val=INT_MAX;
+    dummy-&gt;next=head;
+
+    struct ListNode* prev = dummy; 
+    struct ListNode* Next = NULL;
+    struct ListNode* curr = dummy-&gt;next;
+
+    while(curr){
+        Next=curr-&gt;next;
+
+        if(curr-&gt;val==val){
+            prev-&gt;next=curr-&gt;next;
+            free(curr);
+         }
+        else
+           prev=curr;
+           curr=Next;  
+    }
+    return dummy-&gt;next;
+}
+</code></pre>
 <p>d算法本身没什么好说的，不过值得注意的是，使用头结点将第一个结点普通化，不用单独处理第一个结点，更加方便。个人感觉链表的核心就在于 prev &amp; curr &amp; next。</p>
-<h2 id="1-9-Intersection-of-Two-Linked-Lists"><a href="#1-9-Intersection-of-Two-Linked-Lists" class="headerlink" title="1.9 Intersection of Two Linked Lists"></a>1.9 <a href="https://leetcode.com/problems/intersection-of-two-linked-lists" target="_blank" rel="noopener">Intersection of Two Linked Lists</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct ListNode *<span class="title">getIntersectionNode</span><span class="params">(struct ListNode *headA, struct ListNode *headB)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> LengthA = <span class="number">0</span>, LengthB = <span class="number">0</span>;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>* <span class="title">curr</span>;</span></span><br><span class="line"></span><br><span class="line">    curr = headA;</span><br><span class="line">    <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">        curr = curr-&gt;next;</span><br><span class="line">        LengthA++;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    curr = headB;</span><br><span class="line">    <span class="keyword">while</span>(curr)&#123;</span><br><span class="line">        curr = curr-&gt;next;</span><br><span class="line">        LengthB++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(LengthA &lt; LengthB)&#123;</span><br><span class="line">        headB = headB-&gt;next;</span><br><span class="line">        LengthB--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(LengthB &lt; LengthA)&#123;</span><br><span class="line">        headA = headA-&gt;next;</span><br><span class="line">        LengthA--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(headA != headB)&#123;</span><br><span class="line">        headA = headA-&gt;next;</span><br><span class="line">        headB = headB-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> headA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-9-Intersection-of-Two-Linked-Lists"><a href="#1-9-Intersection-of-Two-Linked-Lists" class="headerlink" title="1.9 Intersection of Two Linked Lists"></a>1.9 <a href="https://leetcode.com/problems/intersection-of-two-linked-lists" target="_blank" rel="noopener">Intersection of Two Linked Lists</a></h2><pre><code class="lang-c">struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {
+    int LengthA = 0, LengthB = 0;
+    struct ListNode* curr;
+
+    curr = headA;
+    while(curr){
+        curr = curr-&gt;next;
+        LengthA++;
+
+    }
+    curr = headB;
+    while(curr){
+        curr = curr-&gt;next;
+        LengthB++;
+    }
+
+    while(LengthA &lt; LengthB){
+        headB = headB-&gt;next;
+        LengthB--;
+    }
+    while(LengthB &lt; LengthA){
+        headA = headA-&gt;next;
+        LengthA--;
+    }
+    while(headA != headB){
+        headA = headA-&gt;next;
+        headB = headB-&gt;next;
+    }
+    return headA;
+}
+</code></pre>
 <p>b遍历，确定两个链表的长度，然后将较长的链表缩短到于短链表一样的长度。最后逐结点对比，当发现指针相同时，就是解。</p>
 
 </div>
@@ -139,13 +436,14 @@
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

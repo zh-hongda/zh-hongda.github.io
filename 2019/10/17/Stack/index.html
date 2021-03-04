@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,16 +107,91 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="Stack Summary">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>Stack Summary</h1>
 </div> -->
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
   <h1>Stack Summary</h1>
   <p>Leetcode Stack practice summary<br><a id="more"></a></p>
-<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1-Min-Stack"><a href="#1-1-Min-Stack" class="headerlink" title="1.1 Min Stack"></a>1.1 <a href="https://leetcode.com/problems/min-stack" target="_blank" rel="noopener">Min Stack</a></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STACK_INIT_SIZE 1000 <span class="comment">//Stack初始大小</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STACKINCREMENT 100 <span class="comment">//空间耗尽时，的增量。</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SElemType int <span class="comment">//指定元素类型</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    SElemType* base;</span><br><span class="line">    SElemType* top;</span><br><span class="line">    <span class="keyword">int</span> stacksize;    </span><br><span class="line">&#125; MinStack;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** initialize your data structure here-&gt; */</span></span><br><span class="line"></span><br><span class="line"><span class="function">MinStack* <span class="title">minStackCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    MinStack* S = (MinStack*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(MinStack));</span><br><span class="line">    <span class="keyword">if</span> (!S)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    S-&gt;base = (SElemType*)<span class="built_in">malloc</span>(STACK_INIT_SIZE * <span class="keyword">sizeof</span>(SElemType));</span><br><span class="line">    <span class="keyword">if</span>(!S-&gt;base)</span><br><span class="line">	    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    S-&gt;top = S-&gt;base;</span><br><span class="line">    S-&gt;stacksize = STACK_INIT_SIZE;</span><br><span class="line">    <span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">minStackPush</span><span class="params">(MinStack* obj, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="comment">///////////如果存储空间耗尽///////////////</span></span><br><span class="line">    <span class="keyword">if</span>((obj-&gt;top - obj-&gt;base) &gt;= obj-&gt;stacksize)&#123;</span><br><span class="line">	obj-&gt;base = (SElemType*)<span class="built_in">realloc</span>(obj-&gt;base,(obj-&gt;stacksize + STACKINCREMENT)*<span class="keyword">sizeof</span>(SElemType));</span><br><span class="line">    <span class="keyword">if</span>(!obj-&gt;base)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">    obj-&gt;top = obj-&gt;base + obj-&gt;stacksize;</span><br><span class="line">    obj-&gt;stacksize = obj-&gt;stacksize + STACKINCREMENT;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//////////END////////////////////////////</span></span><br><span class="line"></span><br><span class="line">    *(obj-&gt;top++) = x;  <span class="comment">//入栈</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">minStackPop</span><span class="params">(MinStack* obj)</span> </span>&#123;</span><br><span class="line">    <span class="comment">////////////如果栈空///////</span></span><br><span class="line">    <span class="keyword">if</span>(obj-&gt;top == obj-&gt;base)</span><br><span class="line">	    <span class="keyword">return</span>;</span><br><span class="line">	<span class="comment">/////////////END/////////////</span></span><br><span class="line">    obj-&gt;top--;  <span class="comment">//出栈</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minStackTop</span><span class="params">(MinStack* obj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(obj-&gt;top == obj-&gt;base)</span><br><span class="line">	    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> *(obj-&gt;top<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minStackGetMin</span><span class="params">(MinStack* obj)</span> </span>&#123;</span><br><span class="line">    SElemType* min;</span><br><span class="line"></span><br><span class="line">    min = obj-&gt;base;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(SElemType* curr=obj-&gt;top; curr != obj-&gt;base; curr--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(*(curr<span class="number">-1</span>) &lt; *min)</span><br><span class="line">           min = curr<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *min;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">minStackFree</span><span class="params">(MinStack* obj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(obj)&#123;</span><br><span class="line">	<span class="keyword">if</span>(obj-&gt;base)</span><br><span class="line">	    <span class="built_in">free</span>(obj-&gt;base);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">free</span>(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1-Min-Stack"><a href="#1-1-Min-Stack" class="headerlink" title="1.1 Min Stack"></a>1.1 <a href="https://leetcode.com/problems/min-stack" target="_blank" rel="noopener">Min Stack</a></h2><pre><code class="lang-c">#define STACK_INIT_SIZE 1000 //Stack初始大小
+#define STACKINCREMENT 100 //空间耗尽时，的增量。
+#define SElemType int //指定元素类型
+
+typedef struct {
+    SElemType* base;
+    SElemType* top;
+    int stacksize;    
+} MinStack;
+
+/** initialize your data structure here-&gt; */
+
+MinStack* minStackCreate() {
+    MinStack* S = (MinStack*)malloc(sizeof(MinStack));
+    if (!S)
+        return NULL;
+    S-&gt;base = (SElemType*)malloc(STACK_INIT_SIZE * sizeof(SElemType));
+    if(!S-&gt;base)
+        return NULL;
+    S-&gt;top = S-&gt;base;
+    S-&gt;stacksize = STACK_INIT_SIZE;
+    return S;
+}
+
+void minStackPush(MinStack* obj, int x) {
+    ///////////如果存储空间耗尽///////////////
+    if((obj-&gt;top - obj-&gt;base) &gt;= obj-&gt;stacksize){
+    obj-&gt;base = (SElemType*)realloc(obj-&gt;base,(obj-&gt;stacksize + STACKINCREMENT)*sizeof(SElemType));
+    if(!obj-&gt;base)
+        return;
+    obj-&gt;top = obj-&gt;base + obj-&gt;stacksize;
+    obj-&gt;stacksize = obj-&gt;stacksize + STACKINCREMENT;
+    }
+    //////////END////////////////////////////
+
+    *(obj-&gt;top++) = x;  //入栈
+}
+
+void minStackPop(MinStack* obj) {
+    ////////////如果栈空///////
+    if(obj-&gt;top == obj-&gt;base)
+        return;
+    /////////////END/////////////
+    obj-&gt;top--;  //出栈
+}
+
+int minStackTop(MinStack* obj) {
+    if(obj-&gt;top == obj-&gt;base)
+        return NULL;
+    return *(obj-&gt;top-1);
+
+}
+
+int minStackGetMin(MinStack* obj) {
+    SElemType* min;
+
+    min = obj-&gt;base;
+
+    for(SElemType* curr=obj-&gt;top; curr != obj-&gt;base; curr--){
+        if(*(curr-1) &lt; *min)
+           min = curr-1;
+    }
+    return *min;  
+}
+
+void minStackFree(MinStack* obj) {
+    if(obj){
+    if(obj-&gt;base)
+        free(obj-&gt;base);
+
+    free(obj);
+    }
+}
+</code></pre>
 <p>Stack的基本操作。</p>
 
 </div>
@@ -122,13 +199,14 @@
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

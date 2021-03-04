@@ -1,5 +1,6 @@
 body {
-	font-family: 'Open Sans', sans-serif;
+	/* font-family: 'Open Sans', sans-serif; */
+	font-family: 'SimHei', sans-serif;
 }
 
 form {
@@ -23,7 +24,7 @@ button:hover {
 }
 
 input, textarea {
-	font-size: 0.8rem;
+	font-size: 1.25rem;
   border: 1px solid #ddd;
   background: #fff;
   padding: 0.5rem 0.7rem;
@@ -56,9 +57,9 @@ input:focus, textarea:focus {
 }
 
 h1, h2, h3 {
-	font-family: 'Crimson Text', sans-serif;
+	font-family: 'SimHei', sans-serif;
 	letter-spacing: 1px;
-	font-weight: 300;
+	font-weight: bold;
 	margin-bottom: 20px;
 }
 
@@ -173,8 +174,18 @@ h1, h2, h3 {
 	color: #000;
 }
 
-/*  */
+/* HDTJ */
 p {
     margin-top: 0;
     margin-bottom: 0rem;
+	font-size: 1.5rem;
+}
+
+::marker {
+	color: rgb(3, 3, 3);
+	font-size: 1.5rem;
+}
+
+span {
+	font-size: 1.2rem;
 }

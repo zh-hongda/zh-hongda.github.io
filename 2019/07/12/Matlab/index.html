@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,30 +107,60 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="Matlab Experience">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>Matlab Experience</h1>
 </div> -->
 <div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
   <h1>Matlab Experience</h1>
   <p>不常用但是又没那么不常用的东西之Matlab。<br><a id="more"></a></p>
-<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%将多个Figure放入一个Figure。  </span></span><br><span class="line">subplot(n,m,s);  <span class="comment">%将一个Figure分为$n \times m$个区域。s表示mesh() 对应的Figure放入第s个区域。  </span></span><br><span class="line">mesh(z);</span><br></pre></td></tr></table></figure>
-<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%绘制三元函数的图形，三元函数对应“体积”，二元函数对应“平面”</span></span><br><span class="line">clear</span><br><span class="line">[x,y,z]=<span class="built_in">meshgrid</span>(<span class="number">1</span>:<span class="number">0.1</span>:<span class="number">10</span>,<span class="number">1</span>:<span class="number">0.1</span>:<span class="number">5</span>,<span class="number">2</span>:<span class="number">0.1</span>:<span class="number">5</span>);</span><br><span class="line">v=x.^<span class="number">2</span>+<span class="number">3</span>*x.*y+<span class="number">4</span>*y.*z;</span><br><span class="line">xslice=[<span class="number">2</span>,<span class="number">5</span>,<span class="number">8</span>];<span class="comment">%指定切片的位置</span></span><br><span class="line">yslice=<span class="number">2</span>;</span><br><span class="line">zslice=[<span class="number">2</span>,<span class="number">4</span>];</span><br><span class="line">slice(x,y,z,v,xslice,yslice,zslice) <span class="comment">%绘制切片图</span></span><br><span class="line">colormap hsv <span class="comment">%指定颜色变化模式，无关紧要。</span></span><br></pre></td></tr></table></figure>
-<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%绘制三原函数的等值面</span></span><br><span class="line">range=<span class="built_in">linspace</span>(<span class="number">-6</span>,<span class="number">6</span>,<span class="number">100</span>);</span><br><span class="line">[x,y,z]=<span class="built_in">meshgrid</span>(range,range,range);<span class="comment">%生成一定定义域内x，y，z矩阵</span></span><br><span class="line">v=x.^<span class="number">2</span>+y.^<span class="number">2</span>-z.^<span class="number">2</span>;<span class="comment">%计算函数数值，</span></span><br><span class="line">p = patch(isosurface(x,y,z,v,<span class="number">4</span>,x));<span class="comment">%用isosurface画等值面,第五个变量“4”控制画哪一个等值面，第6个变量控制颜色渐变的方向，“x”即沿x轴渐变</span></span><br><span class="line"><span class="comment">%等值面是三角网格表示的，用patch函数之后，更容易修改曲面颜色等</span></span><br><span class="line">p.FaceColor = <span class="string">'none'</span>;</span><br><span class="line">p.EdgeColor = <span class="string">'interp'</span>;</span><br><span class="line">daspect([<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">view(<span class="number">3</span>);</span><br><span class="line">axis tight</span><br><span class="line">grid on;</span><br><span class="line">xlabel(<span class="string">'x'</span>),ylabel(<span class="string">'y'</span>),zlabel(<span class="string">'z'</span>);</span><br><span class="line">view(<span class="number">45</span>,<span class="number">30</span>);  <span class="comment">%调整视角</span></span><br></pre></td></tr></table></figure>
+<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><pre><code class="lang-matlab">%将多个Figure放入一个Figure。  
+subplot(n,m,s);  %将一个Figure分为$n \times m$个区域。s表示mesh() 对应的Figure放入第s个区域。  
+mesh(z);
+</code></pre>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><pre><code class="lang-matlab">%绘制三元函数的图形，三元函数对应“体积”，二元函数对应“平面”
+clear
+[x,y,z]=meshgrid(1:0.1:10,1:0.1:5,2:0.1:5);
+v=x.^2+3*x.*y+4*y.*z;
+xslice=[2,5,8];%指定切片的位置
+yslice=2;
+zslice=[2,4];
+slice(x,y,z,v,xslice,yslice,zslice) %绘制切片图
+colormap hsv %指定颜色变化模式，无关紧要。
+</code></pre>
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><pre><code class="lang-matlab">%绘制三原函数的等值面
+range=linspace(-6,6,100);
+[x,y,z]=meshgrid(range,range,range);%生成一定定义域内x，y，z矩阵
+v=x.^2+y.^2-z.^2;%计算函数数值，
+p = patch(isosurface(x,y,z,v,4,x));%用isosurface画等值面,第五个变量“4”控制画哪一个等值面，第6个变量控制颜色渐变的方向，“x”即沿x轴渐变
+%等值面是三角网格表示的，用patch函数之后，更容易修改曲面颜色等
+p.FaceColor = &#39;none&#39;;
+p.EdgeColor = &#39;interp&#39;;
+daspect([1,1,1])
+view(3);
+axis tight
+grid on;
+xlabel(&#39;x&#39;),ylabel(&#39;y&#39;),zlabel(&#39;z&#39;);
+view(45,30);  %调整视角
+</code></pre>
+
 </div>
 
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

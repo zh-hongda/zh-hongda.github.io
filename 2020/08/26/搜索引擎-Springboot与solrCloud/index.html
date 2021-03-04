@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,9 +107,11 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="搜索引擎-Springboot与solrCloud">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>搜索引擎-Springboot与solrCloud</h1>
 </div> -->
@@ -122,14 +126,61 @@
 <ol>
 <li>在<code>application.yml</code>文件下做如下配置</li>
 </ol>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#application.properties</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  data:</span></span><br><span class="line"><span class="attr">    solr:</span></span><br><span class="line"><span class="attr">      host:</span> <span class="attr">http://127.0.0.1:8180/solr</span></span><br><span class="line"><span class="attr">      repositories:</span></span><br><span class="line"><span class="attr">        enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">      zk-host:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:2181,127.0.0.1:2182,127.0.0.1:2183</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-yaml">#application.properties
+spring:
+  data:
+    solr:
+      host: http://127.0.0.1:8180/solr
+      repositories:
+        enabled: true
+      zk-host: 127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183
+</code></pre>
 <ol>
 <li>手动加载clientbean</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.redgo.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.solr.client.solrj.impl.CloudSolrClient;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.data.solr.zk-host&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String zkHost;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CloudSolrClient <span class="title">solrClient</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CloudSolrClient(zkHost);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-java">package com.redgo.controller;
+
+import org.apache.solr.client.solrj.impl.CloudSolrClient;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class SearchConfig {
+
+    @Value(&quot;${spring.data.solr.zk-host}&quot;)
+    private String zkHost;
+
+    @Bean
+    public CloudSolrClient solrClient() {
+        return new CloudSolrClient(zkHost);
+    }
+}
+</code></pre>
 <ol>
 <li><p>将单机版中注入solrClient类的位置，替换为CloudSolrClient类，但是与单机版不同的地方在于，使用时需要指定collection。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileDAOImpl</span> <span class="keyword">implements</span> <span class="title">FileDAO</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line"><span class="comment">//    private SolrClient solrClient;</span></span><br><span class="line">    <span class="keyword">public</span> CloudSolrClient solrClient;</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> HashMap&lt;String, Object&gt; <span class="title">findAll</span><span class="params">(String queryString, String page, String powerStation, String unit, String docType)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        HashMap&lt;String, Object&gt; response = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            response = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">            Integer pageNumb = Integer.parseInt(page);</span><br><span class="line">            solrClient.setDefaultCollection(<span class="string">"core2"</span>);<span class="comment">//与单机版不同在使用时需要指定collection。</span></span><br><span class="line"></span><br><span class="line">            SolrQuery params = <span class="keyword">new</span> SolrQuery();</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-java">@Repository
+public class FileDAOImpl implements FileDAO{
+
+    @Autowired
+//    private SolrClient solrClient;
+    public CloudSolrClient solrClient;
+    ...
+    ...
+    ...
+
+    @Override
+    public HashMap&lt;String, Object&gt; findAll(String queryString, String page, String powerStation, String unit, String docType){
+
+        HashMap&lt;String, Object&gt; response = null;
+        try {
+            response = new HashMap&lt;&gt;();
+
+            Integer pageNumb = Integer.parseInt(page);
+            solrClient.setDefaultCollection(&quot;core2&quot;);//与单机版不同在使用时需要指定collection。
+
+            SolrQuery params = new SolrQuery();
+</code></pre>
 <ol>
 <li>整合完毕。其他地方与单机版一致无需修改。</li>
 </ol>
@@ -144,13 +195,14 @@
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,9 +107,11 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="Restful">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>Restful</h1>
 </div> -->
@@ -121,7 +125,11 @@
 <p>它代表创建（Create）、更新（Update）、读取（Retrieve）和删除（Delete）操作。</p>
 <p>CURD 定义了用于处理数据的基本<a href="https://baike.baidu.com/item/原子操作" target="_blank" rel="noopener">原子操作</a>。</p>
 <p>CURD 操作通常是使用<a href="https://baike.baidu.com/item/关系型数据库系统" target="_blank" rel="noopener">关系型数据库系统</a>中的<a href="https://baike.baidu.com/item/结构化查询语言" target="_blank" rel="noopener">结构化查询语言</a>（Structured Query Language，SQL）完成的。随着 Web 变得更加具有面向数据特性，因此需要从基于 SQL 的 CURD 操作转移到基于语义 Web 的 CURD 操作。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">localhost:8888/ws?wsdl</span></span><br><span class="line">Mock.js 生成随机数据，拦截ajax请求</span><br><span class="line">使用方法</span><br><span class="line">1. 引入mock.js文件</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-http">localhost:8888/ws?wsdl
+Mock.js 生成随机数据，拦截ajax请求
+使用方法
+1. 引入mock.js文件
+</code></pre>
 <h2 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API</h2><p> 资源</p>
 <p>表现层</p>
 <p>状态转化</p>
@@ -132,20 +140,32 @@
 <p>​    传统url： <a href="http://localhost:8989/项目名/user/findOne?id=21" target="_blank" rel="noopener">http://localhost:8989/项目名/user/findOne?id=21</a></p>
 <p>​    restful:  <a href="http://localhost:8989/项目名/user/findone/21" target="_blank" rel="noopener">http://localhost:8989/项目名/user/findone/21</a></p>
 <p>面向资源编程</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/user"</span>)<span class="comment">//设置请求路径和请求方式（增）。</span></span><br><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/user"</span>)<span class="comment">//设置请求路径和请求方式（查）。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@DeleteMapping</span>(<span class="string">"/user/&#123;uid&#125;"</span>)<span class="comment">//设置请求路径、请求方式（删）和参数获取方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">deleteUser</span><span class="params">(@PathVariable Integer uid)</span></span>&#123;</span><br><span class="line">    <span class="comment">//函数体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@PutMapping</span>(<span class="string">"/user"</span>)<span class="comment">////设置请求路径和请求方式（改）。</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-java">@RestController
+
+@PostMapping(&quot;/user&quot;)//设置请求路径和请求方式（增）。
+@GetMapping(&quot;/user&quot;)//设置请求路径和请求方式（查）。
+
+@DeleteMapping(&quot;/user/{uid}&quot;)//设置请求路径、请求方式（删）和参数获取方法
+public User deleteUser(@PathVariable Integer uid){
+    //函数体
+}
+
+@PutMapping(&quot;/user&quot;)////设置请求路径和请求方式（改）。
+</code></pre>
 
 </div>
 
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

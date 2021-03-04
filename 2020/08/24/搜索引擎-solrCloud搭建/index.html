@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,9 +107,11 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="搜索引擎-solrCloud搭建(win10)">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>搜索引擎-solrCloud搭建(win10)</h1>
 </div> -->
@@ -121,14 +125,39 @@
 <p>zookeeper-3.5.1-alpha</p>
 </blockquote>
 <p>目录结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">solrCloud</span><br><span class="line">├─service01</span><br><span class="line">├─service02</span><br><span class="line">├─service03</span><br><span class="line">├─solr-5.3.1</span><br><span class="line">├─solrhome01</span><br><span class="line">├─solrhome02</span><br><span class="line">├─solrhome03</span><br><span class="line">├─solrhome04</span><br><span class="line">├─tomcat01</span><br><span class="line">├─tomcat02</span><br><span class="line">├─tomcat03</span><br><span class="line">├─tomcat04</span><br><span class="line">└─启动zookeeper和solr服务器</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-tree">solrCloud
+├─service01
+├─service02
+├─service03
+├─solr-5.3.1
+├─solrhome01
+├─solrhome02
+├─solrhome03
+├─solrhome04
+├─tomcat01
+├─tomcat02
+├─tomcat03
+├─tomcat04
+└─启动zookeeper和solr服务器
+</code></pre>
 <p>在一台服务器上部署3个zk，4个tomcat，由于是在同一台服务器上，zk和tomcat的端口不能重复，若是分布在不同的服务器上，这一步可以省略</p>
 <hr>
 <h1 id="zookeeper集群搭建"><a href="#zookeeper集群搭建" class="headerlink" title="zookeeper集群搭建"></a>zookeeper集群搭建</h1><ol>
 <li><p>新建<code>solrCloud\service01\zookeeper-3.4.14\conf\zoo.cfg</code>，</p>
 </li>
 <li><p>再data目录新建myid文件，并写入zookeeper的id。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#在`zoo_sample.cfg`文件的基础上对如下内容做修改</span><br><span class="line">#dataDir=/tmp/zookeeper</span><br><span class="line">dataDir=D:\\NLZ_HD\\solrCloud\\service03\\data</span><br><span class="line">dataLogDir=D:\\NLZ_HD\\solrCloud\\service03\\datalog</span><br><span class="line"># the port at which the clients will connect</span><br><span class="line">clientPort=2183</span><br><span class="line"></span><br><span class="line">#新增如下内容，其中第一个端口为通讯端口,第二个为投票选举端口</span><br><span class="line">server.1=localhost:2887:3887</span><br><span class="line">server.2=localhost:2888:3888</span><br><span class="line">server.3=localhost:2889:3889</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">#在`zoo_sample.cfg`文件的基础上对如下内容做修改
+#dataDir=/tmp/zookeeper
+dataDir=D:\\NLZ_HD\\solrCloud\\service03\\data
+dataLogDir=D:\\NLZ_HD\\solrCloud\\service03\\datalog
+# the port at which the clients will connect
+clientPort=2183
+
+#新增如下内容，其中第一个端口为通讯端口,第二个为投票选举端口
+server.1=localhost:2887:3887
+server.2=localhost:2888:3888
+server.3=localhost:2889:3889
+</code></pre>
 </li>
 <li><p>zookeeper配置完成，依次启动即可。</p>
 </li>
@@ -137,22 +166,49 @@
 <li><p>复制单机版的tomcat</p>
 </li>
 <li><p>编辑<code>solrCloud\tomcat01\webapps\solr\WEB-INF\web.xml</code>文件，找到env-entry节点，编辑为以下内容</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">env-entry</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">env-entry-name</span>&gt;</span>solr/home<span class="tag">&lt;/<span class="name">env-entry-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">env-entry-value</span>&gt;</span>D:\NLZ_HD\solrCloud\solrhome01<span class="tag">&lt;/<span class="name">env-entry-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">env-entry-type</span>&gt;</span>java.lang.String<span class="tag">&lt;/<span class="name">env-entry-type</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">env-entry</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;env-entry&gt;
+    &lt;env-entry-name&gt;solr/home&lt;/env-entry-name&gt;
+    &lt;env-entry-value&gt;D:\NLZ_HD\solrCloud\solrhome01&lt;/env-entry-value&gt;
+    &lt;env-entry-type&gt;java.lang.String&lt;/env-entry-type&gt;
+&lt;/env-entry&gt;
+</code></pre>
 </li>
 <li><p>修改<code>solrCloud\tomcat01\conf\server.xml</code>中指定的tomcat运行端口</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--共修改三处，每个tomcat都需要做对应的修改--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--第1处--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">"8105"</span> <span class="attr">shutdown</span>=<span class="string">"SHUTDOWN"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">&lt;!--第2处--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8180"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--第3处--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8109"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;!--共修改三处，每个tomcat都需要做对应的修改--&gt;
+&lt;!--第1处--&gt;
+&lt;Server port=&quot;8105&quot; shutdown=&quot;SHUTDOWN&quot;&gt;
+
+&lt;!--第2处--&gt;
+&lt;Connector port=&quot;8180&quot; protocol=&quot;HTTP/1.1&quot;
+               connectionTimeout=&quot;20000&quot;
+               redirectPort=&quot;8443&quot; /&gt;
+&lt;!--第3处--&gt;
+&lt;Connector port=&quot;8109&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8443&quot; /&gt;
+</code></pre>
 </li>
 <li><p>将单机版solrhome下的文件拷贝至solrhome</p>
 </li>
 <li><p>修改<code>solrCloud\solrhome01\solr.xml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--将端口号修改为当前tomcat的运行端口--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">solrcloud</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">str</span> <span class="attr">name</span>=<span class="string">"host"</span>&gt;</span>$&#123;host:&#125;<span class="tag">&lt;/<span class="name">str</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">int</span> <span class="attr">name</span>=<span class="string">"hostPort"</span>&gt;</span>$&#123;jetty.port:8180&#125;<span class="tag">&lt;/<span class="name">int</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">str</span> <span class="attr">name</span>=<span class="string">"hostContext"</span>&gt;</span>$&#123;hostContext:solr&#125;<span class="tag">&lt;/<span class="name">str</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">int</span> <span class="attr">name</span>=<span class="string">"zkClientTimeout"</span>&gt;</span>$&#123;zkClientTimeout:15000&#125;<span class="tag">&lt;/<span class="name">int</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bool</span> <span class="attr">name</span>=<span class="string">"genericCoreNodeNames"</span>&gt;</span>$&#123;genericCoreNodeNames:true&#125;<span class="tag">&lt;/<span class="name">bool</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">solrcloud</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;!--将端口号修改为当前tomcat的运行端口--&gt;
+&lt;solrcloud&gt;
+    &lt;str name=&quot;host&quot;&gt;${host:}&lt;/str&gt;
+    &lt;int name=&quot;hostPort&quot;&gt;${jetty.port:8180}&lt;/int&gt;
+    &lt;str name=&quot;hostContext&quot;&gt;${hostContext:solr}&lt;/str&gt;
+    &lt;int name=&quot;zkClientTimeout&quot;&gt;${zkClientTimeout:15000}&lt;/int&gt;
+    &lt;bool name=&quot;genericCoreNodeNames&quot;&gt;${genericCoreNodeNames:true}&lt;/bool&gt;
+&lt;/solrcloud&gt;
+</code></pre>
 </li>
 <li><p>新建配置文件目录（用于zk的集群配置管理），我是直接再solr_home中新建一个collection1文件夹，如下：</p>
 <p>..\solrhome01\collection1(此文件夹只需要建一个，不需要再每个机器上建，他会通过zk分发到各个机器)</p>
 <p>将solr原包中../solr/server/solr/configsets/basic_configs/*拷贝到../solrhome01/collection1/下</p>
 </li>
 <li><p>修改tomcat的<code>solrCloud\tomcat01\bin\catalina.bat</code>文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">--其中一台添加如下信息--</span>&gt;</span></span><br><span class="line">set JAVA_OPTS=-Dsolr.solr.home=D:\NLZ_HD\solrCloud\solrhome01 -Dbootstrap_confdir=D:\NLZ_HD\solrCloud\solrhome01\collection1\conf -Dcollection.configName=myconf -DnumShards=3 -DzkHost=localhost:2181,localhost:2182,localhost:2183</span><br><span class="line"><span class="tag">&lt;<span class="name">--其他添加如下信息--</span>&gt;</span></span><br><span class="line">set JAVA_OPTS=-Dsolr.solr.home=D:\NLZ_HD\solrCloud\solrhome02 -DzkHost=localhost:2181,localhost:2182,localhost:2183</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;--其中一台添加如下信息--&gt;
+set JAVA_OPTS=-Dsolr.solr.home=D:\NLZ_HD\solrCloud\solrhome01 -Dbootstrap_confdir=D:\NLZ_HD\solrCloud\solrhome01\collection1\conf -Dcollection.configName=myconf -DnumShards=3 -DzkHost=localhost:2181,localhost:2182,localhost:2183
+&lt;--其他添加如下信息--&gt;
+set JAVA_OPTS=-Dsolr.solr.home=D:\NLZ_HD\solrCloud\solrhome02 -DzkHost=localhost:2181,localhost:2182,localhost:2183
+</code></pre>
 </li>
 <li><p>solrCloud配置完成</p>
 </li>
@@ -163,10 +219,36 @@
 <li><p>访问<a href="http://localhost:8180/solr/" target="_blank" rel="noopener">http://localhost:8180/solr/</a></p>
 </li>
 <li><p>删除zookeeper的配置文件需要</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#连接zookeeper服务器</span></span><br><span class="line">zkCli.sh -server localhost:2181</span><br><span class="line"><span class="comment">#使用rmr命令删除指定文件</span></span><br><span class="line">rmr /configs/collection1Conf</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">#连接zookeeper服务器
+zkCli.sh -server localhost:2181
+#使用rmr命令删除指定文件
+rmr /configs/collection1Conf
+</code></pre>
 </li>
 <li><p>上传文件、配置；创建、reload、起别名、删除collection</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用solr原包中的solr-5.3.1\server\scripts\cloud-scripts下的zkcli.bat执行下述命令</span></span><br><span class="line"><span class="comment">#上传一个文件</span></span><br><span class="line">zkcli.bat -zkhost <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">2181</span> -cmd putfile /configs/collectionxConf/data-config.xml D:\NLZ_HD\solrCloud\solrhome01\collection1\collectionxConf\data-config.xml</span><br><span class="line"></span><br><span class="line"><span class="comment">#上传一组collection的配置</span></span><br><span class="line">zkcli.bat -zkhost <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">2181</span> -cmd upconfig -confname collectionxConf -confdir D:\NLZ_HD\solrCloud\solrhome01\collection1\collectionxConf</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建一个collection</span></span><br><span class="line">http://localhost:<span class="number">8180</span>/solr/admin/collections?action=CREATE&amp;name=collection1&amp;numShards=<span class="number">3</span>&amp;replicationFactor=<span class="number">3</span>&amp;maxShardsPerNode=<span class="number">3</span>&amp;collection.configName=collectionxConf</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除一个collection</span></span><br><span class="line">http://localhost:<span class="number">8180</span>/solr/admin/collections?action=DELETE&amp;name=collection1</span><br><span class="line">http://localhost:<span class="number">8180</span>/solr/admin/collections?action=DELETE&amp;name=core2</span><br><span class="line"></span><br><span class="line"><span class="comment">#为collection创建别名</span></span><br><span class="line">http://localhost:<span class="number">8180</span>/solr/admin/collections?action=CREATEALIAS&amp;name=collection1U2&amp;collections=collection1,collection2</span><br><span class="line"></span><br><span class="line"><span class="comment">#reload一个collection</span></span><br><span class="line">http://localhost:<span class="number">8180</span>/solr/admin/collections?action=RELOAD&amp;name=collection1</span><br><span class="line"></span><br><span class="line"><span class="comment">#Link a collection to a configuration set</span></span><br><span class="line">zkcli.bat -zkhost <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">2181</span> \ -cmd linkconfig -collection core2 -confname new_config</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-powershell">#使用solr原包中的solr-5.3.1\server\scripts\cloud-scripts下的zkcli.bat执行下述命令
+#上传一个文件
+zkcli.bat -zkhost 127.0.0.1:2181 -cmd putfile /configs/collectionxConf/data-config.xml D:\NLZ_HD\solrCloud\solrhome01\collection1\collectionxConf\data-config.xml
+
+#上传一组collection的配置
+zkcli.bat -zkhost 127.0.0.1:2181 -cmd upconfig -confname collectionxConf -confdir D:\NLZ_HD\solrCloud\solrhome01\collection1\collectionxConf
+
+#创建一个collection
+http://localhost:8180/solr/admin/collections?action=CREATE&amp;name=collection1&amp;numShards=3&amp;replicationFactor=3&amp;maxShardsPerNode=3&amp;collection.configName=collectionxConf
+
+#删除一个collection
+http://localhost:8180/solr/admin/collections?action=DELETE&amp;name=collection1
+http://localhost:8180/solr/admin/collections?action=DELETE&amp;name=core2
+
+#为collection创建别名
+http://localhost:8180/solr/admin/collections?action=CREATEALIAS&amp;name=collection1U2&amp;collections=collection1,collection2
+
+#reload一个collection
+http://localhost:8180/solr/admin/collections?action=RELOAD&amp;name=collection1
+
+#Link a collection to a configuration set
+zkcli.bat -zkhost 127.0.0.1:2181 \ -cmd linkconfig -collection core2 -confname new_config
+</code></pre>
 </li>
 </ol>
 <p>参考：</p>
@@ -177,13 +259,14 @@
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>

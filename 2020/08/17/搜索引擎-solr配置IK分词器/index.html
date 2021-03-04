@@ -78,15 +78,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码高亮 -->
-  <link rel="stylesheet" href="/lib/highlight/styles/Default.css">    
+  <!-- 代码highlight进行代码高亮 -->
+  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
+  <!-- 使用prism进行代码高亮 -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
     <!-- 引入代码高亮的 js -->
-    <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
     <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
@@ -105,9 +107,11 @@
 
 
   		<div class="row">
-  			<div class="col-12 mb-4">
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
   <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="搜索引擎-solr配置IK分词器">
-</div>
+</div> -->
+
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>搜索引擎-solr配置IK分词器</h1>
 </div> -->
@@ -140,13 +144,38 @@
 </blockquote>
 </li>
 <li><p>在solr中使用IK的core对应的conf目录下的<code>schema.xml</code>,加入如下配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置带识别同义词功能的，IK分词器, --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fieldType</span> <span class="attr">name</span>=<span class="string">"text_ik_Synonym"</span> <span class="attr">class</span>=<span class="string">"solr.TextField"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">	<span class="tag">&lt;<span class="name">analyzer</span> <span class="attr">type</span>=<span class="string">"query"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tokenizer</span> <span class="attr">class</span>=<span class="string">"org.wltea.analyzer.lucene.IKAnalyzerTokenizerFactory"</span> <span class="attr">useSmart</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"solr.LowerCaseFilterFactory"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"solr.SynonymFilterFactory"</span> <span class="attr">synonyms</span>=<span class="string">"synonyms.txt"</span> <span class="attr">ignoreCase</span>=<span class="string">"true"</span> <span class="attr">expand</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">analyzer</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">	<span class="tag">&lt;<span class="name">analyzer</span> <span class="attr">type</span>=<span class="string">"index"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tokenizer</span> <span class="attr">class</span>=<span class="string">"org.wltea.analyzer.lucene.IKAnalyzerTokenizerFactory"</span> <span class="attr">useSmart</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"solr.LowerCaseFilterFactory"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"solr.SynonymFilterFactory"</span> <span class="attr">synonyms</span>=<span class="string">"synonyms.txt"</span> <span class="attr">ignoreCase</span>=<span class="string">"true"</span> <span class="attr">expand</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">analyzer</span>&gt;</span> </span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldType</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--自定义field开始--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"file_text"</span> <span class="attr">type</span>=<span class="string">"text_ik_Synonym"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span>  <span class="attr">multiValued</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"file_author"</span> <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span> <span class="attr">multiValued</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"file_keyWord"</span> <span class="attr">type</span>=<span class="string">"text_ik_Synonym"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span> <span class="attr">multiValued</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--自定义field结束  --&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;!-- 配置带识别同义词功能的，IK分词器, --&gt;
+&lt;fieldType name=&quot;text_ik_Synonym&quot; class=&quot;solr.TextField&quot;&gt;
+
+    &lt;analyzer type=&quot;query&quot; &gt;
+        &lt;tokenizer class=&quot;org.wltea.analyzer.lucene.IKAnalyzerTokenizerFactory&quot; useSmart=&quot;false&quot;/&gt;
+        &lt;filter class=&quot;solr.LowerCaseFilterFactory&quot;/&gt;
+        &lt;filter class=&quot;solr.SynonymFilterFactory&quot; synonyms=&quot;synonyms.txt&quot; ignoreCase=&quot;true&quot; expand=&quot;true&quot; /&gt;
+    &lt;/analyzer&gt;
+
+    &lt;analyzer type=&quot;index&quot;&gt;
+        &lt;tokenizer class=&quot;org.wltea.analyzer.lucene.IKAnalyzerTokenizerFactory&quot; useSmart=&quot;false&quot;/&gt;
+        &lt;filter class=&quot;solr.LowerCaseFilterFactory&quot;/&gt;
+        &lt;filter class=&quot;solr.SynonymFilterFactory&quot; synonyms=&quot;synonyms.txt&quot; ignoreCase=&quot;true&quot; expand=&quot;true&quot; /&gt;
+    &lt;/analyzer&gt; 
+
+&lt;/fieldType&gt;
+
+&lt;!--自定义field开始--&gt;
+&lt;field name=&quot;file_text&quot; type=&quot;text_ik_Synonym&quot; indexed=&quot;true&quot; stored=&quot;true&quot;  multiValued=&quot;false&quot;/&gt;
+&lt;field name=&quot;file_author&quot; type=&quot;string&quot; indexed=&quot;true&quot; stored=&quot;true&quot; multiValued=&quot;false&quot;/&gt;
+&lt;field name=&quot;file_keyWord&quot; type=&quot;text_ik_Synonym&quot; indexed=&quot;true&quot; stored=&quot;true&quot; multiValued=&quot;true&quot;/&gt;
+&lt;!--自定义field结束  --&gt;
+</code></pre>
 <h2 id="appendix"><a href="#appendix" class="headerlink" title="appendix"></a>appendix</h2><p>使用IKAnalyzer2012FF_u1时，发生“插件初始化失败”（自行对应english），是因为使用的是官方的jar包，其中缺少IKAnalyzerTokenizerFactory，</p>
 <p>在不使用同义词时，schema.xlm文件中IK分词器是使用如下配置的（分词器由analyzer标签包裹）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;fieldType name=<span class="string">"text_ik"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"solr.TextField"</span>&gt;   </span><br><span class="line">      &lt;analyzer <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.wltea.analyzer.lucene.IKAnalyzer"</span>/&gt; </span><br><span class="line"> &lt;<span class="regexp">/fieldType&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-javascript">   &lt;fieldType name=&quot;text_ik&quot; class=&quot;solr.TextField&quot;&gt;   
+         &lt;analyzer class=&quot;org.wltea.analyzer.lucene.IKAnalyzer&quot;/&gt; 
+    &lt;/fieldType&gt;
+</code></pre>
+<p>如果要写成第4条中，使用<tokenizer>标签包裹分词器的话，就需要用到继承了TokenizerFactory类的子类。 大家可以写一个TokenizerFactory类编译后重新打包，也可以在网上找一个已经处理过额IK包。</tokenizer></p>
 </li>
 </ol>
-<p>   如果要写成第4条中，使用<tokenizer>标签包裹分词器的话，就需要用到继承了TokenizerFactory类的子类。 大家可以写一个TokenizerFactory类编译后重新打包，也可以在网上找一个已经处理过额IK包。</tokenizer></p>
 <p>参考：</p>
 <p><a href="https://cloud.tencent.com/developer/article/1359844" target="_blank" rel="noopener">solr中使用IKAnalyzer配置同义词，停止词，扩展词</a></p>
 <h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>环境：</p>
@@ -157,7 +186,29 @@
 </blockquote>
 <p>solrCloud配置IK分词器，并实现扩展词、同义词、停用词热部署。</p>
 <p>目录结构如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">solrCloud</span><br><span class="line">├─service01</span><br><span class="line">│  ├─data</span><br><span class="line">│  ├─datalog</span><br><span class="line">│  ├─logs</span><br><span class="line">│  └─zookeeper-3.4.14</span><br><span class="line">├─service02</span><br><span class="line">├─service03</span><br><span class="line">├─solr-5.3.1</span><br><span class="line">├─solrhome01</span><br><span class="line">│  ├─collection1</span><br><span class="line">│  │  ├─collectionxConf</span><br><span class="line">│  │  ├─conf</span><br><span class="line">│  └─configsets</span><br><span class="line">├─solrhome02</span><br><span class="line">├─solrhome03</span><br><span class="line">├─solrhome04</span><br><span class="line">├─tomcat01</span><br><span class="line">├─tomcat02</span><br><span class="line">├─tomcat03</span><br><span class="line">├─tomcat04</span><br><span class="line">└─启动zookeeper和solr服务器</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-tree">solrCloud
+├─service01
+│  ├─data
+│  ├─datalog
+│  ├─logs
+│  └─zookeeper-3.4.14
+├─service02
+├─service03
+├─solr-5.3.1
+├─solrhome01
+│  ├─collection1
+│  │  ├─collectionxConf
+│  │  ├─conf
+│  └─configsets
+├─solrhome02
+├─solrhome03
+├─solrhome04
+├─tomcat01
+├─tomcat02
+├─tomcat03
+├─tomcat04
+└─启动zookeeper和solr服务器
+</code></pre>
 <hr>
 <p>将IK分词器的jar包拷贝一份至<code>solrCloud\tomcat01\webapps\solr\WEB-INF\lib</code></p>
 <p>解压IK分词器的jar包，并将下列文件拷贝至<code>solrCloud\tomcat01\webapps\solr\WEB-INF\classes</code></p>
@@ -172,9 +223,27 @@
 <p>stopword.dic</p>
 </blockquote>
 <p>修改<code>ik.conf</code>中的内容为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#Thu May 10 13:27:30 CST 2018</span><br><span class="line">files=dynamicdic.txt,synonyms.txt,stopword.dic</span><br><span class="line">lastupdate=1600064370928</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-conf">#Thu May 10 13:27:30 CST 2018
+files=dynamicdic.txt,synonyms.txt,stopword.dic
+lastupdate=1600064370928
+</code></pre>
 <p>在<code>solrCloud\solrhome01\collection1\collectionxConf\schema.xml</code>中添加IK分词器的配置信息</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ik分词器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fieldType</span> <span class="attr">name</span>=<span class="string">"text_ik"</span> <span class="attr">class</span>=<span class="string">"solr.TextField"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">analyzer</span> <span class="attr">type</span>=<span class="string">"index"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">tokenizer</span> <span class="attr">class</span>=<span class="string">"org.wltea.analyzer.lucene.IKTokenizerFactory"</span> <span class="attr">useSmart</span>=<span class="string">"false"</span> <span class="attr">conf</span>=<span class="string">"ik.conf"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"solr.StopFilterFactory"</span> <span class="attr">ignoreCase</span>=<span class="string">"true"</span> <span class="attr">words</span>=<span class="string">"stopword.dic"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"solr.SynonymFilterFactory"</span> <span class="attr">synonyms</span>=<span class="string">"synonyms.txt"</span> <span class="attr">ignoreCase</span>=<span class="string">"true"</span> <span class="attr">expand</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"solr.LowerCaseFilterFactory"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">analyzer</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">analyzer</span> <span class="attr">type</span>=<span class="string">"query"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">tokenizer</span> <span class="attr">class</span>=<span class="string">"org.wltea.analyzer.lucene.IKTokenizerFactory"</span> <span class="attr">useSmart</span>=<span class="string">"true"</span> <span class="attr">conf</span>=<span class="string">"ik.conf"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"solr.StopFilterFactory"</span> <span class="attr">ignoreCase</span>=<span class="string">"true"</span> <span class="attr">words</span>=<span class="string">"stopword.dic"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"solr.SynonymFilterFactory"</span> <span class="attr">synonyms</span>=<span class="string">"synonyms.txt"</span> <span class="attr">ignoreCase</span>=<span class="string">"true"</span> <span class="attr">expand</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"solr.LowerCaseFilterFactory"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">analyzer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldType</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-xml">&lt;!-- ik分词器 --&gt;
+&lt;fieldType name=&quot;text_ik&quot; class=&quot;solr.TextField&quot;&gt;
+  &lt;analyzer type=&quot;index&quot;&gt;
+      &lt;tokenizer class=&quot;org.wltea.analyzer.lucene.IKTokenizerFactory&quot; useSmart=&quot;false&quot; conf=&quot;ik.conf&quot;/&gt;
+      &lt;filter class=&quot;solr.StopFilterFactory&quot; ignoreCase=&quot;true&quot; words=&quot;stopword.dic&quot; /&gt;
+      &lt;filter class=&quot;solr.SynonymFilterFactory&quot; synonyms=&quot;synonyms.txt&quot; ignoreCase=&quot;true&quot; expand=&quot;true&quot; /&gt;
+      &lt;filter class=&quot;solr.LowerCaseFilterFactory&quot;/&gt;
+  &lt;/analyzer&gt;
+  &lt;analyzer type=&quot;query&quot;&gt;
+      &lt;tokenizer class=&quot;org.wltea.analyzer.lucene.IKTokenizerFactory&quot; useSmart=&quot;true&quot; conf=&quot;ik.conf&quot;/&gt;
+      &lt;filter class=&quot;solr.StopFilterFactory&quot; ignoreCase=&quot;true&quot; words=&quot;stopword.dic&quot; /&gt;
+      &lt;filter class=&quot;solr.SynonymFilterFactory&quot; synonyms=&quot;synonyms.txt&quot; ignoreCase=&quot;true&quot; expand=&quot;true&quot; /&gt;
+      &lt;filter class=&quot;solr.LowerCaseFilterFactory&quot;/&gt;
+  &lt;/analyzer&gt;
+&lt;/fieldType&gt;
+</code></pre>
 <p>参考：</p>
 <p><a href="https://blog.csdn.net/u011052863/article/details/80281941" target="_blank" rel="noopener">solr7.3 环境搭建 配置中文分词器 ik-analyzer-solr7 详细步骤</a></p>
 <p><a href="https://blog.csdn.net/u011052863/article/details/81179691" target="_blank" rel="noopener">solr7 ik中文分词器 动态加载(热更新)扩展词字典表(词库)</a></p>
@@ -186,13 +255,14 @@
 
       </div>
       
-  	</div>
+    </div>
 
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
 
   </body>
 </html>
