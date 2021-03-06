@@ -24,7 +24,8 @@
   
 
   <!-- Pure CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
 
   <!-- Custom CSS -->
@@ -40,7 +41,7 @@
   
 
 
-  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js HDTJ -->
   
     <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
 <script type="text/x-mathjax-config">
@@ -78,21 +79,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码highlight进行代码高亮 -->
-  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
-  <!-- 使用prism进行代码高亮 -->
+  <!-- 使用prism进行代码高亮 HDTJ -->
   <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
-    <!-- 引入代码高亮的 js -->
-    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> -->
-    <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
-      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
   <a class="navbar-brand ml-2" href="/">zh-hongda</a>
   <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -105,6 +102,10 @@
   </div>
 </nav>
 
+        </div>
+
+      </div>
+      
 
   		<div class="row">
   			<!-- 此处控制文章页是否有页头图片 -->
@@ -115,20 +116,20 @@
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>OTB 使用总结</h1>
 </div> -->
-<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+<div class="offset-lg-2 col-lg-8">
   <h1>OTB 使用总结</h1>
   <p>tracker_benchmark_v1.0是OTB（object tracking benchmark）一个版本<br><a id="more"></a><br>阅读本文前先简单阅读tracker_benchmark_v1.0中的readme。</p>
 <p>以下为具体使用方法：</p>
-<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p><a href="http:%www.visual-tracking.net" target="_blank" rel="noopener">下载源码</a>,并解压，得到tracker_benchmark_v1.0。</p>
+<h2 id="0"><a href="#0" class="headerlink" title="0"></a>0</h2><p><a href="http:%www.visual-tracking.net" target="_blank" rel="noopener">下载源码</a>,并解压，得到tracker_benchmark_v1.0。</p>
 <p><a href="http:%www.vlfeat.org/" target="_blank" rel="noopener">下载vlfeat工具</a>，解压，并将代码做如下修改：</p>
 <pre><code class="lang-matlab">%mian_running.m
 
 %addpath((&#39;D:/vlfeat-0.9.14/toolbox&#39;));
 addpath((&#39;/home/hongda/Desktop/tracker_benchmark_v1.0/vlfeat-0.9.21/toolbox&#39;)); %路径对应解压位置
 </code></pre>
-<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><p>将用来对比的tracker放入tracker_benchmark_v1.0/trackers文件夹下。<br>将使用的图像序列放入与tracker_benchmark_v1.0/util/configSeqs.m中指定的位置下。</p>
-<h2 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h2><p>按照configtracker.m和configseq.m中的格式在其中添加将要使用的视频序列和tracker。</p>
-<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>修改文件路径。代码适用于windows平台，如果在linux平台运行需要将如下文件中涉及到文件路径的部分所有的”\”改为”/“。</p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h3 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h3><p>将用来对比的tracker放入tracker_benchmark_v1.0/trackers文件夹下。<br>将使用的图像序列放入与tracker_benchmark_v1.0/util/configSeqs.m中指定的位置下。</p>
+<h3 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h3><p>按照configtracker.m和configseq.m中的格式在其中添加将要使用的视频序列和tracker。</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>修改文件路径。代码适用于windows平台，如果在linux平台运行需要将如下文件中涉及到文件路径的部分所有的”\”改为”/“。</p>
 <blockquote>
 <ul>
 <li>main_running.m</li>
@@ -137,9 +138,9 @@ addpath((&#39;/home/hongda/Desktop/tracker_benchmark_v1.0/vlfeat-0.9.21/toolbox&
 <li>genPerfMaat.m  </li>
 </ul>
 </blockquote>
-<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><p>执行main_running.m,在results文件夹中生成.mat文件（存储每个trackers的跟踪结果）和perfMat（存储最终用于画图的mat文件）不一样，这个是相对于bounding box的跟踪框数据。</p>
-<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><p>执行perfPlot.m文件画出算法评估图，过程中会在perfMat/overall中生成用于画图的.mat文件并在figs/overall中生成算法评估图。</p>
-<h1 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h1><pre><code class="lang-matlab">% main_running.m
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>执行main_running.m,在results文件夹中生成.mat文件（存储每个trackers的跟踪结果）和perfMat（存储最终用于画图的mat文件）不一样，这个是相对于bounding box的跟踪框数据。</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p>执行perfPlot.m文件画出算法评估图，过程中会在perfMat/overall中生成用于画图的.mat文件并在figs/overall中生成算法评估图。</p>
+<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><pre><code class="lang-matlab">% main_running.m
 evalType=&#39;TRE&#39;; %&#39;OPE&#39;,&#39;SRE&#39;,&#39;TRE&#39; %指定算法评估方式finalPath = [&#39;./results/results_&#39; evalType &#39;_CVPR13/&#39;]; %指定算法运行结果存储位置
 eval(funcName); %运行指定一个算法
 save([finalPath s.name &#39;_&#39; t.name &#39;.mat&#39;], &#39;results&#39;); %存储算法运行结果
@@ -169,8 +170,8 @@ pathDraw = &#39;./tmp/imgs/&#39;;% The folder that will stores the images with o
 LineWidth = 4; %指定不同tracker对应跟踪框的线宽。
 plotSetting; % 指定drawResultBB.m中不同tracker对应跟踪框的线型和颜色。
 </code></pre>
-<h2 id="A1"><a href="#A1" class="headerlink" title="A1"></a>A1</h2><p>每次运行前先删除上次perfMat/overall中的文件。</p>
-<h2 id="A2"><a href="#A2" class="headerlink" title="A2"></a>A2</h2><p>因为最终的算法评估图生成是需要bounding box数据的所以需要在执行perfPlot.m前先执行main_running.m</p>
+<h3 id="A1"><a href="#A1" class="headerlink" title="A1"></a>A1</h3><p>每次运行前先删除上次perfMat/overall中的文件。</p>
+<h3 id="A2"><a href="#A2" class="headerlink" title="A2"></a>A2</h3><p>因为最终的算法评估图生成是需要bounding box数据的所以需要在执行perfPlot.m前先执行main_running.m</p>
 <p>参考</p>
 <p><a href="https://blog.csdn.net/fengying2016/article/details/72875329" target="_blank" rel="noopener">在线目标跟踪：一种评估基准 A Benchmark 翻译</a></p>
 <p><a href="https://blog.csdn.net/devil_08/article/details/80066272" target="_blank" rel="noopener">【OTB使用介绍二】对Visual Tracker Benchmark v1.0源码进行介绍</a></p>
@@ -186,9 +187,13 @@ plotSetting; % 指定drawResultBB.m中不同tracker对应跟踪框的线型和�
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 <!--  HDTJ -->
 <script src="/lib/prism/prism.js" async></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
 </html>

@@ -24,7 +24,8 @@
   
 
   <!-- Pure CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
 
   <!-- Custom CSS -->
@@ -40,7 +41,7 @@
   
 
 
-  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js HDTJ -->
   
     <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
 <script type="text/x-mathjax-config">
@@ -78,21 +79,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码highlight进行代码高亮 -->
-  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
-  <!-- 使用prism进行代码高亮 -->
+  <!-- 使用prism进行代码高亮 HDTJ -->
   <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
-    <!-- 引入代码高亮的 js -->
-    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> -->
-    <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
-      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
   <a class="navbar-brand ml-2" href="/">zh-hongda</a>
   <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -105,6 +102,10 @@
   </div>
 </nav>
 
+        </div>
+
+      </div>
+      
 
   		<div class="row">
   			<!-- 此处控制文章页是否有页头图片 -->
@@ -115,11 +116,11 @@
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>FT,LT和ZT总结</h1>
 </div> -->
-<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+<div class="offset-lg-2 col-lg-8">
   <h1>FT,LT和ZT总结</h1>
   <p>学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。<br><a id="more"></a><br>为了解信号在变换域的处理方法，学习了<strong>东南大学孟桥教授的信号与系统</strong>，辅以<br>东南大学吴镇扬教授的数字信号处理<br>西安电子科技大学郭宝龙教授的信号与系统  </p>
 <p><font color="#0099ff" size="2" face="黑体">从线性代数的角度看，三大变换分别将信号从时域变换到了频域、S域、Z域，把信号从一组基下换到了另一组基下。</font></p>
-<h1 id="Fourier-series"><a href="#Fourier-series" class="headerlink" title="Fourier series"></a>Fourier series</h1><p>“傅里叶级数”的名字是为了纪念 Jean-Baptiste Joseph Fourier (1768–1830)在三角级数方面的重要贡献。该理论认为任意的周期函数都可以被一组三角函数近似代替。</p>
+<h2 id="Fourier-series"><a href="#Fourier-series" class="headerlink" title="Fourier series"></a>Fourier series</h2><p>“傅里叶级数”的名字是为了纪念 Jean-Baptiste Joseph Fourier (1768–1830)在三角级数方面的重要贡献。该理论认为任意的周期函数都可以被一组三角函数近似代替。</p>
 <script type="math/tex; mode=display">
 f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infty}(a_n cosn\Omega t +b_n sinn\Omega t) , \Omega=\frac{2\pi}{T}\\
 a_n=\frac{2}{t_2-t_1}\int_{t_1}^{t_2}f(t)cos(n\Omega t)dt\\
@@ -236,9 +237,13 @@ F(z)=\sum_{k=-\infty}^{+\infty}f(k)z^{-k}
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 <!--  HDTJ -->
 <script src="/lib/prism/prism.js" async></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
 </html>

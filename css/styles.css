@@ -1,6 +1,6 @@
 body {
 	/* font-family: 'Open Sans', sans-serif; */
-	font-family: 'SimHei', sans-serif;
+	font-family: 'KaiTi', sans-serif;
 }
 
 form {
@@ -57,7 +57,7 @@ input:focus, textarea:focus {
 }
 
 h1, h2, h3 {
-	font-family: 'SimHei', sans-serif;
+	font-family: 'LiSu', sans-serif;
 	letter-spacing: 1px;
 	font-weight: bold;
 	margin-bottom: 20px;
@@ -124,7 +124,7 @@ h1, h2, h3 {
 
 .hovereffect .overlay-text {
 	font-size: 1.3rem;
-	font-family: 'Crimson Text', sans-serif;
+	font-family: 'KaiTi', sans-serif;
 	font-weight: 300;
 	color: #000;
 	left: 50%;
@@ -168,7 +168,7 @@ h1, h2, h3 {
 }
 .page-nav a,span {
 	font-size: 1rem;
-	font-family: 'Crimson Text', sans-serif;
+	font-family: 'KaiTi', sans-serif;
 	font-weight: 300;
 	margin: 0 0px;
 	color: #000;
@@ -188,4 +188,8 @@ p {
 
 span {
 	font-size: 1.2rem;
+}
+
+h1 {
+	text-align:center
 }

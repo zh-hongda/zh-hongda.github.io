@@ -24,7 +24,8 @@
   
 
   <!-- Pure CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
 
   <!-- Custom CSS -->
@@ -40,7 +41,7 @@
   
 
 
-  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js HDTJ -->
   
     <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
 <script type="text/x-mathjax-config">
@@ -78,21 +79,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码highlight进行代码高亮 -->
-  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
-  <!-- 使用prism进行代码高亮 -->
+  <!-- 使用prism进行代码高亮 HDTJ -->
   <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
-    <!-- 引入代码高亮的 js -->
-    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> -->
-    <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
-      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
   <a class="navbar-brand ml-2" href="/">zh-hongda</a>
   <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -105,6 +102,10 @@
   </div>
 </nav>
 
+        </div>
+
+      </div>
+      
 
   		<div class="row">
   			<!-- 此处控制文章页是否有页头图片 -->
@@ -115,10 +116,10 @@
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>Latex</h1>
 </div> -->
-<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+<div class="offset-lg-2 col-lg-8">
   <h1>Latex</h1>
   <p>记录常用的Latex操作。<br><a id="more"></a></p>
-<h1 id="1-Table"><a href="#1-Table" class="headerlink" title="1 Table"></a>1 Table</h1><pre><code class="lang-tex">%三线表
+<h2 id="1-Table"><a href="#1-Table" class="headerlink" title="1 Table"></a>1 Table</h2><pre><code class="lang-tex">%三线表
 \usepackage{booktabs} %制作表格时使用“booktabs”包。
 \usepackage{color} %调整文字颜色时使用“color”包
 %
@@ -138,7 +139,7 @@
     \end{tabular}
 \end{table}
 </code></pre>
-<h1 id="2-Figure"><a href="#2-Figure" class="headerlink" title="2 Figure"></a>2 Figure</h1><pre><code class="lang-tex">%插入图
+<h2 id="2-Figure"><a href="#2-Figure" class="headerlink" title="2 Figure"></a>2 Figure</h2><pre><code class="lang-tex">%插入图
 \begin{figure}[h] %指定图片位置，“h” here，“t” top，“b” bottom，“p”
     \vspace{-0.5cm} %调整图片与上文的垂直距离，不仅适用于figure。
     \setlength{\abovecaptionskip}{-0.2cm}   %调整图片标题与图片距离
@@ -149,7 +150,7 @@
     \caption{Success and precision plots for the 20 fast motion video sequences selected from OTB2015 and KITTI datasets. Success plots use mean AUC for ranking and precision plots use threshold = 20 for ranking.} %图片注释
 \end{figure}
 </code></pre>
-<h1 id="3-Algorithm"><a href="#3-Algorithm" class="headerlink" title="3 Algorithm"></a>3 Algorithm</h1><pre><code class="lang-tex">%生成算法
+<h2 id="3-Algorithm"><a href="#3-Algorithm" class="headerlink" title="3 Algorithm"></a>3 Algorithm</h2><pre><code class="lang-tex">%生成算法
 \usepackage{algorithm}
 \usepackage{algorithmic}
 %
@@ -177,7 +178,7 @@
     \end{algorithmic}
 \end{algorithm}
 </code></pre>
-<h1 id="4-使用-BibTeX-生成参考文献列表"><a href="#4-使用-BibTeX-生成参考文献列表" class="headerlink" title="4 使用 BibTeX 生成参考文献列表"></a>4 使用 BibTeX 生成参考文献列表</h1><p><a href="https://liam.page/2016/01/23/using-bibtex-to-generate-reference/" target="_blank" rel="noopener">使用 BibTeX 生成参考文献列表</a></p>
+<h2 id="4-使用-BibTeX-生成参考文献列表"><a href="#4-使用-BibTeX-生成参考文献列表" class="headerlink" title="4 使用 BibTeX 生成参考文献列表"></a>4 使用 BibTeX 生成参考文献列表</h2><p><a href="https://liam.page/2016/01/23/using-bibtex-to-generate-reference/" target="_blank" rel="noopener">使用 BibTeX 生成参考文献列表</a></p>
 
 </div>
 
@@ -189,9 +190,13 @@
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 <!--  HDTJ -->
 <script src="/lib/prism/prism.js" async></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
 </html>

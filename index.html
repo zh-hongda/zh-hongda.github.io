@@ -24,7 +24,8 @@
   
 
   <!-- Pure CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
 
   <!-- Custom CSS -->
@@ -40,23 +41,19 @@
   
 
 
-  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js HDTJ -->
   
-  <!-- 代码highlight进行代码高亮 -->
-  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
-  <!-- 使用prism进行代码高亮 -->
+  <!-- 使用prism进行代码高亮 HDTJ -->
   <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
-    <!-- 引入代码高亮的 js -->
-    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> -->
-    <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
-      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
   <a class="navbar-brand ml-2" href="/">zh-hongda</a>
   <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -69,29 +66,18 @@
   </div>
 </nav>
 
+        </div>
+
+      </div>
+      
 
   		<div class="row">
-  			    
-    <div class="col-md-3 col-12 mb-4">
-  <div class="hovereffect">
-    <!-- <a href="/categories/etc/">
-      <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
-      <div class="overlay">
-        <span class="overlay-text">Portfolio Item</span>
-      </div>
-    </a> -->
-    <a href="/categories/etc/">
-      <img class="img-fluid portfolio-img" src="/images/etc.jpg" alt="Portfolio Item">
-      <div class="overlay">
-        <span class="overlay-text">etc</span>
-      </div>
-    </a>
-  </div>
-</div>
-<!-- /images/etc -->
-
+  			  
     
-    <div class="col-md-3 col-12 mb-4">
+    
+        <div class="col-lg-2"></div>
+    
+    <div class="col-lg-2">
   <div class="hovereffect">
     <!-- <a href="/categories/C/">
       <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
@@ -109,65 +95,37 @@
 </div>
 <!-- /images/C++ -->
 
+     
     
-    <div class="col-md-3 col-12 mb-4">
+    
+     
+    
+    
+    <div class="col-lg-2">
   <div class="hovereffect">
-    <!-- <a href="/categories/ObjectTracking/">
+    <!-- <a href="/categories/etc/">
       <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
       <div class="overlay">
         <span class="overlay-text">Portfolio Item</span>
       </div>
     </a> -->
-    <a href="/categories/ObjectTracking/">
-      <img class="img-fluid portfolio-img" src="/images/ObjectTracking.jpg" alt="Portfolio Item">
+    <a href="/categories/etc/">
+      <img class="img-fluid portfolio-img" src="/images/etc.jpg" alt="Portfolio Item">
       <div class="overlay">
-        <span class="overlay-text">ObjectTracking</span>
+        <span class="overlay-text">etc</span>
       </div>
     </a>
   </div>
 </div>
-<!-- /images/ObjectTracking -->
+<!-- /images/etc -->
 
+     
     
-    <div class="col-md-3 col-12 mb-4">
-  <div class="hovereffect">
-    <!-- <a href="/categories/Math/">
-      <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
-      <div class="overlay">
-        <span class="overlay-text">Portfolio Item</span>
-      </div>
-    </a> -->
-    <a href="/categories/Math/">
-      <img class="img-fluid portfolio-img" src="/images/Math.jpg" alt="Portfolio Item">
-      <div class="overlay">
-        <span class="overlay-text">Math</span>
-      </div>
-    </a>
-  </div>
-</div>
-<!-- /images/Math -->
-
     
-    <div class="col-md-3 col-12 mb-4">
-  <div class="hovereffect">
-    <!-- <a href="/categories/JAVA/">
-      <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
-      <div class="overlay">
-        <span class="overlay-text">Portfolio Item</span>
-      </div>
-    </a> -->
-    <a href="/categories/JAVA/">
-      <img class="img-fluid portfolio-img" src="/images/JAVA.jpg" alt="Portfolio Item">
-      <div class="overlay">
-        <span class="overlay-text">JAVA</span>
-      </div>
-    </a>
-  </div>
-</div>
-<!-- /images/JAVA -->
-
+     
     
-    <div class="col-md-3 col-12 mb-4">
+    
+    <div class="col-lg-2">
   <div class="hovereffect">
     <!-- <a href="/categories/DeepLearning/">
       <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
@@ -185,8 +143,89 @@
 </div>
 <!-- /images/DeepLearning -->
 
+     
     
-    <div class="col-md-3 col-12 mb-4">
+    
+     
+    
+    
+    <div class="col-lg-2">
+  <div class="hovereffect">
+    <!-- <a href="/categories/ObjectTracking/">
+      <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
+      <div class="overlay">
+        <span class="overlay-text">Portfolio Item</span>
+      </div>
+    </a> -->
+    <a href="/categories/ObjectTracking/">
+      <img class="img-fluid portfolio-img" src="/images/ObjectTracking.jpg" alt="Portfolio Item">
+      <div class="overlay">
+        <span class="overlay-text">ObjectTracking</span>
+      </div>
+    </a>
+  </div>
+</div>
+<!-- /images/ObjectTracking -->
+
+     
+    
+        <div class="col-lg-2"></div>
+    
+    
+     
+    
+    
+        <div class="col-lg-2"></div>
+    
+    <div class="col-lg-2">
+  <div class="hovereffect">
+    <!-- <a href="/categories/Math/">
+      <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
+      <div class="overlay">
+        <span class="overlay-text">Portfolio Item</span>
+      </div>
+    </a> -->
+    <a href="/categories/Math/">
+      <img class="img-fluid portfolio-img" src="/images/Math.jpg" alt="Portfolio Item">
+      <div class="overlay">
+        <span class="overlay-text">Math</span>
+      </div>
+    </a>
+  </div>
+</div>
+<!-- /images/Math -->
+
+     
+    
+    
+     
+    
+    
+    <div class="col-lg-2">
+  <div class="hovereffect">
+    <!-- <a href="/categories/JAVA/">
+      <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
+      <div class="overlay">
+        <span class="overlay-text">Portfolio Item</span>
+      </div>
+    </a> -->
+    <a href="/categories/JAVA/">
+      <img class="img-fluid portfolio-img" src="/images/JAVA.jpg" alt="Portfolio Item">
+      <div class="overlay">
+        <span class="overlay-text">JAVA</span>
+      </div>
+    </a>
+  </div>
+</div>
+<!-- /images/JAVA -->
+
+     
+    
+    
+     
+    
+    
+    <div class="col-lg-2">
   <div class="hovereffect">
     <!-- <a href="/categories/LeetCode/">
       <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
@@ -204,8 +243,13 @@
 </div>
 <!-- /images/LeetCode -->
 
+     
     
-    <div class="col-md-3 col-12 mb-4">
+    
+     
+    
+    
+    <div class="col-lg-2">
   <div class="hovereffect">
     <!-- <a href="/categories/Python/">
       <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
@@ -223,8 +267,17 @@
 </div>
 <!-- /images/Python -->
 
+     
     
-    <div class="col-md-3 col-12 mb-4">
+        <div class="col-lg-2"></div>
+    
+    
+     
+    
+    
+        <div class="col-lg-2"></div>
+    
+    <div class="col-lg-2">
   <div class="hovereffect">
     <!-- <a href="/categories/WebDevelopment/">
       <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
@@ -242,8 +295,13 @@
 </div>
 <!-- /images/WebDevelopment -->
 
+     
     
-    <div class="col-md-3 col-12 mb-4">
+    
+     
+    
+    
+    <div class="col-lg-2">
   <div class="hovereffect">
     <!-- <a href="/categories/PatternRecognition/">
       <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
@@ -261,8 +319,13 @@
 </div>
 <!-- /images/PatternRecognition -->
 
+     
     
-    <div class="col-md-3 col-12 mb-4">
+    
+     
+    
+    
+    <div class="col-lg-2">
   <div class="hovereffect">
     <!-- <a href="/categories/信号与系统/">
       <img class="img-fluid portfolio-img" src="/images/unsplash.jpg" alt="Portfolio Item">
@@ -280,6 +343,13 @@
 </div>
 <!-- /images/信号与系统 -->
 
+     
+    
+    
+     
+
+
+
 
       </div>
       
@@ -292,9 +362,13 @@
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 <!--  HDTJ -->
 <script src="/lib/prism/prism.js" async></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
 </html>

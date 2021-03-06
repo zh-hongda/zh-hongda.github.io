@@ -24,7 +24,8 @@
   
 
   <!-- Pure CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
 
   <!-- Custom CSS -->
@@ -40,7 +41,7 @@
   
 
 
-  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js HDTJ -->
   
     <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
 <script type="text/x-mathjax-config">
@@ -78,21 +79,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码highlight进行代码高亮 -->
-  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
-  <!-- 使用prism进行代码高亮 -->
+  <!-- 使用prism进行代码高亮 HDTJ -->
   <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
-    <!-- 引入代码高亮的 js -->
-    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> -->
-    <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
-      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
   <a class="navbar-brand ml-2" href="/">zh-hongda</a>
   <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -105,6 +102,10 @@
   </div>
 </nav>
 
+        </div>
+
+      </div>
+      
 
   		<div class="row">
   			<!-- 此处控制文章页是否有页头图片 -->
@@ -115,14 +116,14 @@
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>Aria2 + ubuntu18.04安装与配置</h1>
 </div> -->
-<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+<div class="offset-lg-2 col-lg-8">
   <h1>Aria2 + ubuntu18.04安装与配置</h1>
   <p>Linux下的下载利器Aria2使用教程。<br><a id="more"></a></p>
-<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>安装Aria2</p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>安装Aria2</p>
 <pre><code class="lang-shell">sudo apt-get install aria2
 </code></pre>
-<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>配置Aria2</p>
-<h2 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h2><p>创建配置文件</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>配置Aria2</p>
+<h3 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h3><p>创建配置文件</p>
 <pre><code class="lang-shell">sudo mkdir /etc/aria2
 sudo touch /etc/aria2/aria2.conf
 sudo touch /etc/aria2/aria2.session
@@ -130,7 +131,7 @@ sudo touch /etc/aria2/aria2.session
 sudo chmod 777 /etc/aria2/aria2.session
 sudo chmod 777 /etc/aria2/aria2.log
 </code></pre>
-<h2 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h2><p>设置配置文件</p>
+<h3 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h3><p>设置配置文件</p>
 <pre><code class="lang-shell">dir=/home/hongda/Downloads
 disable-ipv6=true
 
@@ -162,17 +163,17 @@ split=10
 check-certificate=false
 #http-no-cache=true
 </code></pre>
-<h2 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h2><p>测试能否正常运行</p>
+<h3 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h3><p>测试能否正常运行</p>
 <pre><code class="lang-shell">sudo aria2c --conf-path=/etc/aria2/aria2.conf
 </code></pre>
 <p>正确运行后：</p>
 <img src="/2019/10/29/Aria2/001.png" title="Aria2_01">
 <p>至此，aria2已经可以使用了。具体使用方法可以参考 <a href="https://aria2.github.io/" target="_blank" rel="noopener">aria2</a></p>
-<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><p>设置快捷命令，此处使用<a href="https://raw.githubusercontent.com/xxoocn/doubi/master/service/aria2_debian" target="_blank" rel="noopener">别人的脚本</a>，做简单修改。</p>
-<h2 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h2><p>下载脚本到指定目录，并修改文件权限</p>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>设置快捷命令，此处使用<a href="https://raw.githubusercontent.com/xxoocn/doubi/master/service/aria2_debian" target="_blank" rel="noopener">别人的脚本</a>，做简单修改。</p>
+<h3 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h3><p>下载脚本到指定目录，并修改文件权限</p>
 <pre><code class="lang-shell">wget --no-check-certificate https://raw.githubusercontent.com/xxoocn/doubi/master/service/aria2_debian -O /etc/init.d/aria2 &amp;&amp; chmod +x /etc/init.d/aria2
 </code></pre>
-<h2 id="3-2"><a href="#3-2" class="headerlink" title="3.2"></a>3.2</h2><p>修改脚本</p>
+<h3 id="3-2"><a href="#3-2" class="headerlink" title="3.2"></a>3.2</h3><p>修改脚本</p>
 <p>原文件：</p>
 <pre><code class="lang-shell">#仅列出了需要修改的部分
 NAME=&quot;Aria2&quot;
@@ -186,11 +187,11 @@ NAME_BIN=&quot;aria2c&quot;
 CONFIG=&quot;/etc/aria2/aria2.conf&quot;
 LOG=&quot;/etc/aria2/aria2.log&quot;
 </code></pre>
-<h2 id="3-3"><a href="#3-3" class="headerlink" title="3.3"></a>3.3</h2><p>添加脚本到开机启动</p>
+<h3 id="3-3"><a href="#3-3" class="headerlink" title="3.3"></a>3.3</h3><p>添加脚本到开机启动</p>
 <pre><code class="lang-shell">update-rc.d -f aria2 defaults
 </code></pre>
 <p>至此，Aria2安装与配置结束。</p>
-<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><p>测试<br><img src="/2019/10/29/Aria2/002.png" title="Aria2_02"></p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p>测试<br><img src="/2019/10/29/Aria2/002.png" title="Aria2_02"></p>
 <p>参考：</p>
 <p><a href="https://zhuanlan.zhihu.com/p/30666881" target="_blank" rel="noopener">Aria2基础上手指南</a></p>
 
@@ -204,9 +205,13 @@ LOG=&quot;/etc/aria2/aria2.log&quot;
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 <!--  HDTJ -->
 <script src="/lib/prism/prism.js" async></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
 </html>

@@ -24,7 +24,8 @@
   
 
   <!-- Pure CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
 
   <!-- Custom CSS -->
@@ -40,7 +41,7 @@
   
 
 
-  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js HDTJ -->
   
     <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
 <script type="text/x-mathjax-config">
@@ -78,21 +79,17 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
   
-  <!-- 代码highlight进行代码高亮 -->
-  <!-- <link rel="stylesheet" href="/lib/highlight/styles/Default.css">     -->
-  <!-- 使用prism进行代码高亮 -->
+  <!-- 使用prism进行代码高亮 HDTJ -->
   <link rel="stylesheet" href="/lib/prism/prism.css">    
 </head>
 
 
   <body>
-    <!-- 引入代码高亮的 js -->
-    <!-- <script src="/lib/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> -->
-    <!-- 代码高亮结束 -->
   	<div class="container-fluid navbar-container m-sm-5">
       <!-- Header -->
-      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
   <a class="navbar-brand ml-2" href="/">zh-hongda</a>
   <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -105,6 +102,10 @@
   </div>
 </nav>
 
+        </div>
+
+      </div>
+      
 
   		<div class="row">
   			<!-- 此处控制文章页是否有页头图片 -->
@@ -115,10 +116,10 @@
 <!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
   <h1>Linked Lists Summary</h1>
 </div> -->
-<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+<div class="offset-lg-2 col-lg-8">
   <h1>Linked Lists Summary</h1>
   <p>Leetcode Linked Lists practice summary<br><a id="more"></a></p>
-<h1 id="0"><a href="#0" class="headerlink" title="0"></a>0</h1><p>帶头结点的单链表的基本功能实现。</p>
+<h2 id="0"><a href="#0" class="headerlink" title="0"></a>0</h2><p>帶头结点的单链表的基本功能实现。</p>
 <pre><code class="lang-c">#define ElemType int
 
 typedef struct LNode{
@@ -263,8 +264,8 @@ void myLinkedListFree(MyLinkedList* obj) {
     free(obj);
 }
 </code></pre>
-<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="1-1-Middle-of-the-Linked-List"><a href="#1-1-Middle-of-the-Linked-List" class="headerlink" title="1.1 Middle of the Linked List"></a>1.1 <a href="https://leetcode.com/problems/middle-of-the-linked-list" target="_blank" rel="noopener">Middle of the Linked List</a></h2><p>一开始使用遍历的方法，现在感觉使用两个指针，一个速度是另一个2倍，可能更加方便。</p>
-<h2 id="1-2-Reverse-Linked-List"><a href="#1-2-Reverse-Linked-List" class="headerlink" title="1.2 Reverse Linked List"></a>1.2 <a href="https://leetcode.com/problems/reverse-linked-list" target="_blank" rel="noopener">Reverse Linked List</a></h2><pre><code class="lang-c">struct ListNode* reverseList(struct ListNode* head){
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h3 id="1-1-Middle-of-the-Linked-List"><a href="#1-1-Middle-of-the-Linked-List" class="headerlink" title="1.1 Middle of the Linked List"></a>1.1 <a href="https://leetcode.com/problems/middle-of-the-linked-list" target="_blank" rel="noopener">Middle of the Linked List</a></h3><p>一开始使用遍历的方法，现在感觉使用两个指针，一个速度是另一个2倍，可能更加方便。</p>
+<h3 id="1-2-Reverse-Linked-List"><a href="#1-2-Reverse-Linked-List" class="headerlink" title="1.2 Reverse Linked List"></a>1.2 <a href="https://leetcode.com/problems/reverse-linked-list" target="_blank" rel="noopener">Reverse Linked List</a></h3><pre><code class="lang-c">struct ListNode* reverseList(struct ListNode* head){
     if(head == NULL || head-&gt;next == NULL) //当头指针为空或者只有一个结点时停止递归
         return head;
     struct ListNode* newhead = reverseList(head-&gt;next); //递归
@@ -278,7 +279,7 @@ void myLinkedListFree(MyLinkedList* obj) {
 }
 </code></pre>
 <p>每次假设除了第一个结点外其他结点已经翻转完毕（此时head-&gt;next是已经翻转后新链表的最后一个结点），然后将头结点插入新链表的尾部（即head-&gt;next）。</p>
-<h2 id="1-3-Delete-Node-in-a-Linked-List"><a href="#1-3-Delete-Node-in-a-Linked-List" class="headerlink" title="1.3 Delete Node in a Linked List"></a>1.3 <a href="https://leetcode.com/problems/delete-node-in-a-linked-list" target="_blank" rel="noopener">Delete Node in a Linked List</a></h2><pre><code class="lang-c">void deleteNode(struct ListNode* node) {
+<h3 id="1-3-Delete-Node-in-a-Linked-List"><a href="#1-3-Delete-Node-in-a-Linked-List" class="headerlink" title="1.3 Delete Node in a Linked List"></a>1.3 <a href="https://leetcode.com/problems/delete-node-in-a-linked-list" target="_blank" rel="noopener">Delete Node in a Linked List</a></h3><pre><code class="lang-c">void deleteNode(struct ListNode* node) {
     struct ListNode* temp = node-&gt;next;
     node-&gt;val  = temp-&gt;val;
     node-&gt;next = temp-&gt;next;
@@ -287,7 +288,7 @@ void myLinkedListFree(MyLinkedList* obj) {
 </code></pre>
 <p>题目难点在于只给出了需要删除的结点，</p>
 <p>解题思路：将下一个结点的val复制给当前结点，然后删除下一个结点。即用当前结点代替下一个结点。</p>
-<h2 id="1-4-Merge-Two-Sorted-Lists"><a href="#1-4-Merge-Two-Sorted-Lists" class="headerlink" title="1.4 Merge Two Sorted Lists"></a>1.4 <a href="https://leetcode.com/problems/merge-two-sorted-lists" target="_blank" rel="noopener">Merge Two Sorted Lists</a></h2><pre><code class="lang-c">struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
+<h3 id="1-4-Merge-Two-Sorted-Lists"><a href="#1-4-Merge-Two-Sorted-Lists" class="headerlink" title="1.4 Merge Two Sorted Lists"></a>1.4 <a href="https://leetcode.com/problems/merge-two-sorted-lists" target="_blank" rel="noopener">Merge Two Sorted Lists</a></h3><pre><code class="lang-c">struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
     if (l1 == NULL)
         return l2;
     if (l2 == NULL)
@@ -302,7 +303,7 @@ void myLinkedListFree(MyLinkedList* obj) {
 }
 </code></pre>
 <p>每次在两个链表的第一个结点中选择较小的一个，然后假设除了该结点其他结点已经合并完毕。在这种情况下只需要令该结点指向已排序好的新链表即可。不断递归，问题规模不断减小，直到有一个链表为NULL时停止递归。</p>
-<h2 id="1-5-Remove-Duplicates-from-Sorted-List"><a href="#1-5-Remove-Duplicates-from-Sorted-List" class="headerlink" title="1.5 Remove Duplicates from Sorted List"></a>1.5 <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list" target="_blank" rel="noopener">Remove Duplicates from Sorted List</a></h2><pre><code class="lang-c">struct ListNode* deleteDuplicates(struct ListNode* head){
+<h3 id="1-5-Remove-Duplicates-from-Sorted-List"><a href="#1-5-Remove-Duplicates-from-Sorted-List" class="headerlink" title="1.5 Remove Duplicates from Sorted List"></a>1.5 <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list" target="_blank" rel="noopener">Remove Duplicates from Sorted List</a></h3><pre><code class="lang-c">struct ListNode* deleteDuplicates(struct ListNode* head){
     struct ListNode* temp;
 
     if(head == NULL)
@@ -321,8 +322,8 @@ void myLinkedListFree(MyLinkedList* obj) {
 }
 </code></pre>
 <p>每次判断前两个结点的val是否相同，如果相同，假设除了第一个结点外链表已经去重完毕，此时只需要将头指针指向新链表即可。如果不相同，令第一个节点指向新链表。不断递归，问题规模不断减小，直到只有一个结点时停止。</p>
-<h2 id="1-6-Linked-List-Cycle"><a href="#1-6-Linked-List-Cycle" class="headerlink" title="1.6  Linked List Cycle"></a>1.6 <a href="https://leetcode.com/problems/linked-list-cycle" target="_blank" rel="noopener"> Linked List Cycle</a></h2><p>使用 Floyd Cycle Detection Algorithm 又叫Tortoise and Hare Algorithm</p>
-<h2 id="1-7-Palindrome-Linked-List"><a href="#1-7-Palindrome-Linked-List" class="headerlink" title="1.7 Palindrome Linked List"></a>1.7 <a href="https://leetcode.com/problems/palindrome-linked-list" target="_blank" rel="noopener">Palindrome Linked List</a></h2><pre><code class="lang-c">struct ListNode* reverse(struct ListNode* head){
+<h3 id="1-6-Linked-List-Cycle"><a href="#1-6-Linked-List-Cycle" class="headerlink" title="1.6  Linked List Cycle"></a>1.6 <a href="https://leetcode.com/problems/linked-list-cycle" target="_blank" rel="noopener"> Linked List Cycle</a></h3><p>使用 Floyd Cycle Detection Algorithm 又叫Tortoise and Hare Algorithm</p>
+<h3 id="1-7-Palindrome-Linked-List"><a href="#1-7-Palindrome-Linked-List" class="headerlink" title="1.7 Palindrome Linked List"></a>1.7 <a href="https://leetcode.com/problems/palindrome-linked-list" target="_blank" rel="noopener">Palindrome Linked List</a></h3><pre><code class="lang-c">struct ListNode* reverse(struct ListNode* head){
     struct ListNode* p,*temp;
     p = head-&gt;next;
     head-&gt;next = NULL;
@@ -374,7 +375,7 @@ bool isPalindrome(struct ListNode* head){
 }
 </code></pre>
 <p>解题思想在于，找到中间结点然后reverse后半段的链表，并与前半段对比。</p>
-<h2 id="1-8-Remove-Linked-List-Elements"><a href="#1-8-Remove-Linked-List-Elements" class="headerlink" title="1.8 Remove Linked List Elements"></a>1.8 <a href="https://leetcode.com/problems/remove-linked-list-elements" target="_blank" rel="noopener">Remove Linked List Elements</a></h2><pre><code class="lang-c">struct ListNode* removeElements(struct ListNode* head, int val){
+<h3 id="1-8-Remove-Linked-List-Elements"><a href="#1-8-Remove-Linked-List-Elements" class="headerlink" title="1.8 Remove Linked List Elements"></a>1.8 <a href="https://leetcode.com/problems/remove-linked-list-elements" target="_blank" rel="noopener">Remove Linked List Elements</a></h3><pre><code class="lang-c">struct ListNode* removeElements(struct ListNode* head, int val){
     struct ListNode* dummy=(struct ListNode*)malloc(sizeof(struct ListNode));
     dummy-&gt;val=INT_MAX;
     dummy-&gt;next=head;
@@ -398,7 +399,7 @@ bool isPalindrome(struct ListNode* head){
 }
 </code></pre>
 <p>d算法本身没什么好说的，不过值得注意的是，使用头结点将第一个结点普通化，不用单独处理第一个结点，更加方便。个人感觉链表的核心就在于 prev &amp; curr &amp; next。</p>
-<h2 id="1-9-Intersection-of-Two-Linked-Lists"><a href="#1-9-Intersection-of-Two-Linked-Lists" class="headerlink" title="1.9 Intersection of Two Linked Lists"></a>1.9 <a href="https://leetcode.com/problems/intersection-of-two-linked-lists" target="_blank" rel="noopener">Intersection of Two Linked Lists</a></h2><pre><code class="lang-c">struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {
+<h3 id="1-9-Intersection-of-Two-Linked-Lists"><a href="#1-9-Intersection-of-Two-Linked-Lists" class="headerlink" title="1.9 Intersection of Two Linked Lists"></a>1.9 <a href="https://leetcode.com/problems/intersection-of-two-linked-lists" target="_blank" rel="noopener">Intersection of Two Linked Lists</a></h3><pre><code class="lang-c">struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {
     int LengthA = 0, LengthB = 0;
     struct ListNode* curr;
 
@@ -441,9 +442,13 @@ bool isPalindrome(struct ListNode* head){
     <!-- After footer scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 <!--  HDTJ -->
 <script src="/lib/prism/prism.js" async></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
 </html>
