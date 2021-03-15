@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>自己制作HEXO主题 - zh-hongda</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="Self Cognize">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="HD">
+  
+
+  <!-- Pure CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js HDTJ -->
+  
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+  <!-- 使用prism进行代码高亮 HDTJ -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
+</head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">zh-hongda</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+        </div>
+
+      </div>
+      
+
+  		<div class="row">
+        <div class="col-lg-2"></div>
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="自己制作HEXO主题">
+</div> -->
+
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>自己制作HEXO主题</h1>
+</div> -->
+<div class="col-lg-8">
+  <h1>自己制作HEXO主题</h1>
+  <p>没有找到心仪的个人博客主题</p>
+<a id="more"></a>
+<p>主要参考了<a href="https://www.cnblogs.com/yyhh/p/11058985.html" target="_blank" rel="noopener">HEXO主题开发</a>、<a href="https://www.ahonn.me/post/33" target="_blank" rel="noopener">从零开始制作 Hexo 主题 </a>和<a href="https://hexo-gradient.netlify.com/" target="_blank" rel="noopener">Gradient主题</a>。</p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>新建相关文件和文件夹，具体结构据HEXO自带的Landspace类似。具体目录结构如下：</p>
+<pre><code>theme-example              //自定义主题所在的文件夹
+├── _config.yml            //主题相关配置
+├── languages              //语言文件夹
+├── layout                 //控制博客布局的文件
+├── scripts                //网站的脚本存放位置
+└── source                 //存放网站相关资源，css，js，图片等。
+</code></pre><h3 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h3><p>编辑主题配置文件<code>_config.yml</code>:</p>
+<pre><code class="lang-html">menu:
+  Home: /
+  Archives: /archives
+  Github: https://github.com/zh-hongda
+featured_image: img/default.jpg
+</code></pre>
+<p>然后在其他文件中就可以使用<code>theme</code>这个变量来拿到<code>_config.yml</code>中的配置。如<code>theme.menu</code>。</p>
+<h3 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h3><p>创建公用的布局文件<code>./layout/layout.ejs</code>，同时创建<code>./layout/_partial/head.ejs</code>和<code>./layout/_partial/header.ejs</code>，保存HTML的head和控制页面导航的布局。</p>
+<p><code>layout.ejs</code>:</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;%- partial(&#39;_partial/head&#39;) %&gt;
+  &lt;body&gt;
+    &lt;%- partial(&#39;_partial/header&#39;) %&gt;
+    &lt;main class=&quot;main&quot;&gt;
+      &lt;%- body %&gt;
+    &lt;/main&gt;
+  &lt;/body&gt;
+&lt;/htmlt&gt;
+</code></pre>
+<p><code>head.ejs</code>:</p>
+<pre><code class="lang-html">&lt;head&gt;
+  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;meta content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot; name=&quot;viewport&quot;&gt;
+  &lt;title&gt;&lt;%= config.title %&gt;&lt;/title&gt;
+
+&lt;/head&gt;
+</code></pre>
+<p><code>header.ejs</code>:</p>
+<pre><code class="lang-html">&lt;header class=&quot;header&quot;&gt;
+  &lt;div class=&quot;blog-title&quot;&gt;
+    &lt;a href=&quot;&lt;%- url_for() %&gt;&quot; class=&quot;logo&quot;&gt;&lt;%= config.title %&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;nav class=&quot;navbar&quot;&gt;
+    &lt;ul class=&quot;menu&quot;&gt;
+      &lt;% for (name in theme.menu) { %&gt;
+        &lt;li class=&quot;menu-item&quot;&gt;
+          &lt;a href=&quot;&lt;%- url_for(theme.menu[name]) %&gt;&quot; class=&quot;menu-item-link&quot;&gt;&lt;%= name %&gt;&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;% } %&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre>
+<p>每个模板都默认使用 <code>layout</code> 布局，也可以在 front-matter 指定其他布局，或是将 front-matter 中的 layout 设为 <code>false</code> 来关闭布局功能。</p>
+<h3 id="1-3"><a href="#1-3" class="headerlink" title="1.3"></a>1.3</h3><p>公用布局和局部模板设置结束后，就可以开始设计各个页面的个性化布局。比如<code>index.ejs</code>、<code>archive.ejs</code>和<code>post.ejs</code>分别控制首页、归档页和文章页的布局。他们都会使用共用布局<code>layout.ejs</code>所有他们将会有一样的导航模块。</p>
+<p><code>index.ejs</code>:</p>
+<pre><code class="lang-html">&lt;section class=&quot;band&quot;&gt;
+    &lt;% site.categories.forEach(function (category) { %&gt;
+      &lt;div class=&quot;item-1&quot;&gt;
+        &lt;a href=&quot;&lt;%- url_for(category.path) %&gt;&quot; class=&quot;category&quot;&gt;
+          &lt;div class=&quot;thumb&quot; style=&quot;background-image: url(&lt;%- config.root %&gt;&lt;%- theme.featured_image %&gt;);&quot;&gt;&lt;/div&gt;
+          &lt;article&gt;
+            &lt;h1&gt;
+                &lt;%- category.name %&gt;
+            &lt;/h1&gt;
+          &lt;/article&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;% }); %&gt;
+&lt;/section&gt;
+&lt;%- partial(&#39;_partial/paginator&#39;) %&gt;
+</code></pre>
+<p><code>archive.ejs</code></p>
+<pre><code class="lang-html">&lt;section class=&quot;archive&quot;&gt;
+  &lt;ul class=&quot;post-archive&quot;&gt;
+    &lt;% page.posts.each(function (post) { %&gt;
+      &lt;li class=&quot;post-item&quot;&gt;
+        &lt;span class=&quot;post-date&quot;&gt;&lt;%= date(post.date, &quot;YYYY-MM-DD&quot;) %&gt;&lt;/span&gt;
+        &lt;a class=&quot;post-title&quot; href=&quot;&lt;%- url_for(post.path) %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;% }) %&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;
+&lt;%- partial(&#39;_partial/paginator&#39;) %&gt;
+</code></pre>
+<p><code>post.ejs</code>:</p>
+<pre><code class="lang-html">&lt;article class=&quot;post&quot;&gt;
+  &lt;div class=&quot;post-title&quot;&gt;
+    &lt;h2 class=&quot;title&quot;&gt;&lt;%= page.title %&gt;&lt;/h2&gt;
+  &lt;/div&gt;
+   &lt;div class=&quot;post-meta&quot;&gt;
+    &lt;span class=&quot;post-time&quot;&gt;&lt;%- date(page.date, &quot;YYYY-MM-DD&quot;) %&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;post-content&quot;&gt;
+    &lt;%- page.content %&gt;
+  &lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
+<p>此时的网页是这个样子的：</p>
+<img src="/2019/10/23/自己制作HEXO主题/first.png" title="This">
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>上一章节已经设置只好了博客的布局，所有虽然有了内容但是还比较丑。这一章节调整页面的样式。</p>
+<p>在 <code>./source/css</code> 文件夹中创建 <code>style.styl</code>，编写一些基础的样式，并把所有样式 <code>import</code> 到这个文件。所以最终编译之后只会有 <code>style.css</code> 一个文件。创建 <code>_partial/index.styl</code>、<code>_partial/header.styl</code> 与 <code>_partial/post.styl</code> 存放首页、页面导航以及文章的样式，并且在 <code>style.styl</code> 中 <code>import</code> 这三个文件。</p>
+<p><code>style.styl</code>:</p>
+<pre><code class="lang-css">body {
+  background-color: #F2F2F2;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@import &quot;_partial/header&quot;;
+@import &quot;_partial/post&quot;;
+@import &quot;_partial/archive&quot;;
+@import &quot;_partial/index&quot;;
+</code></pre>
+<p><code>_partial/index.styl</code></p>
+<pre><code class="lang-css">.band {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  padding-top: 5%;
+
+}
+
+.category {
+  background: white;
+  text-decoration: none !important;
+  color: #444 !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+  top: 0;
+  transition: all .1s ease-in;
+  margin-top: 5px;
+}
+
+.category .thumb {
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.category article {
+  padding: 20px;
+  justify-content: space-between;
+}
+</code></pre>
+<p><code>_partial/header.styl</code>:</p>
+<pre><code class="lang-css">.header {
+  margin-top: 2em
+  display: flex
+  align-items: baseline
+  justify-content: space-between
+
+  .blog-title .logo {
+    color: #AAA;
+    font-size: 2em;
+    font-family: &quot;Comic Sans MS&quot;,cursive,LiSu,sans-serif;
+    text-decoration: none;
+  }
+
+  .menu {
+    margin: 0;
+    padding: 0;
+
+    .menu-item {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .menu-item-link {
+      color: #AAA;
+      text-decoration: none;
+
+      &amp;:hover {
+        color: #368CCB;
+      }
+    }
+  }
+}
+</code></pre>
+<p><code>_partial/post.style</code>:</p>
+<pre><code class="lang-css">.post {
+  margin: 1em auto;
+  padding: 30px 50px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 2px #ddd;
+}
+
+.posts  {
+  .post:first-child {
+    margin-top: 0;
+  }
+
+  .post-title {
+    font-size: 1.5em;
+
+    .post-title-link {
+      color: #368CCB;
+      text-decoration: none;
+    }
+  }
+
+  .post-content {
+    a {
+      color: #368CCB;
+      text-decoration: none;
+    }
+  }
+
+  .post-meta {
+    color: #BABABA;
+  }
+}
+</code></pre>
+<p>最后，我们需要把样式添加到页面中，这里使用了另外一个辅助函数 <a href="https://hexo.io/docs/helpers.html#css" target="_blank" rel="noopener"><code>css()</code></a>:<br><code>layout/_partial/head.ejs</code>:</p>
+<pre><code class="lang-css">&lt;head&gt;
+  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;meta content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&quot; name=&quot;viewport&quot;&gt;
+  &lt;title&gt;&lt;%= config.title %&gt;&lt;/title&gt;
+  &lt;%- css(&#39;css/style.css&#39;) %&gt;
+&lt;/head&gt;
+</code></pre>
+<p>至此，样式也设置完毕，现在我们的博客时这样的：</p>
+<img src="/2019/10/23/自己制作HEXO主题/secend.png" title="This">
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>目前实现了：</p>
+<p>首页显示不同的类别（而不是文章），点击图片后可以跳转到对应的类别。</p>
+<p>还需要做的：</p>
+<blockquote>
+<p>不同类别对应不同图片</p>
+<p>首页添加横幅，导航样式也需要进一步修改</p>
+<p>对应类别打开后的页面（显示本类别下的文章）美化。</p>
+</blockquote>
+<p>所以本文不定时更新。</p>
+<p>我目前的具体结构为：</p>
+<pre><code>theme-example               //自定义主题所在的文件夹
+├── _config.yml             //主题相关配置
+├── languages               //语言文件夹，暂时没有做多语言，所有该文件夹下为空
+├── layout                  //控制博客布局的文件
+│   ├── archive.ejs         //博客归档页的布局
+│   ├── index.ejs           //博客首页布局
+│   ├── layout.ejs          //总布局，
+│   ├── _partial            //部分布局，将可能需要复用的布局单独存放，方便复用。
+│   │   ├── head.ejs
+│   │   ├── header.ejs
+│   │   └── paginator.ejs
+│   └── post.ejs            //文章页布局
+├── scripts                 //网站的脚本存放位置，现在还没有用到任何脚本，所以为空
+└── source
+    ├── css                 //控制网页样式相关的文件
+    │   ├── _partial
+    │   │   ├── archive.styl
+    │   │   ├── header.styl
+    │   │   ├── index.styl
+    │   │   └── post.styl
+    │   └── style.styl
+    ├── images             //存放博客中用到的图片
+    │   ├── aaa.jpg
+    │   ├── bbb.jpg
+    │   ├── ccc.jpg
+    │   ├── ddd.jpg
+    │   └── eee.jpg
+    └── img               //现在首页中表示分类用到的默认图片，
+        └── default.jpg
+</code></pre><h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p>接上文，2020/8/28</p>
+<ol>
+<li>实现，不同类别对应不同图片</li>
+</ol>
+<ul>
+<li><p>修改/source/images文件夹下图片名为对应的类别名，注意名字中不要包含空格。</p>
+</li>
+<li><p>修改/layout/index.ejs文件</p>
+<pre><code class="lang-ejs">&lt;section class=&quot;band&quot;&gt;
+    &lt;% site.categories.forEach(function (category) { %&gt;
+      &lt;div class=&quot;item-1&quot;&gt;
+        &lt;a href=&quot;&lt;%- url_for(category.path) %&gt;&quot; class=&quot;category&quot;&gt;
+          &lt;!-- &lt;div class=&quot;thumb&quot; style=&quot;background-image: url(&lt;%- config.root %&gt;&lt;%- theme.featured_image %&gt;);&quot;&gt;&lt;/div&gt; --&gt;
+          &lt;div class=&quot;thumb&quot; style=&quot;background-image: url(&lt;%- config.root %&gt;&lt;%- theme.featured_image %&gt;&lt;%- category.name %&gt;.jpg);&quot;&gt;&lt;/div&gt;
+          &lt;article&gt;
+            &lt;h1&gt;
+                &lt;%- category.name %&gt;
+            &lt;/h1&gt;
+          &lt;/article&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;% }); %&gt;
+&lt;/section&gt;
+</code></pre>
+</li>
+</ul>
+<ol>
+<li><p>实现代码高亮</p>
+<p>使用highlight实现代码高亮</p>
+<pre><code class="lang-ejs">&lt;!-- 在/source下新建lib文件夹，并放入下载的[高亮包](https://highlightjs.org/)。 --&gt;
+
+&lt;!-- 在`themes\theme-example\layout\_partial\header.ejs`中加入 --&gt;
+  &lt;%- css(&#39;/lib/highlight/styles/vs2015&#39;) %&gt;    
+
+&lt;!-- 并对`themes\theme-example\layout\layout.ejs`做如下修改 --&gt;
+    &lt;body&gt;
+      &lt;%- partial(&#39;_partial/header&#39;) %&gt;
+      &lt;main class=&quot;main&quot;&gt;
+        &lt;%- body %&gt;
+      &lt;/main&gt;
+
+      &lt;!-- 引入代码高亮的 js --&gt;
+      &lt;%- js(&#39;/lib/highlight/highlight.pack.js&#39;) %&gt;
+      &lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/htmlt&gt;
+</code></pre>
+<p>使用prism实现代码高亮</p>
+<pre><code class="lang-ejs">&lt;!-- 禁用 highlight.js
+修改站点根目录下的 _config.yml 配置文件，具体如下： --&gt;
+highlight:
+  enable: false
+  line_number: false
+  auto_detect: false
+  tab_replace:
+
+&lt;!-- 获取 prism.js,下载页面：https://prismjs.com/download.html； --&gt;
+/themes/next/source/js/prism/prism.js
+/themes/next/source/js/prism/prism.css
+
+&lt;!-- 1、配置 prism.js,修改 $HEXO/themes/next/layout/_partials/head.swig，在尾部添加以下代码： --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/js/prism/prism.css&quot;&gt;
+
+&lt;!-- 2、修改 $HEXO/themes/next/layout/_partials/footer.swig，在尾部添加以下代码： --&gt;
+&lt;script src=&quot;/js/prism/prism.js&quot; async&gt;&lt;/script&gt;
+
+&lt;!-- 3、修改博客配置,打开根目录下的_config.yml文件，添加下面代码 --&gt;
+marked:
+  langPrefix: line-numbers language-
+
+&lt;!-- 4. 测试prism,清理后，重新运行直接测试 --&gt;
+hexo clean
+hexo s
+</code></pre>
+<p><a href="https://zfl9.github.io/hexo-code.html" target="_blank" rel="noopener">参考资料1</a></p>
+<p><a href="https://www.jianshu.com/p/f395d92a1110" target="_blank" rel="noopener">参考资料2</a></p>
+<p><a href="https://prismjs.com/" target="_blank" rel="noopener">prismjs</a></p>
+</li>
+<li><p>添加公式支持</p>
+</li>
+</ol>
+<ul>
+<li><p>在<code>\theme-example\layout\_partial</code> 目录中新建mathjax.ejs，填入如下js代码：</p>
+<pre><code class="lang-ejs"> &lt;!-- MathJax配置，可通过单美元符号书写行内公式等 --&gt;
+ &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+     MathJax.Hub.Config({
+     &quot;HTML-CSS&quot;: { 
+         preferredFont: &quot;TeX&quot;, 
+         availableFonts: [&quot;STIX&quot;,&quot;TeX&quot;], 
+         linebreaks: { automatic:true }, 
+         EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+     },
+     tex2jax: { 
+         inlineMath: [ [&quot;$&quot;, &quot;$&quot;], [&quot;\\(&quot;,&quot;\\)&quot;] ], 
+         processEscapes: true, 
+         ignoreClass: &quot;tex2jax_ignore|dno&quot;,
+         skipTags: [&#39;script&#39;, &#39;noscript&#39;, &#39;style&#39;, &#39;textarea&#39;, &#39;pre&#39;, &#39;code&#39;]
+     },
+     TeX: {  
+         equationNumbers: { autoNumber: &quot;AMS&quot; },
+         noUndefined: { attributes: { mathcolor: &quot;red&quot;, mathbackground: &quot;#FFEEEE&quot;, mathsize: &quot;90%&quot; } }, 
+         Macros: { href: &quot;{}&quot; } 
+     },
+     messageStyle: &quot;none&quot;
+     }); 
+ &lt;/script&gt;
+ &lt;!-- 给MathJax元素添加has-jax class --&gt;
+ &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+     MathJax.Hub.Queue(function() {
+         var all = MathJax.Hub.getAllJax(), i;
+         for(i=0; i &lt; all.length; i += 1) {
+             all[i].SourceElement().parentNode.className += &#39; has-jax&#39;;
+         }
+     });
+ &lt;/script&gt;
+ &lt;!-- 通过连接CDN加载MathJax的js代码 --&gt;
+ &lt;script type=&quot;text/javascript&quot; async
+   src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt;
+ &lt;/script&gt;
+</code></pre>
+</li>
+<li><p>在<code>themes\theme-example\layout\_partial\header.ejs</code>中添加如下代码，通过此配置变量决定是否加载mathjax.ejs 。</p>
+<p> 有公式才加载MathJax，这点比较重要，没有公式仍然加载js渲染公式，会影响页面加载速度，在所有有公式的文章的front-matter中增加一项配置 mathjax: true，例如：</p>
+<pre><code class="lang-bash"> ---
+ title: 结构化机器学习项目
+ tags:
+   - 机器学习
+ categories:
+   - 机器学习
+ date: 2017-10-9 22:22:00
+ toc: false
+ mathjax: true
+ ---
+</code></pre>
+<pre><code class="lang-ejs">   &lt;!-- 根据页面mathjax变量决定是否加载MathJax数学公式js --&gt;
+   &lt;% if (page.mathjax){ %&gt;
+     &lt;%- partial(&#39;mathjax&#39;) %&gt;
+     &lt;% } %&gt;
+</code></pre>
+</li>
+</ul>
+<ol>
+<li><p>修改字体</p>
+<pre><code class="lang-css">&lt;!-- 在styles.css中做下列修改，如果文件中已经有了就直接做修改，如果没有直接新建 --&gt;
+body {
+    /* font-family: &#39;Open Sans&#39;, sans-serif; */
+    font-family: &#39;SimHei&#39;, sans-serif;
+}
+ &lt;!-- 修改序号的大小 --&gt;
+p {
+    margin-top: 0;
+    margin-bottom: 0rem;
+    font-size: 1.5rem;
+}
+ &lt;!-- 修改序号的大小 --&gt;
+::marker {
+    color: rgb(3, 3, 3);
+    font-size: 1.5rem;
+}
+&lt;!-- 修改代码中标签的大小，比如 “&lt;str name=&quot;host&quot;&gt;”的大小 --&gt;
+span {
+    font-size: 1.2rem;
+}
+
+ &lt;!-- 在prism.css中做下列修改，如果文件中已经有了就直接做修改，如果没有直接新建，这个也是代码的大小 --&gt;
+pre[class*=&quot;language-&quot;] {
+    font-size: 1.15em; 
+}
+</code></pre>
+<p><a href="https://www.dazhuanlan.com/2020/02/02/5e367a7cdb9a5/" target="_blank" rel="noopener">改字体</a></p>
+</li>
+</ol>
+<p>参考：</p>
+<p><a href="https://shoka.lostyu.me/" target="_blank" rel="noopener">shoka</a></p>
+<p><a href="https://rawgit.com/google/code-prettify/master/styles/index.html" target="_blank" rel="noopener">Gallery of themes for code prettify</a></p>
+
+</div>
+
+
+      </div>
+      
+    </div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>

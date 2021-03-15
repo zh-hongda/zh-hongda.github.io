@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>再看《C程序设计》 - zh-hongda</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="Self Cognize">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="HD">
+  
+
+  <!-- Pure CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js HDTJ -->
+  
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+  <!-- 使用prism进行代码高亮 HDTJ -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
+</head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">zh-hongda</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+        </div>
+
+      </div>
+      
+
+  		<div class="row">
+        <div class="col-lg-2"></div>
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="再看《C程序设计》">
+</div> -->
+
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>再看《C程序设计》</h1>
+</div> -->
+<div class="col-lg-8">
+  <h1>再看《C程序设计》</h1>
+  <p>下午又翻了翻谭浩强教授的《C程序设计》</p>
+<a id="more"></a>
+<h2 id="1-结构化程序设计"><a href="#1-结构化程序设计" class="headerlink" title="1 结构化程序设计"></a>1 结构化程序设计</h2><h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><p>程序主要包括两方面：数据和算法（对数据进行的操作）。</p>
+<h2 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h2><p>算法常见的表示方式：自然语言、流程图、伪代码。</p>
+<p>1966年，Bohra 和 Jacopini提出了使用三种基本结构表示一个算法。</p>
+<blockquote>
+<ul>
+<li><p>顺序结构</p>
+</li>
+<li><p>选择结构</p>
+</li>
+<li><p>循环结构</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="1-3"><a href="#1-3" class="headerlink" title="1.3"></a>1.3</h2><p>结构化程序设计可以通俗理解为，在设计一个具体程序时遵守以下几条：</p>
+<blockquote>
+<ul>
+<li><p>自顶向下，</p>
+</li>
+<li><p>模块化设计</p>
+</li>
+<li><p>结构化编码（使用三种基本结构进行编码）。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="2-vector"><a href="#2-vector" class="headerlink" title="2 vector"></a>2 vector</h2><h3 id="2-1定义二维vector-参考链接"><a href="#2-1定义二维vector-参考链接" class="headerlink" title="2.1定义二维vector(参考链接)"></a>2.1定义二维vector<a href="https://blog.csdn.net/u014453443/article/details/98057251" target="_blank" rel="noopener">(参考链接)</a></h3><pre><code class="lang-cpp">vector&lt;vector&lt;int&gt;&gt; A;//错误的定义方式
+vector&lt;vector&lt;int&gt; &gt; A;//正缺的定义方式，注意&gt;和&gt;之间的空格。
+</code></pre>
+<h3 id="2-2-插入元素"><a href="#2-2-插入元素" class="headerlink" title="2.2 插入元素"></a>2.2 插入元素</h3><p>若想定义A = [[0,1,2],[3,4,5]]，则：</p>
+<pre><code class="lang-cpp">//正确的插入方式
+vector&lt;vector&lt;int&gt; &gt; A;
+//A.push_back里必须是vector
+vector&lt;int&gt; B;
+B.push_back(0);
+B.push_back(1);
+B.push_back(2);
+A.push_back(B);
+B.clear();
+B.push_back(3);
+B.push_back(4);
+B.push_back(5);
+</code></pre>
+<h2 id="3-cin"><a href="#3-cin" class="headerlink" title="3 cin"></a>3 cin</h2><h3 id="3-1-简介（参考链接）"><a href="#3-1-简介（参考链接）" class="headerlink" title="3.1 简介（参考链接）"></a>3.1 简介<a href="https://blog.csdn.net/K346K346/article/details/48213811" target="_blank" rel="noopener">（参考链接）</a></h3><p>cin 是 C++ 的标准输入流对象，即 istream 类的对象。cin 主要用于从标准输入读取数据，这里的标准输入，指的是终端的键盘。此外，cout 是输出流对象，即 ostream 类的对象。这里的标准输出指的是终端屏幕。</p>
+<p>在理解 cin 功能时，不得不提标准输入缓冲区。当我们从键盘输入字符串的时候$\color{red}{<strong>需要敲一下回车键才能够将这个字符串送入到缓冲区中</strong>}$，那么敲入的这个回车键（\r）会被转换为一个换行符（\n），这个换行符也会被存储在 cin 的缓冲区中并且被当成一个字符来计算！比如我们在键盘上敲下了 123456 这个字符串，然后敲一下回车键（\r）将这个字符串送入了缓冲区中，那么此时缓冲区中的字节个数是 7 ，而不是 6。</p>
+<h3 id="3-2"><a href="#3-2" class="headerlink" title="3.2"></a>3.2</h3><p>清空缓冲区的用法示例（从键盘读入一个数组）。</p>
+<pre><code class="lang-cpp">void inputarry(vector&lt;vector&lt;int&gt; &gt;&amp; arry){
+    int row, coloumn;
+
+    cout&lt;&lt;&quot;please input row and coloumn&quot;&lt;&lt;endl;
+    cin&gt;&gt;row&gt;&gt;coloumn;
+    //清空缓冲区避免影响后续代码。
+    cin.sync();
+
+    cout&lt;&lt;&quot;please input arry&quot;&lt;&lt;endl;
+
+    for(int i = 0; i &lt; row; i++){
+        vector&lt;int&gt; b;
+
+        for(int j = 0; j &lt; coloumn; j++){
+            int temp;
+            cin&gt;&gt;temp;
+            //过早清空缓冲区。由于用户可能一次输入了数组总全部数据，但是此时只读入了一个数据，所以此时不能清空缓冲区。
+            //cin.sync();
+            b.push_back(temp);
+        }
+
+        arry.push_back(b);
+    }
+}
+</code></pre>
+<h3 id="3-3"><a href="#3-3" class="headerlink" title="3.3"></a>3.3</h3><pre><code class="lang-cpp">/************************************
+*读入int/char/string，并存入vector中：**
+************************************/
+//cin,cout
+#include &lt;iostream&gt;
+//vector
+#include &lt;vector&gt;
+//remove
+#include &lt;algorithm&gt;
+//string
+#include &lt;string&gt;
+
+using namespace std;
+
+int main(){
+
+    string temp;
+    //int temp;
+    //char temp;
+    vector&lt;string&gt; vec;
+    //vector&lt;int&gt; vec;
+    //vector&lt;char&gt; vec;
+    cout&lt;&lt;&quot;please input a string vector:&quot;&lt;&lt;endl;
+
+    while(cin&gt;&gt;temp){
+        vec.push_back(temp);
+        if(cin.get() == &#39;\n&#39;)
+            break;
+    }
+    cin.sync();
+
+    //arry.erase(remove(arry.begin(), arry.end(), &quot;an&quot;), arry.end());
+
+    for(int i = 0; i &lt; arry.size(); i++)
+        cout&lt;&lt;arry[i]&lt;&lt;&quot; &quot;;
+    cout&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-cpp">/********************************************
+*读入带空格，回车，table的string，并存入vector中：**
+*********************************************/
+//cout&lt;&lt; fixed &lt;&lt; setprecision(6) &lt;&lt;result&lt;&lt;endl;按照指定精度输出（指定小数点后位数）
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+void inputstring(vector&lt;string&gt;&amp; vec){
+    int strnumber;
+
+    cout&lt;&lt;&quot;please input strnumber&quot;&lt;&lt;endl;
+    cin&gt;&gt;strnumber;
+
+    for(int i = 0; i &lt; strnumber; i++){
+        string temp;
+        cout&lt;&lt;&quot;please input string&quot;&lt;&lt;i&lt;&lt;endl;
+
+        getline(cin, temp, &#39;#&#39;);
+        //cin.sync();
+
+        vec.push_back(temp);
+    }
+}
+
+
+void main(){
+    vector&lt;string&gt; vec;
+
+    inputstring(vec);
+
+    cout&lt;&lt;&quot;output:&quot;&lt;&lt;endl;
+    for(int i = 0; i &lt; vec.size(); i++)
+        cout&lt;&lt;vec[i]&lt;&lt;endl;
+    cout&lt;&lt;endl;
+}
+</code></pre>
+<pre><code class="lang-cpp">/************************************
+*读入指定形状的int/char/string，并存入vector中：**
+************************************/
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+void inputvec(vector&lt;vector&lt;string&gt; &gt;&amp; vec){
+    int row, coloumn;
+
+    cout&lt;&lt;&quot;please input row and coloumn:&quot;&lt;&lt;endl;
+    cin&gt;&gt;row&gt;&gt;coloumn;
+    cin.sync();
+
+    cout&lt;&lt;&quot;please input vector&quot;&lt;&lt;endl;
+
+    for(int i = 0; i &lt; row; i++){
+        vector&lt;string&gt; b;
+
+        for(int j = 0; j &lt; coloumn; j++){
+            string temp;
+            cin&gt;&gt;temp;
+            //cin.sync();
+            b.push_back(temp);
+        }
+
+        vec.push_back(b);
+    }
+}
+
+void main(){
+    vector&lt;vector&lt;string&gt; &gt; vec;
+
+    inputvec(vec);
+
+    cout&lt;&lt;&quot;output:&quot;&lt;&lt;endl;
+    for(int i = 0; i &lt; vec.size(); i++){
+        for(int j = 0; j &lt; vec[0].size(); j++)
+            cout&lt;&lt;vec[i][j]&lt;&lt;&quot; &quot;;
+        cout&lt;&lt;endl;
+    }    
+}
+</code></pre>
+<pre><code class="lang-cpp">/*
+以字符形式读入以回车结尾的一列数字。
+*/
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+void inputPreprocessor(vector&lt;vector&lt;char&gt; &gt;&amp; vec){
+        char temp;    
+    cout&lt;&lt;&quot;please input a set of numbers(Press enter twice to finsh):&quot;&lt;&lt;endl;
+//需要两次ctrl + z 才能结束，是vc6.0的锅。
+    while(cin&gt;&gt;temp){
+        vector&lt;char&gt; b;
+        b.push_back(temp);
+
+        while(temp = cin.get()){
+            if(temp == &#39;\n&#39;)
+                break;
+            else
+                b.push_back(temp);
+        }
+
+        vec.push_back(b);
+    }
+
+}
+
+int main(){
+    vector&lt;vector&lt;char&gt; &gt; vec;
+
+    inputPreprocessor(vec);
+
+    for(int i = 0; i &lt; vec.size(); i++){
+        for(int j = 0; j &lt; vec[0].size(); j++)
+            cout&lt;&lt;vec[i][j]&lt;&lt;&quot; &quot;;
+        cout&lt;&lt;endl;
+    }
+    //nixu();
+
+    return 0;
+}
+</code></pre>
+<h2 id="4-sort"><a href="#4-sort" class="headerlink" title="4 sort"></a>4 sort</h2><p>sort()定义在头文件<algorithm>中，接受两个或三个参数。当输入两个参数时，默认升序排序。若指定第三个参数则按照第三个参数指定的比较方式进行排序。</algorithm></p>
+<pre><code class="lang-cpp">/*
+*输入一个数组，排序后输出，处于中间位置的的数字。若一共有偶数个数字则输出中间两个数字。
+*input: 1 3 5 7 2
+*output:3
+*/
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+bool compare(int a,int b) 
+{ 
+return a&gt;b; //降序排列，如果改为return a&lt;b，则为升序
+
+} 
+
+int main(){
+    int temp;
+    vector&lt;int&gt; arry;
+
+    cout&lt;&lt;&quot;please input a arry:&quot;&lt;&lt;endl;
+    while(cin&gt;&gt;temp){
+        arry.push_back(temp);
+        if(cin.get() == &#39;\n&#39;)
+            break;
+    }
+    cin.sync();
+
+    cout&lt;&lt;&quot;output&quot;&lt;&lt;endl;
+    cout&lt;&lt;&quot;after sort:&quot;&lt;&lt;endl;
+
+    sort(arry.begin(), arry.end(), compare);
+
+
+    for(int i = 0; i &lt; arry.size(); i++)
+        cout&lt;&lt;arry[i]&lt;&lt;&quot; &quot;;
+    cout&lt;&lt;endl;
+
+    if(arry.size()%2 == 0)
+        cout&lt;&lt;arry[arry.size()/2 -1]&lt;&lt;&quot; &quot;&lt;&lt;arry[arry.size()/2 + 1 -1]&lt;&lt;endl;
+    else
+        cout&lt;&lt;arry[(int)arry.size()/2]&lt;&lt;endl;
+
+    return 0;
+}
+</code></pre>
+<p>注意到代码中compare函数中“a&gt;b”，对应的时降序。此处，不加考证，直观的假设为，sort函数的排序是<strong>基于小于运算</strong>进行升序排序的。当指定了第三个参数时，再排序时对小于运算符进行了<strong>重载</strong>。如果将<strong>小于运算重载为大于运算后</strong>，再按照<strong>此时的“小于运算”</strong>进行排序的得到的就是降序。</p>
+<p>此外sort排序可以用于更加复杂的排序，如自定义的结构体的排序。</p>
+<img src="/2019/10/17/再看C语言/sort01.png" title="sort01">
+<img src="/2019/10/17/再看C语言/sort02.png" title="sort02">
+<h2 id="5-remove-erase"><a href="#5-remove-erase" class="headerlink" title="5 remove erase"></a>5 remove erase</h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main(){
+
+    string temp;
+    vector&lt;string&gt; arry;
+    cout&lt;&lt;&quot;please input a arry:&quot;&lt;&lt;endl;
+
+    while(cin&gt;&gt;temp){
+        arry.push_back(temp);
+        if(cin.get() == &#39;\n&#39;)
+            break;
+    }
+    cin.sync();
+
+    arry.erase(remove(arry.begin(), arry.end(), &quot;an&quot;), arry.end());
+
+    for(int i = 0; i &lt; arry.size(); i++)
+        cout&lt;&lt;arry[i]&lt;&lt;&quot; &quot;;
+    cout&lt;&lt;endl;
+    return 0;
+}
+</code></pre>
+<img src="/2019/10/17/再看C语言/remove-erase.png" title="remove-erase">
+<h2 id="6-字符分类函数"><a href="#6-字符分类函数" class="headerlink" title="6 字符分类函数"></a>6 字符分类函数</h2><pre><code class="lang-cpp">/**************************************
+***********字符分类函数******************
+**使用时需要包含头文件 &lt;cctype&gt;
+***************************************/
+//是否是字母、数字或下划线
+iscsym()
+//是否是字母或下划线
+iscsymf()
+//是否是字母或数字
+isalnum(c);
+//是否是字母
+isalpha()
+//是否是小写字母
+islower()
+//是否是大写字母
+isupper()
+//是否是数字
+isdigit()
+
+/**************************************
+***********类型转换函数******************
+**使用时需要包含头文件 &lt;cctype&gt;
+***************************************/
+//
+stoi()
+</code></pre>
+<h2 id="7-定义一个结构体"><a href="#7-定义一个结构体" class="headerlink" title="7 定义一个结构体"></a>7 定义一个结构体</h2><pre><code class="lang-c++">typedef struct stu{
+    int score;
+    string name;
+    stu(int a1, string a2) : score(a1), name(a2){}
+}stu;
+</code></pre>
+<h2 id="8-常用算法"><a href="#8-常用算法" class="headerlink" title="8 常用算法"></a>8 常用算法</h2><pre><code class="lang-c++">isalpha()//是不是字母
+swap(vec1[temp - i5], vec1[temp - i5 -1 ]);//序列式容器的通用方法
+#include &lt;algorithm&gt;
+find(lines[0].begin(),  lines[0].end(), lines[1][i])
+sort()//sort(vec1.begin(), vec1.end());//sort(vec.begin(), vec.end(), compare);
+count()//konge = count(str.begin(), str.end(), &#39; &#39;);
+remove()//remove(line.begin(), line.end(), &quot;\0&quot;),
+merge()//merge(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), vec3.begin());
+unique()//vec3.erase(unique(vec3.begin(), vec3.end()), vec3.end());
+tolower(a[i])
+
+#include &lt;vector&gt;  
+erase()//vec3.erase(unique(vec3.begin(), vec3.end()), vec3.end());
+
+#include &lt;string&gt;
+str.find(&quot;while&quot;, k);//从str第K个位置开始寻找字串“while”
+
+#include &lt;cmath&gt;
+sqrt(n)//根号n
+
+#include &lt;iostream&gt;
+cin.syne()
+cin.clean()
+</code></pre>
+<pre><code class="lang-c++">/*
+题目:字符串的查找删除
+给定文件filein.txt 按要求输出 fileout.txt 。
+
+输入: 无空格的字符串
+
+输出: 将 filein.txt 删除输入的字符串 不区分大小写 输出至 fileout.txt
+
+sample
+
+输入: in
+输出: 将 filein.txt 中的 In 、 IN 、 iN 、 in 删除 每行中的空格全部提前至行首 输出至fileout.txt
+filein.txt中的值为
+#include &lt;stdio.h&gt;
+int main()
+{
+printf(&quot; Hi &quot;);
+}
+输出的fileout.txt 为
+#clude&lt;stdio.h&gt;
+tma()
+{
+prtf(&quot;Hi&quot;);
+}
+*/
+
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main(){
+    char temp;
+    char temp2;
+
+    ifstream fs_in;
+    ofstream fs_out;
+    fs_in.open(&quot;./filein.txt&quot;);
+    fs_out.open(&quot;./fileout.txt&quot;);
+
+    while(fs_in.get(temp)){
+        tolower(temp);
+        if(temp == &#39; &#39;)
+            continue;
+        else if(temp == &#39;i&#39;){
+            fs_in.get(temp2);
+            if(temp2 == &#39; &#39;)
+                continue;
+            else if(temp2 != &#39;n&#39;)
+                fs_out&lt;&lt;temp&lt;&lt;temp2;            
+        }
+        else
+            fs_out&lt;&lt;temp;
+    }
+    return 0;
+}
+</code></pre>
+<h2 id="9"><a href="#9" class="headerlink" title="9"></a>9</h2><blockquote>
+<p>相亲数（孪生数）：指两个正整数中，彼此的全部<a href="https://baike.baidu.com/item/约数/8417882" target="_blank" rel="noopener">约数</a>之和（本身除外）与另一方相等。</p>
+</blockquote>
+<h2 id><a href="#" class="headerlink" title="#"></a>#</h2><pre><code class="lang-c++">/*
+*输入一个数组，排序后输出，处于中间位置的的数字。若一共有偶数个数字则输出中间两个数字。
+*input: 1 3 5 7 2
+*output:3
+*/
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+bool compare(int a,int b) 
+{ 
+return a&gt;b; //降序排列，如果改为return a&lt;b，则为升序
+
+} 
+
+int main(){
+    int temp;
+    vector&lt;int&gt; arry;
+
+    cout&lt;&lt;&quot;please input a arry:&quot;&lt;&lt;endl;
+    while(cin&gt;&gt;temp){
+        arry.push_back(temp);
+        if(cin.get() == &#39;\n&#39;)
+            break;
+    }
+    cin.sync();
+
+    cout&lt;&lt;&quot;output&quot;&lt;&lt;endl;
+    cout&lt;&lt;&quot;after sort:&quot;&lt;&lt;endl;
+
+    sort(arry.begin(), arry.end(), compare);
+
+    for(int i = 0; i &lt; arry.size(); i++)
+        cout&lt;&lt;arry[i]&lt;&lt;&quot; &quot;;
+    cout&lt;&lt;endl;
+
+    if(arry.size()%2 == 0)
+        cout&lt;&lt;arry[arry.size()/2 -1]&lt;&lt;&quot; &quot;&lt;&lt;arry[arry.size()/2 + 1 -1]&lt;&lt;endl;
+    else
+        cout&lt;&lt;arry[(int)arry.size()/2]&lt;&lt;endl;
+
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-c++">/*
+【题意】?
+在计算机屏幕上，有 N 个窗口。窗口的边界上的点也属于该窗口。窗口之间有层次的区别，?
+在多于一个窗口重叠的区域里，只会显示位于顶层的窗口里的内容。当你用鼠标点击某个点?
+的时候，若其在窗口内，你就选择了处于被点击位置所属的最顶层窗口，并且这个窗口就会?
+被移到所有窗口的顶层，而剩余的窗口的层次顺序不变，如果你点击的位置不属于任何窗口?
+计算机就会忽略你这次点击。编写一个程序模拟点击窗口的过程：先从标准输入读入窗口的?
+个数，窗口编号和位置（以窗口的左上角和右下角的坐标表示，先输入的窗口层次高），然后?
+3?
+读入点击的次数和位置（以点击的坐标表示），编写程序求得经过上述点击后的窗口叠放次序。?
+【假设】：?
+1、屏幕左下角作为 X 轴和 Y 轴坐标原点，即坐标为（0，0），所有输入的坐标?
+数值都是整数，并且都大于等于 0，小于等于 1000。?
+2出窗口的叠放次序时从最后点击后最顶层的窗口编号开始按层次依次输出；?
+3、输入的窗口个数大于 0 并且小于等于 10，点击次数大于 0 并且小于等于 20。?
+【输入】?
+第一行窗口个数 n，接下来 n 行每行一个窗口的编号、左下角坐标、右上角坐标。?
+接下来一行点击次数 k，接下来 k 行每行一个点击坐标。?
+【输出】?
+一行 n 个数字，表示 K 次点击后按层次排列的窗口编号，空格隔开。?
+行末空格与文末换行可有可无。
+【样例】
+标准输入
+4
+1 43 31 70 56
+2 50 24 80 50
+3 23 13 63 42
+4 57 36 90 52
+5
+47 28
+73 40
+68 32
+82 43
+82 43
+
+标准输chu
+4 2 3 1
+*/
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+void input(vector&lt;vector&lt;int&gt; &gt;&amp; vec1, vector&lt;vector&lt;int&gt; &gt;&amp; vec2){
+    int number1, number2;
+    int temp;
+
+    cout&lt;&lt;&quot;请输入窗口个数:&quot;&lt;&lt;endl;
+    cin&gt;&gt;number1;
+    cout&lt;&lt;&quot;请输入每个窗口序号和位置:&quot;&lt;&lt;endl;
+
+    for(int i = 0; i &lt; number1; i++){
+        vector&lt;int&gt; vec;
+
+        while(cin&gt;&gt;temp){
+            vec.push_back(temp);            
+            if(cin.get() == &#39;\n&#39;)
+                break;
+        }
+        vec1.push_back(vec);
+    }
+
+    cout&lt;&lt;&quot;请输入点击次数:&quot;&lt;&lt;endl;
+    cin&gt;&gt;number2;
+    cout&lt;&lt;&quot;请输入每次点击的位置:&quot;&lt;&lt;endl;
+
+    for(int j = 0; j &lt; number2; j++){
+        vector&lt;int&gt; vecc;
+
+        while(cin&gt;&gt;temp){
+            vecc.push_back(temp);
+            if(cin.get() == &#39;\n&#39;)
+                break;
+        }
+        vec2.push_back(vecc);
+    }
+}
+
+int locate(vector&lt;vector&lt;int&gt; &gt; vec1, int x, int y){
+
+    for(int i = 0; i &lt; vec1.size(); i++){
+        if(x &gt;= vec1[i][1] &amp;&amp; x &lt;= vec1[i][3] &amp;&amp; y &gt;= vec1[i][2] &amp;&amp; y &lt;= vec1[i][4] )
+            return i;
+    }
+    return 0;
+}
+
+int main(){
+    vector&lt;vector&lt;int&gt; &gt; vec1;
+    vector&lt;vector&lt;int&gt; &gt; vec2;
+
+    input(vec1, vec2);
+
+    for(int i3 = 0; i3 &lt; vec2.size(); i3++){
+        int temp;
+        temp = locate(vec1, vec2[i3][0], vec2[i3][1]);
+        for(int i5 = 0; i5 &lt; temp; i5++){//这里是从定位到的位置，逐个前移，更新了当前位置前的所有窗口的顺序。而不是直接交换当前窗口和第一个窗口
+            swap(vec1[temp - i5], vec1[temp - i5 -1 ]);
+        }
+    }
+
+    cout&lt;&lt;&quot;output:&quot;&lt;&lt;endl;
+    for(int i4 = 0; i4 &lt; vec1.size(); i4++)
+        cout&lt;&lt;vec1[i4][0]&lt;&lt;&quot; &quot;;
+    cout&lt;&lt;endl;
+
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-c++">/*
+题目描述
+输入一个19*19的矩阵，只包含数字0、1、2，表示两人下五子棋的棋牌状态，
+1、2分别表示两人的棋子，0表示空格。
+要求判断当前状态下是否有人获胜（横向、竖向或者斜线方向连成5个同色棋子）。
+题目说明输入样例保证每条线上至多只有连续5个同色棋子，并且保证至多只有1人获胜。
+如果有人获胜，输出获胜者（1或2）加一个冒号，接着输出获胜的五连珠的第一个棋子的坐标，
+从上到下从左到右序号最小的为第一个，序号从1开始编号。如果无人获胜，输出no。
+输入:
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+输出:
+1:(0, 0)
+
+*/
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+#define GET_ARRAY_LEN(array, len) { len = sizeof(array)/sizeof(array[0]);}
+
+vector&lt;vector&lt;int&gt; &gt; vec;
+int direct[4][2] = {{1 ,0}, {1, 1}, {0, 1}, {-1, 1}};
+
+void inputPreprocessing(vector&lt;vector&lt;int&gt; &gt;&amp; vec1){
+    int temp;
+
+    while(cin&gt;&gt;temp){
+        vector&lt;int&gt; vec2;
+        vec2.push_back(temp);
+
+        while(cin&gt;&gt;temp){
+            vec2.push_back(temp);
+            if(cin.get() == &#39;\n&#39;)
+                break;
+        }
+        vec1.push_back(vec2);
+    }
+}
+
+bool dfs(int x, int y, int direct[], int count){//遍历各个方向
+    count++;
+    if(count == 5){
+        cout&lt;&lt;vec[x][y]&lt;&lt;&quot;:(&quot;&lt;&lt;x - 4*direct[0]&lt;&lt;&quot;,&quot;&lt;&lt;y - 4*direct[1]&lt;&lt;&quot;)&quot;&lt;&lt;endl;
+        return true;
+    }
+
+    if(vec[x][y] == 0)
+        return false;
+    else if(vec[x][y] == 1){
+        if(vec[x + direct[0]][y + direct[1]] == vec[x][y]){
+            if(dfs(x + direct[0], y + direct[1], direct, count))
+                return true;            
+        }
+    }
+    else if(vec[x][y] == 2){
+        if(vec[x + direct[0]][y + direct[1]] == vec[x][y]){
+            if(dfs(x + direct[0], y + direct[1], direct, count))
+                return true;        
+        }    
+    }
+    return false;
+}
+
+int main(){
+    //vector&lt;vector&lt;int&gt; &gt; vec;
+    int length;
+    GET_ARRAY_LEN(direct, length);
+
+    inputPreprocessing(vec);
+
+
+    for(int i = 0; i &lt; vec.size(); i++)
+        for(int j = 0; j &lt; vec[0].size(); j++)
+            for(int k = 0; k &lt; length; k++)
+                if(vec[i][j] != 0){
+                    if(dfs(i, j , direct[k], 0))
+                        return 0;
+                }
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-c++">/*
+题目：简单八皇后
+描述：如何能够在8 X 8的国际象棋棋盘上放置八个皇后，使得任何一个皇后都无法直接吃掉其他已经正确地放置了七个皇后，编写程序求出最后一个皇后的位置。
+注意： 皇后能横、竖、斜着走
+
+输入：按照棋盘行从小到大的顺序从控制台输入已正确放置的皇后的列数，未放置皇后的行用字符“*”来表示。
+各列数和字符“”之间没有任何其他字符分隔，在输入末尾有回车换行符。
+假如上图第四行未放置皇后，其他七个皇后都已经放置完毕，则
+输入的形式为：627*4853
+输出：在标准输出上输出最后一个皇后放置的列数，若无解，输出字符串“No Answer”
+样例：
+
+输入        输出
+627*4853    1
+3681*752    4
+1357246*    No Answer
+*/
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+#define row 8
+#define column 8
+
+void zhanling(string str, vector&lt;vector&lt;int&gt; &gt;&amp; vec){
+
+    for(int i = 0; i &lt; row; i++){
+        if(str[i] != &#39;*&#39;){
+            int lie = str[i] - &#39;1&#39;;
+            for(int j = 0; j &lt; column; j++){
+                vec[i][j] = 1;//第i行置1
+                vec[j][lie] = 1;//第i列置1
+
+                for(int k1 = 0; k1 &lt; row; k1++){//重新写一个循环是因为,在之前的循环中是在固定的行中,但是此处需要遍历整个数组,所以重新写一个独立的循环
+                    for(int k2 = 0; k2 &lt; column; k2++){
+                        if(k1 - k2 == i - lie)//（i，j）的正对角线置1
+                            vec[k1][k2] = 1;
+                        if(k1 + k2 == i + lie)//（i，j）的反对角线置1
+                            vec[k1][k2] = 1;    
+                    }
+                }
+            }        
+        }
+    }
+}
+
+int main(){
+
+    string str;
+    bool flag = false;
+    vector&lt;vector&lt;int&gt; &gt; vec;
+
+    for(int i = 0; i &lt; row; i++){
+        vector&lt;int&gt; tempVec;
+        for(int j = 0; j &lt; column; j++)
+            tempVec.push_back(0);
+        vec.push_back(tempVec);
+    }
+
+    cout&lt;&lt;&quot;请输入（已正确放置的皇后的列数，未放置皇后的行用字符“*”来表示）：&quot;&lt;&lt;endl;
+    cin&gt;&gt;str;
+
+    zhanling(str, vec);
+
+    for(int i1 = 0; i1 &lt; row; i1++){
+        for(int j1 = 0; j1 &lt; column; j1++){
+            //cout&lt;&lt;vec[i1][j1]&lt;&lt;&quot; &quot;;        
+            if(vec[i1][j1] != 1){
+                flag = true;
+                cout&lt;&lt;j1 + 1&lt;&lt;endl;            
+            }
+        }
+    }
+
+    if(!flag)
+        cout&lt;&lt;&quot;No Ansower&quot;&lt;&lt;endl;
+
+
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-c++">/*
+*类似于词法分析?
+*输入两行语法正确的C语言语句，第一行是定义变量，第二行是基本C语言表达式，
+*输出第二行中没有在第一行被定义的变量名，如果是数组和指针，只输出数组名或指针名
+
+输入:
+
+int a,b ,_ x ,_ y,Min,MAx;
+result=a+b/2*_x+Min;
+
+输出:
+
+result
+
+*/
+
+//cin,cout
+#include &lt;iostream&gt;
+//vector
+#include &lt;vector&gt;
+//getline(),string
+#include &lt;string&gt;
+//iscsym()
+#include &lt;cctype&gt;
+//find(), remove(),
+#include&lt;algorithm&gt;
+
+using namespace std;
+
+#define NUM 2
+
+void InputPerprocessing(vector&lt;vector&lt;string&gt; &gt;&amp; lines){
+    while(lines.size() &lt; NUM){
+        char temp = &#39;n&#39;;
+        vector&lt;string&gt; line;
+        line.push_back(&quot;\0&quot;);
+
+        while(cin.get(temp)){
+            if(iscsym(temp)){
+                line[line.size()-1] += temp;
+            }
+            else if(temp == &#39;\n&#39;)
+                break;
+            else
+                line.push_back(&quot;\0&quot;);
+        }
+        line.erase(remove(line.begin(), line.end(), &quot;\0&quot;), line.end());
+
+        lines.push_back(line);
+    }
+}
+
+void ComparTwoline(vector&lt;vector&lt;string&gt; &gt; lines){
+
+    for(int i = 0; i &lt; lines[1].size(); i++){
+        if(find(lines[0].begin(),  lines[0].end(), lines[1][i]) == lines[0].end())
+            cout&lt;&lt;lines[1][i]&lt;&lt;&quot; &quot;;
+    }
+    cout&lt;&lt;endl;
+}
+
+int main(){
+
+    //string str;
+    vector&lt;vector&lt;string&gt; &gt; lines;
+
+    cout&lt;&lt;&quot;please input two line correct C language:&quot;&lt;&lt;endl;
+
+    InputPerprocessing(lines);
+
+    cout&lt;&lt;&quot;output&quot;&lt;&lt;endl;
+
+    ComparTwoline(lines);
+
+    for(int i = 0; i &lt; lines.size(); i++){
+        for(int j = 0; j &lt; lines[i].size(); j++)
+            cout&lt;&lt;lines[i][j]&lt;&lt;&quot; &quot;;    
+        cout&lt;&lt;endl;
+    }    
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-c++">/*
+输入一篇可能未经排版的文章，挑选出其中的单词
+【单词中不包含“（”等特殊符号】，
+然后按字典序输出 单词及其频次。
+如: 
+输入:
+i knowe you, do you knowe me?
+输出:
+do = 1
+i = 1
+konwe = 2
+me = 1
+you = 2
+*/
+
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+void inputPerprocessing(vector&lt;string&gt;&amp; vec){
+    char temp;
+    vec.push_back(&quot;\0&quot;);
+    while(cin.get(temp)){
+        if(isalpha(temp))
+            vec[vec.size() -1] += temp;
+        else
+            vec.push_back(&quot;\0&quot;);
+    }
+    vec.erase(remove(vec.begin(), vec.end(), &quot;\0&quot;), vec.end());
+}
+
+bool compare(string a, string b){
+
+    for(int i = 0; i &lt; a.length() &amp;&amp; i &lt; b.length(); i++){
+        tolower(a[i]);//因为不准备区分大小写,所以先把字符转为小写再对比
+        tolower(b[i]);
+
+        if(a[i] == b[i])//如果当前字符相等对比下一个字符
+            continue;
+        else
+            return a[i]&lt;b[i];
+    }
+    return a[0] &lt; b[0];
+}
+
+
+int main(){
+    vector&lt;string&gt; vec;//存储字符串中各个单词
+
+    inputPerprocessing(vec);
+    //cout&lt;&lt;vec.size()&lt;&lt;endl;
+
+
+    sort(vec.begin(), vec.end(), compare);//按照字典序排序。
+
+    for(int i = 0; i &lt; vec.size(); i++){
+        int temp;
+        temp = count(vec.begin(), vec.end(), vec[i]);//统计当前单词的频次
+        if(temp &gt; 1){
+            cout&lt;&lt;vec[i]&lt;&lt;&quot;=&quot;&lt;&lt;temp&lt;&lt;endl;
+            vec.erase(remove(vec.begin(), vec.end(), vec[i]), vec.end());//移出已经统计过的单词
+            i--;//由于当前单词也被删除，所以i退一步
+        }
+        else
+            cout&lt;&lt;vec[i]&lt;&lt;&quot;=&quot;&lt;&lt;temp&lt;&lt;endl;//如果当前单词只出现了一次，则不删除也不会影响输出。
+
+    }
+
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-c++">/*
+给一个c语言的enum定义语句，输出enum中规定的各项值。 
+输入 
+输入一个c语言的enum定义语句。 
+输出 
+输出enum中规定的各项值。 
+样例输入 
+enum BOOL{true,false}; 
+样例输出 
+true 0 
+false 1
+*/
+
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+
+using namespace std;
+
+void inputPreprocessing(vector&lt;string&gt;&amp; vec){
+    vec.push_back(&quot;\0&quot;);
+    char temp;
+    bool begin = false, end = false;
+    cout&lt;&lt;&quot;请输入enum语句:&quot;&lt;&lt;endl;
+
+    while(1){
+        cin.get(temp);
+        if(temp == &#39;{&#39;)//当读到&#39;{&#39;时,开始存储需要的数据
+            begin = true;
+        while(begin){//开始存储
+            cin.get(temp);
+            if(temp == &#39;}&#39;){//当读到&#39;{&#39;时, 需要的数据已经读完,存储结束
+                end = true;//在此处标记用于退出外层循环( &quot;while(1)&quot; )
+                break;    //存储结束,退出循环
+            }
+            else if(temp == &#39;,&#39;)
+                vec.push_back(&quot;\0&quot;);
+            else
+                vec[vec.size() - 1] += temp;
+        }
+
+        if(end)
+            break;
+    }
+}
+
+int main(){
+
+    int num = 0;
+
+    vector&lt;string&gt; vec;//输入预处理
+
+    inputPreprocessing(vec);
+
+    for(int i = 0; i &lt; vec.size(); i++){
+
+        int temp = vec[i].find(&#39;=&#39;, 0);
+
+        if(temp != -1){//如果有&quot;=&quot;号
+            num = 0;//初始化num,便于根据等号后边的数字重新赋值
+            for(int k = temp +1; k &lt; vec[i].size(); k++)//计算等号后字符对应的整数,
+                num = num*10 + (vec[i][k] - &#39;0&#39;);
+            for(int j = 0; j &lt; temp; j++)//带有等号时,输出需要特殊处理(=号及之后的字符不用输出)
+                cout&lt;&lt;vec[i][j];
+            cout&lt;&lt;&quot;=&quot;&lt;&lt;num&lt;&lt;endl;
+            num++;//控制num自增
+            continue;
+        }        
+        cout&lt;&lt;vec[i]&lt;&lt;&quot;:&quot;&lt;&lt;num&lt;&lt;endl;//如果没有等号
+
+        num++;
+    }
+
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-c++">/******************************************************************************
+题目描述: 
+给定一个数n，将这个数的各位顺序颠倒称为逆序数m,例如1234的逆序数是4321. 
+    输入:
+        输入一个数n(0 &lt; n&lt;1000000000)，已知输入开头不包含多余的0。
+    输出:
+        如果m是n的k倍（k为整数），那么输出n*k=m。
+        如果m不是n的整数倍，那么输出n和n的逆序数。
+    样例输入
+        1234
+        1089
+        23200
+    样例输出
+        1234 4321
+        1089*9=9801
+        23200 00232
+********************************************************************************/
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+
+using namespace std;
+
+void inputPreprocessor(vector&lt;vector&lt;char&gt; &gt;&amp; vec){
+        char temp;    
+    cout&lt;&lt;&quot;please input a set of numbers(Press enter twice to finsh):&quot;&lt;&lt;endl;
+
+    while(cin&gt;&gt;temp){
+        vector&lt;char&gt; b;
+        b.push_back(temp);
+
+        while(temp = cin.get()){
+            if(temp == &#39;\n&#39;)
+                break;
+            else
+                b.push_back(temp);
+        }
+
+        vec.push_back(b);
+    }
+
+}
+
+vector&lt;char&gt; fanzhuan(vector&lt;char&gt; vec){//求vec的逆序数
+    vector&lt;char&gt; temp;
+    for(int i = 0; i &lt; vec.size(); i++)
+        temp.push_back(vec[vec.size() - 1 - i]);
+
+    return temp;
+}
+
+void nixu(vector&lt;vector&lt;char&gt; &gt; vec, vector&lt;vector&lt;char&gt; &gt;&amp; vec2){
+
+    for(int i = 0; i &lt; vec.size(); i++)//遍历寻找逆序数
+        vec2.push_back(fanzhuan(vec[i]));
+}
+#if 0
+void toint(vector&lt;vector&lt;char&gt; &gt; vec){
+    for(int i = 0; i &lt; vec.size(); i++){
+        int temp = 0;
+        for(int j = 0; j &lt; vec[i].size(); j++)
+            temp = temp*10 + (vec[i][j] - &#39;0&#39;);
+        cout&lt;&lt;temp&lt;&lt;endl;
+    }
+}
+#endif
+
+int toint(vector&lt;char&gt; vec){//把字符形式的整数转换为，整数
+
+        int temp = 0;
+        for(int j = 0; j &lt; vec.size(); j++)
+            temp = temp*10 + (vec[j] - &#39;0&#39;);
+        //cout&lt;&lt;temp&lt;&lt;endl;
+
+        return temp;
+
+}
+
+
+int main(){
+    vector&lt;vector&lt;char&gt; &gt; vec;//存储读入的整数们（字符形式）
+    vector&lt;vector&lt;char&gt; &gt; vec2;//存储整数们的逆序数（字符形式）
+
+    inputPreprocessor(vec);
+
+    cout&lt;&lt;&quot;output:&quot;&lt;&lt;endl;
+
+    nixu(vec, vec2);
+
+    for(int i = 0; i &lt; vec2.size(); i++){
+            int temp = toint(vec[i]);//求对应的整数
+            int    ntemp = toint(vec2[i]);
+
+            if(ntemp%temp == 0)//如果能逆序数是原始数字的整数倍
+                cout&lt;&lt;temp&lt;&lt;&quot;*&quot;&lt;&lt;ntemp/temp&lt;&lt;&quot;=&quot;&lt;&lt;ntemp&lt;&lt;endl;
+            else
+                cout&lt;&lt;temp&lt;&lt;&quot; &quot;&lt;&lt;ntemp&lt;&lt;endl;
+    }
+
+    return 0;
+}
+</code></pre>
+
+</div>
+
+
+      </div>
+      
+    </div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>

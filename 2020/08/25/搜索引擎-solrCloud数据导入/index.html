@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>搜索引擎-solrCloud数据导入 - zh-hongda</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="Self Cognize">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="HD">
+  
+
+  <!-- Pure CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js HDTJ -->
+  
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+  <!-- 使用prism进行代码高亮 HDTJ -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
+</head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">zh-hongda</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+        </div>
+
+      </div>
+      
+
+  		<div class="row">
+        <div class="col-lg-2"></div>
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="搜索引擎-solrCloud数据导入">
+</div> -->
+
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>搜索引擎-solrCloud数据导入</h1>
+</div> -->
+<div class="col-lg-8">
+  <h1>搜索引擎-solrCloud数据导入</h1>
+  <p>solrCloud数据导入。<br><a id="more"></a></p>
+<h2 id="solrCloud数据导入"><a href="#solrCloud数据导入" class="headerlink" title="solrCloud数据导入"></a>solrCloud数据导入</h2><p>使用的环境</p>
+<blockquote>
+<p>solr5.3.1</p>
+<p>tomcat8.0.28</p>
+<p>zookeeper-3.5.1-alpha</p>
+</blockquote>
+<p>目录结构如下：</p>
+<pre><code class="lang-tree">solrCloud
+├─service01
+├─service02
+├─service03
+├─solr-5.3.1
+├─solrhome01
+├─solrhome02
+├─solrhome03
+├─solrhome04
+├─tomcat01
+├─tomcat02
+├─tomcat03
+├─tomcat04
+└─启动zookeeper和solr服务器
+</code></pre>
+<hr>
+<ol>
+<li><p>准备好需要导入的文件。</p>
+</li>
+<li><p>将下列文件夹中jar包导入到，拷贝到<code>solrCloud\tomcat01\webapps\solr\WEB-INF\lib</code>中，且每一个tomcat都需要同样的操作。</p>
+<blockquote>
+<p>solr-5.3.1\dist</p>
+<p>solr-5.3.1\contrib\extraction\lib</p>
+</blockquote>
+</li>
+<li><p>在<code>solrCloud\solrhome01\collection1\newConf\solrconfig.xml</code>中加入如下配置。</p>
+</li>
+</ol>
+<pre><code class="lang-xml">&lt;!--该操作的意义在于，在solr中加入dataImportHandler插件--&gt;
+&lt;requestHandler name=&quot;/dataimport&quot; class=&quot;solr.DataImportHandler&quot;&gt;
+    &lt;lst name=&quot;defaults&quot;&gt;
+        &lt;str name=&quot;config&quot;&gt;data-config.xml&lt;/str&gt;
+    &lt;/lst&gt;
+&lt;/requestHandler&gt;
+</code></pre>
+<ol>
+<li>在<code>solrCloud\solrhome01\collection1\newConf\data-config</code>中加入如下配置，这个文件夹需要自己创建。</li>
+</ol>
+<pre><code class="lang-xml">&lt;!--该操作的意义在于，配置实体--&gt;
+&lt;dataConfig&gt;
+  &lt;dataSource type=&quot;BinFileDataSource&quot;/&gt;
+  &lt;document&gt;
+    &lt;entity name=&quot;file&quot; processor=&quot;FileListEntityProcessor&quot; dataSource=&quot;null&quot;
+            baseDir=&quot;D:\NLZ_HD\solr-server\data\CNNOJIT&quot; fileName=&quot;.(doc)|(pdf)|(docx)|(txt)|(csv)|(json)|(xml)|(pptx)|(pptx)|(ppt)|(xls)|(xlsx)&quot;
+            rootEntity=&quot;false&quot;&gt;
+
+      &lt;field column=&quot;file&quot; name=&quot;id&quot;/&gt;
+      &lt;entity name=&quot;pdf&quot; processor=&quot;TikaEntityProcessor&quot;
+              url=&quot;${file.fileAbsolutePath}&quot; format=&quot;text&quot;&gt;
+
+        &lt;field column=&quot;Author&quot; name=&quot;file_author&quot; meta=&quot;true&quot;/&gt;
+        &lt;field column=&quot;text&quot; name=&quot;file_text&quot;/&gt;
+
+      &lt;/entity&gt;
+    &lt;/entity&gt;
+  &lt;/document&gt;
+&lt;/dataConfig&gt;
+</code></pre>
+<ol>
+<li>在<code>solrCloud\solrhome01\collection1\newConf\schema.xml</code>中添加如下配置。</li>
+</ol>
+<pre><code class="lang-xml">&lt;!--该操作的意义在于，配置`data-config`需要的域--&gt;
+&lt;!--自定义field开始--&gt;
+    &lt;field name=&quot;file_text&quot; type=&quot;text_ik_Synonym&quot; indexed=&quot;true&quot; stored=&quot;true&quot;  multiValued=&quot;false&quot;/&gt;
+    &lt;field name=&quot;file_author&quot; type=&quot;string&quot; indexed=&quot;true&quot; stored=&quot;true&quot; multiValued=&quot;false&quot;/&gt;
+    &lt;field name=&quot;file_keyWord&quot; type=&quot;text_ik_Synonym&quot; indexed=&quot;true&quot; stored=&quot;true&quot; multiValued=&quot;true&quot;/&gt;
+&lt;!--自定义field结束  --&gt;
+</code></pre>
+<ol>
+<li><p>由于修改了配置文件，所以需要更新配置文件</p>
+<pre><code class="lang-bash">#此处直接上传了同名的配置文件覆盖之前的配置文件
+zkcli.bat -zkhost 127.0.0.1:2181 -cmd upconfig -confname new_config -confdir D:\NLZ_HD\solrCloud\solrhome01\collection1\newConf
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+      </div>
+      
+    </div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>

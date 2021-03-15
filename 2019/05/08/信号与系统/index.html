@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>FT,LT和ZT总结 - zh-hongda</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="Self Cognize">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="HD">
+  
+
+  <!-- Pure CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+
+  <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js HDTJ -->
+  
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  
+  <!-- 使用prism进行代码高亮 HDTJ -->
+  <link rel="stylesheet" href="/lib/prism/prism.css">    
+</head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">zh-hongda</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+        </div>
+
+      </div>
+      
+
+  		<div class="row">
+        <div class="col-lg-2"></div>
+  			<!-- 此处控制文章页是否有页头图片 -->
+<!-- <div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="FT,LT和ZT总结">
+</div> -->
+
+<!-- <div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>FT,LT和ZT总结</h1>
+</div> -->
+<div class="col-lg-8">
+  <h1>FT,LT和ZT总结</h1>
+  <p>学习DFT后的总结，包含但不限于DFT，对三大变换进行简要分析、总结。<br><a id="more"></a><br>为了解信号在变换域的处理方法，学习了<strong>东南大学孟桥教授的信号与系统</strong>，辅以<br>东南大学吴镇扬教授的数字信号处理<br>西安电子科技大学郭宝龙教授的信号与系统  </p>
+<p><font color="#0099ff" size="2" face="黑体">从线性代数的角度看，三大变换分别将信号从时域变换到了频域、S域、Z域，把信号从一组基下换到了另一组基下。</font></p>
+<h2 id="Fourier-series"><a href="#Fourier-series" class="headerlink" title="Fourier series"></a>Fourier series</h2><p>“傅里叶级数”的名字是为了纪念 Jean-Baptiste Joseph Fourier (1768–1830)在三角级数方面的重要贡献。该理论认为任意的周期函数都可以被一组三角函数近似代替。</p>
+<script type="math/tex; mode=display">
+f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infty}(a_n cosn\Omega t +b_n sinn\Omega t) , \Omega=\frac{2\pi}{T}\\
+a_n=\frac{2}{t_2-t_1}\int_{t_1}^{t_2}f(t)cos(n\Omega t)dt\\
+b_n=\frac{2}{t_2-t_1}\int_{t_1}^{t_2}f(t)sin(n\Omega t)dt</script><p>傅里叶级数还可以表示为，  </p>
+<script type="math/tex; mode=display">
+f(t)=\frac{a_0}{2}+\sum_{n=1}^{+\infty}A_n cos(n\Omega t +\varphi_n)\\
+A_n=\sqrt{a_n^2+b_n^2}\\
+\varphi_n=-\arctan \frac{b_n}{a_n}</script><p>或者表示为，  </p>
+<script type="math/tex; mode=display">
+f(t)=\sum_{n=-\infty}^{+\infty}[c_n\cdot e^{jn\Omega t}]\\
+c_n=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jn\Omega t}dt\\</script><p>Fourier transform<br>在傅里叶级数基础上进一步扩展，即使非周期的函数也可以被其他函数近似代替。<br>令傅里叶级数中的 $T\rightarrow \infty$ ，则 $\Omega \rightarrow 0$ ,此时 $n\Omega$ 近似于 $\omega$</p>
+<script type="math/tex; mode=display">
+F(j\omega)=T\cdot c_n=\int_{-\infty}^{+\infty}f(t)e^{-j\omega t}dt</script><p>乘$T$是为了将$F(j\omega)$放大，便于观察和显示。  </p>
+<p>Discrete Fourier series (DFS)<br>将傅里叶级数中的$f(t)$在时域离散化，得到离散傅里叶级数。<br>原式，</p>
+<script type="math/tex; mode=display">
+c_k=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jk\Omega t}dt\\</script><p>对于周期为$N$的周期离散序列$\tilde{x}(n)$而言，时域积分演变为离散求和，因此有，</p>
+<script type="math/tex; mode=display">
+\tilde{X}(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}\tilde{x}(n)e^{-jk\Omega n}\\</script><p>discrete-time Fourier transform (DTFT)<br>将傅里叶变换中的$f(t)$在时域离散化，得到离散时间傅里叶变换。<br>对 $f(t)$ 以 $T$ 为周期进行采样，</p>
+<script type="math/tex; mode=display">
+f_{\delta}(t)=\sum_{k=-\infty}^{+\infty}f(kT)\delta(t-kT)</script><p>对$f_{\delta}(t)$进行傅里叶变换，</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(j\omega)&=\int_{-\infty}^{+\infty}f_{\delta}(t)e^{-j\omega t}dt\\
+&=\int_{-\infty}^{+\infty}[\sum_{k=-\infty}^{+\infty}f(kT)\delta(t-kT)]e^{-j\omega t}dt\\
+&=\sum_{k=-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(kT)\delta(t-kT)e^{-j\omega t}dt\\
+&=\sum_{k=-\infty}^{+\infty}f(kT)[\int_{-\infty}^{+\infty}\delta(t-kT)e^{-j\omega t}dt]\\
+&=\sum_{k=-\infty}^{+\infty}f(kT)e^{-j\omega kT}
+\end{aligned}</script><p>将T归一化后，得到:</p>
+<script type="math/tex; mode=display">
+F(j\omega)=\sum_{k=-\infty}^{+\infty}f(k)e^{-j\omega k}</script><p>Discrete Fourier transform (DFT)<br>取DFS中的一个周期得到（或者将DTFT进一步在频域离散化），得到离散傅里叶变换。</p>
+<script type="math/tex; mode=display">
+X(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}x(n)e^{-jk\Omega n}\\</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>变换</th>
+<th style="text-align:right">时域特性</th>
+<th style="text-align:center">频域特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fourier series</td>
+<td style="text-align:right">$f(t)=\sum_{n=-\infty}^{+\infty}[c_n\cdot e^{jn\Omega t}]$</td>
+<td style="text-align:center">$c_n=\frac{1}{T}\int_{t_1}^{t_2}f(t)e^{-jn\Omega t}dt$</td>
+</tr>
+<tr>
+<td>Fourier transform</td>
+<td style="text-align:right">$f(t)=\int_{-\infty}^{+\infty}F(j\omega)e^{-j\omega t}d\omega$</td>
+<td style="text-align:center">$F(j\omega)=\int_{-\infty}^{+\infty}f(t)e^{-j\omega t}dt$</td>
+</tr>
+<tr>
+<td>DFS</td>
+<td style="text-align:right">待补</td>
+<td style="text-align:center">$\tilde{X}(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}\tilde{x}(n)e^{-jk\Omega n}$</td>
+</tr>
+<tr>
+<td>DTFT</td>
+<td style="text-align:right">待补</td>
+<td style="text-align:center">$F(j\omega)=\sum_{k=-\infty}^{+\infty}f(k)e^{-j\omega k}$</td>
+</tr>
+<tr>
+<td>DFT</td>
+<td style="text-align:right">待补</td>
+<td style="text-align:center">$X(jk\Omega)=\frac{1}{N}\sum_{n=0}^{N-1}x(n)e^{-jk\Omega n}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="Laplace-transform"><a href="#Laplace-transform" class="headerlink" title="Laplace transform"></a>Laplace transform</h1><p>$f(t)$进行傅里叶变换的前提是，满足绝对可积条件。即，</p>
+<script type="math/tex; mode=display">
+\int_0^{+\infty}\left |f(t)\right |< +\infty</script><p>当$f(t)$不满足绝对可积条件时，为原函数$f(t)$乘上一个一个衰减因子$e^{-\delta t}$，然后进行傅里叶变换。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F_1(j\omega)&=\int_{-\infty}^{+\infty}f(t)e^{-\delta t}e^{-j\omega t}dt\\
+&=\int_{-\infty}^{+\infty}f(t)e^{-(\delta +j\omega)t }dt\\
+\end{aligned}</script><p>令$s=\delta +j\omega$ ，得到</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(s)&=\int_{-\infty}^{+\infty}f(t)e^{-st}dt\\
+\end{aligned}</script><p>傅里叶变换将函数变换到频域，拉普拉斯变换将函数变换到s域。</p>
+<h1 id="Z-transform"><a href="#Z-transform" class="headerlink" title="Z-transform"></a>Z-transform</h1><p>$f_{\delta}(t)$进行DTFT的前提是，满足绝对可积条件。即，</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{+\infty}\left |f_{\delta}(t)\right |<+\infty</script><p>或，</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{+\infty}\left |f(kT)\right |<+\infty</script><p>当$f_{\delta}(t)$不满足绝对可积条件时，为$f_{\delta}(t)$乘上一个衰减因子$e^{-\delta k}$，</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F_1(j\omega)&=\sum_{k=-\infty}^{+\infty}f(k)e^{-\delta k}e^{-j\omega k}\\
+&=\sum_{k=-\infty}^{+\infty}f(k)e^{(\delta +j\omega)^{-k}}
+\end{aligned}</script><p>令$z=e^{(\delta +j\omega)}$,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(z)=\sum_{k=-\infty}^{+\infty}f(k)z^{-k}
+\end{aligned}</script><p>DTFT 将函数变换到频域，Z 变换将函数变换到 z 域。</p>
+<h1 id="zzz"><a href="#zzz" class="headerlink" title="zzz"></a>zzz</h1><blockquote>
+<ul>
+<li>主值区间：  </li>
+<li>主值序列：  </li>
+<li>直流分量：傅里叶级数中的$\frac{a_0}{2}$  </li>
+<li>基波分量：傅里叶级数中 $a_1\cos \Omega t$ 和 $a_1\sin \Omega t$  </li>
+<li>n次谐波分量：傅里叶级数中 $a_n\cos n\Omega t$ 和 $a_n\sin n\Omega t$    </li>
+<li>频谱泄露：  造成频谱泄露的原因在于傅里叶变换的输入信号不能准确的、完整的代表被分析信号，输出产生的一种误差， 这种误差可以通过加合适的窗函数或延长时间窗得以改善，当输入信号的不完整性达到一定程度，输出是一种错误的结果。</li>
+</ul>
+</blockquote>
+
+</div>
+
+
+      </div>
+      
+    </div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+<!--  HDTJ -->
+<script src="/lib/prism/prism.js" async></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>
