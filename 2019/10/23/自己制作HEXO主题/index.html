@@ -122,7 +122,7 @@
   <p>没有找到心仪的个人博客主题</p>
 <a id="more"></a>
 <p>主要参考了<a href="https://www.cnblogs.com/yyhh/p/11058985.html" target="_blank" rel="noopener">HEXO主题开发</a>、<a href="https://www.ahonn.me/post/33" target="_blank" rel="noopener">从零开始制作 Hexo 主题 </a>和<a href="https://hexo-gradient.netlify.com/" target="_blank" rel="noopener">Gradient主题</a>。</p>
-<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>新建相关文件和文件夹，具体结构据HEXO自带的Landspace类似。具体目录结构如下：</p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>新建相关文件和文件夹，具体结构与Hexo自带的Landspace类似。目录结构如下：</p>
 <pre><code>theme-example              //自定义主题所在的文件夹
 ├── _config.yml            //主题相关配置
 ├── languages              //语言文件夹
@@ -221,7 +221,7 @@ featured_image: img/default.jpg
 </code></pre>
 <p>此时的网页是这个样子的：</p>
 <img src="/2019/10/23/自己制作HEXO主题/first.png" title="This">
-<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>上一章节已经设置只好了博客的布局，所有虽然有了内容但是还比较丑。这一章节调整页面的样式。</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>上一章节已经设置好了博客的布局，所有虽然有了内容但是还比较丑。这一章节调整页面的样式。</p>
 <p>在 <code>./source/css</code> 文件夹中创建 <code>style.styl</code>，编写一些基础的样式，并把所有样式 <code>import</code> 到这个文件。所以最终编译之后只会有 <code>style.css</code> 一个文件。创建 <code>_partial/index.styl</code>、<code>_partial/header.styl</code> 与 <code>_partial/post.styl</code> 存放首页、页面导航以及文章的样式，并且在 <code>style.styl</code> 中 <code>import</code> 这三个文件。</p>
 <p><code>style.styl</code>:</p>
 <pre><code class="lang-css">body {

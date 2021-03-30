@@ -127,7 +127,7 @@
 <p><strong>CSSCI</strong>即中文社会科学引文索引（Chinese Social Sciences Citation Index），由南京大学中国社会科学研究评价中心1998年开发研制的数据库，用来检索中文社会科学领域的论文收录和文献被引用情况，是我国人文社会科学评价领域的标志性工程。</p>
 <p><strong>Web of Science</strong>是美国ISI公司基于WEB开发的产品，包括三大引文库（SCI、SSCI和A&amp;HCI）和两个化学数据库(CCR、IC)，以ISI Web of Knowledge作为检索平台。</p>
 <hr>
-<h5 id="FP-FN-TP-TN"><a href="#FP-FN-TP-TN" class="headerlink" title="FP,FN,TP,TN"></a>FP,FN,TP,TN</h5><p>P(Positive)和N(Negative) 表示模型的判断结果；T(True)和F(False) 表示模型的判断结果是否正确。</p>
+<h5 id="Precision-Recall-F1-score"><a href="#Precision-Recall-F1-score" class="headerlink" title="Precision Recall F1-score"></a>Precision Recall F1-score</h5><p>P(Positive)和N(Negative) 表示模型的判断结果；T(True)和F(False) 表示模型的判断结果是否正确。</p>
 <blockquote>
 <ul>
 <li>TP: 真正例  </li>
@@ -136,14 +136,17 @@
 <li>FN: 假负例  </li>
 </ul>
 </blockquote>
-<p><strong>Accuracy,Precision,Recall</strong><br><strong>Acc</strong>正确判断的样本占总样本的比例：</p>
+<p><strong>Accuracy,Precision,Recall</strong><br><strong>Acc：</strong>：正确判断的样本占总样本的比例：</p>
 <script type="math/tex; mode=display">
-Acc=\frac{TP+TN}{TP+TN+FP+FN}</script><p><strong>Recall</strong>模型判断正确的正样本，占，真实的正样本，的比例</p>
+Acc=\frac{TP+TN}{TP+TN+FP+FN}</script><p><strong>Recall：</strong>模型正确判断的正样本，占，真实的正样本，的比例</p>
 <script type="math/tex; mode=display">
-Recall=\frac{TP}{TP+FN}</script><h2 id="Precision模型判断正确的正样本，占，模型判断的，正样本，的比例。"><a href="#Precision模型判断正确的正样本，占，模型判断的，正样本，的比例。" class="headerlink" title="Precision模型判断正确的正样本，占，模型判断的，正样本，的比例。"></a><strong>Precision</strong>模型判断正确的正样本，占，模型判断的，正样本，的比例。</h2><h5 id="使用Excel将一列数据转换成多行多列"><a href="#使用Excel将一列数据转换成多行多列" class="headerlink" title="使用Excel将一列数据转换成多行多列"></a>使用Excel将一列数据转换成多行多列</h5><p>=INDIRECT(“A”&amp;5*ROW(A1)-4+COLUMN(A1))&amp;””</p>
+Recall=\frac{TP}{TP+FN}</script><p><strong>Precision：</strong>模型正确判断的正样本，占，模型判断的，正样本，的比例。</p>
+<script type="math/tex; mode=display">
+precision=\frac{TP}{TP+FP}</script><p><strong>F1分数（F1-score）</strong>是分类问题的一个衡量指标。一些多分类问题的机器学习竞赛，常常将F1-score作为最终测评的方法。它是精确率和召回率的调和平均数，最大为1，最小为0。</p>
+<script type="math/tex; mode=display">
+F1=2\cdot\frac{precision\cdot recall}{precision + recall}</script><p>此外还有F2分数和F0.5分数。F1分数认为召回率和精确率同等重要，F2分数认为召回率的重要程度是精确率的2倍，而F0.5分数认为召回率的重要程度是精确率的一半。</p>
 <hr>
-<blockquote>
-<p>自然界中有四种基本力</p>
+<h5 id="自然界中有四种基本力"><a href="#自然界中有四种基本力" class="headerlink" title="自然界中有四种基本力"></a>自然界中有四种基本力</h5><blockquote>
 <ul>
 <li>万有引力 </li>
 <li>电磁相互作用力</li>
